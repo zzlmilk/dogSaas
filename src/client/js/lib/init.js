@@ -6,7 +6,8 @@
         SpikaBaseURL : '/dogSysytem',
         defaultContaier : 'body', // write JQuery style selector
         
-        port:7070,
+
+        port:3030,
 
 
     };
