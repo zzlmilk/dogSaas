@@ -61,7 +61,6 @@ gulp.task('browserify-build', function() {
         	.pipe(source(destFile))
        	    .pipe(gulp.dest(destFolder));
 
-
 	   };
 
 	     return bundle();
@@ -69,9 +68,22 @@ gulp.task('browserify-build', function() {
 })
 
 
+
+
 gulp.task('build-dist',['copy','browserify-build','build-css'],function(){
     
+      
+});
+
+
+
+gulp.task('build-apidoc', function(done){
     
+    apidoc({
+        src: "src/",
+        dest: "doc/API"
+    },done);
+
 });
 
 
