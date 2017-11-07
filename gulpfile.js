@@ -12,7 +12,7 @@ var  sourceCSS = 'src/client/css/',
 	 browserify = require('browserify'),
       hbsfy = require("hbsfy"),
        source = require('vinyl-source-stream'),
-        watchify = require('watchify'),
+      watchify = require('watchify'),
 
 	   sourceFile = './src/client/js/main.js';
 

@@ -21,7 +21,6 @@ DatabaseManager.init(Conf,function(success){
 
     		WebAPI.init(app);
    	
-
    		  server.listen(Conf.port, function(){
         	  console.log("Server listening on port " + Conf.port + "!");          
     	   });
@@ -29,5 +28,7 @@ DatabaseManager.init(Conf,function(success){
     }
 
 })
+
+
 
 

@@ -16,6 +16,8 @@ var WebAPIMain = {
 					//测试
 					router.use("/test", require('./TestHandler'));
 
+					
+
 
 					//api版本控制
 					app.use(init.urlPrefix + "/v1", router);

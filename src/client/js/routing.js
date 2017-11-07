@@ -11,7 +11,7 @@ var Routing = function(){
                 "start": "startRoute",
                 "main": "mainRoute",
                 "signin":"signinRoute",
-                "xieyi":"xieyiRoute",
+                "test":"testRoute",
                 "androidDownload":"androidDownloadRoute",
                 "*actions": "defaultRoute"
 
@@ -26,6 +26,15 @@ var Routing = function(){
         	
             Utils.goPage('start');            
         });
+
+
+            appRouter.on('route:testRoute', function(actions) {
+            
+            var TestView = require('./Views/Test/TestView.js');   
+            var view = new TestView();
+                    
+        });
+
 
             appRouter.on('route:startRoute', function(actions) {
             
