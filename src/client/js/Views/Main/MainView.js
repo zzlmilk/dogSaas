@@ -13,31 +13,25 @@ var WindowSizeManager = require('../../lib/windowSizeManager');
 var AlertDialog = require('../Modals/AlertDialog/AlertDialog');
 
 
-// var HeaderView = require('../Header/Header');
-// var SideView = require('../Side/SideView')
 
 
 var MainView = Backbone.View.extend({
 
-    headerView : null,
-    SideView:null,
+        el : null,
 
 
     initialize: function(options) {
+        this.el = options.el;
         this.render();
     },
 
     render: function() {
 
-        $(Config.defaultContaier).html(template({
-          Config:Config
-        }));
+        $(this.el).html(template());
         
-        WindowSizeManager.init();
-
         this.onLoad();
         
-        return this;
+        return this; 
 
     },
 
@@ -45,17 +39,36 @@ var MainView = Backbone.View.extend({
 
         var self = this;
 
-         AlertDialog.show("Api Error","message");
+
+        var HeaderView = require('./Header/HeaderView.js'); 
+        var view = new HeaderView({
+            'el': "#header-content"
+        });
 
 
+        var SidebarView = require('./Sidebar/SidebarView.js'); 
+        var view = new SidebarView({
+            'el': "#sidebar-content"
+        });
+
+
+
+      
+
+
+        
+
+
+
+
+
+
+       
 
         // 监听事件
         _.debounce(function(){
             Backbone.trigger(Const.NotificationUpdateWindowSize,null);
         },100)();
-
-
-
 
     
     }
