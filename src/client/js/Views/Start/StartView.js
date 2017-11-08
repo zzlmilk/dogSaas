@@ -29,7 +29,7 @@ var StartView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;  
-       
+
         var SignInView = require('./SignIn/SignInView.js');
         var singInView = new SignInView({container: '#signin'});   
 

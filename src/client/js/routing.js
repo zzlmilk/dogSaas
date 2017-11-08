@@ -1,5 +1,6 @@
 var Backbone = require('backbone');
 var Utils = require('./lib/utils');
+var Config = require('./lib/init');
 
 
 
@@ -12,6 +13,7 @@ var Routing = function(){
                 "main": "mainRoute",
                 "signin":"signinRoute",
                 "test":"testRoute",
+                "reset":"resetRoute",
                 "androidDownload":"androidDownloadRoute",
                 "*actions": "defaultRoute"
 
@@ -36,7 +38,7 @@ var Routing = function(){
         });
 
 
-            appRouter.on('route:startRoute', function(actions) {
+        appRouter.on('route:startRoute', function(actions) {
             
             var StartView = require('./Views/Start/StartView.js');   
             var view = new StartView();
@@ -58,16 +60,17 @@ var Routing = function(){
           //   }
 
             var MainView = require('./Views/Main/MainView.js');   
-            var view = new MainView();
-            //Utils.goPage('start');            
+            var view = new MainView({
+                'el': Config.defaultContaier
+            });
+                 
         });
         
 
-     // appRouter.on('route:androidDownloadRoute', function(actions) {
-     //         var AndroidDownloadView = require('./Views/AndroidDownload/AndroidDownloadView.js');   
-     //         var view = new AndroidDownloadView();  
-     //        //Utils.goPage('start');            
-     //    });
+     appRouter.on('route:resetRoute', function(actions) {
+             var ResetView = require('./Views/Start/Reset/ResetView.js');   
+             var view = new ResetView();  
+        });
 
 
 }

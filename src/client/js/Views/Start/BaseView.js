@@ -35,7 +35,6 @@ var Utils = require('../../lib/utils');
             
         },
         dismissAlerts : function(){
-            
             $(this.container + " .alert-danger").hide();
             $(this.container + " .alert-info").hide();
             

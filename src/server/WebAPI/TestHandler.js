@@ -13,11 +13,11 @@ _.extend(TestHandler.prototype,RequestHandlerBase.prototype);
      * @api {get} /test Test
      * @apiName Test
      * @apiGroup WebAPI
-     * @apiDescription Just test
-     *     
+     * @apiDescription Just test[]
+     *     we434
      * @apiSuccessExample Success-Response:
-            test
-    */
+            test1111
+   */
 
 TestHandler.prototype.attach = function(route){
 			var self = this;
@@ -25,9 +25,7 @@ TestHandler.prototype.attach = function(route){
 		route.get('/',function(request,response){
 
 		response.send("test")
-
-				
-
+		
 	})
 }
 

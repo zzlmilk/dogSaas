@@ -23,6 +23,7 @@ var SignInView = BaseView.extend({
         this.render();
     },
 
+
     render: function() {
         
         $(this.container).html(template);
@@ -62,69 +63,9 @@ var SignInView = BaseView.extend({
 					Utils.goPage("main");
 				}
 
-				
-
 
 		});
-						
-		// 	if(!_.isEmpty($(this).attr('disabled')))
-		// 	    return;
-                
-		// 	self.dismissAlerts();
 
-		// 	$(this).attr('disabled','disabled');
-			
-		// 	self.validate(function(err){
-				
-		// 		self.resetValidationAlert();
-				
-		// 		if(!_.isEmpty(err.name)){
-		// 			$('#form-signin .username').addClass('has-error');
-		// 			$('#form-signin .username .help-block').text(err.name);
-		// 		}
-
-				
-		// 		if(!_.isEmpty(err.password)){
-		// 			$('#form-signin .password').addClass('has-error');
-		// 			$('#form-signin .password .help-block').text(err.password);
-		// 		}
-				
-		// 		var validationSuccess = _.isEmpty(err.name) && _.isEmpty(err.password);
-				
-		// 		if(!validationSuccess){
-  //                   $(this).removeAttr('disabled') 				
-		// 			return;
-		// 		}
-
-  //       		var username = $('#form-signin input[name="username"]').val();
-  //       		var password = $('#form-signin input[name="password"]').val();
-  //               var passwordHashed = hash = sha1(password);
-                
-  //               SignInClient.send({
-                    
-  //                   username:username,
-  //                   password:passwordHashed
-                                        
-  //               },function(data){
-                    
-  //                   Utils.goPage("main");
-  //                   loginUserManager.setUser(data.user);
-  //                   loginUserManager.setToken(data.token);
-                    
-  //                   // login to socket
-  //                   socketIOManager.emit("join",{user:data.user._id});
-                    
-  //                   $('#form-signin #btn-signin').removeAttr('disabled');				
-                    
-  //               },function(errorCode){
-  //                   self.showError(errorCode);
-  //                   $('#form-signin #btn-signin').removeAttr('disabled');	
-  //               })
-
-                
-		// 	});
-			
-		// });
 		
     },
 
