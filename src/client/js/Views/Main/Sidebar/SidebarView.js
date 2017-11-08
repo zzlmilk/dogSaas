@@ -27,6 +27,7 @@ var SidebarView = Backbone.View.extend({
         
     },
 
+
     onLoad: function(){
 
         var self = this;  
