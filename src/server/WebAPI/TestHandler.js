@@ -9,6 +9,15 @@ var TestHandler = function(){
 
 _.extend(TestHandler.prototype,RequestHandlerBase.prototype);
 
+   /**
+     * @api {get} /test Test
+     * @apiName Test
+     * @apiGroup WebAPI
+     * @apiDescription Just test
+     *     
+     * @apiSuccessExample Success-Response:
+            test
+    */
 
 TestHandler.prototype.attach = function(route){
 			var self = this;
