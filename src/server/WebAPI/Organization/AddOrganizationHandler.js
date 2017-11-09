@@ -6,26 +6,25 @@ var _ = require('lodash');
 var Const = require("../../lib/consts");
 
 
+var authenticator = require("../middleware/auth");
+var OrganizationLogics = require("../../Logics/OrganizationLogics");
 
-var LoginLogic = require("../../Logics/LoginLogic");
-
-var LoginHandler = function(){
+var AddOrganizationHandler = function(){
        	
 
 }
 
-_.extend(LoginHandler.prototype,RequestHandlerBase.prototype);
+_.extend(AddOrganizationHandler.prototype,RequestHandlerBase.prototype);
 
 
-LoginHandler.prototype.attach = function(route){
+AddOrganizationHandler.prototype.attach = function(route){
 	 var self = this;
 
-	 route.post('/',function(request,response){
-
-			LoginLogic.execute(request.body,function(result){				
+	 route.post('/',authenticator,function(request,response){
+	 					
+	 		OrganizationLogics.add(request.body,function(result){				
 					 self.successResponse(response,Const.responsecodeSucceed,{
-		                 token: result.token,
-               			 user:  Utils.pickUser(result.user),	                
+		                token: result,		                
 		            });
 
 				},function(err,code){
@@ -36,11 +35,11 @@ LoginHandler.prototype.attach = function(route){
 						}
 
 						 
+						
 				})
-
 	 })
 }
 
 
-new LoginHandler().attach(router);
+new AddOrganizationHandler().attach(router);
 module["exports"] = router;
