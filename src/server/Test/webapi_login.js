@@ -8,7 +8,7 @@ describe('WEB', function () {
     var req, res;
         it('should be login in  Sucessful', function (done) {
             var body = {                            
-                            email: "4134766q.com",
+                            email: "413124766@qq.com",
                             password:"rex123"                         
                         };  
 

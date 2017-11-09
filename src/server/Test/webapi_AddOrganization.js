@@ -32,6 +32,7 @@ describe('WEB', function () {
                         if (err) {
                             throw err;
                         }
+                        
                         res.body.should.have.property('code');
                         res.body.code.should.equal(1);
                     

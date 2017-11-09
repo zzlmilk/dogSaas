@@ -27,6 +27,9 @@
       Const.resCodeRegisterWrongEmail = 2000004
       Const.resCodeRegistererrEmail = 2000005
 
+
+      Const.resCodeAddOrganizationExisting = 2000006
+
      
 
       Const.credentialsMinLength = 6;

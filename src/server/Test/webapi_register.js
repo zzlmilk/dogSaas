@@ -9,7 +9,8 @@ describe('WEB', function () {
 
         it('should be register Sucessful', function (done) {
             var body = {                            
-                            email: "test@test" + global.getRandomStr() + "2.com",
+                            //email: "test@test" + global.getRandomStr() + "2.com",
+                            email: "413124766@qq.com",
                             password:"rex123"                         
                         };  
 
@@ -21,7 +22,8 @@ describe('WEB', function () {
     			if (err) {
     				throw err;
     			}
-			
+		  
+
                 console.log(res.body)
                 
                 done();
@@ -29,6 +31,6 @@ describe('WEB', function () {
             });   
             
         });
-        
+
   });
-    
+

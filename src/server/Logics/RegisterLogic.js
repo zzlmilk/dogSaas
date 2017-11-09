@@ -79,6 +79,8 @@ var RegisterLogic ={
 						 	 		password:db_pass,						 	 								 	 		
 						 	 		created:Utils.now(),						 	 		
 						 	 		token: token,
+						 	 		isAccountEnabled:1, //该账号注册成功，激活此账户
+						 	 		logionProcess: 0,
 						 	 })
 
 						 	 res.token = token
@@ -93,21 +95,9 @@ var RegisterLogic ={
 						 	 })
 
 
-
-
-
 				 		}
 
 				 	],function(err,result){})
-
-
-			
-
-
-
-
-
-
 
 
 	}
