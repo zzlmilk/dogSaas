@@ -16,7 +16,6 @@
 
 
 
-
     	  // Implementation ---------------------------------------
     function logging(obj) {
         console.log(obj);

@@ -32,7 +32,6 @@ var SidebarView = Backbone.View.extend({
 
         var self = this;  
 
-
         var DogView = require('../Dog/DogView.js'); 
         var view = new DogView({
             'el': "#main-content"
