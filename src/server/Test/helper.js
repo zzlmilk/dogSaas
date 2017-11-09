@@ -7,6 +7,8 @@ var async = require('async');
 var app = require('../mainTest');
 
 
+global.email = "413124766@qq.com"
+global.password1 = "rex123"
 
 global.getRandomStr = function(){
 
@@ -24,14 +26,14 @@ global.signin = function(cb,params){
 
 	if(!params){
         params = {
-            phone : global.phone,
+            email : global.email,
             password : global.password1,
         };
     }
 
 
     request(app)
-            .post('/halokit/v2/user/login/')
+            .post('/dogsystem/v1/user/login')
             .send(params)		        	
     		.expect(200) 
             .end(function (err, res) {                   
@@ -51,8 +53,6 @@ global.signin = function(cb,params){
                        
             			cb(res.body.data.token,res.body.data);
             });
-
-
 
 
 

@@ -11,11 +11,14 @@ var OrganizationLogics ={
 		add:function(param,onSuccess,onError){
 				var self= this;
 				self.validatorParam(param,function(){
-						console.log("aa")
+						console.log(param)
 				})
 		},		
 
 		validatorParam:function(param,callback){
+
+				
+
 
 				callback()
 		},
