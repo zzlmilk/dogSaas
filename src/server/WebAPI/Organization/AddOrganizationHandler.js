@@ -21,10 +21,10 @@ AddOrganizationHandler.prototype.attach = function(route){
 	 var self = this;
 
 	 route.post('/',authenticator,function(request,response){
-	 					
-	 		OrganizationLogics.add(request.body,function(result){				
+
+	 		OrganizationLogics.add(request,function(result){				
 					 self.successResponse(response,Const.responsecodeSucceed,{
-		                token: result,		                
+		               	 organization:	result.organization                
 		            });
 
 				},function(err,code){

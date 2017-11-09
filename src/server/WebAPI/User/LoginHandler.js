@@ -25,7 +25,8 @@ LoginHandler.prototype.attach = function(route){
 			LoginLogic.execute(request.body,function(result){				
 					 self.successResponse(response,Const.responsecodeSucceed,{
 		                 token: result.token,
-               			 user:  Utils.pickUser(result.user),	                
+               			 user:  Utils.pickUser(result.user),	
+               			                 
 		            });
 
 				},function(err,code){

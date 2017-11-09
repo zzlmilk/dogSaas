@@ -25,8 +25,10 @@ var moment = require('moment');
 
 	function pickUser (user){
 			 return    _.pick(user, [
-			 					"_id",
+			 					 "_id",
 			 					 "email",
+			 					 "logionProcess",
+			 					 "organization",
 			 	])
 	}
 

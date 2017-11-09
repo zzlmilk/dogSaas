@@ -27,7 +27,7 @@ Organization.prototype.init = function(mongoose){
 			 serviceScope:[], //服务范围 eg: [美容，医疗]
 			 //联系人信息
 			 contacts:{
-			 		name:String
+			 		name:String,
 			 		phone:String,
 			 },
 			adminUser:{ type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "users" },  //该机构超级账户，第一次注册信息的用户
@@ -36,6 +36,7 @@ Organization.prototype.init = function(mongoose){
 				comment:String,
 				time:Date, //时间
 			},
+			created:Date
 
 				
 	});

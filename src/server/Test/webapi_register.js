@@ -6,7 +6,6 @@ var Const = require('../lib/consts');
 describe('WEB', function () {
 
     var req, res;
-
     it('should be register Sucessful', function (done) {
         var body = {
             email: "test@test" + global.getRandomStr() + "2.com",

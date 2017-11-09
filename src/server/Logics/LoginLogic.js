@@ -6,6 +6,7 @@ var _ = require('lodash');
 
 
 var UserModel = require('../Models/User');
+var OrganizationModel = require('../Models/Organization');
 
 
 
@@ -39,7 +40,6 @@ var LoginLogic ={
 						                 if(onError)
 						                 onError(null,err);
 						            }else{
-
 						              // create token
 						               var token = Utils.randomString(24);
 						                user.update({
@@ -51,7 +51,7 @@ var LoginLogic ={
 						                        res.token = token; 
 
 						                        done(null,res)                 
-						                        
+
 						                  }
 
 						              });
@@ -62,9 +62,22 @@ var LoginLogic ={
 
 				 		},
 				 		// function(result,done){
-				 		// 	//寻找关联信息
-
-
+				 		// 	//寻找机构信息的情况
+				 		// 	var organization = res.user.organization;
+				 		// 	if (organization) {
+				 		// 	    OrganizationModel.get().findOne({"_id":organization},function(err,organizationResult){
+				 		// 		  			if (err) {
+				 		// 		  				console.log(err)
+				 		// 		  				return
+				 		// 		  			}				 				  			
+				 		// 		  			res.user.organization = organizationResult;
+				 		// 		  			done(null,res) 
+				 		// 		});				 
+				 		// 	}else{
+				 		// 		done(null,res) 
+				 		// 	}
+				 			
+				 			
 				 		// },
 				 		// function(result,done){
 				 		//  		//登录日志 

@@ -36,21 +36,21 @@ global.signin = function(cb,params){
             .post('/dogsystem/v1/user/login')
             .send(params)		        	
     		.expect(200) 
-            .end(function (err, res) {                   
-                
+            .end(function (err, res) {        	                          
             		 if(err){
             				throw Error
             			}
                       if (res.body.code !=1) {
-                        console.log(res.body)
+                        	
                             throw new Error('invalid code');
                       }  
 
             		if (!res.body.data.token) {
+            			
             					 throw new Error('invalid login');
             			}
 
-                       
+                        
             			cb(res.body.data.token,res.body.data);
             });
 
