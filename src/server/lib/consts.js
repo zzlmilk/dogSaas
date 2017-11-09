@@ -14,7 +14,7 @@
      Const.resCodeRegisterNoPassword  = 1000002
 
 
-     Const.resCodeSetPassWordLengthError = 2000001
+      Const.resCodeSetPassWordLengthError = 2000001
      
 
       Const.credentialsMinLength = 6;

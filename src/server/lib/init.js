@@ -8,6 +8,8 @@
 
 
      Config.databaseUrl = "mongodb://localhost/dogsaas";
+
+     Config.dbCollectionPrefix = "";
   
 
 

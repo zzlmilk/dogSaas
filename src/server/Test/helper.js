@@ -19,3 +19,5 @@ global.getRandomStr = function(){
     return text;
 
 }
+
+
