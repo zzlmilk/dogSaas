@@ -1,3 +1,5 @@
+import { request } from 'http';
+
 var express = require('express');
 var router = express.Router();
 
@@ -21,7 +23,8 @@ var WebAPIMain = {
 
 					//新增用户
 					router.use("/user/create",require('./User/UserCreate'));
-
+					//set password
+					router.use("/user/set_password",require('./User/SetPasswordHandler'));
 
 					//AOrganizationHandler
 					router.use("/organization/add", require('./Organization/AddOrganizationHandler'));

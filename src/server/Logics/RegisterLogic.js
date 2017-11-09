@@ -10,106 +10,169 @@ var UserModel = require('../Models/User');
 
 
 
-var RegisterLogic ={
+var RegisterLogic = {
 
-	execute:function(param,onSuccess,onError){
+	execute: function (param, onSuccess, onError) {
 
 
-			var email = param.email;
-	 		var password = param.password;
+		var email = param.email;
+		var password = param.password;
 
-	 		if(Utils.isEmpty(email)){
-				 	onError(null,
-	                    Const.resCodeRegisterNoEmail
-	                )
-				 		 return;
-				 }
+		if (Utils.isEmpty(email)) {
+			onError(null,
+				Const.resCodeRegisterNoEmail
+			)
+			return;
+		}
 
-				else{
-					if(!validator.isEmail(email)){
-						onError(null,
-	                    Const.resCodeRegistererrEmail
-	                )
-				 		 return;
+		else {
+			if (!validator.isEmail(email)) {
+				onError(null,
+					Const.resCodeRegistererrEmail
+				)
+				return;
+			}
+		}
+		if (Utils.isEmpty(password)) {
+			onError(null,
+				Const.resCodeRegisterNoPassword
+			)
+			return;
+		}
+		else {
+			if (!validator.isLength(password, Const.credentialsMinLength)) {
+				onError(null,
+					Const.resCodeSetPassWordLengthError
+				)
+				return;
+			}
+		}
+
+
+
+		var res = {}
+		async.waterfall([
+			function (done) {
+				//验证邮箱是否能注册一性
+				var userModel = UserModel.get();
+				userModel.findOne({ email: email }, function (err, user) {
+					if (!_.isNull(user)) {
+						//该账户已经被注册了
+						onError(null, Const.resCodeRegisterWrongEmail);
+						return;
 					}
-				}  
-				 if(Utils.isEmpty(password)){
-				 	onError(null,
-	                    Const.resCodeRegisterNoPassword
-	                )
-				 		 return;
-				 }
-				 else{
-				 	if(!validator.isLength(password,Const.credentialsMinLength)){
-						 		onError(null,
-			                    Const.resCodeSetPassWordLengthError
-			                )
-						 		 return;
-				 	}
-				 }
 
 
+					done(null, res)
 
-				 var res  ={}
-				 async.waterfall([				 		
-				 		function(done){
-				 			//验证邮箱是否能注册一性
-				 				var userModel  = UserModel.get();
-								userModel.findOne({email:email},function(err,user){
-									if(!_.isNull(user))
-										 {
-											 	//该账户已经被注册了
-											 	onError(null,Const.resCodeRegisterWrongEmail);
-											 	return;
-						 					}
+				})
 
+			},
+			function (result, done) {
+				//创建账号
+				var db_pass = Utils.saltAndHash(password)
+				var token = Utils.randomString(24);
+				var userModel = UserModel.get();
+				var user = new userModel({
+					email: email,
+					password: db_pass,
+					created: Utils.now(),
+					token: token,
+				})
 
-						 					done(null,res)
+				res.token = token
 
-									})
-
-				 		},
-				 		function(result,done){
-				 				//创建账号
-				 			 var db_pass = Utils.saltAndHash(password)
-						 	 var token = Utils.randomString(24);
-							 var userModel  = UserModel.get();
-						 	 var user = new userModel({
-						 	 		email :email,
-						 	 		password:db_pass,						 	 								 	 		
-						 	 		created:Utils.now(),						 	 		
-						 	 		token: token,
-						 	 })
-
-						 	 res.token = token
-
-						 	 user.save(function(err,userResult){
-						 	 	 	if(err){
-						 	 			onError(err,null);  
-                    					return;
-						 	 		}
-						 	 		res.user = userResult
-						 	 		onSuccess(res)
-						 	 })
+				user.save(function (err, userResult) {
+					if (err) {
+						onError(err, null);
+						return;
+					}
+					res.user = userResult
+					onSuccess(res)
+				})
 
 
 
 
 
-				 		}
+			}
 
-				 	],function(err,result){})
+		], function (err, result) { })
+	},
+	editPassword: function (param, onSuccess, onError) {
+		var email = param.email;
+		var password = param.password;
+
+		if (Utils.isEmpty(email)) {
+			onError(null,
+				Const.resCodeRegisterNoEmail
+			)
+			return;
+		}
+
+		else {
+			if (!validator.isEmail(email)) {
+				onError(null,
+					Const.resCodeRegistererrEmail
+				)
+				return;
+			}
+		}
+		if (Utils.isEmpty(password)) {
+			onError(null,
+				Const.resCodeRegisterNoPassword
+			)
+			return;
+		}
+		else {
+			if (!validator.isLength(password, Const.credentialsMinLength)) {
+				onError(null,
+					Const.resCodeSetPassWordLengthError
+				)
+				return;
+			}
+		}
+
+		var res = {}
+		async.waterfall([
+			function (done) {
+				//验证邮箱是否存在
+				var userModel = UserModel.get();
+				userModel.findOne({ email: email }, function (err, user) {
+					if (_.isNull(user)) {
+						//该账户不存在
+						onError(null, Const.resCodeRegisterWrongEmail);
+						return;
+					}
 
 
-			
+					done(null, res)
 
+				})
 
+			},
+			function (result, done) {
+				console.log("result:",result);
+				//修改密码
+				var userModel = UserModel.get();
+				userModel.findOne({ email: email }, function (err, user) {
+					user.password = Utils.saltAndHash(password);
+					var token = Utils.randomString(24);
+					user.token = token;
+					res.token = token;
+					user.save(function (err, userResult) {
+						if (err) {
+							onError(err, null);
+							return;
+						}
+						res.user = userResult
+						onSuccess(res)
+					})
 
+				})
+			}
 
-
-
-
-
+		], function (err, result) { });
 	}
 
 
