@@ -2,6 +2,7 @@ var should = require('should');
 var request = require('supertest');
 var app = require('../mainTest');
 var helper = require('./helper');
+var Const = require('../lib/consts');
 
 describe('WEB', function () {
 
@@ -34,8 +35,7 @@ describe('WEB', function () {
                         }
                         
                         res.body.should.have.property('code');
-                        res.body.code.should.equal(1);
-                    
+                        res.body.code.should.equal(Const.resCodeOrganizationParamIsEmpty);
                         
                         done();
                     

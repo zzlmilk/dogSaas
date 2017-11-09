@@ -11,6 +11,8 @@
 
      Const.resCodeRegisterNoEmail = 1000001
      Const.resCodeRegisterNoPassword  = 1000002
+     //组织参数不全
+     Const.resCodeOrganizationParamIsEmpty = 1000003;
 
 
      Const.resCodeLoginNoEmail  = 1000003
