@@ -17,9 +17,10 @@ RequestHandlerBase.prototype.errorResponse = function(response,httpCode){
 
 RequestHandlerBase.prototype.testResponse = function(response,code,data){
    // response.status(code);
-   
+    
     response.json(data);
 
+    
 }
 
 

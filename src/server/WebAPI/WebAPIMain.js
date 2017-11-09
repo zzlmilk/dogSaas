@@ -16,8 +16,13 @@ var WebAPIMain = {
 					//测试
 					router.use("/test", require('./TestHandler'));
 
+
 					//新增用户
 					router.use("/user/create",require('./User/UserCreate'));
+
+					//User
+					router.use("/user/register", require('./User/RegisterHandler'));
+
 
 					//api版本控制
 					app.use(init.urlPrefix + "/v1", router);
