@@ -93,7 +93,7 @@ describe('WEB', function () {
             
         });
         //test@testCIyfp2.com
-        it('if password is less than min length', function (done) {
+        it('if user is registed', function (done) {
             var body = {                            
                             email: "test@testCIyfp2.com",
                             password:"rex123456"                         
