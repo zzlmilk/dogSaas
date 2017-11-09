@@ -8,29 +8,41 @@ describe('WEB', function () {
     var req, res;
 
         it('should be add organizantion sucessful', function (done) {
-
-            var body = {                            
-                            email: "test@test" + global.getRandomStr() + "2.com",
-                            password:"rex123"                         
+            signin(function(token){
+                 var body = {                            
+                            name: "test_" + global.getRandomStr(),
+                            province:"上海",
+                            district:"",
+                            city:"",
+                            address:"",
+                            code:"",
+                            tel:"",
+                            businessLicense:"",
+                            animalMedicalLicense:"",
+                            serviceScope:"",
+                            contacts_name:"",
+                            contacts_phone:""
                         };  
-            request(app)
-                .post('/dogsystem/v1/organization/add')
-                .send(body)
-                .end(function (err, res) {
+                     request(app)
+                        .post('/dogsystem/v1/organization/add')
+                        .set('Access-Token', token)    
+                        .send(body)
+                        .end(function (err, res) {
 
-    			if (err) {
-    				throw err;
-    			}
-                
+                        if (err) {
+                            throw err;
+                        }
+                        res.body.should.have.property('code');
+                        res.body.code.should.equal(1);
+                    
+                        
+                        done();
+                    
+                    });   
 
-                console.log(res.statusCode)
-                res.body.should.have.property('code');
-                res.body.code.should.equal(1);
-			
-                
-                done();
+
+            })
             
-            });   
             
         });
         

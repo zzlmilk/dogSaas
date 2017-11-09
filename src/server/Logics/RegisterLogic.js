@@ -50,7 +50,7 @@ var RegisterLogic ={
 									if(!_.isNull(user))
 										 {
 											 	//该账户已经被注册了
-											 	onError(null,Const.resCodeSetPasswordWrongPhone);
+											 	onError(null,Const.resCodeRegisterWrongEmail);
 											 	return;
 						 					}
 
@@ -85,7 +85,6 @@ var RegisterLogic ={
 
 
 
-						 	
 
 
 				 		}
