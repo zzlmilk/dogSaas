@@ -24,6 +24,7 @@
       Const.resCodeLoginPasswordError = 2000003
 
       Const.resCodeRegisterWrongEmail = 2000004
+      Const.resCodeRegistererrEmail = 2000005
 
      
 

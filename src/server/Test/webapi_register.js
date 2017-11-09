@@ -113,4 +113,25 @@ describe('WEB', function () {
             });
 
     });
+
+    it('if email is not valid', function (done) {
+        var body = {
+            email: "test",
+            password: "rex123456"
+        };
+
+        request(app)
+            .post('/dogsystem/v1/user/register')
+            .send(body)
+            .end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+                res.body.code.should.be.equal(Const.resCodeRegistererrEmail);
+                done();
+
+            });
+
+    });
 });

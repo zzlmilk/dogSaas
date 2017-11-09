@@ -23,7 +23,16 @@ var RegisterLogic ={
 	                    Const.resCodeRegisterNoEmail
 	                )
 				 		 return;
-				 } 
+				 }
+
+				else{
+					if(!validator.isEmail(email)){
+						onError(null,
+	                    Const.resCodeRegistererrEmail
+	                )
+				 		 return;
+					}
+				}  
 				 if(Utils.isEmpty(password)){
 				 	onError(null,
 	                    Const.resCodeRegisterNoPassword

@@ -75,4 +75,51 @@ describe('WEB', function () {
 
     });
 
+    //resCodeLoginNoUser
+    it('login if user is not exist', function (done) {
+        var body = {
+            email: "admin@126.com",
+            password: "rex123456"
+        };
+
+        request(app)
+            .post('/dogsystem/v1/user/login')
+            .send(body)
+            .end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                //console.log(res.body)
+                res.body.code.should.be.equal(Const.resCodeLoginNoUser);
+                done();
+
+            });
+
+    });
+
+    //resCodeLoginPasswordError
+    it('login if password is not correct', function (done) {
+        var body = {
+            email: "test@testCIyfp2.com",
+            password: "rex12345678"
+        };
+
+        request(app)
+            .post('/dogsystem/v1/user/login')
+            .send(body)
+            .end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                //console.log(res.body)
+                res.body.code.should.be.equal(Const.resCodeLoginPasswordError);
+                done();
+
+            });
+
+    });
 });
