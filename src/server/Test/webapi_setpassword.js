@@ -51,8 +51,8 @@ describe('WEB', function () {
 
     it('if email is not exist', function (done) {
         var body = {
-            email: "admin1@126.com",
-            password: "rex1"
+            email: "admin12345@126.com",
+            password: "rex123456"
         };
 
         request(app)
@@ -64,6 +64,48 @@ describe('WEB', function () {
                     throw err;
                 }
                 res.body.code.should.be.equal(Const.resCodeRegisterWrongEmail);
+                done();
+
+            });
+
+    });
+
+    it('if password is less than min length', function (done) {
+        var body = {
+            email: "test@testCIyfp2.com",
+            password: "rex1"
+        };
+
+        request(app)
+            .post('/dogsystem/v1/user/set_password')
+            .send(body)
+            .end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+                res.body.code.should.be.equal(Const.resCodeSetPassWordLengthError);
+                done();
+
+            });
+
+    });
+
+    it('if passwor is edit success', function (done) {
+        var body = {
+            email: "test@testCIyfp2.com",
+            password: "88888888"
+        };
+
+        request(app)
+            .post('/dogsystem/v1/user/set_password')
+            .send(body)
+            .end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+                res.body.code.should.be.equal(Const.responsecodeSucceed);
                 done();
 
             });

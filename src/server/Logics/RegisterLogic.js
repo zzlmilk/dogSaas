@@ -152,7 +152,6 @@ var RegisterLogic = {
 
 			},
 			function (result, done) {
-				console.log("result:",result);
 				//修改密码
 				var userModel = UserModel.get();
 				userModel.findOne({ email: email }, function (err, user) {

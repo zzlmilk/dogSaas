@@ -9,7 +9,7 @@ describe('WEB', function () {
     it('should be login in  Sucessful', function (done) {
         var body = {
             email: "test@testCIyfp2.com",
-            password: "rex123456"
+            password: "88888888"
         };
 
         request(app)
@@ -21,7 +21,7 @@ describe('WEB', function () {
                     throw err;
                 }
 
-                console.log(res.body)
+                res.body.code.should.be.equal(Const.responsecodeSucceed);
 
                 done();
 
