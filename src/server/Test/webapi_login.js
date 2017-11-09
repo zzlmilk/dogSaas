@@ -1,32 +1,78 @@
 var should = require('should');
 var request = require('supertest');
 var app = require('../mainTest');
-
+var Const = require('../lib/consts');
 
 describe('WEB', function () {
 
     var req, res;
-        it('should be login in  Sucessful', function (done) {
-            var body = {                            
-                            email: "413124766@qq.com",
-                            password:"rex123"                         
-                        };  
+    it('should be login in  Sucessful', function (done) {
+        var body = {
+            email: "test@testCIyfp2.com",
+            password: "rex123456"
+        };
 
-            request(app)
-                .post('/dogsystem/v1/user/login')
-                .send(body)
-                .end(function (err, res) {
+        request(app)
+            .post('/dogsystem/v1/user/login')
+            .send(body)
+            .end(function (err, res) {
 
-    			if (err) {
-    				throw err;
-    			}
-			
+                if (err) {
+                    throw err;
+                }
+
                 console.log(res.body)
-                
+
                 done();
-            
-            });   
-            
-        });
-        
-  });
+
+            });
+
+    });
+
+    it('login if email is null or empty', function (done) {
+        var body = {
+            email: "",
+            password: "rex123"
+        };
+
+        request(app)
+            .post('/dogsystem/v1/user/login')
+            .send(body)
+            .end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                //console.log(res.body)
+                res.body.code.should.be.equal(Const.resCodeLoginNoEmail);
+                done();
+
+            });
+
+    });
+
+    it('login if password is null or empty', function (done) {
+        var body = {
+            email: "test@testCIyfp2.com",
+            password: ""
+        };
+
+        request(app)
+            .post('/dogsystem/v1/user/login')
+            .send(body)
+            .end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                //console.log(res.body)
+                res.body.code.should.be.equal(Const.resCodeLoginNoPassword);
+                done();
+
+            });
+
+    });
+
+});
