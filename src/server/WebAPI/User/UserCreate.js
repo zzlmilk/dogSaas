@@ -51,27 +51,21 @@ UserCreateHandler.prototype.validate = function(params,callback){
 	var emailRegx = /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/;
 	var phoneRegx = /^(13[0-9]|15[012356789]|17[013678]|18[0-9]|14[57])[0-9]{8}$/;
 	if(_.isEmpty(params.email)){
-		console.log("err","no email");
 		callback(Const.resCodeUserCreateNoEmail);
 		return;
 	}else if(_.isEmpty(params.nickname)){
-		console.log("err","no nickname");
 		callback(Const.resCodeUserCreateNoNickName);
 		return;
 	}else if(_.isEmpty(params.password)){
-		console.log("err","no password");
 		callback(Const.resCodeUserCreateNoPassword);
 		return;
 	}else if(_.isEmpty(params.phone)){
-		console.log("err","no phone");
 		callback(Const.resCodeUserCreateNoPhone);
 		return;
 	}else if(!emailRegx.test(params.email)){
-		console.log("err","email is valid");
 		callback(Const.resCodeUserCreateEmailIsValid);
 		return;
 	}else if(!phoneRegx.test(params.phone)){
-		console.log("err","phone is valid");
 		callback(Const.resCodeUserCreatePhoneIsValid);
 		return;
 	}else if(params.password.length<6){
