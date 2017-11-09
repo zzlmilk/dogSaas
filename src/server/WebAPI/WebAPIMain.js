@@ -15,13 +15,19 @@ var WebAPIMain = {
 
 					//测试
 					router.use("/test", require('./TestHandler'));
-
+					//User
+					router.use("/user/register", require('./User/RegisterHandler'));
+					router.use("/user/login", require('./User/LoginHandler'));
 
 					//新增用户
 					router.use("/user/create",require('./User/UserCreate'));
 
-					//User
-					router.use("/user/register", require('./User/RegisterHandler'));
+
+					//AOrganizationHandler
+					router.use("/organization/add", require('./Organization/AddOrganizationHandler'));
+					router.use("/organization/edit", require('./Organization/EditOrganizationHandler'));
+					router.use("/organization/show", require('./Organization/ShowOrganizationHandler'));
+
 
 
 					//api版本控制

