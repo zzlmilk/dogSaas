@@ -5817,5 +5817,33 @@ button.close {
 *:focus {
   outline: 0; }
 
-.abc {
-  color: red; }
+ul li {
+  list-style: none; }
+
+.navbar-header > a > img {
+  width: 75px;
+  height: 50px;
+  float: left;
+  margin-top: -20px; }
+
+.navbar-nav > li > a {
+  color: white;
+  border-bottom: 2px black solid; }
+
+.navbar-nav > li > a:hover {
+  border-bottom: 2px blue solid;
+  background: black; }
+
+.form-group > a {
+  color: white; }
+
+.form-group > a:hover {
+  text-decoration: none; }
+
+.btn-default {
+  width: 80px;
+  height: 35px;
+  color: white;
+  background: black;
+  border-radius: 20px;
+  border: 2px solid white; }
