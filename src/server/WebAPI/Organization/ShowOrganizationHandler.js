@@ -4,26 +4,36 @@ var RequestHandlerBase = require('../RequestHandlerBase');
 const Utils = require("../../lib/Utils");
 var _ = require('lodash');
 var Const = require("../../lib/consts");
+var authenticator = require("../middleware/auth");
+var OrganizationLogics = require("../../Logics/OrganizationLogics");
 
 
 
+var ShowOrganizationHandler = function () {
 
-var ShowOrganizationHandler = function(){
-       	
 
 }
 
-_.extend(ShowOrganizationHandler.prototype,RequestHandlerBase.prototype);
+_.extend(ShowOrganizationHandler.prototype, RequestHandlerBase.prototype);
 
 
-ShowOrganizationHandler.prototype.attach = function(route){
-	 var self = this;
+ShowOrganizationHandler.prototype.attach = function (route) {
+	var self = this;
 
-	 route.get('/',function(request,response){
+	route.get('/', authenticator, function (request, response) {
+		OrganizationLogics.show(request, function (result) {
+			self.successResponse(response, Const.responsecodeSucceed, {
+				organization: result.organization
+			});
+		}, function (err,code) {
+			if (err) {
+				self.errorResponse(response, Const.httpCodeServerError);
+			} else {
+				self.successResponse(response, code);
+			}
+		});
 
-			
-
-	 })
+	})
 }
 
 

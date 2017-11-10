@@ -9,7 +9,9 @@ var app = require('../mainTest');
 
 global.email = "413124766@qq.com"
 global.password1 = "rex123"
-
+//wanli test user and password
+//global.email = "test@testCIyfp2.com"
+//global.password1 = "88888888"
 global.getRandomStr = function(){
 
     var text = "";

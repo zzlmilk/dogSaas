@@ -13,33 +13,15 @@ var OrganizationLogics = {
 
 	add: function (param, onSuccess, onError) {
 		var self = this;
-		var name = param.name,
-			province = param.province,
-			district = param.district,
-			city = param.city,
-			address = param.address,
-			code = param.code,
-			tel = param.tel,
-			businessLicense = param.businessLicense,
-			animalMedicalLicense = param.animalMedicalLicense,
-			serviceScope = param.serviceScope,
-			contacts_name = param.contacts_name,
-			contacts_phone = param.contacts_phone;
-		if (Utils.isEmpty(name) || Utils.isEmpty(province) 
-			|| Utils.isEmpty(district) || Utils.isEmpty(city) 
-			|| Utils.isEmpty(address) || Utils.isEmpty(code)
-			|| Utils.isEmpty(tel) || Utils.isEmpty(businessLicense)
-			|| Utils.isEmpty(animalMedicalLicense) || Utils.isEmpty(serviceScope)
-			|| Utils.isEmpty(contacts_name) || Utils.isEmpty(contacts_phone)) {
-			onError(null,
-				Const.resCodeOrganizationParamIsEmpty
-			)
-			return;
-		}
-
 
 		var user = param.user
-		self.validatorParam(param.body, function () {
+		self.validatorParam(param.body, function (err) {
+			if (err) {
+				onError(null,
+					Const.resCodeOrganizationParamIsEmpty
+				)
+				return;
+			}
 			var organizationParam = param.body
 			var res = {}
 			async.waterfall([
@@ -131,9 +113,52 @@ var OrganizationLogics = {
 	edit: function (param, onSuccess, onError) {
 
 	},
-	validatorParam: function (param, callback) {
+	show: function (param, onSuccess, onError) {
+		var res = {};
+		async.waterfall([
+			function (done) {
+				OrganizationModel.get().findOne().populate({path:'adminUser',token:param.user.token}).exec(function(err,organization){
+					if (err) {
+						onError(err, null);
+						return;
+					}
+					if (organization) {
+						res.organization = organization;
+						onSuccess(res);
+					}	
+				});
 
-		callback()
+			}
+		], function (err, result) {
+			if (err) {
+				onError(err, null);
+				return;
+			}
+		})
+	},
+	validatorParam: function (param, callback) {
+		var name = param.name,
+			province = param.province,
+			district = param.district,
+			city = param.city,
+			address = param.address,
+			code = param.code,
+			tel = param.tel,
+			businessLicense = param.businessLicense,
+			animalMedicalLicense = param.animalMedicalLicense,
+			serviceScope = param.serviceScope,
+			contacts_name = param.contacts_name,
+			contacts_phone = param.contacts_phone;
+		if (Utils.isEmpty(name) || Utils.isEmpty(province)
+			|| Utils.isEmpty(district) || Utils.isEmpty(city)
+			|| Utils.isEmpty(address) || Utils.isEmpty(code)
+			|| Utils.isEmpty(tel) || Utils.isEmpty(businessLicense)
+			|| Utils.isEmpty(animalMedicalLicense) || Utils.isEmpty(serviceScope)
+			|| Utils.isEmpty(contacts_name) || Utils.isEmpty(contacts_phone)) {
+			callback(Const.resCodeOrganizationParamIsEmpty);
+		} else {
+			callback();
+		}
 	},
 
 
