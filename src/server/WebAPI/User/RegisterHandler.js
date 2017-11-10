@@ -39,14 +39,7 @@ RegisterHandler.prototype.attach = function(route){
 						 
 						
 				})
-
-
-
-
-
-
-
-
+			
 	 })
 }
 

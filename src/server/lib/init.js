@@ -9,10 +9,11 @@
 
     Config.dbCollectionPrefix = "";
   
-    
 
     // Exports ----------------------------------------------
     module["exports"] = Config;
+
+    
 
 
 

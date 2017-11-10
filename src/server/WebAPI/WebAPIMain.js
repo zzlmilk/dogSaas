@@ -19,8 +19,8 @@ var WebAPIMain = {
 					router.use("/user/register", require('./User/RegisterHandler'));
 					router.use("/user/login", require('./User/LoginHandler'));
 
-					//新增用户
-					router.use("/user/create",require('./User/UserCreate'));
+					
+					
 					//set password
 					router.use("/user/set_password",require('./User/SetPasswordHandler'));
 
