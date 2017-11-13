@@ -17,7 +17,7 @@ var AlertDialog = require('../Modals/AlertDialog/AlertDialog');
 
 var MainView = Backbone.View.extend({
 
-        el : null,
+    el : null,
 
 
     initialize: function(options) {
@@ -38,8 +38,7 @@ var MainView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;
-
-
+        
         var HeaderView = require('./Header/HeaderView.js'); 
         var view = new HeaderView({
             'el': "#header-content"
@@ -51,19 +50,6 @@ var MainView = Backbone.View.extend({
             'el': "#sidebar-content"
         });
 
-
-
-      
-
-
-        
-
-
-
-
-
-
-       
 
         // 监听事件
         _.debounce(function(){
