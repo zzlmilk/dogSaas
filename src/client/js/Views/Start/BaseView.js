@@ -14,9 +14,9 @@ var Utils = require('../../lib/utils');
             var message = "";
             
             if(Const.ErrorCodes[errCode])
-                message = Utils.l10n(Const.ErrorCodes[errCode]);
+                message = Const.ErrorCodes[errCode];
             else
-                message = Utils.l10n("Critical Error");
+                message = "Critical Error";
             
             $(this.container + " .alert-danger").hide();
             $(this.container + " .alert-info").hide();

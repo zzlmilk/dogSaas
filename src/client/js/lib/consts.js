@@ -13,7 +13,9 @@
                 2000006 : "Wrong usename or password",
                 2000007 : "UUID is empty",
                 2000008 : "Wrong secret",
-               
+                
+
+                1000003:"1111",
  
         }
 

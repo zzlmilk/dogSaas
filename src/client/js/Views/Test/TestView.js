@@ -9,6 +9,12 @@ var Config = require('../../lib/init');
 var template = require('./Test.hbs');
 
 
+var SignInClient = require('../../lib/APIClients/SignInClient');
+
+var loginUserManager = require('../../lib/loginUserManager')
+
+
+
 var TestView = Backbone.View.extend({
 
    
@@ -34,6 +40,35 @@ var TestView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;
+        var  username = "rex@qq.com"
+        var password ="123";
+
+
+
+        SignInClient.send({                    
+                    email:username,
+                    password:password
+                                        
+                },function(data){
+                    
+                    
+                    // loginUserManager.setUser(data.user);
+                    // loginUserManager.setToken(data.token);
+                    alert(data)
+             
+                    //Utils.goPage("main");
+                    
+
+                    
+                    
+                             
+                    
+                },function(errorCode){
+                    console.log(errorCode)
+                    alert(errorCode)
+                   
+                   
+                })
 
     
             

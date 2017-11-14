@@ -11,7 +11,9 @@ var Config = require('../../../lib/init');
 
 var BaseView = require('../BaseView');
 
-//var SignInClient = require('../../../lib/APIClients/SignInClient');
+var SignInClient = require('../../../lib/APIClients/SignInClient');
+
+var loginUserManager = require('../../../lib/loginUserManager')
 
 var template = require('./SignIn.hbs');
 
@@ -53,14 +55,39 @@ var SignInView = BaseView.extend({
 
          		var username = $('#form-signin input[name="username"]').val();
          		var password = $('#form-signin input[name="password"]').val();
+
+         		
 				
-				if (username!="rex" ||password !="123") {
+				if (username =="" ||password =="") {
 		 			$('#form-signin .username').addClass('has-error');
-					$('#form-signin .username .help-block').text("用户名或密码无效");
+					$('#form-signin .username .help-block').text("用户名或密码为空");
 				}
 				else{
+					SignInClient.send({                    
+                    email:username,
+                    password:password
+                                        
+                },function(data){
+                	
+                	
+				    loginUserManager.setUser(data.user);
+                    loginUserManager.setToken(data.token);
 
-					Utils.goPage("main");
+			 
+                    Utils.goPage("main");
+                    
+
+                    
+                    
+                    $('#form-signin #btn-signin').removeAttr('disabled');				
+                    
+                },function(errorCode){
+                	console.log(errorCode)
+                    self.showError(errorCode);
+                    $('#form-signin #btn-signin').removeAttr('disabled');	
+                })
+
+					//Utils.goPage("main");
 				}
 
 
@@ -90,10 +117,10 @@ var SignInView = BaseView.extend({
 		}
 		
 		if(_.isEmpty(name))
-			err.name = Utils.l10n("Please input user name.");
+			err.name = "Please input user name.";
 		
 		if(_.isEmpty(password))
-			err.password = Utils.l10n("Please input password.");
+			err.password = "Please input password.";
 		
 		callBack(err);
 		

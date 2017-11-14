@@ -2,12 +2,12 @@
     "use strict;"
 
     var Config = {
-         APIEndpoint : '/api/v1',
-        SpikaBaseURL : '/dogSysytem',
-        defaultContaier : 'body', // write JQuery style selector
+         APIEndpoint : '/dogsystem/v1',
+         SpikaBaseURL : '/dogsystem',
+         defaultContaier : 'body', // write JQuery style selector
         
 
-        port:3030,
+        port:7070,
 
 
     };

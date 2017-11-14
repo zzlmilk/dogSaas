@@ -12,6 +12,8 @@ var WindowSizeManager = require('../../lib/windowSizeManager');
 
 var AlertDialog = require('../Modals/AlertDialog/AlertDialog');
 
+var loginUserManager = require('../../lib/loginUserManager')
+
 
 
 
@@ -38,6 +40,13 @@ var MainView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;
+
+
+        console.log(loginUserManager.user)
+       console.log( localStorage.getItem("token"))
+
+        
+
         
         var HeaderView = require('./Header/HeaderView.js'); 
         var view = new HeaderView({
