@@ -18,6 +18,16 @@ var sourceCSS = 'src/client/css/',
 
 
 
+//初始化browserify
+
+
+
+
+
+
+
+
+
 gulp.task('copy', function() {
 	gulp.src('src/client/index.html').pipe( gulp.dest('public') );
 	gulp.src('src/client/img/**/*').pipe( gulp.dest('public/img') );
@@ -52,10 +62,7 @@ gulp.task('browserify-build', function() {
         });
 
 
-
-
-
-	      var bundle = function() {
+	     var bundle = function() {
 	      	return bundler
 	      	 .transform(hbsfy)
         	 .bundle()
@@ -82,7 +89,7 @@ gulp.task('browserify-build', function() {
 
 
 
-gulp.task('build-dist',['copy','browserify-build','build-css'],function(){
+gulp.task('build-dist',['copy','build-css'],function(){
     
       
 });
@@ -102,6 +109,7 @@ gulp.task('build-apidoc', function(done){
 
 gulp.task('default',function(){
     gulp.watch('src/client/**/*',['build-dist']);
+    gulp.start("browserify-build")
     
 });
 
