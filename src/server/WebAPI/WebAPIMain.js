@@ -15,12 +15,17 @@ var WebAPIMain = {
 
 					//测试
 					router.use("/test", require('./TestHandler'));
+
+					//Verification Email
+					router.use("/send/email",  require('./Email/SendEmailHandler'));
+					router.use("/vaild/email", require('./Email/VaildEmailHandler'));
+
+
 					//User
 					router.use("/user/register", require('./User/RegisterHandler'));
 					router.use("/user/login", require('./User/LoginHandler'));
 
-					
-					
+										
 					//set password
 					router.use("/user/set_password",require('./User/SetPasswordHandler'));
 

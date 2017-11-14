@@ -25,7 +25,7 @@ UserModel.prototype.init = function (mongoose) {
 		    organization: { type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "organizations" },  //账号所属机构
 		    //权限规则
 		    rules:{
-
+		    	
 		    },
 		    //安全信息		    
 		    safetyInformation:{

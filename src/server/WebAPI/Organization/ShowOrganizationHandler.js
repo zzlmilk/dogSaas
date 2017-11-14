@@ -10,6 +10,7 @@ var OrganizationLogics = require("../../Logics/OrganizationLogics");
 
 
 var ShowOrganizationHandler = function () {
+	
 
 
 }

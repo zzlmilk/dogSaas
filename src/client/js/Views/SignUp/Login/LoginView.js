@@ -32,6 +32,19 @@ var LoginView = Backbone.View.extend({
 
         var self = this;  
        
+       $("#btn-register").unbind().on('click',function(){
+
+
+             
+              var template1 = require('../../Nav/Nav.hbs');
+
+              $(this.el).html(template1({
+               
+             }));
+
+
+
+       })
 
     }
 

@@ -51,6 +51,7 @@ var SignUpView = Backbone.View.extend({
             'el': "#login-content"
         });
         
+        
         var SignFooterView = require('./SignFooter/SignFooterView.js'); 
         var view = new SignFooterView({
             'el': "#signfooter-content"

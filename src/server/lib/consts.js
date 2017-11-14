@@ -17,8 +17,13 @@
      Const.resCodeLoginNoEmail  = 1000003
      Const.resCodeLoginNoPassword  = 1000004
 
-    //组织参数不全
-    Const.resCodeOrganizationParamIsEmpty = 1000005;
+     //组织参数不全
+      Const.resCodeOrganizationParamIsEmpty = 1000005;
+
+
+      Const.resCodeDayuNoEmail = 1000006;
+      Const.resCodeDayuNoCode = 1000007;
+      Const.resCodeLoginNoUseType = 1000008;
 
       Const.resCodeSetPassWordLengthError = 2000001
 
@@ -31,6 +36,15 @@
 
 
       Const.resCodeAddOrganizationExisting = 2000006
+
+
+      Const.resCodeSendEmailWrongEmail = 2000007 //此邮箱已经被注册
+      Const.resCodeSendEmailNullEmailUser = 2000008; //不存在改账户
+
+      Const.resCodeDayuVaildeCodeSuccess = 1; //验证码 验证成功
+      Const.resCodeDayuVaildeCodeError = 2000009 // 无效的验证码
+
+
 
      
 

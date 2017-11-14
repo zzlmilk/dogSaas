@@ -4,17 +4,17 @@ var apidoc = require('gulp-apidoc'),
 	 plumber = require('gulp-plumber');
 
 
-var  sourceCSS = 'src/client/css/',
+var sourceCSS = 'src/client/css/',
 	 destCSS = 'public/css/',
 	 destFolder = './public/js/',
-	  destFile = 'bundle.js',
+	 destFile = 'bundle.js',
 	 sass = require('gulp-sass'),
 	 browserify = require('browserify'),
-      hbsfy = require("hbsfy"),
-       source = require('vinyl-source-stream'),
-      watchify = require('watchify'),
-
-	   sourceFile = './src/client/js/main.js';
+   hbsfy = require("hbsfy"),
+   source = require('vinyl-source-stream'),
+   watchify = require('watchify'),
+    gutil = require('gulp-util'),
+   sourceFile = './src/client/js/main.js';
 
 
 
@@ -40,15 +40,20 @@ gulp.task('browserify-build', function() {
           // Required watchify args
           cache: {}, 
           packageCache: {}, 
+          plugin:[watchify],
           fullPaths: true,
         // Browserify Options
           entries: sourceFile,
-           debug: true
+          debug: true
        });
 
 	      hbsfy.configure({
             extensions: ['hbs']
         });
+
+
+
+
 
 	      var bundle = function() {
 	      	return bundler
@@ -59,13 +64,20 @@ gulp.task('browserify-build', function() {
 		            this.emit('end');
       		  })
         	.pipe(source(destFile))
-       	    .pipe(gulp.dest(destFolder));
+       	  .pipe(gulp.dest(destFolder));
 
 	   };
 
-	     return bundle();
+       bundler.on('update', bundle);
+       bundler.on('log',gutil.log);
+
+     
+    
+
+	   return bundle();
 
 })
+
 
 
 

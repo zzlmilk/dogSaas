@@ -16,7 +16,6 @@ var LoginHandler = function(){
 
 _.extend(LoginHandler.prototype,RequestHandlerBase.prototype);
 
-
 LoginHandler.prototype.attach = function(route){
 	 var self = this;
 
@@ -25,8 +24,7 @@ LoginHandler.prototype.attach = function(route){
 			LoginLogic.execute(request.body,function(result){				
 					 self.successResponse(response,Const.responsecodeSucceed,{
 		                 token: result.token,
-               			 user:  Utils.pickUser(result.user),	
-               			                 
+               			 user:  Utils.pickUser(result.user),	               			                 
 		            });
 
 				},function(err,code){

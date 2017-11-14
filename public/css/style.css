@@ -5817,6 +5817,16 @@ button.close {
 *:focus {
   outline: 0; }
 
+.abc {
+  color: red; }
+
+.rex-test {
+  /* color: red;*/
+  /*text-align: center;*/ }
+
+*:focus {
+  outline: 0; }
+
 ul li {
   list-style: none; }
 

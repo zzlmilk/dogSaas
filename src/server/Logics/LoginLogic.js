@@ -30,8 +30,8 @@ var LoginLogic ={
 	                    Const.resCodeLoginNoPassword
 	                )
 				 		 return;
-				}
-			
+				}	
+						
 				 var res  ={}
 				 async.waterfall([				 		
 				 		function(done){

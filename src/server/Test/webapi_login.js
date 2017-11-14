@@ -22,7 +22,7 @@ describe('WEB', function () {
                 }
 
                 res.body.code.should.be.equal(Const.responsecodeSucceed);
-
+                
                 done();
 
             });
