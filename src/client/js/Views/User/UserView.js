@@ -19,7 +19,7 @@ var UserView = Backbone.View.extend({
     render: function() {	
 
         $(Config.defaultContaier).html(template({
-                    
+                
         }));
 
         this.onLoad();
@@ -27,6 +27,7 @@ var UserView = Backbone.View.extend({
         return this;
         
     },
+
 
     onLoad: function(){
 

@@ -10,8 +10,14 @@ var template = require('./Start.hbs');
 
 var StartView = Backbone.View.extend({
 
+    action:null,
+
     initialize: function(options) {
-        this.render();
+
+        var self = this;
+
+
+        self.render();
     },
     
     render: function() {	
@@ -19,6 +25,9 @@ var StartView = Backbone.View.extend({
         $(Config.defaultContaier).html(template({
         	   
         }));
+
+        var SignInView = require('./SignIn/SignInView.js');
+        var view = new SignInView({container: '#start-view-content'});
 
         this.onLoad();
 
@@ -30,8 +39,10 @@ var StartView = Backbone.View.extend({
 
         var self = this;  
 
-        var SignInView = require('./SignIn/SignInView.js');
-        var singInView = new SignInView({container: '#signin'});   
+       
+
+
+          
         
         
 

@@ -63,21 +63,15 @@ var SignInView = BaseView.extend({
 					$('#form-signin .username .help-block').text("用户名或密码为空");
 				}
 				else{
-					SignInClient.send({                    
+				SignInClient.send({                    
                     email:username,
                     password:password
                                         
                 },function(data){
-                	
-                	
+                	                	
 				    loginUserManager.setUser(data.user);
                     loginUserManager.setToken(data.token);
-
-			 
-                    Utils.goPage("main");
-                    
-
-                    
+                    Utils.goPage("main");                     
                     
                     $('#form-signin #btn-signin').removeAttr('disabled');				
                     

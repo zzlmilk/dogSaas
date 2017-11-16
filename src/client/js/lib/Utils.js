@@ -14,6 +14,10 @@
     Utils.prototype.getURLQuery = getURLQuery;
     Utils.prototype.l10n = localize; //语言包
 
+    Utils.prototype.getActionsParams = getActionsParams
+
+
+
 
 
     	  // Implementation ---------------------------------------
@@ -201,11 +205,32 @@
                 
         return replacedText;
     }
+
+
+     function  getActionsParams(actions){
+             var params = {};
+            
+             var split= actions.split("&")
+             
+                  for (var i = 0; i < split.length; ++i)
+                    {
+                        var p=split[i].split('=', 2);
+                         
+                         if (params.length == 1)
+                                params[p[0]] = "";
+                            else
+                                params[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+
+                    }
+             return params;
+    }
+
     
     function getURLQuery(){
         
         var split = window.location.search.substr(1).split('&');
-        
+
+                    
         if (split == "") return {};
         
         var params = {};

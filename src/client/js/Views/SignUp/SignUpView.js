@@ -16,19 +16,22 @@ var AlertDialog = require('../Modals/AlertDialog/AlertDialog');
 
 
 var SignUpView = Backbone.View.extend({
-
-    el : null,
-
-
-    initialize: function(options) {
-        this.el = options.el;
+    
+    initialize: function(options) {        
         this.render();
     },
 
     render: function() {
 
-        $(this.el).html(template());
+        $(Config.defaultContaier).html(template());
         
+
+
+        var SendEmailView = require('./SendEmail/SendEmailView.js'); 
+        var view = new SendEmailView({
+            'el': "#signup-content"
+        });
+
         this.onLoad();
         
         return this; 
@@ -38,29 +41,10 @@ var SignUpView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;
-        
-        var SignHeaderView = require('./SignHeader/SignHeaderView.js'); 
-        var view = new SignHeaderView({
-            'el': "#signheader-content"
-        });
+
 
         
 
-        var LoginView = require('./Login/LoginView.js'); 
-        var view = new LoginView({
-            'el': "#login-content"
-        });
-        
-        
-        var SignFooterView = require('./SignFooter/SignFooterView.js'); 
-        var view = new SignFooterView({
-            'el': "#signfooter-content"
-        });
-
-        // 监听事件
-        _.debounce(function(){
-            Backbone.trigger(Const.NotificationUpdateWindowSize,null);
-        },100)();
 
     
     }

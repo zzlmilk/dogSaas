@@ -10,27 +10,30 @@ var Routing = function(){
             routes: {
                 "start": "startRoute",
                 "main": "mainRoute",
-                "signin":"signinRoute",
+                "signin":"signinRoute",  
+                "veriftemail":"veriftemailRoute",          
                 "test":"testRoute",
-                "reset":"resetRoute",
-                "nav":"navRoute",//首页导航条路由
+                "reset":"resetRoute",              
                 "signup":"signupRoute",//登陆路由
                 "androidDownload":"androidDownloadRoute",
                 "*actions": "defaultRoute"
 
             }
-        });
 
+        });
+        
 		// Initiate the router
         var appRouter = new AppRouter;
 
         appRouter.on('route:defaultRoute', function(actions) {
         	
-            Utils.goPage('nav');            
+
+            Utils.goPage('start');            
         });
 
         appRouter.on('route:testRoute', function(actions) {
             
+
             var TestView = require('./Views/Test/TestView.js');   
             var view = new TestView();
                     
@@ -38,34 +41,34 @@ var Routing = function(){
 
         
         appRouter.on('route:startRoute', function(actions) {
-            
-            var StartView = require('./Views/Start/StartView.js');   
-            var view = new StartView();
-                    
+        
+            var StartView = require('./Views/Start/StartView.js');              
+            var view = new StartView({action:actions});
+
+                                
         });
         
-        //首页导航条路由配置
-        appRouter.on('route:navRoute', function(actions) {
-            
-            var NavView = require('./Views/Nav/NavView.js');   
-            var view = new NavView();
-                    
-        });
+
+
         
-        //登陆页面路由配置
+        //注册
         appRouter.on('route:signupRoute', function(actions) {
             
             var SignUpView = require('./Views/SignUp/SignUpView.js');   
-            var view = new SignUpView({
-            	'el': Config.defaultContaier
-            });
-                    
+            var view = new SignUpView();
+                        
         });
 
-     // appRouter.on('route:signinRoute', function(actions) {            
-     //      var SignInView = require('./Views/Start/SignIn/SignInView.js');   
-     //      var view = new SignInView();                    
-     // });
+
+
+        //验证邮箱
+        appRouter.on('route:veriftemailRoute', function(actions) {            
+            var VeriftEmailView = require('./Views/VeriftEmail/VeriftEmailView.js');   
+            var view = new VeriftEmailView({actions:actions});
+
+        });
+
+
 
 
 

@@ -21,7 +21,7 @@ var loginUserManager = {
         
         this.token = token;
 
-        localStorage.setItem("token",token)
+       // localStorage.setItem("token",token)
                 
     },
 
@@ -32,8 +32,7 @@ var loginUserManager = {
     },
 
     getToken : function(){
-        console.log( localStorage.getItem("token"))
-
+     
         return this.token;
 
         

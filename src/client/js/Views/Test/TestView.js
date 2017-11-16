@@ -14,6 +14,9 @@ var SignInClient = require('../../lib/APIClients/SignInClient');
 var loginUserManager = require('../../lib/loginUserManager')
 
 
+var userModel = require('../../Models/user')
+
+
 
 var TestView = Backbone.View.extend({
 
@@ -40,8 +43,10 @@ var TestView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;
-        var  username = "rex@qq.com"
-        var password ="123";
+
+
+        var  username = "413124766@qq.com"
+        var password ="rex123";
 
 
 
@@ -54,15 +59,14 @@ var TestView = Backbone.View.extend({
                     
                     // loginUserManager.setUser(data.user);
                     // loginUserManager.setToken(data.token);
-                    alert(data)
+                        
+                    var user = userModel.modelByResult(data.user)
+                    console.log("====",user)
+                    
              
                     //Utils.goPage("main");
                     
-
-                    
-                    
-                             
-                    
+                            
                 },function(errorCode){
                     console.log(errorCode)
                     alert(errorCode)

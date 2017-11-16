@@ -13,8 +13,10 @@ var _ = require('lodash');
     SignInClient.prototype.send = function(data,success,err){
         
         this.postRequst("/user/login",data,success,err);
+     
         
     }
+        
         
     // returns instance
     module["exports"] = new SignInClient();

@@ -7,7 +7,8 @@ var _ = require('lodash');
     	 defaults: {
             id: "",            
             email: "",            
-            token: "",            
+            token: "",        
+            logionProcess:"11111"   
         
         },
 
@@ -26,6 +27,7 @@ var _ = require('lodash');
         Model:UserModel,
         Collection:UserCollection,
     }
+    
 
 
     user.modelByResult = function(obj){
@@ -33,6 +35,7 @@ var _ = require('lodash');
     			id:obj._id,
     			email:obj.email,
     			token:obj.token,
+    			logionProcess:obj.logionProcess
     		});
 
     		return model;
@@ -60,8 +63,3 @@ var _ = require('lodash');
 
  	module["exports"] = user;
 
-
-
-
-
-    module["exports"] = user;
