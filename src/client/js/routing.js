@@ -2,6 +2,7 @@ var Backbone = require('backbone');
 var Utils = require('./lib/utils');
 var Config = require('./lib/init');
 
+var LoginUserManager = require('./lib/loginUserManager');
 
 
 var Routing = function(){
@@ -16,6 +17,7 @@ var Routing = function(){
                 "reset":"resetRoute",              
                 "signup":"signupRoute",//登陆路由
                 "androidDownload":"androidDownloadRoute",
+                "organization":"organizationRoute",
                 "*actions": "defaultRoute"
 
             }
@@ -59,8 +61,7 @@ var Routing = function(){
                         
         });
 
-
-
+        
         //验证邮箱
         appRouter.on('route:veriftemailRoute', function(actions) {            
             var VeriftEmailView = require('./Views/VeriftEmail/VeriftEmailView.js');   
@@ -69,15 +70,39 @@ var Routing = function(){
         });
 
 
+        //机构
+         appRouter.on('route:organizationRoute', function(actions) {  
+             var action = Utils.getActionsParams(actions).action
+            
+             if (action == "add") {
+                      var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
+                       var view = new AddOrganizationView();
+             }
+
+             else{
+                Utils.goPage('start')
+             }
+          
+
+        });
+
+
+
+
+
 
 
 
         appRouter.on('route:mainRoute', function(actions) {
 
-        	 // if(LoginUserManager.getUser() == null){
-          //       Utils.goPage('start');
-          //       return;
-          //   }
+
+
+
+        	if(LoginUserManager.getToken() == null){               
+                Utils.goPage('start');
+                return;
+            }
+
 
             var MainView = require('./Views/Main/MainView.js');   
             var view = new MainView({

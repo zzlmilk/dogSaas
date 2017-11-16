@@ -9,32 +9,40 @@ var Config = require('../../lib/init');
 var template = require('./VeriftEmail.hbs');
 var VaildCodeClient = require('../../lib/APIClients/VaildCodeClient');
 
+var RegisterClinet = require('../../lib/APIClients/RegisterClinet');
+var UserModel = require('../../Models/user')
+var loginUserManager = require('../../lib/loginUserManager')
+
+
 var VeriftEmailView = Backbone.View.extend({
 
     params:{},
     initialize: function(options) {
     	var self = this;
+
+    	if (options.actions == null) {
+    		return;
+    	}
+
+
     	self.params = Utils.getActionsParams(options.actions)
+ 
+    	self.vaildCode(function(data){
+    		
+    			self.render();
+    	})
 
     	
-
-
-
-
-
-
-    
-        this.render();
+   	
     },
 
     render: function() {
 
-        $(Config.defaultContaier).html(template({
-        	   
+       
+       $(Config.defaultContaier).html(template({
+        	   		
+
         }));
-
-
-
 
     	this.onLoad();
 
@@ -48,35 +56,75 @@ var VeriftEmailView = Backbone.View.extend({
 
         var self = this;
 
+       $("#veriftEmailBtn").unbind().on('click',function(e){
+ 			 	var password = $("input[name =password]").val();
+ 			 	var repassword =  $("input[name =repassword]").val();
 
-        VaildCodeClient.send({                    
-            code:self.params.key,
-            usetype:self.params.usetype,
-            email:self.params.email
-                                
-        },function(data){
-           	            
-            // loginUserManager.setUser(data.user);
-            // loginUserManager.setToken(data.token);
-                
-           
-            console.log("====",data)
+ 			 	if (password == "" || password !=repassword ||password.length <6 ) {
+ 			 		 alert("密码格式错误")
+ 			 	}else{
+ 			 			self.submitPassword(password);
+ 			 	}	
 
-            
-     
-            //Utils.goPage("main");
-            
-                    
-        },function(errorCode){
-            console.log(errorCode)
 
-             Utils.goPage("main");
-            
-           
-           
-         })
+		});
+  		
+
+      //449570
      
 	},
+	vaildCode:function(callback){
+
+		var self = this;
+		  VaildCodeClient.send({                    
+            code:self.params.key,                                        
+        },function(data){           	          	                                                    
+        	self.params.email = data.email;
+        	self.params.useType =data.useType;
+            callback()
+
+                    
+        },function(errorCode){
+            if(Const.ErrorCodes[errorCode])
+              var  message = Const.ErrorCodes[errorCode];
+                                     
+         })
+
+	},
+	submitPassword:function(password){
+		var self = this;
+
+		RegisterClinet.send({                    
+                    email:self.params.email,
+                    password:password,
+                    code:self.params.key,
+                                        
+                },function(data){
+                     					
+                     
+                    loginUserManager.setToken(data.token);
+                    var  user =  UserModel.modelByResult(data.user);
+                    
+                    var logionProcess = user.get("logionProcess");
+                    if (logionProcess == 0) {
+                    	  Utils.goPage("organization?action=add");
+                    }else{
+                    	
+                    		
+                    }
+
+                                                             
+                             
+                    //Utils.goPage("main");
+                    
+                            
+                },function(errorCode){
+                    alert(errorCode)
+                                      
+                })
+
+	}
+
 
 
 	 

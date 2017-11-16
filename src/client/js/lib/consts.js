@@ -13,8 +13,8 @@
                 2000006 : "Wrong usename or password",
                 2000007 : "UUID is empty",
                 2000008 : "Wrong secret",
+                2000009 : "邮件连接无效",
                 
-
                 1000003:"1111",
                 1000004:"1000004",
  

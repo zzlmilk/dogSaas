@@ -12,7 +12,7 @@ var _ = require('lodash');
     
     SendEmailClient.prototype.send = function(data,success,err){
         
-        this.postRequst("/vaild/email",data,success,err);
+        this.postRequst("/send/email",data,success,err);
      	
     }
         

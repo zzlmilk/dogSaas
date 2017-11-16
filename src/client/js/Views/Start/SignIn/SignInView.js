@@ -15,6 +15,8 @@ var SignInClient = require('../../../lib/APIClients/SignInClient');
 
 var loginUserManager = require('../../../lib/loginUserManager')
 
+var UserModel = require('../../../Models/user');
+
 var template = require('./SignIn.hbs');
 
 var SignInView = BaseView.extend({
@@ -51,26 +53,28 @@ var SignInView = BaseView.extend({
 
         });
         
-		$('#form-signin #btn-signin').unbind().on('click',function(){
+		$('#login_form #loginBtn').unbind().on('click',function(){
+					
+         		var username = $('input[name="username"]').val();
+         		var password = $('input[name="password"]').val();
 
-         		var username = $('#form-signin input[name="username"]').val();
-         		var password = $('#form-signin input[name="password"]').val();
 
          		
 				
 				if (username =="" ||password =="") {
-		 			$('#form-signin .username').addClass('has-error');
-					$('#form-signin .username .help-block').text("用户名或密码为空");
+		 			$('#login_form .username').addClass('has-error');
+					$('#login_form .username .help-block').text("用户名或密码为空");
 				}
 				else{
+
 				SignInClient.send({                    
                     email:username,
                     password:password
                                         
                 },function(data){
-                	                	
-				    loginUserManager.setUser(data.user);
-                    loginUserManager.setToken(data.token);
+                	loginUserManager.setToken(data.token);                	
+				    var user = UserModel.modelByResult(data.user)                    
+				    
                     Utils.goPage("main");                     
                     
                     $('#form-signin #btn-signin').removeAttr('disabled');				

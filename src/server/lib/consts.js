@@ -25,6 +25,9 @@
       Const.resCodeDayuNoCode = 1000007;
       Const.resCodeLoginNoUseType = 1000008;
 
+
+      Const.resCodeRegisterNoCode  = 1000009;
+
       Const.resCodeSetPassWordLengthError = 2000001
 
       Const.resCodeLoginNoUser = 2000002

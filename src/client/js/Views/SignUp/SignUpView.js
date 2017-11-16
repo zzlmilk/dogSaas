@@ -17,6 +17,8 @@ var AlertDialog = require('../Modals/AlertDialog/AlertDialog');
 
 var SignUpView = Backbone.View.extend({
     
+
+
     initialize: function(options) {        
         this.render();
     },
@@ -24,9 +26,7 @@ var SignUpView = Backbone.View.extend({
     render: function() {
 
         $(Config.defaultContaier).html(template());
-        
-
-
+                
         var SendEmailView = require('./SendEmail/SendEmailView.js'); 
         var view = new SendEmailView({
             'el': "#signup-content"

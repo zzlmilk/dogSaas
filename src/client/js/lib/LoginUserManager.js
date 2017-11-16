@@ -13,16 +13,12 @@ var loginUserManager = {
         
         this.user = UserModel.modelByResult(user);
 
-        
-        
     },
 
      setToken : function(token){
         
+        localStorage.setItem("token",token)
         this.token = token;
-
-       // localStorage.setItem("token",token)
-                
     },
 
      getUser : function(){
@@ -33,7 +29,9 @@ var loginUserManager = {
 
     getToken : function(){
      
-        return this.token;
+        var token =  localStorage.getItem("token")
+
+        return token;
 
         
     }

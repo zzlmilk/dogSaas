@@ -20,6 +20,7 @@ LoginHandler.prototype.attach = function(route){
 	 var self = this;
 
 	 route.post('/',function(request,response){
+	 	console.log(request.body)
 
 			LoginLogic.execute(request.body,function(result){				
 					 self.successResponse(response,Const.responsecodeSucceed,{

@@ -208,8 +208,12 @@
 
 
      function  getActionsParams(actions){
+
              var params = {};
-            
+            if (actions == null) {
+                return params;
+                
+            }    
              var split= actions.split("&")
              
                   for (var i = 0; i < split.length; ++i)

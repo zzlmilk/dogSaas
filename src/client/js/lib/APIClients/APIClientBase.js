@@ -52,7 +52,8 @@ var loginUserManager = require('../loginUserManager');
 
 	 APIClientBase.prototype.postRequst = function(urlPrefix,data,success,error){
 
-        console.log(data)
+        //console.log(data,urlPrefix)
+
 
         var headers = {};
         var accessToken = loginUserManager.getToken();

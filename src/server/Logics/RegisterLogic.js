@@ -6,7 +6,7 @@ var _ = require('lodash');
 
 
 var UserModel = require('../Models/User');
-
+var DayuModel = require('../Models/Dayu')
 
 
 
@@ -17,10 +17,18 @@ var RegisterLogic = {
 
 		var email = param.email;
 		var password = param.password;
+		var code = param.code;
 
 		if (Utils.isEmpty(email)) {
 			onError(null,
 				Const.resCodeRegisterNoEmail
+			)
+			return;
+		}
+
+		if (Utils.isEmpty(code)) {
+			onError(null,
+				Const.resCodeRegisterNoCode
 			)
 			return;
 		}
@@ -66,6 +74,30 @@ var RegisterLogic = {
 					done(null, res)
 
 				})
+
+			},			
+			function(result,done){
+					//验证code的合法性
+					DayuModel.get().findOne({code:code,type:1},function(err,model){
+						 if (model) {
+						 		if (model.email != email) {
+						 			onError(null,Const.resCodeDayuVaildeCodeError)
+						 			return;
+						 		}
+
+						 		model.type = -1;
+						 		model.save(function(err,dayuResult){
+						 				done(null,res)
+						 		});
+
+						 }else{
+						 	if (onError) {
+			                			onError(null,Const.resCodeDayuVaildeCodeError)
+			                			return;
+			                		}
+						 }
+					})
+
 
 			},
 			function (result, done) {
