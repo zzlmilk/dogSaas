@@ -80,7 +80,7 @@ var SignInView = BaseView.extend({
                     $('#form-signin #btn-signin').removeAttr('disabled');				
                     
                 },function(errorCode){
-                	console.log(errorCode)
+                	alert(errorCode)
                     self.showError(errorCode);
                     $('#form-signin #btn-signin').removeAttr('disabled');	
                 })

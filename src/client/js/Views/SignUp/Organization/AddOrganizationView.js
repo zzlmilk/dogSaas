@@ -8,6 +8,8 @@ var Config = require('../../../lib/init');
 // load template
 var template = require('./AddOrganization.hbs');
 
+//var templateStatus = require('./templateStatus.hbs');
+
 var AddOrganizationClient = require('../../../lib/APIClients/AddOrganizationClient');
 
 
@@ -22,7 +24,8 @@ var AddOrganizationView = Backbone.View.extend({
     },
     
     
-    render: function() {	
+    render: function() {
+
         $(Config.defaultContaier).html(template({
         	   
         }));
@@ -59,7 +62,7 @@ var AddOrganizationView = Backbone.View.extend({
 
                  AddOrganizationClient.send(organization                                    
                     ,function(data){
-                         console.log(data)
+                         console.log(data)                         
                          Utils.goPage("main");
                                                                     
                     },function(errorCode){
