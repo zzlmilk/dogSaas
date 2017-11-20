@@ -39,7 +39,7 @@ var _ = require('lodash');
 
     		});
 
-            console.log(model)
+          
 
     		return model;
 

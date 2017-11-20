@@ -7,11 +7,12 @@ var Config = require('../../../lib/init');
 
 // load template
 var template = require('./AddOrganization.hbs');
+var templateStatus = require('./organzationStatus.hbs');
 
-//var templateStatus = require('./templateStatus.hbs');
 
 var AddOrganizationClient = require('../../../lib/APIClients/AddOrganizationClient');
 
+var OrganizationModel = require('../../../Models/organization');
 
 
 var AddOrganizationView = Backbone.View.extend({
@@ -43,10 +44,13 @@ var AddOrganizationView = Backbone.View.extend({
 
         var self = this;  
 
+
         $("#addOrganizationBtn").unbind().on('click',function(e){
 
+            var name = $("#organization_name").val()
+
             var organization = {                            
-                            name: "test_111" ,
+                            name: name ,
                             province:"上海",
                             district:"1",
                             city:"1",
@@ -61,11 +65,29 @@ var AddOrganizationView = Backbone.View.extend({
                         };  
 
                  AddOrganizationClient.send(organization                                    
-                    ,function(data){
-                         console.log(data)                         
-                         Utils.goPage("main");
+                    ,function(data){                        
+                         var organization = OrganizationModel.modelByResult(data.organization) 
+                         
+                         var checkStatus = organization.get("checkStatus").status;
+                         checkStatus = 1
+                         if (checkStatus == 0) {
+                             // 等待审核
+                             $(Config.defaultContaier).html(templateStatus({
+                                        organization:organization.attributes
+                             }));
+
+                         }
+                         else{
+                            
+                             Utils.goPage("main");
+                         }
+
+
+
+
                                                                     
                     },function(errorCode){
+
                         console.log(errorCode)
                                                                     
                     })

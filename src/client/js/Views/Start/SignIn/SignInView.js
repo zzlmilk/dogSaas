@@ -73,15 +73,31 @@ var SignInView = BaseView.extend({
                                         
                 },function(data){
                 	loginUserManager.setToken(data.token);                	
-				    var user = UserModel.modelByResult(data.user)                    
+				    var user = UserModel.modelByResult(data.user) 
 				    
-                    Utils.goPage("main");                     
+				    var logionProcess = user.get("logionProcess")
+					
+					//添加组织
+					if (logionProcess == 1) {
+							Utils.goPage("organization?action=add"); 
+					}
+					else{
+						Utils.goPage("main");                     	
+					}
+
+				    
+                    
                     
                     $('#form-signin #btn-signin').removeAttr('disabled');				
                     
                 },function(errorCode){
-                	alert(errorCode)
-                    self.showError(errorCode);
+                	 
+                	 if(Const.ErrorCodes[errorCode])
+                	 	message = Const.ErrorCodes[errorCode]
+
+                    alert(message)
+                    
+
                     $('#form-signin #btn-signin').removeAttr('disabled');	
                 })
 
