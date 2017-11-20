@@ -17,6 +17,7 @@
     "bootstrap-sass": "^3.3.7",
     "crypto": "0.0.3",
     "csv-parser": "^1.11.0",
+    "ejs": "^2.5.7",
     "excel-export": "^0.5.1",
     "express": "^4.15.3",
     "gulp-exit": "0.0.2",

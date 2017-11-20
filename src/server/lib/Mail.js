@@ -1,10 +1,8 @@
 var nodemailer = require('nodemailer');  
-var _jade = require('jade');
+//var _jade = require('jade');
 var fs = require('fs');
 
-
-
-
+var EJS = require('ejs')
 
 
 
@@ -17,13 +15,14 @@ var Mail = {
 				  port:465,
 				  auth: {  
 				  	user:"zhouzl@pet-more.cn",
-				  	pass:"L5SrFbjVF6J9PXg9"
+				  	pass:"bZsxrhtFABn4Q5jV"
 				    //user: '413124766@qq.com',  
 				   // pass: 'onqdbkohprwqbhba' //授权码,通过QQ获取  
 				   	}  
 				  });  
 
-				var template = '../Html/emaiTest.jade';
+				var template = './Html/test.ejs';
+
 
 
 				fs.readFile(template, 'utf8', function(err, file){
@@ -34,16 +33,24 @@ var Mail = {
 					      
 					    }	
 					    else{
-					    	var compiledTmpl = _jade.compile(file, {filename: template});
+
+					    	var url = "http://localhost:7070/#veriftemail?key="+code
+
+
+					    	var data = {title: '可点',
+					    					code:code,
+					    					url:url
+					    				 }
+
+					    	var html = EJS.render(file,data)
+
+
+					    	//var compiledTmpl = _jade.compile(file, {filename: template});
 
 					    	
-					    	var context = {title: 'Express',
-					    					code:code,
-					    					email:toMail,
-					    					useType:useType
-					    				 }
+					    	
 					    				 
-					    	var html = compiledTmpl(context);
+					    	// var html = compiledTmpl(context);
 
 					    	console.log(html)
 
