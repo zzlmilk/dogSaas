@@ -47,7 +47,7 @@ var SendEmailLogic = {
 								})
 								},
 								function(result,done){
-									var code = Utils.randomCode(6);
+									var code = Utils.randomString(24);
 									 Mail.sendOne(code,email,useType,"获取可点验证码",function(){
 					    				DayuModel.insertCode(email,code,useType,function(err,result){	
 								    						if (err) {
@@ -90,7 +90,7 @@ var SendEmailLogic = {
 									})
 								},
 								function(result,done){
-									var code = Utils.randomCode(6);
+									var code = Utils.randomString(24);
 									 Mail.sendOne(code,email,useType,"获取可点验证码",function(){
 					    				DayuModel.insertCode(email,code,useType,function(err,result){	
 								    						if (err) {

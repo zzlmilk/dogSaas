@@ -52,7 +52,7 @@ var Mail = {
 					    				 
 					    	// var html = compiledTmpl(context);
 
-					    	console.log(html)
+					    	//console.log(html)
 
 					    		var mailOptions = {  
 							    from: 'zhouzl@pet-more.cn', // 发送者  

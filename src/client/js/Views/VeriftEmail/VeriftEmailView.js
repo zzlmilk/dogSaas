@@ -70,7 +70,6 @@ var VeriftEmailView = Backbone.View.extend({
 		});
   		
 
-      //449570
      
 	},
 	vaildCode:function(callback){
@@ -85,8 +84,12 @@ var VeriftEmailView = Backbone.View.extend({
 
                     
         },function(errorCode){
+
             if(Const.ErrorCodes[errorCode])
               var  message = Const.ErrorCodes[errorCode];
+
+         	 alert(message)
+
                                      
          })
 
@@ -112,14 +115,13 @@ var VeriftEmailView = Backbone.View.extend({
                     	
                     		
                     }
-
-                                                             
-                             
+                                                                                         
                     //Utils.goPage("main");
                     
                             
                 },function(errorCode){
                     alert(errorCode)
+
                                       
                 })
 

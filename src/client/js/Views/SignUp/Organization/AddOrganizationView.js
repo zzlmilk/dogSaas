@@ -69,7 +69,7 @@ var AddOrganizationView = Backbone.View.extend({
                          var organization = OrganizationModel.modelByResult(data.organization) 
                          
                          var checkStatus = organization.get("checkStatus").status;
-                         checkStatus = 1
+                        
                          if (checkStatus == 0) {
                              // 等待审核
                              $(Config.defaultContaier).html(templateStatus({
