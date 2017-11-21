@@ -43,6 +43,7 @@
 
       Const.resCodeDayuVaildeCodeSuccess = 1; //验证码 验证成功
       Const.resCodeDayuVaildeCodeError = 2000009 // 无效的验证码
+      Const.resCodeLoginerrEmail=2200001;
 
 
 

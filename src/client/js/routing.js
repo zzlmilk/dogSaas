@@ -10,29 +10,25 @@ var Routing = function(){
             routes: {
                 "start": "startRoute",
                 "main": "mainRoute",
-                "signin":"signinRoute",  
+                "signin":"signinRoute",
+                "nav":"navRoute",
                 "veriftemail":"veriftemailRoute",          
                 "test":"testRoute",
                 "reset":"resetRoute",              
                 "signup":"signupRoute",//登陆路由
                 "androidDownload":"androidDownloadRoute",
                 "*actions": "defaultRoute"
-
             }
-
         });
         
 		// Initiate the router
         var appRouter = new AppRouter;
 
         appRouter.on('route:defaultRoute', function(actions) {
-        	
-
             Utils.goPage('start');            
         });
 
         appRouter.on('route:testRoute', function(actions) {
-            
 
             var TestView = require('./Views/Test/TestView.js');   
             var view = new TestView();
@@ -47,10 +43,6 @@ var Routing = function(){
 
                                 
         });
-        
-
-
-        
         //注册
         appRouter.on('route:signupRoute', function(actions) {
             
@@ -58,19 +50,19 @@ var Routing = function(){
             var view = new SignUpView();
                         
         });
+        //nav导航
+        appRouter.on('route:navRoute', function(actions) {
 
+            var NavView = require('./Views/Nav/NavView.js');
+            var view = new NavView();
 
-
+        });
         //验证邮箱
         appRouter.on('route:veriftemailRoute', function(actions) {            
             var VeriftEmailView = require('./Views/VeriftEmail/VeriftEmailView.js');   
             var view = new VeriftEmailView({actions:actions});
 
         });
-
-
-
-
 
         appRouter.on('route:mainRoute', function(actions) {
 

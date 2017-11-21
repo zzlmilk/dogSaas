@@ -1,17 +1,16 @@
 
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-
-@import "./a";
+@import "./a.scss";
 
 
 *:focus {
     outline: 0;
 }
-
-
-
-
+*{
+    margin:0;
+    padding:0;
+}
 * {
     -webkit-font-smoothing: antialiased
 }
@@ -174,24 +173,23 @@ a{
     background-image: none
 }
 
-
-
 .btnBlueE {
-    color: #35c8e6;
-    background-color: #fff;
-    border-color: #35c8e6
+    color: #ffffff;
+    background-color: #0066ff;
+    border-color: #0066ff;
 }
 
 .btnBlueE.hover, .btnBlueE:hover {
-    color: #fff;
-    background-color: #35c8e6;
-    border-color: #35c8e6
+    color: #ffffff;
+    background-color: #0066ff;
+    border-color: #0066ff;
 }
 
 .btnBlueE:active, .btnBlueE.active {
-    color: #fff;
-    background-color: #4ccee9;
-    border-color: #4ccee9
+    //color: #fff;
+    //background-color: #4ccee9;
+    //border-color: #4ccee9
+    opacity: 0.8;
 }
 
 .btnBlueE:active, .btnBlueE.active {
@@ -215,10 +213,22 @@ a{
 
 }
 
+#header-link{
+    display: block;
+    width: 300px;
+    height:50px;
+
+}
+#title{
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+}
+
 .i_login {
     position: relative;
     min-height: 100%;
-    padding: 64px 0 96px
+    padding: 0 0 96px;
 }
 
 .il_nav {
@@ -305,7 +315,7 @@ a{
     color: #404040;
     background-color: #fff;
     background-image: none;
-    border: 2px solid #f7f9fa;
+    border: 2px solid #cccccc;
     border-radius: 3px;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -314,7 +324,9 @@ a{
     -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     -webkit-appearance: none
 }
-
+.form-control:active{
+    border: 2px solid #0066ff;
+}
 .sr-only {
     position: absolute;
     width: 1px;
@@ -325,8 +337,6 @@ a{
     clip: rect(0, 0, 0, 0);
     border: 0
 }
-
-
 
 *:focus {
     outline: 0;
@@ -353,14 +363,21 @@ ul li{
 }
 .form-group>a:hover{
     text-decoration: none;
+
 }
+
+
 .btn-default{
     width: 80px;
     height: 35px;
+    line-height: 35px;
     color: white;
     background: black;
     border-radius: 20px;
-    border: 2px solid white;   
+    border: 2px solid white;
+    display: block;
 }
+
+
 
 

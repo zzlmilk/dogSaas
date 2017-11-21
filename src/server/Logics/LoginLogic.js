@@ -24,13 +24,25 @@ var LoginLogic ={
 	                    Const.resCodeLoginNoEmail
 	                )
 				 		 return;
-				 } 
+				 }
+
 			if(Utils.isEmpty(password)){
 				 	onError(null,
 	                    Const.resCodeLoginNoPassword
 	                )
 				 		 return;
-				}	
+				}
+
+		    else{
+				if (!validator.isEmail(email)) {
+                    onError(null,
+                        Const.resCodeLoginerrEmail
+                    )
+                    return;
+                }
+			}
+
+
 						
 				 var res  ={}
 				 async.waterfall([				 		

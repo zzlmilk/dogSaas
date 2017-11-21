@@ -8,35 +8,36 @@ describe('WEB', function () {
 
     var req, res;
 
-    // it('should be register send email  get  Email Code ', function (done) {
+     it('should be register send email  get  Email Code ', function (done) {
     
-    //         var body = {
-    //                    email: "413124767@qq.com",
-    //                    useType:"1",  //注册获取邮箱
-    //             };
+             var body = {
+                       email: "2420933732@qq.com",
+                       useType:"1"  //注册获取邮箱验证码
+                };
+           request(app)
+                .post('/dogsystem/v1/send/email/')
+               .send(body)
+                 .end(function (err, res) {
+                     if (err) {
+                        throw err;
+                    }
+                    console.log(res.body.data);
 
-    //         request(app)
-    //             .post('/dogsystem/v1/send/email/')
-    //             .send(body)
-    //             .end(function (err, res) {
-    //                 if (err) {
-    //                     throw err;
-    //                 }
-    //                 console.log(res.body.data)
-    //                 res.body.should.have.property('code');
-    //                 res.body.code.should.equal(Const.responsecodeSucceed);
+                    res.body.should.have.property('code');
+                    console.log('code');
+                     res.body.code.should.equal(Const.responsecodeSucceed);
 
-    //                 done();
+                     done();
 
-    //             });
+                 });
 
-    // });
+     });
 
-    it('should be valid email Code  by usetype 1', function (done) {
+    it('should be valid email Code  by usetype 2', function (done) {
             var body = {
                        email: "413124766@qq.com",
-                       code:"025382",  //注册获取邮箱
-                       useType:"2",
+                  //     code:"025382",
+                       useType:"2" //忘记密码获取邮箱验证码
                 };
 
             request(app)

@@ -42,7 +42,7 @@ var MainView = Backbone.View.extend({
         var self = this;
 
 
-      console.log(loginUserManager.user)
+       console.log(loginUserManager.user)
        console.log( localStorage.getItem("token"))
 
 

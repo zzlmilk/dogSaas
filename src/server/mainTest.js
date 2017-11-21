@@ -6,7 +6,7 @@ var Conf = require('./lib/init.js');
 var app = express();
 var server = http.createServer(app);
 
-Conf.port = 7171
+Conf.port = 6969
 
 
 var DatabaseManager = require('./lib/DatabaseManager');

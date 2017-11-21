@@ -40,7 +40,6 @@
     "qiniu": "^7.0.5",
     "request": "^2.81.0",
     "sha1": "^1.1.1",
-    "should": "^11.2.1",
     "socket.io": "^2.0.1",
     "supertest": "^3.0.0",
     "urllib": "^2.22.0",
@@ -58,6 +57,8 @@
     "handlebars": "^4.0.10",
     "hbsfy": "^2.8.1",
     "mochawesome": "^2.2.0",
+    "node-sass": "^4.6.1",
+    "should": "^11.2.1",
     "socket.io-client": "^2.0.3",
     "vinyl-source-stream": "^1.1.0"
   }

@@ -16,13 +16,6 @@ var VeriftEmailView = Backbone.View.extend({
     	var self = this;
     	self.params = Utils.getActionsParams(options.actions)
 
-    	
-
-
-
-
-
-
     
         this.render();
     },
