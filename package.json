@@ -18,7 +18,7 @@
     "crypto": "0.0.3",
     "csv-parser": "^1.11.0",
     "excel-export": "^0.5.1",
-    "express": "^4.15.3",
+    "express": "^4.16.2",
     "gulp-exit": "0.0.2",
     "gulp-mocha": "^4.3.1",
     "gulp-plumber": "^1.1.0",

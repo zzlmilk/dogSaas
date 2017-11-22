@@ -8,7 +8,7 @@ var _ = require('lodash');
             id: "",            
             email: "",            
             token: "",        
-            logionProcess:"11111"   
+            logionProcess:""   
         
         },
 
@@ -31,12 +31,15 @@ var _ = require('lodash');
 
 
     user.modelByResult = function(obj){
+
     		var model = new UserModel({
     			id:obj._id,
-    			email:obj.email,
-    			token:obj.token,
-    			logionProcess:obj.logionProcess
+    			email:obj.email,    			
+    			logionProcess:obj.logionProcess,
+
     		});
+
+          
 
     		return model;
 

@@ -1,25 +1,27 @@
 /**
  * Created by json on 2017/11/22.
  */
+
 var Backbone = require('backbone');
 var _ = require('lodash');
 
-var Utils = require('../../../lib/utils');
-var Const = require('../../../lib/consts');
-var Config = require('../../../lib/init');
+var Utils = require('../../../../lib/utils');
+var Const = require('../../../../lib/consts');
+var Config = require('../../../../lib/init');
 
 // load template
-var template = require('./LoginAfter.hbs');
+var template = require('./DogAdd.hbs');
 
-var LoginAfterView = Backbone.View.extend({
+var DogAddView = Backbone.View.extend({
 
+    el : null,
     initialize: function(options) {
+        this.el = options.el;
         this.render();
     },
 
     render: function() {
-
-        $(Config.defaultContaier).html(template({
+        $(this.el).html(template({
 
         }));
 
@@ -34,9 +36,9 @@ var LoginAfterView = Backbone.View.extend({
         var self = this;
 
 
-    }
 
+    }
 });
 
-module.exports = LoginAfterView;
+module.exports = DogAddView;
 

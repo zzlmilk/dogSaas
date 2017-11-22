@@ -37,16 +37,7 @@ var SidebarView = Backbone.View.extend({
             'el': "#main-content"
         });
 
-        $('#btn_dogManager').unbind().on('click',function(){
 
-            var DogAddView = require('../Dog/DogAdd/DogAddView');
-
-            var view = new DogAddView({
-                'el': "#main-content"
-            });
-
-
-        });
 
          $('#btn_immuneManager').unbind().on('click',function(){
 

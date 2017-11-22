@@ -10,6 +10,7 @@ var template = require('./Immune.hbs');
 
 var ImmuneView = Backbone.View.extend({
 
+    
     el : null,
     initialize: function(options) {
         this.el = options.el;
@@ -26,7 +27,6 @@ var ImmuneView = Backbone.View.extend({
         return this;
         
     },
-
     onLoad: function(){
 
         var self = this;  

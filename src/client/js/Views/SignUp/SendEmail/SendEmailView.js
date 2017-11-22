@@ -76,7 +76,12 @@ var SendEmailView = Backbone.View.extend({
 
                                                                     
                     },function(errorCode){
-                        console.log(errorCode)
+
+
+                   if(Const.ErrorCodes[errorCode])
+                    message = Const.ErrorCodes[errorCode]
+
+                    alert(message)
                         
                                               
                     })
