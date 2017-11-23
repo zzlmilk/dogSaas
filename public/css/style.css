@@ -5814,8 +5814,55 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+* {
+  margin: 0;
+  padding: 0; }
+
+#dog_manage {
+  width: 800px;
+  height: 500px;
+  float: left;
+  background: #fcfcfc; }
+
+#manage_list {
+  width: 100px;
+  height: 500px;
+  float: left;
+  background: #2e3645; }
+
+#manage_content {
+  width: 700px;
+  height: 500px;
+  float: left;
+  padding: 25px; }
+
+#form_dog {
+  width: 650px;
+  height: 200px;
+  float: left;
+  margin-top: 20px;
+  background: #ffffff;
+  border: 1px solid grey; }
+
+#form_vaccin {
+  width: 650px;
+  height: 150px;
+  float: left;
+  margin-top: 20px;
+  background: #ffffff;
+  border: 1px solid grey; }
+
+#next {
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 225px; }
+
 *:focus {
   outline: 0; }
+
+* {
+  margin: 0;
+  padding: 0; }
 
 * {
   -webkit-font-smoothing: antialiased; }
@@ -5949,19 +5996,17 @@ a {
   background-image: none; }
 
 .btnBlueE {
-  color: #35c8e6;
-  background-color: #fff;
-  border-color: #35c8e6; }
+  color: #ffffff;
+  background-color: #0066ff;
+  border-color: #0066ff; }
 
 .btnBlueE.hover, .btnBlueE:hover {
-  color: #fff;
-  background-color: #35c8e6;
-  border-color: #35c8e6; }
+  color: #ffffff;
+  background-color: #0066ff;
+  border-color: #0066ff; }
 
 .btnBlueE:active, .btnBlueE.active {
-  color: #fff;
-  background-color: #4ccee9;
-  border-color: #4ccee9; }
+  opacity: 0.8; }
 
 .btnBlueE:active, .btnBlueE.active {
   background-image: none; }
@@ -5975,10 +6020,20 @@ a {
 
 /*关于首页*/
 /*登陆*/
+#header-link {
+  display: block;
+  width: 300px;
+  height: 50px; }
+
+#title {
+  width: 200px;
+  height: 50px;
+  line-height: 50px; }
+
 .i_login {
   position: relative;
   min-height: 100%;
-  padding: 64px 0 96px; }
+  padding: 0 0 96px; }
 
 .il_nav {
   position: absolute;
@@ -6049,7 +6104,7 @@ a {
   color: #404040;
   background-color: #fff;
   background-image: none;
-  border: 2px solid #f7f9fa;
+  border: 2px solid #cccccc;
   border-radius: 3px;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -6057,6 +6112,9 @@ a {
   -ms-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   -webkit-appearance: none; }
+
+.form-control:active {
+  border: 2px solid #0066ff; }
 
 .sr-only {
   position: absolute;
@@ -6097,7 +6155,9 @@ ul li {
 .btn-default {
   width: 80px;
   height: 35px;
+  line-height: 35px;
   color: white;
   background: black;
   border-radius: 20px;
-  border: 2px solid white; }
+  border: 2px solid white;
+  display: block; }

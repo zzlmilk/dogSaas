@@ -7,6 +7,7 @@ var Config = require('../../../lib/init');
 
 // load template
 var templateAdd = require('./AddOrganization.hbs');
+
 var templateStatus = require('./organzationStatus.hbs');
 
 
@@ -54,6 +55,7 @@ var AddOrganizationView = Backbone.View.extend({
 
 
 
+
         this.render();
 
     },
@@ -61,7 +63,7 @@ var AddOrganizationView = Backbone.View.extend({
     
     render: function() {
 
-       
+
 
         this.onLoad();
 

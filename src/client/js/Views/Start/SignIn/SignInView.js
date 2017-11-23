@@ -92,7 +92,7 @@ var SignInView = BaseView.extend({
 						}
 
 
-						//Utils.goPage("main");                     	
+
 					}
 
 				    

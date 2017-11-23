@@ -16,7 +16,7 @@
 
     Utils.prototype.getActionsParams = getActionsParams;
 
-    Utils.prototype.LocalStorage = LocalStorage;
+    
 
     // Implementation ---------------------------------------
     function logging(obj) {

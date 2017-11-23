@@ -11,10 +11,10 @@ var template = require('./Test.hbs');
 
 var SignInClient = require('../../lib/APIClients/SignInClient');
 
-var loginUserManager = require('../../lib/loginUserManager')
+var loginUserManager = require('../../lib/loginUserManager');
 
 
-var userModel = require('../../Models/user')
+var userModel = require('../../Models/user');
 
 
 
@@ -29,7 +29,7 @@ var TestView = Backbone.View.extend({
     render: function() {
 
         $(Config.defaultContaier).html(template({
-        	   
+
         }));
 
 
@@ -50,28 +50,28 @@ var TestView = Backbone.View.extend({
 
 
 
-        SignInClient.send({                    
+        SignInClient.send({
                     email:username,
                     password:password
-                                        
+
                 },function(data){
-                    
-                    
+
+
                     // loginUserManager.setUser(data.user);
                     // loginUserManager.setToken(data.token);
-                        
+
                     var user = userModel.modelByResult(data.user)
                     console.log("====",user)
-                    
-             
+
+
                     //Utils.goPage("main");
-                    
-                            
+
+
                 },function(errorCode){
                     console.log(errorCode)
                     alert(errorCode)
-                   
-                   
+
+
                 })
 
     

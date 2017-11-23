@@ -53,6 +53,7 @@ var _ = require('lodash');
             return;
         }
 
+
     		var model = new OrganizationModel({
     			id:obj._id,
     			name:obj.name,    			
@@ -63,11 +64,11 @@ var _ = require('lodash');
 
     		});
             
+
     		return model;
 
     }
 
-    
 
 
       Organization.collectionByResult = function(obj){

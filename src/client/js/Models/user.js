@@ -12,6 +12,7 @@ var OrganizationModel = require('./organization');
             token: "",        
             logionProcess:""  ,
              organization:null,
+
         
         },
 
@@ -46,11 +47,7 @@ var OrganizationModel = require('./organization');
     		});
 
 
-         
-
-          
-
-    		return model;
+		return model;
 
     }
 

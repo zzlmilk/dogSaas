@@ -8,8 +8,8 @@ describe('WEB', function () {
     var req, res;
     it('should be login in  Sucessful', function (done) {
         var body = {
-            email: "test@testCIyfp2.com",
-            password: "88888888"
+            email: "test@testk0ovO2.com",
+            password: "rex123"
         };
 
         request(app)
@@ -122,4 +122,23 @@ describe('WEB', function () {
             });
 
     });
+    it('login if email is not valid', function (done) {
+        var body={
+            email:"test",
+            password:"rex123345678"
+        };
+        request(app)
+            .post('/dogsystem/v1/user/login')
+            .send(body)
+            .end(function (err,res) {
+                if(err){
+                    throw(err);
+                }
+                res.body.code.should.be.equal(Const.resCodeLoginerrEmail);
+                done();
+
+        })
+
+    })
+
 });

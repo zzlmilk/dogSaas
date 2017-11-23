@@ -1,16 +1,17 @@
+/**
+ * Created by json on 2017/11/22.
+ */
 var Backbone = require('backbone');
 var _ = require('lodash');
 
-var Utils = require('../../lib/utils');
-var Const = require('../../lib/consts');
-var Config = require('../../lib/init');
+var Utils = require('../../../lib/utils');
+var Const = require('../../../lib/consts');
+var Config = require('../../../lib/init');
 
 // load template
-var template = require('./Button.hbs');
+var template = require('./LoginAfter.hbs');
 
-var ButtonView = Backbone.View.extend({
-
-
+var LoginAfterView = Backbone.View.extend({
 
     initialize: function(options) {
         this.render();
@@ -22,9 +23,7 @@ var ButtonView = Backbone.View.extend({
 
         }));
 
-
         this.onLoad();
-
 
         return this;
 
@@ -35,9 +34,9 @@ var ButtonView = Backbone.View.extend({
         var self = this;
 
 
-
     }
 
-})
+});
 
-module.exports = ButtonView;
+module.exports = LoginAfterView;
+

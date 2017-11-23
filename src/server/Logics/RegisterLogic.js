@@ -58,7 +58,7 @@ var RegisterLogic = {
 
 
 
-		var res = {}
+		var res = {};
 		async.waterfall([
 			function (done) {
 				//验证邮箱是否能注册一性

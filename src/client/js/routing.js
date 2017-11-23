@@ -16,6 +16,7 @@ var Routing = function(){
                 "test":"testRoute",
                 "reset":"resetRoute",              
                 "signup":"signupRoute",//登陆路由
+                "button":"buttonRoute",
                 "androidDownload":"androidDownloadRoute",
                 "organization":"organizationRoute",
                 "*actions": "defaultRoute"
@@ -27,12 +28,13 @@ var Routing = function(){
 		// Initiate the router
         var appRouter = new AppRouter;
 
+        //初识页
         appRouter.on('route:defaultRoute', function(actions) {
-        	
 
             Utils.goPage('start');            
         });
 
+        //测试
         appRouter.on('route:testRoute', function(actions) {
             
 
@@ -41,7 +43,15 @@ var Routing = function(){
                     
         });
 
-        
+        //按钮
+        appRouter.on('route:buttonRoute', function(actions) {
+
+            var ButtonView = require('./Views/Button/ButtonView.js');
+            var view = new ButtonView();
+
+        });
+
+        //开始
         appRouter.on('route:startRoute', function(actions) {
         
             var StartView = require('./Views/Start/StartView.js');              
@@ -49,9 +59,6 @@ var Routing = function(){
 
                                 
         });
-        
-
-
         
         //注册
         appRouter.on('route:signupRoute', function(actions) {
@@ -88,6 +95,7 @@ var Routing = function(){
                             actions:actions
                        });
              }
+
              else{
                 Utils.goPage('start')
              }
@@ -98,14 +106,7 @@ var Routing = function(){
 
 
 
-
-
-
-
         appRouter.on('route:mainRoute', function(actions) {
-
-
-
 
         	if(LoginUserManager.getToken() == null){               
                 Utils.goPage('start');
@@ -119,13 +120,11 @@ var Routing = function(){
             });
                  
         });
-        
 
         appRouter.on('route:resetRoute', function(actions) {
              var ResetView = require('./Views/Start/Reset/ResetView.js');   
              var view = new ResetView();  
         });
-
 
 }
 
