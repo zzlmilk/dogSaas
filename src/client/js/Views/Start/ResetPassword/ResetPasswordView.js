@@ -1,29 +1,36 @@
+/**
+ * Created by json on 2017/11/23.
+ */
 var Backbone = require('backbone');
-var template = require('./Reset.hbs');
 var _ = require('lodash');
-//var validator = require('validator');
+
 
 var Utils = require('../../../lib/utils');
 var Const = require('../../../lib/consts');
 var Config = require('../../../lib/init');
 
+//var VaildCodeClient = require('../../lib/APIClients/VaildCodeClient');
+//var RegisterClinet = require('../../lib/APIClients/RegisterClinet');
+//var UserModel = require('../../Models/user')
+//var loginUserManager = require('../../lib/loginUserManager')
+
 var BaseView = require('../BaseView');
 
-var template = require('./Reset.hbs');
+var template = require('./ResetPassword.hbs');
 
-var ResetView = BaseView.extend({
+var ResetPasswordView = BaseView.extend({
 
-	 initialize: function(options) {
-        
-        
+    initialize: function(options) {
+
+
         this.render();
     },
 
 
     render: function() {
-        
-         $(Config.defaultContaier).html(template({
-            
+
+        $(Config.defaultContaier).html(template({
+
         }));
 
 
@@ -46,12 +53,12 @@ var ResetView = BaseView.extend({
 
     },
 
-     onLoad: function(){
-     	var self = this;
+    onLoad: function(){
+        var self = this;
 
 
 
-     }
+    }
 
 
 
@@ -59,4 +66,4 @@ var ResetView = BaseView.extend({
 
 
 
-module.exports = ResetView;
+module.exports = ResetPasswordView;

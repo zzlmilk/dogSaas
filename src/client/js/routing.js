@@ -11,11 +11,15 @@ var Routing = function(){
             routes: {
                 "start": "startRoute",
                 "main": "mainRoute",
-                "signin":"signinRoute",  
+                "signin":"signinRoute", //注册路由
                 "veriftemail":"veriftemailRoute",          
                 "test":"testRoute",
                 "reset":"resetRoute",              
                 "signup":"signupRoute",//登陆路由
+                "nav":"navRoute",//首页导航路由
+                "resetpassword":"resetpasswordRoute",//重置密码
+                "setpassword":"setpasswordRoute",//设置密码
+                "organazation":"organazationRoute",//添加机构
                 "button":"buttonRoute",
                 "androidDownload":"androidDownloadRoute",
                 "organization":"organizationRoute",
@@ -51,6 +55,14 @@ var Routing = function(){
 
         });
 
+        appRouter.on('route:navRoute', function(actions) {
+
+            var NavView = require('./Views/Nav/NavView.js');
+            var view = new NavView();
+
+        });
+
+
         //开始
         appRouter.on('route:startRoute', function(actions) {
         
@@ -75,18 +87,34 @@ var Routing = function(){
 
         });
 
-        //机构
-         appRouter.on('route:organizationRoute', function(actions) {  
-             var action = Utils.getActionsParams(actions).action
-            
-             if (action == "add") {
-                      var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
-                       var view = new AddOrganizationView();
-             }
+        //重置密码
+        appRouter.on('route:resetpasswordRoute', function(actions) {
+            var ResetPasswordView = require('./Views/Start/ResetPassword/ResetPasswordView.js');
+            var view = new  ResetPasswordView({actions:actions});
 
-             else{
-                Utils.goPage('start')
-             }
+        });
+       //设置密码
+        appRouter.on('route:setpasswordRoute', function(actions) {
+            var SetPasswordView = require('./Views/SignUp/SetPassword/SetPasswordView.js');
+            var view = new  SetPasswordView({actions:actions});
+
+        });
+
+
+        //机构
+         appRouter.on('route:organizationRoute', function(actions) {
+             var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
+             var view = new AddOrganizationView();
+             //var action = Utils.getActionsParams(actions).action
+             //
+             //if (action == "add") {
+             //         var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
+             //          var view = new AddOrganizationView();
+             //}
+             //
+             //else{
+             //   Utils.goPage('start')
+             //}
           
 
         });

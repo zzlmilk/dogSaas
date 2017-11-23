@@ -2,40 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebad0205-e28b-44cd-a224-bf3e1e790dc2" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/dogSaas_node_modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.project" afterPath="$PROJECT_DIR$/.project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/SendEmail/EmailMoudle.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/SetPassword/SetPassword.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/SetPassword/SetPasswordView.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/js/Views/Start/ResetPassword/ResetPassword.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Models/user.js" afterPath="$PROJECT_DIR$/src/client/js/Models/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Button/Button.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/Button/Button.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Button/ButtonView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/Button/ButtonView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Main/Immune/ImmuneView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/Main/Immune/ImmuneView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Main/MainView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/Main/MainView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Main/Sidebar/SidebarView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/Main/Sidebar/SidebarView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/css/a.scss" afterPath="$PROJECT_DIR$/src/client/css/a.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/css/style.scss" afterPath="$PROJECT_DIR$/src/client/css/style.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Nav/LoginAfter/LoginAfter.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/Nav/LoginAfter/LoginAfter.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Nav/LoginAfter/LoginAfterView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/Nav/LoginAfter/LoginAfterView.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Nav/Nav.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/Nav/Nav.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/AddOrganization.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/AddOrganization.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/AddOrganizationView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/AddOrganizationView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/ReviewFailed.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/ReviewFailed.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/ReviewSuccess.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/ReviewSuccess.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/WaitReview.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/WaitReview.hbs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/SignUp/SendEmail/SendEmail.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/SendEmail/SendEmail.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/SignUp/SendEmail/SendEmailView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/SendEmail/SendEmailView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/SignUp/SignFooter/SignFooter.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/SignFooter/SignFooter.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/SignUp/SignHeader/SignHeader.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/SignHeader/SignHeader.hbs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/SignUp/SignUp.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/SignUp.hbs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/SignUp/SignUpView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/SignUp/SignUpView.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Start/Reset/Reset.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/Start/Reset/Reset.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Start/Reset/ResetView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/Start/Reset/ResetView.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Start/SignIn/SignIn.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/Start/SignIn/SignIn.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Start/SignIn/SignInView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/Start/SignIn/SignInView.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Start/Start.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/Start/Start.hbs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Start/StartView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/Start/StartView.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Test/Test.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/Test/Test.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/Test/TestView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/Test/TestView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/VeriftEmail/VeriftEmail.hbs" afterPath="$PROJECT_DIR$/src/client/js/Views/VeriftEmail/VeriftEmail.hbs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/Views/VeriftEmail/VeriftEmailView.js" afterPath="$PROJECT_DIR$/src/client/js/Views/VeriftEmail/VeriftEmailView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/lib/APIClients/APIClientBase.js" afterPath="$PROJECT_DIR$/src/client/js/lib/APIClients/APIClientBase.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/lib/APIClients/SendEmailClient.js" afterPath="$PROJECT_DIR$/src/client/js/lib/APIClients/SendEmailClient.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/lib/LoginUserManager.js" afterPath="$PROJECT_DIR$/src/client/js/lib/LoginUserManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/lib/Utils.js" afterPath="$PROJECT_DIR$/src/client/js/lib/Utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/lib/consts.js" afterPath="$PROJECT_DIR$/src/client/js/lib/consts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/js/routing.js" afterPath="$PROJECT_DIR$/src/client/js/routing.js" />
     </list>
     <ignored path="dogSaas.iws" />
@@ -57,107 +48,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routing.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/js/routing.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="61" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/js/Views/Test/TestView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ButtonView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/js/Views/Button/ButtonView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="organzationStatus.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/organzationStatus.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReviewFailed.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/ReviewFailed.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReviewSuccess.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/ReviewSuccess.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WaitReview.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/WaitReview.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddOrganization.hbs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AddOrganization.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/AddOrganization.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.8323699">
+              <caret line="79" column="62" selection-start-line="79" selection-start-column="62" selection-end-line="79" selection-end-column="62" />
+              <folding>
+                <element signature="n#style#0;n#select#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#1;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#2;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#3;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#3;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#3;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#div#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#2;n#div#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#div#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#2;n#div#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#6;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#6;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#div#6;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#div#6;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#10;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignUpView.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/SignUpView.js">
+      <file leaf-file-name="style.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/css/style.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Button.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/js/Views/Button/Button.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+            <state vertical-scroll-proportion="6.970588">
+              <caret line="396" column="16" selection-start-line="396" selection-start-column="16" selection-end-line="396" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -166,8 +108,34 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/client/js/Views/Button/Button.hbs" />
-        <option value="$PROJECT_DIR$/src/client/js/routing.js" />
         <option value="$PROJECT_DIR$/src/client/js/Views/Button/ButtonView.js" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/SignUp/SignUpView.js" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/Start/Start.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/Test/Test.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/Start/StartView.js" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/Start/Reset/ResetView.js" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/SignUp/SignUp.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/SignUp/SendEmail/SendEmail.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/Start/SignIn/SignIn.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/Start/SetPassword/SetPasswordView.js" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/Start/Reset/Reset.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/Start/SetPassword/SetPassword.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/Start/ResetPassword/ResetPassword.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/VeriftEmail/VeriftEmailView.js" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/SignUp/SetPassword/SetPassword.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/SignUp/SetPassword/SetPasswordView.js" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/Start/ResetPassword/ResetPasswordView.js" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/ReviewFailed.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/ReviewSuccess.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/WaitReview.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/Nav/LoginAfter/LoginAfter.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/Nav/Nav.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/SignUp/SendEmail/EmailMoudle.hbs" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/AddOrganizationView.js" />
+        <option value="$PROJECT_DIR$/src/client/js/routing.js" />
+        <option value="$PROJECT_DIR$/src/client/css/a.scss" />
+        <option value="$PROJECT_DIR$/src/client/css/style.scss" />
+        <option value="$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/AddOrganization.hbs" />
       </list>
     </option>
   </component>
@@ -259,6 +227,10 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="server">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -326,15 +298,234 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="dogSaas">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="client">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Start">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="dogSaas">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="client">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Start">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ResetPassword">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="dogSaas">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="client">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Start">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Reset">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="dogSaas">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="client">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="SignUp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="dogSaas">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="client">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="SignUp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="SendEmail">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="dogSaas">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="client">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="SignUp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Organization">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="dogSaas">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="client">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="css">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
         <subPane subId="默认的" />
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/halokit" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -401,15 +592,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27123696" sideWeight="0.5119863" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.280924" sideWeight="0.5119863" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962743" sideWeight="0.48801368" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962743" sideWeight="0.5057283" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -441,22 +635,6 @@
     <entry file="file://$PROJECT_DIR$/src/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Button/Button.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -477,14 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Test/Test.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/js/Views/Button/Button.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -497,14 +667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/js/routing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="61" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -525,7 +687,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/organzationStatus.hbs">
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -533,7 +695,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/ReviewFailed.hbs">
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/SignHeader/SignHeader.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.147059">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#header#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#h4#0;n#a#0;n#div#0;n#div#0;n#div#0;n#header#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/SignFooter/SignFooter.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -541,7 +714,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/ReviewSuccess.hbs">
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/SignFooter/SignFooterView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Test/Test.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.735294">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Start/BaseView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -549,7 +738,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/WaitReview.hbs">
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Modals/AlertDialog/AlertDialog.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -557,9 +746,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/AddOrganization.hbs">
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Modals/AlertDialog/AlertDialog.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Main/MainView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Modals/PreviewDog/PreviewDog.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="19.735294">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Start/SignIn/SignInView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Start/StartView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.15168539">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -570,6 +791,284 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/SignUp.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Nav/NavView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.30337077">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Start/SignIn/SignIn.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.147059">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#form#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Start/Start.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/VeriftEmail/VeriftEmail.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5588236">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Start/Reset/ResetView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Start/Reset/Reset.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3823528">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/SendEmail/SendEmail.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/VeriftEmail/VeriftEmailView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/SignHeader/SignHeaderView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/SendEmail/SendEmailView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.15311909">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/Test/webapi_register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/Test/webapi_sendEmail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0851486">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/ReviewSuccess.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Nav/LoginAfter/LoginAfterView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Nav/Nav.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9745223">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Nav/LoginAfter/LoginAfter.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1464968">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/Test/webapi_test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.8019802">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Start/ResetPassword/ResetPasswordView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42772278">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="2" selection-end-line="14" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/ReviewFailed.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/WaitReview.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/SetPassword/SetPassword.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.852942">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/SetPassword/SetPasswordView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3091603">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="38" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/AddOrganizationView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6183206">
+          <caret line="54" column="11" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/routing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5152672">
+          <caret line="106" column="50" selection-start-line="106" selection-start-column="50" selection-end-line="106" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/organzationStatus.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/Start/ResetPassword/ResetPassword.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.3195266">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/SendEmail/EmailMoudle.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/css/a.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1065574">
+          <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/css/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.970588">
+          <caret line="396" column="16" selection-start-line="396" selection-start-column="16" selection-end-line="396" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/js/Views/SignUp/Organization/AddOrganization.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8323699">
+          <caret line="79" column="62" selection-start-line="79" selection-start-column="62" selection-end-line="79" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#1;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#2;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#3;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#3;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#3;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#div#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#div#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#6;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#6;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#6;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#6;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#10;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

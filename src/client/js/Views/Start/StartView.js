@@ -26,8 +26,24 @@ var StartView = Backbone.View.extend({
         	   
         }));
 
+
+
         var SignInView = require('./SignIn/SignInView.js');
-        var view = new SignInView({container: '#start-view-content'});
+        var view = new SignInView({
+            container: '#start-view-content'
+        });
+
+
+
+        var SignHeaderView = require('../SignUp/SignHeader/SignHeaderView.js');
+        var view = new SignHeaderView({
+            'el': "#signheader-content"
+        });
+
+        var SignFooterView = require('../SignUp//SignFooter/SignFooterView.js');
+        var view = new SignFooterView({
+            'el': "#signfooter-content"
+        });
 
         this.onLoad();
 
@@ -39,12 +55,6 @@ var StartView = Backbone.View.extend({
 
         var self = this;  
 
-       
-
-
-          
-        
-        
 
     }
 
