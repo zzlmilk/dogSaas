@@ -75,14 +75,24 @@ var SignInView = BaseView.extend({
                 	loginUserManager.setToken(data.token);                	
 				    var user = UserModel.modelByResult(data.user) 
 				    
-				    var logionProcess = user.get("logionProcess")
-					
-					//添加组织
-					if (logionProcess == 1) {
-							Utils.goPage("organization?action=add"); 
-					}
+				    var organization = user.get("organization")
+				  
+				    if (organization == null) {
+				    	//添加组织
+				    	Utils.goPage("organization?action=add"); 
+				    }							
 					else{
-						Utils.goPage("main");                     	
+						var status = organization.get("checkStatus").status
+						//等待审核
+						if (status == 0 ) {
+
+						  
+						   Utils.goPage("organization?action=checkStatus&organization="+organization);
+
+						}
+
+
+						//Utils.goPage("main");                     	
 					}
 
 				    
@@ -96,7 +106,7 @@ var SignInView = BaseView.extend({
                 	 	message = Const.ErrorCodes[errorCode]
 
                     alert(message)
-                    
+
 
                     $('#form-signin #btn-signin').removeAttr('disabled');	
                 })

@@ -6,7 +6,7 @@ var Const = require('../../../lib/consts');
 var Config = require('../../../lib/init');
 
 // load template
-var template = require('./AddOrganization.hbs');
+var templateAdd = require('./AddOrganization.hbs');
 var templateStatus = require('./organzationStatus.hbs');
 
 
@@ -16,10 +16,44 @@ var OrganizationModel = require('../../../Models/organization');
 
 
 var AddOrganizationView = Backbone.View.extend({
-
+    params:{},
     el : null,
     initialize: function(options) {
        
+        var self = this
+        if (options.actions == null) {
+            return;
+        }else{
+            self.params = Utils.getActionsParams(options.actions)
+            var action = self.params.action
+            if (action == "add") {
+                $(Config.defaultContaier).html(templateAdd({
+                        
+                }));
+            }
+            else if (action == "edit"){
+                    //编辑
+            }
+            else if(action == "checkStatus"){
+                
+                  //等待审核
+                 $(Config.defaultContaier).html(templateStatus({
+                        //organization:organization.attributes
+                 }));
+
+            }
+            else{
+                      console.log("action wrong")
+            }
+
+
+        }
+
+        
+      
+
+
+
         this.render();
 
     },
@@ -27,9 +61,7 @@ var AddOrganizationView = Backbone.View.extend({
     
     render: function() {
 
-        $(Config.defaultContaier).html(template({
-        	   
-        }));
+       
 
         this.onLoad();
 
@@ -78,7 +110,7 @@ var AddOrganizationView = Backbone.View.extend({
 
                          }
                          else{
-                            
+
                              Utils.goPage("main");
                          }
 

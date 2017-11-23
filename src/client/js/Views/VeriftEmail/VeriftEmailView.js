@@ -22,10 +22,12 @@ var VeriftEmailView = Backbone.View.extend({
 
     	if (options.actions == null) {
     		return;
+    	}else{
+    		self.params = Utils.getActionsParams(options.actions)
     	}
 
 
-    	self.params = Utils.getActionsParams(options.actions)
+
  
     	self.vaildCode(function(data){
     		

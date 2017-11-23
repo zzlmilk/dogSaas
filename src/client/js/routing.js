@@ -73,12 +73,21 @@ var Routing = function(){
         //机构
          appRouter.on('route:organizationRoute', function(actions) {  
              var action = Utils.getActionsParams(actions).action
+
             
              if (action == "add") {
-                      var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
-                       var view = new AddOrganizationView();
+                       var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
+                       var view = new AddOrganizationView({
+                            action:action
+                       });
              }
 
+             else if(action =="checkStatus"){
+                       var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
+                       var view = new AddOrganizationView({
+                            actions:actions
+                       });
+             }
              else{
                 Utils.goPage('start')
              }

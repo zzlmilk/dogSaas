@@ -21,7 +21,7 @@ var userModel = require('../../Models/user')
 var TestView = Backbone.View.extend({
 
    
-
+    tagName: "li",
     initialize: function(options) {
         this.render();
     },
