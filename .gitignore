@@ -4,3 +4,4 @@ public/
 node_modules/
 .idea/
 .project
+package-lock.json
