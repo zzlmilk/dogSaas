@@ -24,6 +24,8 @@ var PersonalCenterView = Backbone.View.extend({
 
         }));
 
+
+
         this.onLoad();
 
         return this;
@@ -35,7 +37,33 @@ var PersonalCenterView = Backbone.View.extend({
 
         var self = this;
 
+        $('#btn_account').unbind().on('click',function(){
 
+            var AddDoctorDialogModal = require('../../Modals/AddDoctorDialog/AddDoctorDialogView');
+            AddDoctorDialogModal.show(function(){
+
+            });
+
+        });
+
+        $('.delete').unbind().on('click',function(){
+
+            var DeleteDoctorModal = require('../../Modals/DeleteDoctor/DeleteDoctorView');
+            DeleteDoctorModal.show(function(){
+
+            });
+
+        });
+
+        $('#change_password').unbind().on('click',function(){
+            alert("进入修改页面");
+            var ChangePasswordView = require('./ChangePassword/ChangePasswordView.js');
+            var view = new ChangePasswordView({
+                'el': "#change_password_view"
+            });
+
+
+        });
 
     }
 

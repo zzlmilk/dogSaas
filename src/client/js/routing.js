@@ -17,8 +17,9 @@ var Routing = function(){
                 "reset":"resetRoute",              
                 "signup":"signupRoute",//登陆路由
                 "nav":"navRoute",//首页导航路由
-                "resetpassword":"resetpasswordRoute",//重置密码
                 "setpassword":"setpasswordRoute",//设置密码
+                "resetpassword":"resetpasswordRoute",//重置密码
+                "changepassword":"changepasswordRoute",//修改密码
                 "organization":"organizationRoute",//添加机构
                 "button":"buttonRoute",
                 "androidDownload":"androidDownloadRoute",
@@ -34,7 +35,7 @@ var Routing = function(){
         //初识页
         appRouter.on('route:defaultRoute', function(actions) {
 
-            Utils.goPage('start');            
+            Utils.goPage('changepassword');
         });
 
         //测试
@@ -99,13 +100,20 @@ var Routing = function(){
 
         });
 
+        //个人中心修改密码
+
+        appRouter.on('route:changepasswordRoute', function() {
+            var ChangePasswordView = require('./Views/Main/PersonalCenter/ChangePassword/ChangePasswordView.js');
+            var view = new  ChangePasswordView();
+
+        });
 
         //机构
          appRouter.on('route:organizationRoute', function(actions) {
              //var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
              //var view = new AddOrganizationView();
-             var action = Utils.getActionsParams(actions).action
 
+             var action = Utils.getActionsParams(actions).action
              if (action == "add") {
                       var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
                        var view = new AddOrganizationView();
