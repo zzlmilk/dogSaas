@@ -1,18 +1,18 @@
 /**
- * Created by json on 2017/11/22.
+ * Created by json on 2017/11/24.
  */
-
 var Backbone = require('backbone');
 var _ = require('lodash');
 
-var Utils = require('../../../../lib/utils');
-var Const = require('../../../../lib/consts');
-var Config = require('../../../../lib/init');
+var Utils = require('../../../lib/utils');
+var Const = require('../../../lib/consts');
+var Config = require('../../../lib/init');
 
 // load template
-var template = require('./DogAdd.hbs');
+var template = require('./ImmuneCard.hbs');
 
-var DogAddView = Backbone.View.extend({
+var ImmuneCardView = Backbone.View.extend({
+
 
     el : null,
     initialize: function(options) {
@@ -30,15 +30,15 @@ var DogAddView = Backbone.View.extend({
         return this;
 
     },
-
     onLoad: function(){
 
         var self = this;
 
 
 
+
     }
+
 });
 
-module.exports = DogAddView;
-
+module.exports = ImmuneCardView;

@@ -19,10 +19,9 @@ var Routing = function(){
                 "nav":"navRoute",//首页导航路由
                 "resetpassword":"resetpasswordRoute",//重置密码
                 "setpassword":"setpasswordRoute",//设置密码
-                "organazation":"organazationRoute",//添加机构
+                "organization":"organizationRoute",//添加机构
                 "button":"buttonRoute",
                 "androidDownload":"androidDownloadRoute",
-                "organization":"organizationRoute",
                 "*actions": "defaultRoute"
 
             }
@@ -103,28 +102,29 @@ var Routing = function(){
 
         //机构
          appRouter.on('route:organizationRoute', function(actions) {
-             var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
-             var view = new AddOrganizationView();
-             //var action = Utils.getActionsParams(actions).action
-             //
-             //if (action == "add") {
-             //         var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
-             //          var view = new AddOrganizationView();
-             //}
-             //
-             //else{
-             //   Utils.goPage('start')
-             //}
+             //var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
+             //var view = new AddOrganizationView();
+             var action = Utils.getActionsParams(actions).action
+
+             if (action == "add") {
+                      var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
+                       var view = new AddOrganizationView();
+             }
+
+             else{
+                Utils.goPage('start')
+             }
           
 
         });
 
+        //控制台页面
         appRouter.on('route:mainRoute', function(actions) {
 
-        	if(LoginUserManager.getToken() == null){               
-                Utils.goPage('start');
-                return;
-            }
+            //if(LoginUserManager.getToken() == null){
+            //    Utils.goPage('start');
+            //    return;
+            //}
 
             var MainView = require('./Views/Main/MainView.js');   
             var view = new MainView({

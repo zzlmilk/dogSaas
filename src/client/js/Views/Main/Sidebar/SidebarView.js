@@ -37,16 +37,47 @@ var SidebarView = Backbone.View.extend({
             'el': "#main-content"
         });
 
+         //办理狗证
+        $('#btn_dogManager').unbind().on('click',function(){
 
+            var DogCardView = require('../Dog/DogCard/DogCardView');
 
+            var view = new DogCardView({
+                'el': "#main-content"
+            });
+
+        });
+
+        //免疫年检
          $('#btn_immuneManager').unbind().on('click',function(){
 
             var ImmuneView = require('../Immune/ImmuneView');
             
             var view = new ImmuneView({
                   'el': "#main-content"
-                }); 
-            
+            });
+
+        });
+
+        //免疫卡管理
+        $('#btn_immuneManagerCard').unbind().on('click',function(){
+
+            var ImmuneCardView = require('../ImmuneCard/ImmuneCardView');
+
+            var view = new ImmuneCardView({
+                'el': "#main-content"
+            });
+
+        });
+
+        //信息查询
+        $('#btn_infoSearch').unbind().on('click',function(){
+
+            var InfoSearchView = require('../InfoSearch/InfoSearchView');
+
+            var view = new InfoSearchView({
+                'el': "#main-content"
+            });
 
         });
 
