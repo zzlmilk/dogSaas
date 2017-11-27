@@ -36,8 +36,7 @@ var WebAPIMain = {
 
 
 
-					//下载地址重定向
-					router.use("/app/download", require('./App/DownloadHandler'));
+					
 
 
 					//api版本控制

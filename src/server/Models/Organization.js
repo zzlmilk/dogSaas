@@ -30,12 +30,13 @@ Organization.prototype.init = function(mongoose){
 			 		name:String,
 			 		phone:String,
 			 },
-			adminUser:{ type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "users" },  //该机构超级账户，第一次注册信息的用户
+			adminUser:{type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "users" },  //该机构超级账户，第一次注册信息的用户
 			checkStatus:{
 				status:Number, //状态：  0等待审核   1审核通过   -1审核未通过
 				comment:String,
 				time:Date, //时间
 			},
+			veterinarians:[{type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "veterinarians" }], //兽医(填写人名)
 			created:Date
 
 				

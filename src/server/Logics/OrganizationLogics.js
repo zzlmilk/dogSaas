@@ -59,6 +59,7 @@ var OrganizationLogics = {
 							name: organizationParam.contacts_name,
 							phone: organizationParam.contacts_phone,
 						},
+						
 						adminUser: user._id,
 						checkStatus: {
 							status: 0,
@@ -143,6 +144,7 @@ var OrganizationLogics = {
 		})
 	},
 	validatorParam: function (param, callback) {
+
 		var name = param.name,
 			province = param.province,
 			district = param.district,

@@ -1,10 +1,10 @@
 	var Const = {};
 
+ 
+  	 Const.responsecodeSucceed = 1;
 
- 	Const.responsecodeSucceed = 1;
 
-
-	 Const.httpCodeSucceed = 200;
+  	 Const.httpCodeSucceed = 200;
      Const.httpCodeServerError =500;
      Const.httpCodeForbidden = 403;
 
@@ -13,7 +13,7 @@
      Const.resCodeRegisterNoPassword  = 1000002
     
 
-
+     
      Const.resCodeLoginNoEmail  = 1000003
      Const.resCodeLoginNoPassword  = 1000004
 

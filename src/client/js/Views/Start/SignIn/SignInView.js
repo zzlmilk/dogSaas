@@ -101,9 +101,9 @@ var SignInView = BaseView.extend({
                     $('#form-signin #btn-signin').removeAttr('disabled');				
                     
                 },function(errorCode){
-                	 
+                console.log(errorCode)                	 
                 	 if(Const.ErrorCodes[errorCode])
-                	 	message = Const.ErrorCodes[errorCode]
+                	 var message = Const.ErrorCodes[errorCode]
 
                     alert(message)
 
