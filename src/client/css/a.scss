@@ -1,7 +1,7 @@
 //办理狗证
 *{margin: 0;padding: 0;}
 #dog_manage{
-  width: 800px;
+  width: 900px;
   height: 500px;
   float: left;
   background:#fcfcfc ;
@@ -13,27 +13,26 @@
   background:#2e3645 ;
 }
 #manage_content{
-  width: 700px;
+  width: 800px;
   height: 500px;
   float: left;
   padding: 25px;
 }
-#form_dog{
-  width: 650px;
-  height: 200px;
+.registration{
+  width: 750px;
+  height: auto;
   float: left;
   margin-top: 20px;
   background: #ffffff;
   border: 1px solid grey;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
-#form_vaccin{
-  width: 650px;
-  height: 150px;
-  float: left;
-  margin-top: 20px;
-  background: #ffffff;
-  border: 1px solid grey;
+.input_float{
+  float:left;
 }
+
+
 #next{
   width: 200px;
   margin-top: 20px;
