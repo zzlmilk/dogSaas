@@ -19,7 +19,7 @@ var Routing = function(){
                 "nav":"navRoute",//首页导航路由
                 "setpassword":"setpasswordRoute",//设置密码
                 "resetpassword":"resetpasswordRoute",//重置密码
-                "changepassword":"changepasswordRoute",//修改密码
+                "changepassword":"changepasswordRoute",//个人中心修改密码
                 "organization":"organizationRoute",//添加机构
                 "button":"buttonRoute",
                 "androidDownload":"androidDownloadRoute",
@@ -35,7 +35,7 @@ var Routing = function(){
         //初识页
         appRouter.on('route:defaultRoute', function(actions) {
 
-            Utils.goPage('changepassword');
+            Utils.goPage('start');
         });
 
         //测试

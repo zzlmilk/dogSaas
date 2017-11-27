@@ -20,7 +20,7 @@ var Config = require('../../../../lib/init');
 
 var template = require('./ChangePassword.hbs');
 
-var ChangePasswordView = BaseView.extend({
+var ChangePasswordView = Backbone.View.extend({
 
     initialize: function(options) {
 

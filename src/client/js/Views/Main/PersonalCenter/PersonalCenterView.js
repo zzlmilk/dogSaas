@@ -55,15 +55,15 @@ var PersonalCenterView = Backbone.View.extend({
 
         });
 
-        $('#change_password').unbind().on('click',function(){
-            alert("进入修改页面");
-            var ChangePasswordView = require('./ChangePassword/ChangePasswordView.js');
-            var view = new ChangePasswordView({
-                'el': "#change_password_view"
-            });
-
-
-        });
+        //$('#change_password').unbind().on('click',function(){
+        //    alert("进入修改页面");
+        //    var ChangePasswordView = require('./ChangePassword/ChangePasswordView.js');
+        //    var view = new ChangePasswordView({
+        //        'el': "#change_password_view"
+        //    });
+        //
+        //
+        //});
 
     }
 

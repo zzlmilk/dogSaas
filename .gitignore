@@ -1,4 +1,6 @@
 # Mac
 .DS_Store
-public
-node_modules
+public/
+node_modules/
+.idea/
+package-lock.json

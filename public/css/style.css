@@ -5919,9 +5919,9 @@ button.close {
   background: #ffffff;
   margin-bottom: 20px; }
 
-#child_account {
+#add_doctor {
   width: 958px;
-  height: 200px;
+  height: auto;
   border: 1px solid grey;
   background: #ffffff;
   margin-bottom: 20px; }
