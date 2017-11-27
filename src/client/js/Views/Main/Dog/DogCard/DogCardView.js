@@ -12,7 +12,7 @@ var Config = require('../../../../lib/init');
 // load template
 var template = require('./DogCard.hbs');
 
-var DogAddView = Backbone.View.extend({
+var DogCardView = Backbone.View.extend({
 
     el : null,
     initialize: function(options) {
@@ -34,16 +34,23 @@ var DogAddView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;
-        $(".form_datetime").datetimepicker({
-            format: "dd MM yyyy - hh:ii",
-            autoclose: true,
-            todayBtn: true,
-            pickerPosition: "bottom-left"
+        //$(".form_datetime").datetimepicker({
+        //    format: "dd MM yyyy - hh:ii",
+        //    autoclose: true,
+        //    todayBtn: true,
+        //    pickerPosition: "bottom-left"
+        //});
+        $('#post_info').unbind().on('click',function(){
+
+            var InfoPreviewModal = require('../../../Modals/InfoPreview/InfoPreview');
+            InfoPreviewModal.show(function(){
+
+            });
         });
 
 
     }
 });
 
-module.exports = DogAddView;
+module.exports = DogCardView;
 

@@ -9,9 +9,9 @@ var Const = require('../../../lib/consts');
 var Config = require('../../../lib/init');
 
 // load template
-var template = require('./ImmuneCard.hbs');
+var template = require('./DogInfo.hbs');
 
-var ImmuneCardView = Backbone.View.extend({
+var DogInfoView = Backbone.View.extend({
 
 
     el : null,
@@ -41,4 +41,4 @@ var ImmuneCardView = Backbone.View.extend({
 
 });
 
-module.exports = ImmuneCardView;
+module.exports = DogInfoView;
