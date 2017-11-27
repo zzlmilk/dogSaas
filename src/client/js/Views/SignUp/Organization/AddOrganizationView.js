@@ -76,7 +76,17 @@ var AddOrganizationView = Backbone.View.extend({
 
     onLoad: function(){
 
-        var self = this;  
+        var self = this;
+
+        var SignHeaderView = require('../SignHeader/SignHeaderView.js');
+        var view = new SignHeaderView({
+            'el': "#signheader-content"
+        });
+
+        var SignFooterView = require('../SignFooter/SignFooterView.js');
+        var view = new SignFooterView({
+            'el': "#signfooter-content"
+        });
 
 
         $("#addOrganizationBtn").unbind().on('click',function(e){

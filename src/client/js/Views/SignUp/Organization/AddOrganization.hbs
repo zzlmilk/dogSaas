@@ -1,14 +1,100 @@
-添加组织
+<div>
+    <div id="signheader-content"></div>
 
-<form id="addOrganization_form">
-        <div class="form-group">
-            <label class="sr-only" for="">机构名称</label>
-            <input class="form-control" id="organization_name" autofocus="autofocus" type="" name="organization_name" placeholder="请输入机构名称">
-            
+    <div class="wrap">
+        <div class="box">
+                <form id="addOrganization_form">
+                    <p style="text-align: center">完成以下信息并提交即可完成注册</p>
+                    <div class="form-groups">
+                        <label  for="organization_name">*免疫点名称:</label>
+                        <input  id="organization_name" autofocus="autofocus" type="text" name="organization_name"/>
+                    </div>
+                    <div class="form-groups">
+                        <label  for="organization_address">*地址:</label>
+
+                            <select style="width: 87px;" name="province" id="province">
+                                <option value="">选择省份</option>
+                            </select>
+                            <select  style="width: 87px;" name="city" id="city">
+                                <option value="">选择城市</option>
+                            </select>
+                            <select  style="width: 86px;" name="districtAndCounty" id="districtAndCounty">
+                                <option value="">选择区</option>
+                            </select>
+                    </div>
+
+                    <div class="form-groups">
+                        <label  for="detailed_address">*详细地址:</label>
+                        <input  id="detailed_address" autofocus="autofocus" type="text" name="detailed_address"/>
+                    </div>
+                    <div class="form-groups">
+                        <label  for="telephone">*座机:</label>
+                        <select style="width: 60px;float:left" name="province" id="telephone">
+                            <option value="">021</option>
+                        </select>
+                        <span style="float:left;margin-left:10px">--</span>
+                        <input style="width: 190px;float:left;" type="text" id="telephone_number" />
+                    </div>
+                    <div class="form-groups" style="height: 100px">
+                        <div style="float:left;width: 110px; height: 100px;line-height:10px;">
+                            <label style="width:110px;text-align:right;"  for="upload_img">*营业执照:</label>
+                            <span style="width:110px;float:left;text-align:right;font-size:12px;margin-bottom:15px;">彩色无水印</span>
+                            <span style="width:110px;float:left;text-align:right;font-size:12px;margin-bottom:15px;">jpg,png,jieg.</span>
+                            <span style="width:110px;float:left;text-align:right;font-size:12px;">2M以内</span>
+                        </div>
+                        <div style="float:left;margin-left:10px; width: 280px;height: 98px;border:1px grey solid;">
+                            <!--<input type="file"  value="上传图片">-->
+                        </div>
+                    </div>
+                    <div class="form-groups" style="height: 100px">
+                        <div style="float:left;width: 110px;height: 100px;line-height:10px;">
+                            <label style="width:110px;text-align:right;" for="upload_img">*动物诊疗许可证:</label>
+                            <span style="width:110px;float:left;text-align:right;font-size:12px;margin-bottom:15px;">彩色无水印</span>
+                            <span style="width:110px;float:left;text-align:right;font-size:12px;margin-bottom:15px;">jpg,png,jieg.</span>
+                            <span style="width:110px;float:left;text-align:right;font-size:12px;">2M以内</span>
+                        </div>
+                        <div style="float:left;margin-left:10px; width: 278px;height: 98px;border:1px grey solid;">
+                            <!--<input type="file"  value="上传图片">-->
+                        </div>
+                    </div>
+                    <div class="form-groups">
+                        <label  for="service">*服务范围:</label>
+                        <input type="checkbox" style="width:20px;height:20px;margin-top:7px;" id="medical">
+                        <span style="float:left">医疗</span>
+                        <input type="checkbox" style="width:20px;height:20px;margin-top:7px;" id="facial">
+                        <span style="float:left">美容</span>
+                    </div>
+                    <div class="form-groups">
+                        <label  for="doctor_name">*兽医姓名:</label>
+                        <input type="text" id="doctor_name">
+                    </div>
+                    <div class="form-groups">
+                        <label  for="contacts">*联系人:</label>
+                        <input type="text" id="contacts">
+                    </div>
+                    <div class="form-groups">
+                        <label  for="contacts_phone">*联系人电话:</label>
+                        <input type="text" id="contacts_phone">
+                    </div>
+                    <div class="form-groups">
+                        <button  class="btn btnBlueE btn-block" style="margin-left:120px;float:left;" id="addOrganizationBtn" type="submit">提交</button>
+                    </div>
+
+                </form>
+
         </div>
+    </div>
 
-    <button  id="addOrganizationBtn"type="button"> 确定添加</button>
-</form>
+
+    <!--<div id="signfooter-content"></div>-->
+    <div style="width:100%;height:auto;background:#cccccc;margin-top: 700px;" >
+        <div class="container">
+            <p class="text-center" >沪ICP备 16015040号-2 上海市徐汇区虹梅路2071号二号楼311室</p>
+            <p class="text-center" style="margin-top:-20px;">Copyright©2016-2017，HALOKIT.CN,All Rights Reserved</p>
+        </div>
+    </div>
+</div>
+
 
 
 

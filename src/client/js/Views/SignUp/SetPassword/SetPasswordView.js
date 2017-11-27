@@ -2,32 +2,45 @@
  * Created by json on 2017/11/13.
  */
 /**
- * Created by json on 2017/11/13.
+
  */
 var Backbone = require('backbone');
 var _ = require('lodash');
+
 
 var Utils = require('../../../lib/utils');
 var Const = require('../../../lib/consts');
 var Config = require('../../../lib/init');
 
-// load template
+
 var template = require('./SetPassword.hbs');
 
 var SetPasswordView = Backbone.View.extend({
 
 
-    el : null,
     initialize: function(options) {
-        this.el = options.el;
+
+
         this.render();
     },
 
+
     render: function() {
 
-        $(this.el).html(template({
+        $(Config.defaultContaier).html(template({
 
         }));
+
+
+        var SignHeaderView = require('../SignHeader/SignHeaderView.js');
+        var view = new SignHeaderView({
+            'el': "#signheader-content"
+        });
+
+        var SignFooterView = require('../SignFooter/SignFooterView.js');
+        var view = new SignFooterView({
+            'el': "#signfooter-content"
+        });
 
         this.onLoad();
 
@@ -35,7 +48,9 @@ var SetPasswordView = Backbone.View.extend({
 
     },
 
+
     onLoad: function(){
+
 
         var self = this;
 
@@ -43,8 +58,11 @@ var SetPasswordView = Backbone.View.extend({
 
     }
 
-});
+})
+
+
 
 module.exports =SetPasswordView;
+
 
 

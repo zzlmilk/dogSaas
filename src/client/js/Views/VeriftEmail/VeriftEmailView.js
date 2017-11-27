@@ -7,8 +7,8 @@ var Config = require('../../lib/init');
 
 // load template
 var template = require('./VeriftEmail.hbs');
-var VaildCodeClient = require('../../lib/APIClients/VaildCodeClient');
 
+var VaildCodeClient = require('../../lib/APIClients/VaildCodeClient');
 var RegisterClinet = require('../../lib/APIClients/RegisterClinet');
 var UserModel = require('../../Models/user')
 var loginUserManager = require('../../lib/loginUserManager')

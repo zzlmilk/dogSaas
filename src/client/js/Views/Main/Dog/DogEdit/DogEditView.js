@@ -39,11 +39,9 @@ var DogEditView = Backbone.View.extend({
                 
 
             });
-
-
             
 
-        });
+         });
 
 
     }

@@ -26,11 +26,24 @@ var SignUpView = Backbone.View.extend({
     render: function() {
 
         $(Config.defaultContaier).html(template());
+
+
                 
-        var SendEmailView = require('./SendEmail/SendEmailView.js'); 
+        var SendEmailView = require('./SendEmail/SendEmailView.js');
         var view = new SendEmailView({
             'el': "#signup-content"
         });
+
+        var SignHeaderView = require('./SignHeader/SignHeaderView.js');
+        var view = new SignHeaderView({
+            'el': "#signheader-content"
+        });
+
+        var SignFooterView = require('./SignFooter/SignFooterView.js');
+        var view = new SignFooterView({
+            'el': "#signfooter-content"
+        });
+
 
         this.onLoad();
         
@@ -41,10 +54,6 @@ var SignUpView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;
-
-
-        
-
 
     
     }
