@@ -31,8 +31,6 @@ OwnerModel.prototype.init = function(mongoose){
 			 		code:String //邮编
 			 },
 			 
-			 
-
 			dogs:[{ type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "dogs" }],   //
 			created:Date, //注册时间																			
 			

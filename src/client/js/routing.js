@@ -79,6 +79,7 @@ var Routing = function(){
             var view = new SignUpView();
                         
         });
+
         
         //验证邮箱
         appRouter.on('route:veriftemailRoute', function(actions) {            
@@ -86,6 +87,7 @@ var Routing = function(){
             var view = new VeriftEmailView({actions:actions});
 
         });
+
 
         //重置密码
         appRouter.on('route:resetpasswordRoute', function(actions) {
@@ -114,9 +116,21 @@ var Routing = function(){
              //var view = new AddOrganizationView();
 
              var action = Utils.getActionsParams(actions).action
+
+            
              if (action == "add") {
-                      var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
-                       var view = new AddOrganizationView();
+                       var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
+                       var view = new AddOrganizationView({
+                            action:action
+                       });
+             }
+
+             else if(action =="checkStatus"){
+                       var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
+                       var view = new AddOrganizationView({
+                            actions:actions
+                       });
+
              }
 
              else{
@@ -126,13 +140,14 @@ var Routing = function(){
 
         });
 
-        //控制台页面
+
         appRouter.on('route:mainRoute', function(actions) {
 
             //if(LoginUserManager.getToken() == null){
             //    Utils.goPage('start');
             //    return;
             //}
+
 
             var MainView = require('./Views/Main/MainView.js');   
             var view = new MainView({

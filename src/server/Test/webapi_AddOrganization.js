@@ -22,7 +22,8 @@ describe('WEB', function () {
                             animalMedicalLicense:"",
                             serviceScope:"",
                             contacts_name:"",
-                            contacts_phone:""
+                            contacts_phone:"",
+                            veterinarians:["a","b"]
                         };  
                      request(app)
                         .post('/dogsystem/v1/organization/add')

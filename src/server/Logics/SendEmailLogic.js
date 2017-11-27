@@ -47,8 +47,8 @@ var SendEmailLogic = {
 								})
 								},
 								function(result,done){
-									var code = Utils.randomCode(6);
-									 Mail.sendOne(code,email,"获取可点验证码",function(){
+									var code = Utils.randomString(24);
+									 Mail.sendOne(code,email,useType,"获取可点验证码",function(){
 					    				DayuModel.insertCode(email,code,useType,function(err,result){	
 								    						if (err) {
 								    							 console.log("email err",err)
@@ -90,8 +90,8 @@ var SendEmailLogic = {
 									})
 								},
 								function(result,done){
-									var code = Utils.randomCode(6);
-									 Mail.sendOne(code,email,"获取可点验证码",function(){
+									var code = Utils.randomString(24);
+									 Mail.sendOne(code,email,useType,"获取可点验证码",function(){
 					    				DayuModel.insertCode(email,code,useType,function(err,result){	
 								    						if (err) {
 								    							 console.log("email err",err)
@@ -115,12 +115,12 @@ var SendEmailLogic = {
 
 			VaildEmail:function(param, onSuccess, onError){
 					
-				 if(Utils.isEmpty(param.email)){
-				 		 if(onError)
-				 		 	 onError(null,Const.resCodeDayuNoEmail);
+				 // if(Utils.isEmpty(param.email)){
+				 // 		 if(onError)
+				 // 		 	 onError(null,Const.resCodeDayuNoEmail);
 
-				 		 	return;
-				 }
+				 // 		 	return;
+				 // }
 
 
 				 if(Utils.isEmpty(param.code)){
@@ -129,20 +129,21 @@ var SendEmailLogic = {
 				 		 	return;
 				 }
 
-				 if(Utils.isEmpty(param.useType)){
-				 		 if(onError)
-				 		 	 onError(null,Const.resCodeLoginNoUseType);
-				 		 	return;
-				 }
+				 // if(Utils.isEmpty(param.useType)){
+				 // 		 if(onError)
+				 // 		 	 onError(null,Const.resCodeLoginNoUseType);
+				 // 		 	return;
+				 // }
 
-				 var dayuModel = DayuModel.get();
-				  dayuModel.findOne({email:param.email,code:param.code,type:1,useType:param.useType},function(err,model){ 				  	
+				  var dayuModel = DayuModel.get();
+				  dayuModel.findOne({code:param.code},function(err,model){ 				  	
 			                if (model) {
-			                	model.type = -1;
+			                	model.type = 1;
 			                	model.save(function(err,dayuResult){
 			                			if(!err){
-			                				onSuccess({
-			                					code:Const.resCodeDayuVaildeCodeSuccess
+			                				onSuccess({			                					
+			                					email:model.email,
+			                					useType:model.useType,
 			                				})
 			                			}
 			                	});

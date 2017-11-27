@@ -32,9 +32,9 @@ VaildEmailHandler.prototype.attach = function(route){
 	 route.post('/',function(request,response){			
 			 //验证参数：暂时省
 			SendEmailLogic.VaildEmail(request.body,function(result){							
-					 self.successResponse(response,Const.responsecodeSucceed,{
-		                 code: result,
-		            });
+					 self.successResponse(response,Const.responsecodeSucceed,
+		                  result,
+		            );
 
 				},function(err,code){
 						if (err) {

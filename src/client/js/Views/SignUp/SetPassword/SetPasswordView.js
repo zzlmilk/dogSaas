@@ -1,5 +1,8 @@
 /**
- * Created by json on 2017/11/23.
+ * Created by json on 2017/11/13.
+ */
+/**
+
  */
 var Backbone = require('backbone');
 var _ = require('lodash');
@@ -13,6 +16,7 @@ var Config = require('../../../lib/init');
 var template = require('./SetPassword.hbs');
 
 var SetPasswordView = Backbone.View.extend({
+
 
     initialize: function(options) {
 
@@ -42,22 +46,23 @@ var SetPasswordView = Backbone.View.extend({
 
         return this;
 
-
-
-
     },
 
+
     onLoad: function(){
+
+
         var self = this;
 
 
 
     }
 
-
-
 })
 
 
 
-module.exports = SetPasswordView;
+module.exports =SetPasswordView;
+
+
+

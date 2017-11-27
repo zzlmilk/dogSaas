@@ -5,7 +5,7 @@ const Utils = require("../../lib/Utils");
 var _ = require('lodash');
 var Const = require("../../lib/consts");
 
-//var RegisterLogic = require("../../Logics/RegisterLogic");
+
 
 
 
@@ -24,7 +24,7 @@ EditOrganizationHandler.prototype.attach = function(route){
 	 route.post('/',function(request,response){
 
 			
-
+	 	
 	 })
 }
 

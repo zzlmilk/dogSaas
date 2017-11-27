@@ -14,13 +14,11 @@
     Utils.prototype.getURLQuery = getURLQuery;
     Utils.prototype.l10n = localize; //语言包
 
-    Utils.prototype.getActionsParams = getActionsParams
+    Utils.prototype.getActionsParams = getActionsParams;
 
+    
 
-
-
-
-    	  // Implementation ---------------------------------------
+    // Implementation ---------------------------------------
     function logging(obj) {
         console.log(obj);
     }

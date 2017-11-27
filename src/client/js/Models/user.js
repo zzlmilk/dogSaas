@@ -1,6 +1,8 @@
 var Backbone = require('backbone');
 var _ = require('lodash');
 
+var OrganizationModel = require('./organization');
+
  // Class ------------------------------------------------
     var UserModel = Backbone.Model.extend({
 
@@ -8,7 +10,9 @@ var _ = require('lodash');
             id: "",            
             email: "",            
             token: "",        
-            logionProcess:""   
+            logionProcess:""  ,
+             organization:null,
+
         
         },
 
@@ -32,16 +36,18 @@ var _ = require('lodash');
 
     user.modelByResult = function(obj){
 
+
     		var model = new UserModel({
     			id:obj._id,
     			email:obj.email,    			
     			logionProcess:obj.logionProcess,
+                organization : OrganizationModel.modelByResult(obj.organization),
+
 
     		});
 
-          
 
-    		return model;
+		return model;
 
     }
 

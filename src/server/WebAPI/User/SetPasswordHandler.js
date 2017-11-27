@@ -28,6 +28,7 @@ SetPasswordHandler.prototype.attach = function(route){
 		                token: result.token,
 		                user:  Utils.pickUser(result.user),		                
 		            });
+					 
 
 				},function(err,code){
 						if (err) {

@@ -36,6 +36,9 @@ var WebAPIMain = {
 
 
 
+					
+
+
 					//api版本控制
 					app.use(init.urlPrefix + "/v1", router);
 

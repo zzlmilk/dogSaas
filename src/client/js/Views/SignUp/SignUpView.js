@@ -55,10 +55,6 @@ var SignUpView = Backbone.View.extend({
 
         var self = this;
 
-
-
-
-
     
     }
 
