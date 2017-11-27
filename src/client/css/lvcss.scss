@@ -1,0 +1,125 @@
+
+//首页导航条样式
+$blue: #3399ff;
+$black:#000000;
+$a:#ffffff;
+$text:14px;
+$width:345px;
+$height:44px;
+*:focus {
+  outline: 0;
+}
+.navbar{
+  .navbar-header{
+    a{
+      img{
+        width: 75px;
+        height: 50px;
+        float: left;
+        margin-top: -20px;
+      }
+    }
+  }
+  .navbar-nav{
+    list-style: none;
+    a{
+      font-size: $text;
+      color: $a;
+      border-bottom: 2px $black solid;
+    }
+    a:hover{
+      border-bottom: 2px $blue solid;
+      background: $black;
+    }
+    .navbar-form{
+      .btn-default{
+        font-size: $text;
+        width: 80px;
+        height: 35px;
+        color: $a;
+        background: $black;
+        border-radius: 20px;
+        border: 2px solid $a;
+      }
+    }
+  }
+}
+
+//登陆注册页面的头部与尾部样式
+
+.header{
+  font-size: $text;
+}
+.footer{
+  background: #cccccc;
+  font-size: $text;
+  padding-top: 15px;
+}
+
+//登陆注册组件样式
+.signup{
+  width: $width;
+  height: auto;
+  margin:20px auto ;
+  .large-title{
+    font-size: 20px;
+    color:$black;
+  }
+  .form-control{
+    width: $width;
+    height: $height;
+    border-radius:4px ;
+    float: left;
+    margin-bottom:30px ;
+  }
+  .form-control:focus{
+    border-color:$blue ;
+  }
+  #btn-login{
+    width: $width;
+    height:$height;
+    border-radius:4px ;
+    background: $blue;
+  }
+  #btn-forgetpassword{
+    width: 100px;
+    height: 20px;
+    line-height: 20px;
+    font-size: $text;
+    float: left;
+    margin-top:30px ;
+    color:$black;
+  }
+  #btn-register{
+    width: 100px;
+    height: 20px;
+    line-height: 20px;
+    font-size: $text;
+    float: right;
+    margin-top:30px ;
+    color:$black;
+    text-align: right;
+  }
+  .tips{
+    width: $width;
+    font-size: $text;
+    color:$black;
+    height: auto;
+    padding-bottom: 5px;
+  }
+
+  .backsign{
+    width: $width;
+    height: 20px;
+    text-align: center;
+    margin-top: 30px;
+    line-height: 20px;
+  }
+}
+
+//信息填写页面组件
+.info{
+  width: 500px;
+  height: auto;
+  margin: 20px auto;
+}
