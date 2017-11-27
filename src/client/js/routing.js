@@ -117,11 +117,12 @@ var Routing = function(){
 
              var action = Utils.getActionsParams(actions).action
 
-            
              if (action == "add") {
+                        
+
                        var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
                        var view = new AddOrganizationView({
-                            action:action
+                            actions:actions
                        });
              }
 

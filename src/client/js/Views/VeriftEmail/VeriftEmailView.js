@@ -79,6 +79,8 @@ var VeriftEmailView = Backbone.View.extend({
         },function(data){           	          	                                                    
         	self.params.email = data.email;
         	self.params.useType =data.useType;
+
+        	
             callback()
 
                     
@@ -119,7 +121,10 @@ var VeriftEmailView = Backbone.View.extend({
                     
                             
                 },function(errorCode){
-                    alert(errorCode)
+                    if(Const.ErrorCodes[errorCode])
+                    message = Const.ErrorCodes[errorCode]
+
+                    alert(message)
 
                                       
                 })

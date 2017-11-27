@@ -20,14 +20,22 @@ var AddOrganizationView = Backbone.View.extend({
     params:{},
     el : null,
     initialize: function(options) {
+
+         console.log(options)
        
         var self = this
         if (options.actions == null) {
+            alert("aaa")
             return;
         }else{
+            alert("cccc")
             self.params = Utils.getActionsParams(options.actions)
             var action = self.params.action
+
+
             if (action == "add") {
+
+
                 $(Config.defaultContaier).html(templateAdd({
                         
                 }));
