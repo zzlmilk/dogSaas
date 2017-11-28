@@ -25,7 +25,6 @@ var DogOwnerListView = Backbone.View.extend({
 
         }));
 
-
         this.onLoad();
 
         return this;
