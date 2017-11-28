@@ -53,6 +53,8 @@ var SignInView = BaseView.extend({
         var self = this;
 
 
+
+
         $('#form-signin input').bind().on('keyup',function(e){
 
             if (e.keyCode == 13) {
@@ -71,8 +73,10 @@ var SignInView = BaseView.extend({
          		
 				
 				if (username =="" ||password =="") {
-		 			$('#login_form .username').addClass('has-error');
-					$('#login_form .username .help-block').text("用户名或密码为空");
+		 			// $(".help-block").show();
+		 			// $(".help-block").text("密码为空");
+
+
 				}
 				else{
 
@@ -81,33 +85,17 @@ var SignInView = BaseView.extend({
                     password:password
                                         
                 },function(data){
-                	loginUserManager.setToken(data.token);  
-					loginUserManager.setUser(data.user);
 
-				     var user = UserModel.modelByResult(data.user) 
+                	loginUserManager.setToken(data.token);  
+				     //存入本地缓存 
+				     var user = UserModel.modelByResult(data.user) 		
+				     loginUserManager.setLoginUserID(user.get("id"))
 				   	 user.save();
 
 
 
 
 				    Utils.goPage("organization"); 
-				  
-
-				 //    if (organization == null) {
-				 //    	//添加组织
-				 //    	Utils.goPage("organization?action=add"); 
-				 //    }							
-					// else{
-					// 	var status = organization.get("checkStatus").status
-					// 	//等待审核
-					// 	if (status == 0 ) {						  
-					// 	   Utils.goPage("organization?action=checkStatus&organization="+organization);
-
-					// 	}
-
-
-
-					// }
 
 				    
                     
@@ -115,7 +103,7 @@ var SignInView = BaseView.extend({
                     $('#form-signin #btn-signin').removeAttr('disabled');				
                     
                 },function(errorCode){
-                	console.log(errorCode)                	 
+                	 console.log(errorCode)                	 
                 	 if(Const.ErrorCodes[errorCode])
                 	 var message = Const.ErrorCodes[errorCode]
 

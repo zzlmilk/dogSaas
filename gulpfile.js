@@ -25,9 +25,6 @@ var sourceCSS = 'src/client/css/',
 
 
 
-
-
-
 gulp.task('copy', function() {
 	gulp.src('src/client/index.html').pipe( gulp.dest('public') );
 	gulp.src('src/client/img/**/*').pipe( gulp.dest('public/img') );

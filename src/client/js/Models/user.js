@@ -1,6 +1,7 @@
 var Backbone = require('backbone');
 var _ = require('lodash');
 var LocalStorage = require('backbone.localstorage').LocalStorage;
+var LoginUserManager = require('../lib/LoginUserManager');
 
 
 
@@ -13,6 +14,7 @@ var OrganizationModel = require('./organization');
     var UserModel = Backbone.Model.extend({
 
          localStorage: new LocalStorage("UserModel"),
+
     	 defaults: {
             id: "",            
             email: "",            
@@ -43,6 +45,15 @@ var OrganizationModel = require('./organization');
         Collection:UserCollection,
 
     }
+
+
+
+    user.getLoginUser = function(){
+            var model = new UserModel();
+            var userID  = LoginUserManager.getLoginUserID()
+            var user = model.localStorage.find({id:userID})
+            return user;
+    },
     
 
 

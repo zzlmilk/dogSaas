@@ -16,7 +16,6 @@ var StartView = Backbone.View.extend({
 
         var self = this;
 
-
         self.render();
     },
     

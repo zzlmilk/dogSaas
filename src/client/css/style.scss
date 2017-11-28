@@ -381,7 +381,62 @@ ul li{
 }
 
 
-//添加组织
+/*==== 添加组织的css*/
+.wrapper{
+    margin: 0 auto ;
+    width:750px;
+    padding:72px 0;
+    min-height:100%;
+}
+
+.wrapper > .org_companyInfo > .row 
+{
+    margin-top: 32px;
+}
+
+
+
+.wrapper > .org_companyInfo > .row >.subtitle{
+     float: left;
+     width: 220px;
+
+}
+
+.uploadWrap {
+    position: relative;
+    background-color: #edf0f2;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+ .img-lg{
+    width: 280px;
+    height: 210px;
+}
+
+.uploadWrap > input[type="file"]{
+    height: 400px;
+}
+
+.text-center{
+    text-align:center
+}
+
+
+
+
+
+.wrapper > .org_companyInfo >.row > .section{
+     width: 330px;
+      margin-left: 220px;
+
+}
+
+
+
+
+
+
 .wrap {
     padding-left: calc(100vw - 100%)
 

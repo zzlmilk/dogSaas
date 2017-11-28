@@ -45,12 +45,16 @@ var TestView = Backbone.View.extend({
         var self = this;
 
 
-        var  username = "413124766@qq.com"
+        var username = $("#inputaaa").val();
         var password ="rex123";
 
 
 
-        SignInClient.send({
+        
+
+
+    $("#iddd").bind("click",function(){
+            SignInClient.send({
                     email:username,
                     password:password
 
@@ -73,6 +77,11 @@ var TestView = Backbone.View.extend({
 
 
                 })
+
+    })
+
+
+        
 
     
             

@@ -1,18 +1,18 @@
 /**
- * Created by json on 2017/11/22.
+ * Created by json on 2017/11/28.
  */
 
 var Backbone = require('backbone');
 var _ = require('lodash');
 
-var Utils = require('../../../../lib/utils');
-var Const = require('../../../../lib/consts');
-var Config = require('../../../../lib/init');
+var Utils = require('../../../../../lib/utils');
+var Const = require('../../../../../lib/consts');
+var Config = require('../../../../../lib/init');
 
 // load template
-var template = require('./DogCard.hbs');
+var template = require('./PersonalCard.hbs');
 
-var DogCardView = Backbone.View.extend({
+var PersonalCardView = Backbone.View.extend({
 
     el : null,
     initialize: function(options) {
@@ -40,15 +40,18 @@ var DogCardView = Backbone.View.extend({
         //    todayBtn: true,
         //    pickerPosition: "bottom-left"
         //});
+        $('#post_info').unbind().on('click',function(){
 
+            var InfoPreviewModal = require('../../../../Modals/InfoPreview/InfoPreview');
+            InfoPreviewModal.show(function(){
 
-        var PersonalCardView = require('./PersonalCard/PersonalCardView.js');
-        var view = new PersonalCardView({
-            'el': "#manage_content"
+            });
         });
+
+
 
     }
 });
 
-module.exports = DogCardView;
+module.exports = PersonalCardView;
 
