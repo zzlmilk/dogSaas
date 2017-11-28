@@ -30,9 +30,11 @@ var OrganizationLogics = {
 					if (user.organization) {
 
 						if (user.email == "413124766@qq.com") {
+								 
 								done(null, res)
 								return;
 						}
+
 						onError(null, Const.resCodeAddOrganizationExisting);
 						return;
 					}
@@ -157,6 +159,10 @@ var OrganizationLogics = {
 			serviceScope = param.serviceScope,
 			contacts_name = param.contacts_name,
 			contacts_phone = param.contacts_phone;
+
+
+				
+
 		if (Utils.isEmpty(name) || Utils.isEmpty(province)
 			|| Utils.isEmpty(district) || Utils.isEmpty(city)
 			|| Utils.isEmpty(address) || Utils.isEmpty(code)

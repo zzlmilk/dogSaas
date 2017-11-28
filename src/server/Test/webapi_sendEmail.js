@@ -8,14 +8,7 @@ describe('WEB', function () {
 
     var req, res;
 
-<<<<<<< HEAD
-    //it('should be register send email  get  Email Code ', function (done) {
-    
-    //         var body = {
-    //                    email: "413124767@qq.com",
-    //                    useType:1,  //注册获取邮箱
-    //             };
-=======
+
      it('should be register send email  get  Email Code ', function (done) {
     
              var body = {
@@ -30,7 +23,6 @@ describe('WEB', function () {
                         throw err;
                     }
                     console.log(res.body.data);
->>>>>>> origin/jsonlv
 
                     res.body.should.have.property('code');
                     console.log('code');
@@ -40,19 +32,13 @@ describe('WEB', function () {
 
                  });
 
-     });
 
-<<<<<<< HEAD
-    it('should be valid email Code  by usetype 1', function (done) {
-            var body = {                      
-                       code:"449570"  //注册获取邮箱                      
-=======
+
     it('should be valid email Code  by usetype 2', function (done) {
             var body = {
                        email: "413124766@qq.com",
                   //     code:"025382",
                        useType:"2" //忘记密码获取邮箱验证码
->>>>>>> origin/jsonlv
                 };
 
             request(app)

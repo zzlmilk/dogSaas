@@ -8,7 +8,7 @@ var Config = require('../../../lib/init');
 // load template
 var templateAdd = require('./AddOrganization.hbs');
 
-var templateStatus = require('./organzationStatus.hbs');
+//var templateStatus = require('./organzationStatus.hbs');
 
 
 var AddOrganizationClient = require('../../../lib/APIClients/AddOrganizationClient');
@@ -17,30 +17,66 @@ var OrganizationModel = require('../../../Models/organization');
 
 
 var AddOrganizationView = Backbone.View.extend({
-    params:{},
+    organization:null,
     el : null,
     initialize: function(options) {
-       
+
+
         var self = this
-        if (options.actions == null) {
+       
+        if (options.action == null) {
             return;
         }else{
-            self.params = Utils.getActionsParams(options.actions)
-            var action = self.params.action
+             
+             var action = options.action
+             self.organization = options.user.organization
+            
+            
+
             if (action == "add") {
+
                 $(Config.defaultContaier).html(templateAdd({
                         
                 }));
             }
             else if (action == "edit"){
                     //编辑
+                     
+                      console.log(self.organization)
+                $(Config.defaultContaier).html(templateAdd({
+                         organization:self.organization
+                }));
+
             }
+
             else if(action == "checkStatus"){
                 
                   //等待审核
-                 $(Config.defaultContaier).html(templateStatus({
-                        //organization:organization.attributes
-                 }));
+                  var status = self.organization.checkStatus.status;
+                  if (status == 0) {
+                      var templateStatus = require('./WaitReview.hbs');
+
+
+                     $(Config.defaultContaier).html(templateStatus({
+                            organization:self.organization
+                     }));
+
+                  }
+                  else if(status == -1){
+
+                       var templateStatus = require('./ReviewFailed.hbs');
+
+
+                       $(Config.defaultContaier).html(templateStatus({
+                              //organization:organization.attributes
+                     }));
+
+                  }else if (status == 1){
+                       // var templateStatus = require('./ReviewFailed.hbs');
+                       Utils.goPage("main")
+
+                    
+                  }
 
             }
             else{
@@ -91,7 +127,13 @@ var AddOrganizationView = Backbone.View.extend({
 
         $("#addOrganizationBtn").unbind().on('click',function(e){
 
-            var name = $("#organization_name").val()
+            self.addOrganization()
+        })
+
+    },
+
+    addOrganization:function(){
+         var name = $("#organization_name").val()
 
             var organization = {                            
                             name: name ,
@@ -108,35 +150,26 @@ var AddOrganizationView = Backbone.View.extend({
                             contacts_phone:"1"
                         };  
 
+
                  AddOrganizationClient.send(organization                                    
-                    ,function(data){                        
-                         var organization = OrganizationModel.modelByResult(data.organization) 
-                         
-                         var checkStatus = organization.get("checkStatus").status;
+                    ,function(data){                  
                         
-                         if (checkStatus == 0) {
-                             // 等待审核
-                             $(Config.defaultContaier).html(templateStatus({
-                                        organization:organization.attributes
-                             }));
+                       
+                         var organization = OrganizationModel.modelByResult(data.organization) 
+                         var templateStatus = require('./WaitReview.hbs');
+                         $(Config.defaultContaier).html(templateStatus({
+                                //organization:organization.attributes
+                         }));
 
-                         }
-                         else{
-
-                             Utils.goPage("main");
-                         }
+                         // Utils.goPage("organization"); 
 
 
-
-
-                                                                    
+                                                                                      
                     },function(errorCode){
 
                         console.log(errorCode)
                                                                     
                     })
-        })
-
     }
 
 });

@@ -12,7 +12,6 @@ var DayuModel  = function(){};
 DayuModel.prototype.init = function(mongoose){
 	 this.schema = new mongoose.Schema({
 	           email:{type:String,index:true},
-
                code:String,
                type:Number,   //1有效 0无效。-1使用过
                useType:{type:String,default:"1"} ,//.  1注册短信验证   2/／忘记密码使用

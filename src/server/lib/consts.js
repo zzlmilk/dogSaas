@@ -23,6 +23,7 @@
 
       Const.resCodeDayuNoEmail = 1000006;
       Const.resCodeDayuNoCode = 1000007;
+      
       Const.resCodeLoginNoUseType = 1000008;
 
 

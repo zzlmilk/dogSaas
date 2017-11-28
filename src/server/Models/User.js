@@ -56,14 +56,18 @@ UserModel.getUserByLoginParam =function(email,password,callBack){
 		async.waterfall([
 				function(done){
 
+					
 					OrganizationModel.get();
 
 					model.findOne({email:email}).populate("organization").exec(function(err,row){				
+						    
 							result.model = row;
 							done(err,result)
 						});
 				},
 				function(result,done){		
+
+
 						
 					if (result.model) {						
 						//验证密码

@@ -4,6 +4,9 @@ var Config = require('./lib/init');
 
 var LoginUserManager = require('./lib/loginUserManager');
 
+var User = require('./Models/user');
+
+
 
 var Routing = function(){
 
@@ -36,13 +39,16 @@ var Routing = function(){
         //初识页
         appRouter.on('route:defaultRoute', function(actions) {
 
+
+
+
+
             Utils.goPage('start');
         });
 
         //测试
         appRouter.on('route:testRoute', function(actions) {
             
-
             var TestView = require('./Views/Test/TestView.js');   
             var view = new TestView();
                     
@@ -121,31 +127,53 @@ var Routing = function(){
 
         //机构
          appRouter.on('route:organizationRoute', function(actions) {
-             //var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
-             //var view = new AddOrganizationView();
+           
 
-             var action = Utils.getActionsParams(actions).action
 
+
+             var user = User.getLoginUser();
             
-             if (action == "add") {
-                       var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
-                       var view = new AddOrganizationView({
-                            action:action
-                       });
-             }
+              user.organization.checkStatus.status = 1
+             // console.log(user.organization.checkStatus)
 
-             else if(action =="checkStatus"){
-                       var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
-                       var view = new AddOrganizationView({
-                            actions:actions
-                       });
 
-             }
+             if (user) {      
+                      var  organization = user.organization
+                      var status = organization.checkStatus.status              
+                                   //不存在organizationq 去添加组织
+                         if (organization == null   ) {                    
+                              var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
+                              var view = new AddOrganizationView({
+                                        action:"add",
+                                        user:user,
+                                   });
 
+                         }else{                                                        
+                                if (status == 1) {
+                                     var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');  
+                                     var view = new AddOrganizationView({
+                                        action:"edit",
+                                        user:user,
+                                   });
+                                }else if (status == 0 || status == -1 ){
+                                  //等待审核
+                                     var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');  
+                                     var view = new AddOrganizationView({
+                                        action:"checkStatus",
+                                        user:user,
+                                   });
+
+                                }
+                         }
+
+                
+                     }
              else{
-                Utils.goPage('start')
-             }
-          
+                         console.log("no user")
+                         Utils.goPage('start')
+                 }
+
+
 
         });
 

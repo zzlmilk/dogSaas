@@ -4,6 +4,8 @@ var U = require('./utils.js');
 
 var UserModel = require('../Models/user');
 
+
+
 var loginUserManager = {
 
 	user : null,
@@ -15,16 +17,29 @@ var loginUserManager = {
 
     },
 
-     setToken : function(token){
-        
-        localStorage.setItem("token",token)
-        this.token = token;
-    },
-
      getUser : function(){
         
         return this.user;
         
+    },
+
+    setLoginUserID : function(id){
+        
+        localStorage.setItem("LoginUserID",id)
+       
+    },
+
+    getLoginUserID : function(){
+     
+        var id =  localStorage.getItem("LoginUserID");
+        return id;
+    },
+    
+
+    setToken : function(token){
+        
+        localStorage.setItem("token",token)
+        this.token = token;
     },
 
     getToken : function(){
@@ -34,7 +49,8 @@ var loginUserManager = {
         return token;
 
         
-    }
+    },
+    
 
 
 }
