@@ -21,6 +21,7 @@ var Routing = function(){
                 "resetpassword":"resetpasswordRoute",//重置密码
                 "changepassword":"changepasswordRoute",//个人中心修改密码
                 "organization":"organizationRoute",//添加机构
+                "printcard":"printcardRoute",//控制台打印磁卡
                 "button":"buttonRoute",
                 "androidDownload":"androidDownloadRoute",
                 "*actions": "defaultRoute"
@@ -110,6 +111,14 @@ var Routing = function(){
 
         });
 
+        //控制台打印磁卡
+
+        appRouter.on('route:printcardRoute', function() {
+            var CardInfoView = require('./Views/Main/Dog/DogCard/CardInfo/CardInfoView.js');
+            var view = new  CardInfoView();
+
+        });
+
         //机构
          appRouter.on('route:organizationRoute', function(actions) {
              //var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
@@ -139,6 +148,8 @@ var Routing = function(){
           
 
         });
+
+
 
 
         appRouter.on('route:mainRoute', function(actions) {

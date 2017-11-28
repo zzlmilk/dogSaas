@@ -22,6 +22,12 @@ var DogOwnerView = Backbone.View.extend({
         	   
         }));
 
+        var DogOwnerListView = require('./DogOwnerList/DogOwnerListView.js');
+        var view = new DogOwnerListView({
+            'el': "#dogonwer_info"
+        });
+
+
         this.onLoad();
 
         return this;
@@ -30,7 +36,6 @@ var DogOwnerView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;  
-
 
 
 

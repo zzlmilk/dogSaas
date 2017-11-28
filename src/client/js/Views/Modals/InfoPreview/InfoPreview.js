@@ -35,6 +35,11 @@ var InfoPreview = {
         $('#modal-btn-close').unbind().on('click', function() {
             self.hide();
         });
+        $('#modal-btn-save').unbind().on('click',function(){
+
+            alert("进入Main/Dog/DogCard/CardInfo页面")
+
+        });
     },
     hide: function(onFinish) {
         $('#modal-profile').on('hidden.bs.modal', function(e) {

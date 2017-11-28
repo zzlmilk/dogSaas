@@ -1,5 +1,5 @@
 /**
- * Created by json on 2017/11/22.
+ * Created by json on 2017/11/28.
  */
 
 var Backbone = require('backbone');
@@ -10,9 +10,9 @@ var Const = require('../../../../lib/consts');
 var Config = require('../../../../lib/init');
 
 // load template
-var template = require('./DogCard.hbs');
+var template = require('./DogOwnerList.hbs');
 
-var DogCardView = Backbone.View.extend({
+var DogOwnerListView = Backbone.View.extend({
 
     el : null,
     initialize: function(options) {
@@ -25,6 +25,7 @@ var DogCardView = Backbone.View.extend({
 
         }));
 
+
         this.onLoad();
 
         return this;
@@ -34,21 +35,13 @@ var DogCardView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;
-        //$(".form_datetime").datetimepicker({
-        //    format: "dd MM yyyy - hh:ii",
-        //    autoclose: true,
-        //    todayBtn: true,
-        //    pickerPosition: "bottom-left"
-        //});
 
 
-        var PersonalCardView = require('./PersonalCard/PersonalCardView.js');
-        var view = new PersonalCardView({
-            'el': "#manage_content"
-        });
+
+
 
     }
 });
 
-module.exports = DogCardView;
+module.exports = DogOwnerListView;
 

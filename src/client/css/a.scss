@@ -1,38 +1,5 @@
-//办理狗证
-*{margin: 0;padding: 0;}
-#dog_manage{
-  width: 900px;
-  height: 500px;
-  float: left;
-  background:#fcfcfc ;
-}
-#manage_list{
-  width: 100px;
-  height: 500px;
-  float: left;
-  background:#2e3645 ;
-}
-#manage_content{
-  width: 800px;
-  height: 500px;
-  float: left;
-  padding: 25px;
-}
-.registration{
-  width: 750px;
-  height: auto;
-  float: left;
-  margin-top: 20px;
-  background: #ffffff;
-  border: 1px solid grey;
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
-.input_float{
-  float:left;
-}
-
 //个人中心
+*{margin:0;padding: 0 }
 #personal_center_view{
   width: 1000px;
   height: 700px;
@@ -101,4 +68,148 @@
   border:1px solid grey;
   background: #ffffff;
   margin-bottom: 20px;
+}
+//办理狗证--个人办证
+#dog_manage{
+  width: 900px;
+  height: auto;
+  float: left;
+  background:#fcfcfc ;
+}
+#manage_list{
+  width: 100px;
+  height: 1350px;
+  float: left;
+  background:#2e3645 ;
+}
+#manage_content{
+  width: 800px;
+  height: auto;
+  float: left;
+  padding: 25px;
+}
+.registration{
+  width: 750px;
+  height: auto;
+  float: left;
+  margin-top: 20px;
+  background: #ffffff;
+  border: 1px solid grey;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.input_float{
+  float:left;
+}
+
+.infoBtn{
+  width: 300px;
+  margin-top: 50px;
+  margin-left: 200px;
+}
+//办理狗证--个人办证--打印磁卡
+.card_img{
+  width: 200px;
+  height: 100px;
+  float: left;
+  margin-left: 50px;
+  border: 1px grey solid;
+}
+#immunecard_info{
+  width: 600px;
+  height: auto;
+  float: left;
+  margin-left: 50px;
+}
+#immunecard_info_left{
+    width:400px ;
+    float: left;
+}
+.infos_list{
+  width: 400px;
+  height: auto;
+  float: left;
+}
+.infos_list_left{
+  width: 100px;
+  height: auto;
+  float: left;
+  text-align: right;
+}
+.infos_list_right{
+  width: 300px;
+  height: auto;
+  float: left;
+}
+#immunecard_info_right{
+  width:150px ;
+  float: left;
+  margin-left: 50px;
+}
+.infos_lists{
+  width: 150px;
+  height: auto;
+  float: left;
+}
+.infos_lists_left{
+  width: 75px;
+  height: auto;
+  float: left;
+  text-align: right;
+}
+.infos_lists_right{
+  width: 75px;
+  height: auto;
+  float: left;
+}
+//犬主信息查询
+#dogonwer_info{
+  width: 1000px;
+  height: auto;
+  float: left;
+  padding: 25px;
+  background:#fcfcfc ;
+}
+.dogonwer_info_list{
+  width: 950px;
+  height: auto;
+  float: left;
+  margin-top: 20px;
+  background: #ffffff;
+  border: 1px solid grey;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.table-bordered{
+  border1:1px #3399ff solid ;
+}
+.tr{
+  text-align: center;
+}
+.tr_blue{
+  background:#3399ff;
+}
+.table .td{
+  padding-top:25px;
+}
+.td-a{
+  color: #3399ff;
+}
+//犬主信息搜索详情
+.dogonwer_ul{
+  list-style: none;
+}
+.dogonwer_ul li{
+  float: left;
+  width: 400px;
+  height: 30px;
+  line-height: 30px;
+}
+//犬只信息查询
+#dog_search{
+  width: 1000px;
+  height: auto;
+  float: left;
+  padding: 25px;
+  background:#fcfcfc ;
 }
