@@ -91,10 +91,10 @@ describe('WEB', function () {
 
     });
 
-    it('if passwor is edit success', function (done) {
+    it('if password is edit success', function (done) {
         var body = {
-            email: "test@testCIyfp2.com",
-            password: "88888888"
+            email: "2420933732@qq.com",
+            password: "111111"
         };
 
         request(app)
@@ -105,6 +105,8 @@ describe('WEB', function () {
                 if (err) {
                     throw err;
                 }
+                console.log(res.body.data);
+
                 res.body.code.should.be.equal(Const.responsecodeSucceed);
                 done();
 

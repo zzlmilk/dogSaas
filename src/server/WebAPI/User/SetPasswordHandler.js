@@ -14,7 +14,23 @@ var SetPasswordHandler = function(){
        	
 
 }
+/**
+ * @api {post} /user/set_password 忘记密码
+ * @apiName setassword
+ * @apiGroup User
+ * @apiDescription 忘记密码api接口
+ * @apiParam   {String} email 邮箱
+ * @apiParam    {String} password 密码
+ * @apiSuccess {String} token
+ * @apiSuccessExample Success-Response:
+ { token: 'q6QKHgEK7fk2981KPhRps8rT',
+user:
+ { _id: '5a1cf5857651f434a8eeb4ba',
+   email: '2420933732@qq.com',
+   logionProcess: 0 } }
 
+
+ */
 _.extend(SetPasswordHandler.prototype,RequestHandlerBase.prototype);
 
 

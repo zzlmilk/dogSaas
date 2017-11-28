@@ -19,7 +19,7 @@ var LoginHandler = function(){
 	* @apiName login
 	* @apiGroup User
 	* @apiDescription 登录api接口，获取用户token 和用户信息
-	* @apiParam   {String} email 邮件
+	* @apiParam   {String} email 邮箱
 	* @apiParam    {String} password 密码
 	* @apiSuccess {String} token
 	* @apiSuccess {Model} user Model of loginned user

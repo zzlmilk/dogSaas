@@ -7,15 +7,18 @@ var Const = require("../../lib/consts");
 
 var SendEmailLogic = require("../../Logics/SendEmailLogic");
 
-   /**
-     * @api {post} Send/Email Verification Email
-     * @apiName Post VerificationEmailHandler
-     * @apiGroup WebAPI
+/**
+     * @api {post} Send/Email 获取验证码
+     * @apiName sendmail
+     * @apiGroup Email
      * @apiHeader {String} Access-Token Users unique access-token.
-     * @apiDescription get conversation list of the user
-     * @apiParam {string} email Email of target user
-     * @apiParam {string} useType   用途1:注册使用1111。2:忘记密码
-     *
+     * @apiDescription 获取验证码api接口
+     * @apiParam {string} email  邮箱
+     * @apiParam {string} useType   1:注册使用；2:忘记密码
+     * @apiSuccessExample Success-Response:
+     { code: 1}
+
+
 	
 */
 

@@ -8,9 +8,9 @@ describe('WEB', function () {
     var req, res;
     it('should be register Sucessful', function (done) {
         var body = {
-            email: "test@test" + global.getRandomStr() + "2.com",
-            password: "rex123",
-            code:"449570"
+            email: "2420933732@qq.com",
+            password: "123456",
+            code:"GxGfrpk9h6IybnGAHxuEDipS"
         };
 
         request(app)

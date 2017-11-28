@@ -39,7 +39,7 @@
     "mysql": "^2.14.1",
     "node-observer": "^0.4.4",
     "node-schedule": "^1.2.3",
-    "node-xlsx": "^0.11.0",
+    "node-xlsx": "^0.11.2",
     "nodemailer": "^4.4.0",
     "protobufjs": "^3.8.2",
     "qiniu": "^7.0.5",
@@ -52,7 +52,7 @@
     "util": "^0.10.3",
     "validator": "^7.2.0",
     "watchify": "^3.9.0",
-    "ws": "^3.1.0",
+    "ws": "^3.3.2",
     "zlib": "^1.0.5"
   },
   "devDependencies": {
