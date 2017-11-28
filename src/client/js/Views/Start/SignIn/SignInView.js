@@ -21,10 +21,20 @@ var template = require('./SignIn.hbs');
 
 var SignInView = BaseView.extend({
 
+	el:null,
+
+
     initialize: function(options) {
         
+    	
+
+
         this.container = options.container;
         this.render();
+    },
+
+    home:function(){
+    		alert("ok")
     },
 
 
@@ -43,7 +53,7 @@ var SignInView = BaseView.extend({
         var self = this;
 
 
-        $('#form-signin input').unbind().on('keyup',function(e){
+        $('#form-signin input').bind().on('keyup',function(e){
 
             if (e.keyCode == 13) {
                 
@@ -58,7 +68,6 @@ var SignInView = BaseView.extend({
          		var username = $('input[name="username"]').val();
          		var password = $('input[name="password"]').val();
 
-
          		
 				
 				if (username =="" ||password =="") {
@@ -72,28 +81,33 @@ var SignInView = BaseView.extend({
                     password:password
                                         
                 },function(data){
-                	loginUserManager.setToken(data.token);                	
-				    var user = UserModel.modelByResult(data.user) 
-				    
-				    var organization = user.get("organization")
+                	loginUserManager.setToken(data.token);  
+					loginUserManager.setUser(data.user);
+
+				     var user = UserModel.modelByResult(data.user) 
+				   	 user.save();
+
+
+
+
+				    Utils.goPage("organization"); 
 				  
-				    if (organization == null) {
-				    	//添加组织
-				    	Utils.goPage("organization?action=add"); 
-				    }							
-					else{
-						var status = organization.get("checkStatus").status
-						//等待审核
-						if (status == 0 ) {
 
-						  
-						   Utils.goPage("organization?action=checkStatus&organization="+organization);
+				 //    if (organization == null) {
+				 //    	//添加组织
+				 //    	Utils.goPage("organization?action=add"); 
+				 //    }							
+					// else{
+					// 	var status = organization.get("checkStatus").status
+					// 	//等待审核
+					// 	if (status == 0 ) {						  
+					// 	   Utils.goPage("organization?action=checkStatus&organization="+organization);
 
-						}
-
+					// 	}
 
 
-					}
+
+					// }
 
 				    
                     
@@ -101,7 +115,7 @@ var SignInView = BaseView.extend({
                     $('#form-signin #btn-signin').removeAttr('disabled');				
                     
                 },function(errorCode){
-                console.log(errorCode)                	 
+                	console.log(errorCode)                	 
                 	 if(Const.ErrorCodes[errorCode])
                 	 var message = Const.ErrorCodes[errorCode]
 

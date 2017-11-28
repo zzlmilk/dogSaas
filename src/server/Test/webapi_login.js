@@ -8,7 +8,7 @@ describe('WEB', function () {
     var req, res;
     it('should be login in  Sucessful', function (done) {
         var body = {
-            email: "test@testk0ovO2.com",
+            email: "413124766@qq.com",
             password: "rex123"
         };
 
@@ -21,6 +21,7 @@ describe('WEB', function () {
                     throw err;
                 }
 
+                console.log(res.body.data)
                 res.body.code.should.be.equal(Const.responsecodeSucceed);
                 
                 done();

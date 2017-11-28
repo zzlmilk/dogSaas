@@ -11,7 +11,7 @@ _.extend(TestHandler.prototype,RequestHandlerBase.prototype);
 
    /**
      * @api {get} /test Test
-     * @apiName Test
+     * @apiName Tes111t
      * @apiGroup WebAPI
      * @apiDescription Just test[]
      *     we434

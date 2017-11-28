@@ -34,7 +34,8 @@ var loginUserManager = {
         return token;
 
         
-    }
+    },
+    
 
 
 }

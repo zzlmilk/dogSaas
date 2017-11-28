@@ -66,9 +66,7 @@ var RegisterLogic = {
 				userModel.findOne({ email: email }, function (err, user) {
 					if (!_.isNull(user)) {
 						//该账户已经被注册了
-
 					
-
 						onError(null, Const.resCodeRegisterWrongEmail);
 						return;
 					}

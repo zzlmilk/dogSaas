@@ -41,6 +41,7 @@ var SendEmailLogic = {
 										
 										if (user.email == "413124766@qq.com") {
 												user.remove();
+												
 												done(null, res)
 
 										}

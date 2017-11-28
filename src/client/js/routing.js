@@ -3,6 +3,10 @@ var Utils = require('./lib/utils');
 var Config = require('./lib/init');
 
 var LoginUserManager = require('./lib/loginUserManager');
+var LocalStorage = require('backbone.localstorage');
+var UserModel = require('./Models/user');
+
+
 
 
 var Routing = function(){
@@ -34,6 +38,9 @@ var Routing = function(){
 
         //初识页
         appRouter.on('route:defaultRoute', function(actions) {
+
+
+
 
             Utils.goPage('start');
         });
@@ -112,32 +119,54 @@ var Routing = function(){
 
         //机构
          appRouter.on('route:organizationRoute', function(actions) {
-             //var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
-             //var view = new AddOrganizationView();
+           
 
-             var action = Utils.getActionsParams(actions).action
 
-             if (action == "add") {
-                        
+            //console.log(Backbone.LocalStorage); 
 
-                       var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
-                       var view = new AddOrganizationView({
-                            actions:actions
-                       });
-             }
+             var user = LoginUserManager.getUser()
+             if (user) {
+                    
+                      var  organization = user.get("organization")
+                                   //不存在organizationq 去添加组织
+                         if (organization == null) {                    
+                              var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
+                              var view = new AddOrganizationView({
+                                        action:"add",
+                                        user:user,
+                                   });
 
-             else if(action =="checkStatus"){
-                       var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
-                       var view = new AddOrganizationView({
-                            actions:actions
-                       });
+                         }else{
+                             
+                                var checkStatus = organization.get("checkStatus")
+                                if (checkStatus == 1) {
+                                     var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');  
+                                     var view = new AddOrganizationView({
+                                        action:"edit",
+                                        user:user,
+                                   });
+                                }else{
+                                     var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');  
+                                     var view = new AddOrganizationView({
+                                        action:"checkStatus",
+                                        user:user,
+                                   });
+                                }
 
-             }
+                                return;
 
+                                 
+
+                         }
+
+                
+                  }
              else{
-                Utils.goPage('start')
-             }
-          
+                         console.log("no user")
+                         Utils.goPage('start')
+                 }
+
+
 
         });
 

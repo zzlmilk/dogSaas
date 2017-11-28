@@ -14,7 +14,7 @@ var SendEmailLogic = require("../../Logics/SendEmailLogic");
      * @apiHeader {String} Access-Token Users unique access-token.
      * @apiDescription get conversation list of the user
      * @apiParam {string} email Email of target user
-     * @apiParam {string} useType   用途1:注册使用。2:忘记密码
+     * @apiParam {string} useType   用途1:注册使用1111。2:忘记密码
      *
 	
 */
