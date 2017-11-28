@@ -7,24 +7,24 @@
             <form class="form" id="form-reset" onsubmit="return false">
                 <div class="il_body">
                     <h4>重置密码</h4>
-                    <p id="default-tips" style="font-weight: bold">
+                    <p id="default_tip" style="font-weight: bold">
                         Halokit将发送一封密码重置邮件到你的邮箱<br>
                         点击按钮即可重置密码
                     </p>
-                    <p id="success-tips" style="font-weight: bold;display:none;">
+                    <p id="success_tip" style="font-weight: bold;display:none;">
                         密码重置邮件已发送到<span></span>，请尽快登<br>
-                        录你的邮箱重置密码，<a href="#">查看邮件。</a><br>
+                        录你的邮箱重置密码，<a href="#" id="email_0">查看邮件。</a><br>
                         如何没有收到，请检查垃圾邮件<br>
                         如果还是没有收到，请重新填写邮箱
                     </p>
                     <div class="form-group email">
-                        <input type="text" name="email" class="form-control" />
+                        <input type="text" id="email" class="form-control" />
                         <span class="help-block"></span>
                     </div>
                     <div class="spacer"></div>
                 </div>
 
-                <div class="btn  btnBlueE btn-block" id="btn-reset">发送验证邮件</div>
+                <div disabled="disable" class="btn  btnBlueE btn-block" id="btn-reset">发送验证邮件</div>
             </form>
         </div>
     </div>

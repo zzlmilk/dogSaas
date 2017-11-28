@@ -38,7 +38,7 @@ var SidebarView = Backbone.View.extend({
         });
 
          //办理狗证
-        $('#btn_dogManager').unbind().on('click',function(){
+        $('#btn_dogCard').unbind().on('click',function(){
 
             var DogCardView = require('../Dog/DogCard/DogCardView');
 
@@ -48,34 +48,34 @@ var SidebarView = Backbone.View.extend({
 
         });
 
-        //免疫年检
-         $('#btn_immuneManager').unbind().on('click',function(){
+        //犬主信息查询
+         $('#btn_dogOwner').unbind().on('click',function(){
 
-            var ImmuneView = require('../Immune/ImmuneView');
+            var DogOwnerView = require('../DogOwner/DogOwnerView');
             
-            var view = new ImmuneView({
+            var view = new DogOwnerView({
                   'el': "#main-content"
             });
 
         });
 
-        //免疫卡管理
-        $('#btn_immuneManagerCard').unbind().on('click',function(){
+        //犬只信息查询
+        $('#btn_dogInfo').unbind().on('click',function(){
 
-            var ImmuneCardView = require('../ImmuneCard/ImmuneCardView');
+            var DogInfoView = require('../DogInfo/DogInfoView');
 
-            var view = new ImmuneCardView({
+            var view = new DogInfoView({
                 'el': "#main-content"
             });
 
         });
 
-        //信息查询
-        $('#btn_infoSearch').unbind().on('click',function(){
+        //制卡信息
+        $('#btn_cardInfo').unbind().on('click',function(){
 
-            var InfoSearchView = require('../InfoSearch/InfoSearchView');
+            var CardInfoView = require('../CardInfo/CardInfoView');
 
-            var view = new InfoSearchView({
+            var view = new CardInfoView({
                 'el': "#main-content"
             });
 
