@@ -29,9 +29,9 @@ var AddOrganizationView = Backbone.View.extend({
         }else{
              
              var action = options.action
-             self.organization = options.user.get("organization")
+             self.organization = options.user.organization
             
-              console.log(options)
+            
 
             if (action == "add") {
 
@@ -50,7 +50,7 @@ var AddOrganizationView = Backbone.View.extend({
             else if(action == "checkStatus"){
                 
                   //等待审核
-                  var status = self.organization.get("checkStatus").status;
+                  var status = self.organization.checkStatus.status;
                   if (status == 0) {
                       var templateStatus = require('./WaitReview.hbs');
 

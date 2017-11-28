@@ -53,6 +53,8 @@ var SignInView = BaseView.extend({
         var self = this;
 
 
+
+
         $('#form-signin input').bind().on('keyup',function(e){
 
             if (e.keyCode == 13) {
@@ -81,11 +83,13 @@ var SignInView = BaseView.extend({
                     password:password
                                         
                 },function(data){
-                	loginUserManager.setToken(data.token);  
-					loginUserManager.setUser(data.user);
 
-				     var user = UserModel.modelByResult(data.user) 
+                	loginUserManager.setToken(data.token);  
+				     //存入本地缓存 
+				     var user = UserModel.modelByResult(data.user) 		
+				     loginUserManager.setLoginUserID(user.get("id"))
 				   	 user.save();
+
 
 
 
@@ -115,7 +119,7 @@ var SignInView = BaseView.extend({
                     $('#form-signin #btn-signin').removeAttr('disabled');				
                     
                 },function(errorCode){
-                	console.log(errorCode)                	 
+                	 console.log(errorCode)                	 
                 	 if(Const.ErrorCodes[errorCode])
                 	 var message = Const.ErrorCodes[errorCode]
 
