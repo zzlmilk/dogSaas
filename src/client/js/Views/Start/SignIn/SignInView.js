@@ -73,8 +73,10 @@ var SignInView = BaseView.extend({
          		
 				
 				if (username =="" ||password =="") {
-		 			$('#login_form .username').addClass('has-error');
-					$('#login_form .username .help-block').text("用户名或密码为空");
+		 			// $(".help-block").show();
+		 			// $(".help-block").text("密码为空");
+
+
 				}
 				else{
 
@@ -93,25 +95,7 @@ var SignInView = BaseView.extend({
 
 
 
-
 				    Utils.goPage("organization"); 
-				  
-
-				 //    if (organization == null) {
-				 //    	//添加组织
-				 //    	Utils.goPage("organization?action=add"); 
-				 //    }							
-					// else{
-					// 	var status = organization.get("checkStatus").status
-					// 	//等待审核
-					// 	if (status == 0 ) {						  
-					// 	   Utils.goPage("organization?action=checkStatus&organization="+organization);
-
-					// 	}
-
-
-
-					// }
 
 				    
                     

@@ -41,8 +41,10 @@ var AddOrganizationView = Backbone.View.extend({
             }
             else if (action == "edit"){
                     //编辑
+                     
+                      console.log(self.organization)
                 $(Config.defaultContaier).html(templateAdd({
-                        
+                         organization:self.organization
                 }));
 
             }
@@ -56,7 +58,7 @@ var AddOrganizationView = Backbone.View.extend({
 
 
                      $(Config.defaultContaier).html(templateStatus({
-                            //organization:organization.attributes
+                            organization:self.organization
                      }));
 
                   }

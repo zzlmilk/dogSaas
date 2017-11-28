@@ -1,7 +1,148 @@
 <div>
-    <div id="signheader-content"></div>
 
-    <div class="wrap">
+
+    <div id="signheader-content"></div>
+    
+
+
+     <div class="wrapper">
+        <div class="org_companyInfo">
+                <div class="row">
+                        <div class="subtitle">
+                            <h4>*免疫点名称:</h4>
+                        </div>
+                        <div class="section">
+                            <input required="" errmsg="请填写公司名称" value='{{organization.name}}' id="acct_display_name" type="text" class="form-control" placeholder="免疫点名称">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="subtitle">
+                            <h4>联系地址</h4>
+                        </div>
+                        <!-- 提示错误需要在 section 上加 .error 并添加 div.tree_tip-->
+                        <div class="section ot_city_select error">
+                            <div class="selectGroup">
+                                <div id="selectProvince" class="selectWrap"><div class="selectBtn"> 
+                                   <span title="选择省份" val="">选择省份</span>
+                                   <span title="选择城市" val="">选择城市</span>
+                                   <span title="选择区县" val="">选择区县</span>
+                            </div>
+                            <input required="" errmsg="请填写联系地址" value='{{organization.location.address}}' id="acct_detail_address" type="text" class="form-control" placeholder="详细地址">
+                        </div>
+                    </div>
+
+
+
+                    </div>
+                 </div>
+
+                    <div class="row">
+                        <div class="subtitle">
+                            <h4>座机</h4>
+                        </div>
+                        <div class="section">
+                            <input required="" errmsg="" value="" id="acct_display_name" type="text" class="form-control" placeholder="座机">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="subtitle">
+                            <h4>营业执照</h4>                            
+                            <p>* 彩色无水印 <br>
+                                * png 或者 jpg 格式 <br>
+                                * 2M 以内</p>
+                        </div>
+                        <div class="section">
+                            <div id="businessLicense" class="uploadWrap img-lg">
+                                <p>上传图片</p>                               
+                                 <input id="businessLicensePic" name="userfile" type="file" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+
+                  <div class="row">
+                        <div class="subtitle">
+                            <h4>*动物诊疗许可证</h4>                            
+                            <p>* 彩色无水印 <br>
+                                * png 或者 jpg 格式 <br>
+                                * 2M 以内</p>
+                        </div>
+                        <div class="section">
+                            <div id="businessLicense" class="uploadWrap img-lg">
+                                <p>上传图片</p>                               
+                                 <input id="businessLicensePic" name="userfile" type="file" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+
+
+                 <div class="row">
+                        <div class="subtitle">
+                            <h4>*服务范围</h4>
+                        </div>
+                        <div class="section">
+                            <span style="float:left">医疗</span>
+                            <input type="checkbox" style="width:20px;height:20px;margin-top:7px;" id="medical">
+                            <!--  <span style="float:left">美容</span>
+                             <input type="checkbox" style="width:20px;height:20px;margin-top:7px;" id="facial"> -->
+                             
+                        </div>
+                    </div>
+
+                  <div class="row">
+                        <div class="subtitle">
+                            <h4>*兽医姓名:</h4>
+                        </div>
+                        <div class="section">
+                            <input required="" errmsg="" value="" id="acct_display_name" type="text" class="form-control" placeholder="兽医姓名:">
+                        </div>
+                    </div>
+
+
+                  <div class="row">
+                        <div class="subtitle">
+                            <h4>*联系人:</h4>
+                        </div>
+                        <div class="section">
+                            <input required="" errmsg="" value="" id="acct_display_name" type="text" class="form-control" placeholder="联系人">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="subtitle">
+                            <h4>*联系人电话</h4>
+                        </div>
+                        <div class="section">
+                            <input required="" errmsg="" value="" id="acct_display_name" type="text" class="form-control" placeholder="联系人电话">
+                        </div>
+                    </div>
+
+        </div>
+
+        <div class="">
+            <!--<button class="btn btnNone">返回上一步</button>-->
+            <button id="saveCompanyInfo" class="btn btnBlueE btn-block">提交</button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!--<div id="signfooter-content"></div>-->
+    <div style="width:100%;height:auto;background:#cccccc;margin-top: 700px;" >
+        <div class="container">
+            <p class="text-center" >沪ICP备 16015040号-2 上海市徐汇区虹梅路2071号二号楼311室</p>
+            <p class="text-center" style="margin-top:-20px;">Copyright©2016-2017，HALOKIT.CN,All Rights Reserved</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- 
+ <div class="wrapper">
         <div class="box">
                 <form id="addOrganization_form">
                     <p style="text-align: center">完成以下信息并提交即可完成注册</p>
@@ -43,7 +184,7 @@
                             <span style="width:110px;float:left;text-align:right;font-size:12px;">2M以内</span>
                         </div>
                         <div style="float:left;margin-left:10px; width: 280px;height: 98px;border:1px grey solid;">
-                            <!--<input type="file"  value="上传图片">-->
+                            <input type="file"  value="上传图片">
                         </div>
                     </div>
                     <div class="form-groups" style="height: 100px">
@@ -54,7 +195,7 @@
                             <span style="width:110px;float:left;text-align:right;font-size:12px;">2M以内</span>
                         </div>
                         <div style="float:left;margin-left:10px; width: 278px;height: 98px;border:1px grey solid;">
-                            <!--<input type="file"  value="上传图片">-->
+                            <input type="file"  value="上传图片">
                         </div>
                     </div>
                     <div class="form-groups">
@@ -83,19 +224,7 @@
                 </form>
 
         </div>
-    </div>
-
-
-    <!--<div id="signfooter-content"></div>-->
-    <div style="width:100%;height:auto;background:#cccccc;margin-top: 700px;" >
-        <div class="container">
-            <p class="text-center" >沪ICP备 16015040号-2 上海市徐汇区虹梅路2071号二号楼311室</p>
-            <p class="text-center" style="margin-top:-20px;">Copyright©2016-2017，HALOKIT.CN,All Rights Reserved</p>
-        </div>
-    </div>
-</div>
-
-
+    </div> -->
 
 
 

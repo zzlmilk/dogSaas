@@ -124,7 +124,7 @@ var Routing = function(){
 
              var user = User.getLoginUser();
             
-              //user.organization.checkStatus.status = -1
+              user.organization.checkStatus.status = 1
              // console.log(user.organization.checkStatus)
 
 
