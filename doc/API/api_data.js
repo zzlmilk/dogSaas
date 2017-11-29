@@ -1,6 +1,233 @@
 define({ "api": [
   {
     "type": "post",
+    "url": "/dogLicense/add",
+    "title": "办理狗证",
+    "name": "addDogLicense",
+    "group": "DogLicense",
+    "description": "<p>办理狗证信息api接口,获取狗，疫苗，用户，房产信息</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "husbandryNo",
+            "description": "<p>畜牧业提供的条形码</p>"
+          }
+        ],
+        "dog": [
+          {
+            "group": "dog",
+            "type": "String",
+            "optional": false,
+            "field": "nickname",
+            "description": "<p>宠物昵称</p>"
+          },
+          {
+            "group": "dog",
+            "type": "String",
+            "optional": false,
+            "field": "sex",
+            "description": "<p>性别</p>"
+          },
+          {
+            "group": "dog",
+            "type": "String",
+            "optional": false,
+            "field": "breed",
+            "description": "<p>品种</p>"
+          },
+          {
+            "group": "dog",
+            "type": "String",
+            "optional": false,
+            "field": "usage",
+            "description": "<p>用途</p>"
+          },
+          {
+            "group": "dog",
+            "type": "String",
+            "optional": false,
+            "field": "hairColor",
+            "description": "<p>毛色</p>"
+          },
+          {
+            "group": "dog",
+            "type": "Date",
+            "optional": false,
+            "field": "bornDate",
+            "description": "<p>出生日期</p>"
+          },
+          {
+            "group": "dog",
+            "type": "Number",
+            "optional": false,
+            "field": "irisID",
+            "description": "<p>虹膜id</p>"
+          },
+          {
+            "group": "dog",
+            "optional": false,
+            "field": "photoUrl",
+            "description": "<p>宠物照片</p>"
+          }
+        ],
+        "dog_vaccine": [
+          {
+            "group": "dog_vaccine",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>疫苗名称</p>"
+          },
+          {
+            "group": "dog_vaccine",
+            "type": "String",
+            "optional": false,
+            "field": "batchNo",
+            "description": "<p>批号</p>"
+          },
+          {
+            "group": "dog_vaccine",
+            "type": "String",
+            "optional": false,
+            "field": "manufacturer",
+            "description": "<p>厂商</p>"
+          },
+          {
+            "group": "dog_vaccine",
+            "type": "String",
+            "optional": false,
+            "field": "veterinarianName",
+            "description": "<p>打疫苗的兽医</p>"
+          },
+          {
+            "group": "dog_vaccine",
+            "type": "String",
+            "optional": false,
+            "field": "organizationName",
+            "description": "<p>免疫点名称</p>"
+          }
+        ],
+        "owner": [
+          {
+            "group": "owner",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>主人名字</p>"
+          },
+          {
+            "group": "owner",
+            "type": "String",
+            "optional": false,
+            "field": "sex",
+            "description": "<p>性别   1男 2女</p>"
+          },
+          {
+            "group": "owner",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>座机</p>"
+          },
+          {
+            "group": "owner",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>手机号码</p>"
+          },
+          {
+            "group": "owner",
+            "type": "String",
+            "optional": false,
+            "field": "certificateType",
+            "description": "<p>证件类型  1身份证 2护照</p>"
+          },
+          {
+            "group": "owner",
+            "type": "String",
+            "optional": false,
+            "field": "certificateCode",
+            "description": "<p>证件号</p>"
+          },
+          {
+            "group": "owner",
+            "type": "String",
+            "optional": false,
+            "field": "province",
+            "description": "<p>省</p>"
+          },
+          {
+            "group": "owner",
+            "type": "String",
+            "optional": false,
+            "field": "district",
+            "description": "<p>区</p>"
+          },
+          {
+            "group": "owner",
+            "type": "String",
+            "optional": false,
+            "field": "city",
+            "description": "<p>城市</p>"
+          },
+          {
+            "group": "owner",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>地址</p>"
+          },
+          {
+            "group": "owner",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>邮编</p>"
+          }
+        ],
+        "residence": [
+          {
+            "group": "residence",
+            "type": "String",
+            "optional": false,
+            "field": "houseNo",
+            "description": "<p>自由和租凭</p>"
+          },
+          {
+            "group": "residence",
+            "type": "String",
+            "optional": false,
+            "field": "houseProperty",
+            "description": "<p>(沪)房地（长）字（2006）第(000386)号</p>"
+          },
+          {
+            "group": "residence",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>xxx路xxx弄xxx号 ，用户判断唯一性</p>"
+          },
+          {
+            "group": "residence",
+            "type": "Number",
+            "optional": false,
+            "field": "isSterilization",
+            "description": "<p>是否绝育  0:未绝育 1:绝育</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/DogLicense/AddDogLicenseHandler.js",
+    "groupTitle": "DogLicense"
+  },
+  {
+    "type": "post",
     "url": "Send/Email",
     "title": "获取验证码",
     "name": "sendmail",
@@ -328,6 +555,37 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "src/server/WebAPI/Organization/EditorganizationHandler.js",
+    "groupTitle": "Organization"
+  },
+  {
+    "type": "get",
+    "url": "/organization/show",
+    "title": "获取机构信息",
+    "name": "showOrganization",
+    "group": "Organization",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Access-Token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success_Response:",
+          "content": "{ organization:\n { _id: '5a1d138dfac88f58a0a4330b',\n   name: 'test_ke7Ht',\n   tel: '15838365455',\n   businessLicense: '123',\n   animalMedicalLicense: '123',\n   adminUser:\n    { _id: '5a0bec3f3bea6821641c8c18',\n      email: '413124766@qq.com',\n      password: '0062003400520061004900667F6289DE275B2896C34A86CD3BD8852A',\n      created: '2017-11-15T07:26:55.376Z',\n      token: '9Q05UVlIwaXAf28B919Uc64k',\n      isAccountEnabled: 1,\n      logionProcess: 1,\n      __v: 0,\n      organization: '5a1d1435185d925c9c3c14c8' },\n   created: '2017-11-28T07:43:09.274Z',\n   __v: 0,\n   veterinarians: [],\n   checkStatus: { status: 0, time: '2017-11-28T07:43:09.273Z' },\n   contacts: { name: 'admin', phone: '15838365455' },\n   serviceScope: [],\n   location:\n    { province: '上海',\n      district: '浦东新区',\n      city: '航头镇',\n      address: '杭南公路',\n      code: '123456' } } }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/Organization/ShowOrganizationHandler.js",
     "groupTitle": "Organization"
   },
   {
