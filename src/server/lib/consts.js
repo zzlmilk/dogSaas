@@ -50,6 +50,48 @@
       Const.resCodeLoginerrEmail=2200001;
 
 
+      //dog
+      Const.resCodeDogNoNickname =  2000010; //缺少宠物昵称
+      Const.resCodeDogNoSex = 2000011 
+      Const.resCodeDogNobreed = 2000012
+      Const.resCodeDogNousage  = 2000013
+      Const.resCodeDogNohairColor =2000014
+      Const.resCodeDogNobornDate = 2000015;
+      Const.resCodeDogNoIrisID =  2000016
+      Const.resCodeDogNoPhotoUrl  = 2000017
+
+      //owner
+      Const.resCodeDogOwnerNoname = 2000018
+      Const.resCodeDogOwnerNosex = 2000019
+      Const.resCodeDogOwnerNoPhone = 2000020
+      Const.resCodeDogOwnerNoCertificateType = 2000021
+      Const.resCodeDogOwnerNocertificateCode =2000022
+      Const.resCodeDogOwnerNoLocationProvince = 2000023
+      Const.resCodeDogOwnerNoLocationdistrict = 2000024
+      Const.resCodeDogOwnerNoLocationcity = 2000025
+      Const.resCodeDogOwnerNoLocationaddress =2000026
+      Const.resCodeDogOwnerNoLocationdcode = 2000027
+      Const.resCodeDogOwnerNotel = 2000028
+
+
+      //vaccine
+      Const.resCodeDogVaccineNoname = 2000029
+      Const.resCodeDogVaccineNobatchNo = 2000030
+      Const.resCodeDogVaccineNomanufacturer = 2000031
+      Const.resCodeDogVaccineNoveterinarianName = 2000032
+      Const.resCodeDogVaccineNoorganizationName =2000033
+
+
+     Const.resCodeDogNoHusbandryNo = 2000034
+     Const.resCodeDogWorngHusbandryNo = 2000035 //已经被使用过的条形码
+
+
+
+
+      
+
+
+
 
      
 

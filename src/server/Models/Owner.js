@@ -15,14 +15,13 @@ var OwnerModel  = function(){};
 OwnerModel.prototype.init = function(mongoose){
 	this.schema = new mongoose.Schema({			
 			name: String, //主人名字		
-			sex:String, //性别
+			sex:String, //性别   1男 2女
 			phone:String,
 			tel:String,
 			//证件
-			certificate:{
-				Type:Number,//证件类型  1身份证
-				code:String,//证件号
-			},
+			certificateType:String,//证件类型  1身份证 2护照:{			
+			certificateCode:String,//证件号
+			
 			location:{
 			 		province:String,
 			 		district:String,
@@ -31,7 +30,7 @@ OwnerModel.prototype.init = function(mongoose){
 			 		code:String //邮编
 			 },
 			 
-			dogs:[{ type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "dogs" }],   //
+			dogs:[{type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "dogs"}],   //
 			created:Date, //注册时间																			
 			
 			
@@ -47,7 +46,7 @@ OwnerModel.prototype.init = function(mongoose){
 
 
 OwnerModel.get = function(){
-    return DatabaseManager.getModel('Dog').model;    
+    return DatabaseManager.getModel('Owner').model;    
 }
 
 

@@ -42,7 +42,7 @@ var AddOrganizationView = Backbone.View.extend({
             else if (action == "edit"){
                     //编辑
                      
-                      console.log(self.organization)
+                  
                 $(Config.defaultContaier).html(templateAdd({
                          organization:self.organization
                 }));
@@ -126,11 +126,34 @@ var AddOrganizationView = Backbone.View.extend({
 
 
         $("#addOrganizationBtn").unbind().on('click',function(e){
-
+          
             self.addOrganization()
         })
 
+
+
+        //上传图片
+        $("#businessLicense").bind().on("click",function(e){
+               var n = $(this).find("input").attr("id");                              
+               $("#"+n).on("aaaclick",function(e){         
+                                     
+                    $(this).show()
+
+                   
+               }) 
+
+               
+               console.log(n)
+               $("#"+n).trigger("aaaclick")
+
+                
+        });
+
     },
+
+
+
+
 
     addOrganization:function(){
          var name = $("#organization_name").val()
@@ -152,10 +175,8 @@ var AddOrganizationView = Backbone.View.extend({
 
 
                  AddOrganizationClient.send(organization                                    
-                    ,function(data){                  
-                        
-                       
-                         var organization = OrganizationModel.modelByResult(data.organization) 
+                    ,function(data){                                                                
+                         var organization = OrganizationModel.modelByResult(data.organization)                           
                          var templateStatus = require('./WaitReview.hbs');
                          $(Config.defaultContaier).html(templateStatus({
                                 //organization:organization.attributes
@@ -166,8 +187,8 @@ var AddOrganizationView = Backbone.View.extend({
 
                                                                                       
                     },function(errorCode){
-
-                        console.log(errorCode)
+                      alert(errorCode)
+                     
                                                                     
                     })
     }

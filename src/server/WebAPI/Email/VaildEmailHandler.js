@@ -25,7 +25,7 @@ var SendEmailLogic = require("../../Logics/SendEmailLogic");
 */
 
 var VaildEmailHandler = function(){
-       
+       	
 }
 
 _.extend(VaildEmailHandler.prototype,RequestHandlerBase.prototype);

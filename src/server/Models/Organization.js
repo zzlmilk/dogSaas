@@ -19,8 +19,7 @@ Organization.prototype.init = function(mongoose){
 			 		city:String,
 			 		address:String,		 
 			 		code:String //邮编
-			 },
-
+			 },			 
 			 tel:String, //座机
 			 businessLicense:String,  //图片 url地址  用七牛服务存储
 			 animalMedicalLicense:String, //图片 url地址  用七牛服务存储

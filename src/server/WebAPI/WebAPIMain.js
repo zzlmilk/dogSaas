@@ -29,12 +29,17 @@ var WebAPIMain = {
 					//set password
 					router.use("/user/set_password",require('./User/SetPasswordHandler'));
 
+					
 					//AOrganizationHandler
 					router.use("/organization/add", require('./Organization/AddOrganizationHandler'));
 					router.use("/organization/edit", require('./Organization/EditOrganizationHandler'));
 					router.use("/organization/show", require('./Organization/ShowOrganizationHandler'));
 
 
+
+					//AddDogHandler
+					router.use("/dogLicense/add", require('./DogLicense/AddDogLicenseHandler'));
+					
 
 					
 

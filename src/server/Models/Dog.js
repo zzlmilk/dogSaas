@@ -1,4 +1,4 @@
-//狗对象包含狗证信息
+//狗对象
 var _ = require('lodash');
 var mongoose = require('mongoose');
 var Config = require("../lib/init");
@@ -19,20 +19,12 @@ DogModel.prototype.init = function(mongoose){
 			usage:String,//用途
 			hairColor:String, //毛色
 			bornDate:Date, //出生日期
-			isSterilization,//是否绝育  0:未绝育 1:绝育
-			photoUrl:String, //默认展示宠物照片
+			isSterilization:Number,//是否绝育  0:未绝育 1:绝育
+			photoUrl:String, //宠物照片
 			photos:[], //多张宠物照片数组存储
 			irisID:String, //虹膜id ，目前先存储为一个string，未来和硬件挂勾可以映射一个对象
-
-
-
-			Owner:{ type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "owner" },   //主人
-			Vaccine:{ type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "vaccine" },   //免疫卡
-
-			
-
-			
-		    
+			vaccine:[{type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "vaccines" }], //兽医(填写人名)
+					    
 	});
 
 	this.model = mongoose.model(Config.dbCollectionPrefix + "dogs", this.schema);
