@@ -69,44 +69,83 @@
   background: #ffffff;
   margin-bottom: 20px;
 }
-//办理狗证--个人办证
-#dog_manage{
-  width: 900px;
-  height: auto;
+//办理狗证--个人办证 ，
+
+
+.dog_manage{
+  min-width: 960px;
+  max-width: 1040px;
   float: left;
   background:#fcfcfc ;
 }
-#manage_list{
+.dog_manage>.manage_list{
   width: 100px;
-  height: 1350px;
   float: left;
   background:#2e3645 ;
 }
-#manage_content{
-  width: 800px;
+.dog_manage>.manage_content{
+  min-width: 860px;
+  max-width: 940px;
   height: auto;
   float: left;
   padding: 25px;
 }
-.registration{
-  width: 750px;
+
+.dog_manage>.manage_content>.personal_card>.registration{
+  width: 890px;
   height: auto;
   float: left;
   margin-top: 20px;
   background: #ffffff;
-  border: 1px solid grey;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  border: 1px solid #cccccc;
+  padding-top: 15px;
+  padding-bottom: 20px;
 }
+
+.dog_manage>.manage_content>.personal_card>#post_info{
+    float: left;
+    margin-left: 300px;
+    margin-top: 30px;
+    width:300px;
+}
+
+.dog_manage>.manage_content>.personal_card>.registration>.title>h4>.small_title{
+  font-size: 12px;
+}
+
+.dog_manage>.manage_content>.personal_card>.registration>.row{
+  margin-bottom: 20px;
+}
+
+.dog_manage>.manage_content>.personal_card>.registration>.title{
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.subtitle h4{
+  float: left;
+  width: 80px;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 15px;
+  text-align:right;
+
+}
+.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.subtitle>.dog_img{
+  width: 170px;
+  height: 90px;
+  float: left;
+  margin-left: 100px;
+}
+.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section{
+  float: left;
+  margin-left: 5px;
+}
+
 .input_float{
   float:left;
 }
 
-.infoBtn{
-  width: 300px;
-  margin-top: 50px;
-  margin-left: 200px;
-}
+
 //办理狗证--个人办证--打印磁卡
 .card_img{
   width: 200px;
