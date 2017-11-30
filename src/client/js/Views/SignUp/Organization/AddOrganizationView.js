@@ -14,6 +14,9 @@ var templateAdd = require('./AddOrganization.hbs');
 var AddOrganizationClient = require('../../../lib/APIClients/AddOrganizationClient');
 
 var OrganizationModel = require('../../../Models/organization');
+var User = require('../../../Models/user');
+
+var LocalStorage = require('backbone.localstorage').LocalStorage;
 
 
 var AddOrganizationView = Backbone.View.extend({
@@ -175,9 +178,25 @@ var AddOrganizationView = Backbone.View.extend({
 
 
                  AddOrganizationClient.send(organization                                    
-                    ,function(data){                                                                
-                         var organization = OrganizationModel.modelByResult(data.organization)                           
+                    ,function(data){
+                    
+                            //更新user的organization 
+                             var user = User.getLoginUser();
+                             var organization = data.organization;
+                             user.organization = organization                             
+                             var model  =  User.modelByResult(user)                           
+                             model.save();
+
+                            
+
+
+
+                        
+
+
                          var templateStatus = require('./WaitReview.hbs');
+
+
                          $(Config.defaultContaier).html(templateStatus({
                                 //organization:organization.attributes
                          }));

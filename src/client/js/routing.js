@@ -2,9 +2,15 @@ var Backbone = require('backbone');
 var Utils = require('./lib/utils');
 var Config = require('./lib/init');
 
+
 var LoginUserManager = require('./lib/loginUserManager');
 
+var LocalStorage = require('backbone.localstorage').LocalStorage;
 var User = require('./Models/user');
+var Organization = require('./Models/organization');
+
+
+
 
 
 
@@ -96,6 +102,7 @@ var Routing = function(){
         });
 
 
+
         //重置密码
         appRouter.on('route:resetpasswordRoute', function(actions) {
             var ResetPasswordView = require('./Views/Start/ResetPassword/ResetPasswordView.js');
@@ -133,14 +140,19 @@ var Routing = function(){
 
              var user = User.getLoginUser();
             
-              user.organization.checkStatus.status = 1
+
+            
+              // user.organization.checkStatus.status = 1
              // console.log(user.organization.checkStatus)
 
 
-             if (user) {      
-                      var  organization = user.organization
-                      var status = organization.checkStatus.status              
-                                   //不存在organizationq 去添加组织
+             if (user) {   
+                console.log("==user",user)
+                    var organization = user.organization
+
+                    console.log("==ro",organization)
+
+                        //不存在organizationq 去添加组织
                          if (organization == null   ) {                    
                               var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');   
                               var view = new AddOrganizationView({
@@ -148,13 +160,16 @@ var Routing = function(){
                                         user:user,
                                    });
 
-                         }else{                                                        
+                         }else{   
+                         var status = organization.checkStatus.status                                                                                  
                                 if (status == 1) {
                                      var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');  
                                      var view = new AddOrganizationView({
                                         action:"edit",
                                         user:user,
                                    });
+                                 // Utils.goPage("main")
+
                                 }else if (status == 0 || status == -1 ){
                                   //等待审核
                                      var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');  

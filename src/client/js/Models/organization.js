@@ -1,5 +1,6 @@
 var Backbone = require('backbone');
 var _ = require('lodash');
+var LocalStorage = require('backbone.localstorage').LocalStorage;
 
  // Class ------------------------------------------------
     var OrganizationModel = Backbone.Model.extend({
@@ -28,7 +29,7 @@ var _ = require('lodash');
 
         
         },
-
+        localStorage: new LocalStorage("OrganizationModel"),
         initialize: function(){
     
         }
@@ -40,11 +41,21 @@ var _ = require('lodash');
         model: OrganizationModel
     });
 
+
+
    var Organization = {
         Model:OrganizationModel,
         Collection:OrganizationCollection,
     }
-    
+
+
+    Organization.getOrganizationById = function(id){
+            var model = new OrganizationModel();
+            var organization = model.localStorage.find({id:id})
+            return organization;
+    },
+
+
 
 
     Organization.modelByResult = function(obj){
@@ -54,9 +65,11 @@ var _ = require('lodash');
         }
 
 
+
     		var model = new OrganizationModel({
     			id:obj._id,
-    			name:obj.name,    			
+    			name:obj.name,   
+                adminUser:obj.adminUser, 			
     			checkStatus:{
                     status:obj.checkStatus.status,
                 },

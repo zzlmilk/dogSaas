@@ -7,7 +7,7 @@ var LoginUserManager = require('../lib/LoginUserManager');
 
 
 
-var OrganizationModel = require('./organization');
+var Organization = require('./organization');
         
 
  // Class ------------------------------------------------
@@ -33,12 +33,17 @@ var OrganizationModel = require('./organization');
 
      
 
-   });
+    });
+
+
+
 
  	var UserCollection = Backbone.Collection.extend({
         model: UserModel,
 
     });
+
+   
 
    var user = {
         Model:UserModel,
@@ -54,20 +59,25 @@ var OrganizationModel = require('./organization');
             var user = model.localStorage.find({id:userID})
             return user;
     },
+
+    
     
 
 
     user.modelByResult = function(obj){
-
     		var model = new UserModel({
-    			id:obj._id,
+    			id:obj._id || obj.id,
     			email:obj.email,    			
     			logionProcess:obj.logionProcess,
-                organization : OrganizationModel.modelByResult(obj.organization),
+               // organization : OrganizationModel.modelByResult(obj.organization),
     		});
 
-
-		return model;
+             if(!_.isUndefined(obj.organization)){              
+                    var organization = Organization.modelByResult(obj.organization);                                  
+                     model.set('organization',organization);
+             }
+		      
+              return model;
 
     }
 
