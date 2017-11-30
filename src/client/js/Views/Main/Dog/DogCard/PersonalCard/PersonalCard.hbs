@@ -1,242 +1,345 @@
-<div id="personal_card">
-    <h4>个人办证</h4>
-    <form role="form" class="registration">
-        <h4>快速登记</h4>
-        <div class="form-group">
-            <label for="barcode" class="col-md-2 control-label text-right">*条形码:</label>
-            <div class="col-md-4">
-                <input type="email" class="form-control" id="barcode" >
+<div class="personal_card">
+    <div class="title">
+        <h3>个人办证</h3>
+    </div>
+    <div class="registration">
+            <div class="title">
+                <h4>个人办证</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="subtitle">
+                        <h4>*条形码:</h4>
+                    </div>
+                    <div class="section">
+                        <input type="text" id="barcode" >
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="registration">
+        <div class="title">
+            <h4>犬主登记</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*犬主姓名:</h4>
+                </div>
+                <div class="section">
+                    <input type="text" id="dogowner_name" >
+                    <span style="display: none" id="err_tip">*请输入犬主姓名</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*性别:</h4>
+                </div>
+                <div class="section">
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="man" value="option1">男
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="woman" value="option2">女
+                    </label>
+                </div>
             </div>
         </div>
-    </form>
-    <form  role="form" class="registration">
-        <h4>犬主登记</h4>
-        <div class="form-group">
-            <label for="dog_owner" class="col-md-2 control-label text-right">*犬主姓名:</label>
-            <div class="col-md-4">
-                <input type="text" class="form-control" id="dog_owner" >
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>手机号码:</h4>
+                </div>
+                <div class="section">
+                    <input type="text" id="telephone" >
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>犬主座机:</h4>
+                </div>
+                <div class="section">
+                    <select>
+                        <option id="area_code">请选择</option>
+                    </select>
+                    - <input type="text"  id="phone" >
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="" class="col-sm-2 control-label text-right">*性别:</label>
-            <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="female" value="option1">男
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="male" value="option2">女
-            </label>
-        </div>
-        <div class="form-group">
-            <label for="telephone" class="col-md-2 control-label text-right">手机号码:</label>
-            <div class="col-md-4">
-                <input type="text" class="form-control" id="telephone" >
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*证件类型:</h4>
+                </div>
+                <div class="section">
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="idcard" value="option1">身份证
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="passport" value="option2">护照
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*证件号:</h4>
+                </div>
+                <div class="section">
+                    <input type="text"  id="id_number" >
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="phone" class="col-md-2 control-label text-right">犬主座机:</label>
-            <div class="col-md-1">
-                <select>
-                    <option>021</option>
-                </select>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*所属区县:</h4>
+                </div>
+                <div class="section">
+                    <select>
+                        <option id="chose_province">请选择</option>
+                    </select>
+                    <select>
+                        <option id="chose_city">请选择</option>
+                    </select>
+                    <select>
+                        <option id="chose_county">请选择</option>
+                    </select>
+                </div>
             </div>
-            <div class="col-md-3">
-                <input type="text" class="form-control" id="phone" >
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="phone" class="col-md-2 control-label text-right">*证件类型:</label>
-            <div class="col-md-4">
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="idcard" value="option1">身份证
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="passport" value="option2">护照
-                </label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="id_number" class="col-md-2 control-label text-right">*证件号:</label>
-            <div class="col-md-4">
-                <input type="text" class="form-control" id="id_number" >
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*详细地址:</h4>
+                </div>
+                <div class="section">
+                    <input type="text"  id="address" >
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="" class="col-md-2 control-label text-right">*所属区县:</label>
-            <div class="col-md-4">
-                <select>
-                    <option>上海</option>
-                </select>
-                <select>
-                    <option>上海市</option>
-                </select>
-                <select>
-                    <option>徐汇区</option>
-                </select>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>邮编:</h4>
+                </div>
+                <div class="section">
+                    <input type="text"  id="postcode" >
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="address" class="col-md-2 control-label text-right">*详细地址:</label>
-            <div class="col-md-4">
-                <input type="text" class="form-control" id="address" >
+    </div>
+
+    <div class="registration">
+        <div class="title">
+            <h4>犬只登记</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>犬名:</h4>
+                </div>
+                <div class="section">
+                    <input type="text"  id="dogname" >
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*性别:</h4>
+                </div>
+                <div class="section">
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="male" value="option1">雄
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="female" value="option2">雌
+                    </label>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="postcode" class="col-md-2 control-label text-right">邮编:</label>
-            <div class="col-md-4">
-                <input type="text" class="form-control" id="postcode" >
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*毛色:</h4>
+                </div>
+                <div class="section">
+                    <select>
+                        <option id="hair_color">请选择</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>用途:</h4>
+                </div>
+                <div class="section">
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="watch" value="option1">观赏
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="police" value="option2">警卫
+                    </label>
+                </div>
             </div>
         </div>
-    </form>
-    <form  role="form" class="registration">
-        <h4>犬只登记</h4>
-        <div class="form-group">
-            <label for="dogname" class="col-md-2 control-label text-right">犬名:</label>
-            <div class="col-md-4">
-                <input type="text" class="form-control" id="dogname" >
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*品种:</h4>
+                </div>
+                <div class="section">
+                    <select>
+                        <option id="kind">请选择</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>出生日期:</h4>
+                </div>
+                <div class="section">
+                    <input  type="text"  id="birth_date" >
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="" class="col-sm-2 control-label text-right">*性别:</label>
-            <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="female" value="option1">公
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="male" value="option2">母
-            </label>
-        </div>
-        <div class="form-group">
-            <label for="" class="col-md-2 control-label text-right">*毛色:</label>
-            <div class="col-md-4">
-                <select>
-                    <option>棕色</option>
-                </select>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*虹膜id:</h4>
+                </div>
+                <div class="section">
+                    <input  type="text"  id="birth_date" >
+                    <input  type="submit" value="重新采集虹膜"   >
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <img src="" class="dog_img" />
+                </div>
+                <div class="section">
+                    <input  type="button" value="重新采集图片" class="reupload" ><br>
+                    <input  type="button" value="上传本地图片" class="upload"   >
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="" class="col-sm-2 control-label text-right">用途:</label>
-            <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="watch" value="option1">观赏
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="police" value="option2">警卫
-            </label>
-        </div>
-        <div class="form-group">
-            <label for="" class="col-md-2 control-label text-right">*品种:</label>
-            <div class="col-md-4">
-                <select>
-                    <option>金色</option>
-                </select>
+    </div>
+
+    <div class="registration">
+            <div class="title">
+                <h4>疫苗登记</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="subtitle">
+                        <h4>*疫苗名称:</h4>
+                    </div>
+                    <div class="section">
+                        <select>
+                            <option id="iris_name">请选择</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="subtitle">
+                        <h4>*疫苗批号:</h4>
+                    </div>
+                    <div class="section">
+                        <input  type="text" id="iris_batch"  >
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*生产厂商:</h4>
+                </div>
+                <div class="section">
+                    <input  disabled="disabled" type="text"  id="" >
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>免疫点名称:</h4>
+                </div>
+                <div class="section">
+                    <input  disabled="disabled" type="text" placeholder="上海顽皮家族"  id="" >
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="" class="col-md-2 control-label text-right">出生日期:</label>
-            <div class="input-append date form_datetime">
-                <input size="16" type="text" value="" readonly>
-                <span class="add-on"><i class="icon-th"></i></span>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*兽医:</h4>
+                </div>
+                <div class="section">
+                    <select>
+                        <option id="doctor_name">请选择</option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="iris_id" class="col-md-2 control-label text-right">*虹膜id:</label>
-            <div class="col-md-4">
-                <input display="inline-block" type="text" class="form-control" id="iris_id" >
-                <input display="inline-block"  type="button" class="form-control" value="重新采集虹膜" >
+    </div>
+
+    <div class="registration">
+        <div class="title">
+            <h4>疫苗登记<span class="small_title">(如需办理养犬登记请填写如下内容)</span></h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>产权性质:</h4>
+                </div>
+                <div class="section">
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="owner" value="option1">自有
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="rent" value="option2">租赁
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>房产证号:</h4>
+                </div>
+                <div class="section">
+                    <select>
+                        <option id="house_number">请选择</option>
+                    </select>
+                    <label  for="year" >年份</label>
+                    <input  type="text" style="width: 50px;" />
+                    <label  for="">第</label>
+                    <input  type="text" style="width: 50px;" />
+                    <label  for="">周</label>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <div style="width:150px;height:100px;border:1px grey solid;" class="col-md-2">图片</div>
-            <div class="col-md-3">
-                <input display="inline-block"  type="button" class="form-control" value="重新采集虹膜" >
-                <input display="inline-block"  type="file" class="form-control" value="上传本地图片" >
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>是否绝育:</h4>
+                </div>
+                <div class="section">
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="yes" value="option1">是
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="no" value="option2">否
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>登记地址:</h4>
+                </div>
+                <div class="section">
+                    <input type="text"  id="reg_address" >
+                    <input type="checkbox"  >
+                    <label  for="" >与犬主地址相同</label>
+                </div>
             </div>
         </div>
-    </form>
-    <form role="form" class="registration">
-        <h4>免疫登记</h4>
-        <div class="form-group">
-            <label for="" class="col-md-2 control-label text-right">*疫苗名称:</label>
-            <div class="col-md-4">
-                <select class="form-control">
-                    <option>狂犬疫苗</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="batch_number" class="col-md-2 control-label text-right">*疫苗批号:</label>
-            <div class="col-md-4">
-                <input  type="text" class="form-control" id="batch_number" >
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="" class="col-md-2 control-label text-right">*生产厂商:</label>
-            <div class="col-md-4">
-                <input  disabled="disabled" type="text" class="form-control" id="" >
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="" class="col-md-2 control-label text-right">*免疫点名称:</label>
-            <div class="col-md-4">
-                <input  disabled="disabled" type="text" placeholder="上海顽皮家族" class="form-control" id="" >
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="batch_number" class="col-md-2 control-label text-right">*兽医:</label>
-            <div class="col-md-4">
-                <input  type="text" class="form-control" id="batch_number" >
-            </div>
-        </div>
-    </form>
-    <form role="form" class="registration">
-        <h4>户籍登记<span style="font-size: 12px">(如需办理养犬登记请填写如下内容)</span></h4>
-        <div class="form-group input_float">
-            <label  for="" class=" control-label input_float text-right">产权性质:</label>
-            <div class="input_float">
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="idcard" value="option1">自由
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="passport" value="option2">租赁
-                </label>
-            </div>
-        </div>
-        <div class="form-group input_float" style="margin-left: 150px;">
-            <label for="" class="control-label input_float text-right">房产证号:</label>
-            <div class="input_float">
-                <select id="year">
-                    <option>请选择</option>
-                </select>
-            </div>
-            <div class="input_float">
-                <label  for="year" >年份</label>
-                <input  type="text" style="width: 50px;" />
-            </div>
-            <div class="input_float">
-                <label  for="">第</label>
-                <input  type="text" style="width: 50px;" />
-                <label  for="">周</label>
-            </div>
-        </div>
-        <div class="form-group input_float" >
-            <label  for="" class=" control-label input_float text-right">是否绝育:</label>
-            <div class="input_float">
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="idcard" value="option1">是
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="passport" value="option2">否
-                </label>
-            </div>
-        </div>
-        <div class="form-group input_float" style="margin-left: 150px;">
-            <label  for="register_address" class=" control-label input_float text-right">登记地址:</label>
-            <input type="text" id="register_address">
-            <input type="checkbox"  />
-            <label  for="" class="control-label text-right">与犬主地址相同</label>
-        </div>
-    </form>
-    <form role="form">
-        <div class="form-group">
-            <button class="btn btnBlueE btn-block infoBtn"  id="post_info">提交</button>
-        </div>
-    </form>
+    </div>
+
+    <button class="btn btnBlueE btn-block"  id="post_info">提交</button>
+
+
 </div>

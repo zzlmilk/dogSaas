@@ -44,7 +44,7 @@ var DogCardView = Backbone.View.extend({
 
         var PersonalCardView = require('./PersonalCard/PersonalCardView.js');
         var view = new PersonalCardView({
-            'el': "#manage_content"
+            'el': ".manage_content"
         });
 
     }
