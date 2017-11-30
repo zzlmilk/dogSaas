@@ -196,7 +196,7 @@ var DogLicenseLogic = {
 							  						address:ownerParam.address,
 							  						code:ownerParam.code,
 							  					},
-							  				 dogs:[result.dog],
+							  			//	 dogs:[result.dog],
 
 							  		});
 

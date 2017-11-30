@@ -222,6 +222,15 @@
         ]
       }
     },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{ dogLicense:\n { __v: 0,\n   owner: '5a1f603923027209fcffa110',\n   dog: '5a1f6217fd9fd21fb4f2d8aa',\n   residence: '5a1f6217fd9fd21fb4f2d8a8',\n   husbandryNo: 'jzOM0',\n   _id: '5a1f6217fd9fd21fb4f2d8a7',\n   DogCard: { isCreate: 1, message: '可以办理狗证' },\n   vaccineCard: { isCreate: 1, create: '2017-11-30T01:42:47.637Z' } } }",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
     "filename": "src/server/WebAPI/DogLicense/AddDogLicenseHandler.js",
     "groupTitle": "DogLicense"
