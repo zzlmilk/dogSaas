@@ -1,5 +1,6 @@
 /**
  * Created by json on 2017/11/27.
+ * 狗证信息弹窗
  */
 var $ = require('jquery');
 var _ = require('lodash');
@@ -12,16 +13,23 @@ var template = require('./InfoPreview.hbs');
 // var UpdateProfileClient = require('../../../lib/APIClients/UpdateProfileClient');
 // var loginUserManager = require('../../../lib/loginUserManager');
 
+
 var InfoPreview = {
-    show: function(title, text, onRetry) {
+
+    DogLicenseModel: null,
+    dog: null,
+    dog_vaccine: null,
+    owner: null,
+    residence: null,
+
+    show: function (dogLicenseModel) {
+        this.DogLicenseModel = dogLicenseModel;
+
 
         var self = this;
 
-        $('body').append(template({
-            title: title,
-            text: text
-        }));
-        $('#modal-profile').on('hidden.bs.modal', function(e) {
+        $('body').append(template({DogLicenseModel:this.DogLicenseModel.toJSON()}));
+        $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
 
         })
@@ -32,17 +40,22 @@ var InfoPreview = {
         })
 
         $('#modal-profile').modal('show');
-        $('#modal-btn-close').unbind().on('click', function() {
+        $('#modal-btn-close').unbind().on('click', function () {
             self.hide();
         });
-        $('#modal-btn-save').unbind().on('click',function(){
+        $('#modal-btn-save').unbind().on('click', function () {
 
             alert("进入Main/Dog/DogCard/CardInfo页面")
 
         });
     },
-    hide: function(onFinish) {
-        $('#modal-profile').on('hidden.bs.modal', function(e) {
+
+    /**
+     * 重新编辑
+     * @param onFinish
+     */
+    hide: function (onFinish) {
+        $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
             if (!_.isUndefined(onFinish)) {
                 onFinish();
@@ -53,8 +66,145 @@ var InfoPreview = {
     },
 
 
+    /**
+     * 添加狗证
+     */
+    addDogCard: function () {
+        var body = {
+            husbandryNo: global.getRandomStr(),
+            dog: {
+                nickname: "test_" + global.getRandomStr(),
+                sex: "1",
+                breed: "breed",
+                usage: "警卫",
+                hairColor: "白色",
+                bornDate: "2016-08-10",
+                irisID: "a12345678",
+                photoUrl: "123",
+                vaccine: {
+                    name: "av",
+                    batchNo: "123",
+                    manufacturer: "manufacturer",
+                    veterinarianName: "veterinarianName",
+                    organizationName: "organizationName",
+                }
+
+            },
+            owner: {
+                name: "test_" + global.getRandomStr(),
+                sex: "1",
+                tel: "345033",
+                phone: "15901794453",
+                certificateType: "1",
+                certificateCode: "31010211111111",
+                province: "province",
+                district: "district",
+                city: "city",
+                address: "address",
+                code: "code",
+
+            },
+            residence: {
+                houseNo: "1234",
+                houseProperty: "ziyou",
+                address: "global.getRandomStr()",
+                isSterilization: "0"
+            }
+
+        };
+
+        request(app)
+            .post('/dogsystem/v1/dogLicense/add')
+            .set('Access-Token', token)
+            .send(body)
+            .end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                console.log(res.body)
+                res.body.should.have.property('code');
+                res.body.code.should.equal(Const.responsecodeSucceed);
+
+                done();
+
+            });
+    },
+
+    /**
+     * 补办狗证
+     */
+    issueDogCard: function () {
+        var body = {
+            husbandryNo: global.getRandomStr(),
+            dog: {
+                nickname: "test_" + global.getRandomStr(),
+                sex: "1",
+                breed: "breed",
+                usage: "警卫",
+                hairColor: "白色",
+                bornDate: "2016-08-10",
+                irisID: "a12345678",
+                photoUrl: "123",
+                vaccine: {
+                    name: "av",
+                    batchNo: "123",
+                    manufacturer: "manufacturer",
+                    veterinarianName: "veterinarianName",
+                    organizationName: "organizationName",
+                }
+
+            },
+            owner: {
+                name: "test_" + global.getRandomStr(),
+                sex: "1",
+                tel: "345033",
+                phone: "15901794453",
+                certificateType: "1",
+                certificateCode: "31010211111111",
+                province: "province",
+                district: "district",
+                city: "city",
+                address: "address",
+                code: "code",
+
+            },
+            residence: {
+                houseNo: "1234",
+                houseProperty: "ziyou",
+                address: "global.getRandomStr()",
+                isSterilization: "0"
+            }
+
+        };
+
+        request(app)
+            .post('/dogsystem/v1/dogLicense/add')
+            .set('Access-Token', token)
+            .send(body)
+            .end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                console.log(res.body)
+                res.body.should.have.property('code');
+                res.body.code.should.equal(Const.responsecodeSucceed);
+
+                done();
+
+            });
+    },
+
+    /**
+     * 免疫年检
+     */
+    immuneYearCheck: function () {
+
+    }
 
 
-
-}
+};
 module.exports = InfoPreview;

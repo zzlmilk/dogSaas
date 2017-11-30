@@ -10,7 +10,7 @@
                             <h4>*条形码:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.husbandryNo}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -50,7 +50,7 @@
                             <h4>*犬主姓名:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.owner.name}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -58,7 +58,7 @@
                             <h4>手机号码:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.owner.phone}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -66,7 +66,7 @@
                             <h4>犬主座机:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.owner.tel}}</span>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                             <h4>性别:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.owner.sex}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -84,7 +84,7 @@
                             <h4>*证件类型:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.owner.certificateType}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -92,7 +92,7 @@
                             <h4>*证件号:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.owner.certificateCode}}</span>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                             <h4>*所属区县:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.owner.province}}{{DogLicenseModel.owner.district}}{{DogLicenseModel.owner.city}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -110,7 +110,7 @@
                             <h4>*详细地址:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.owner.address}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -118,7 +118,7 @@
                             <h4>邮编:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.owner.code}}</span>
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                             <h4>犬名:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.dog.nickname}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -140,7 +140,7 @@
                             <h4>*性别:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.dog.sex}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -148,7 +148,7 @@
                             <h4>*虹膜id:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.dog.irisID}}</span>
                         </div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
                             <h4>*毛色:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.dog.hairColor}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -166,7 +166,7 @@
                             <h4>用途:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.dog.usage}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -181,7 +181,7 @@
                             <h4>*品种:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.dog.breed}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -189,7 +189,7 @@
                             <h4>出生日期:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.dog.bornDate}}</span>
                         </div>
                     </div>
                 </div>
@@ -207,12 +207,12 @@
                         <td class="right_td">免疫时间</td>
                     </tr>
                     <tr class="immune_tr" align="center">
-                        <td class="left_td"></td>
-                        <td class="left_td"></td>
-                        <td class="middle_td"></td>
-                        <td class="middle_td"></td>
-                        <td class="right_td"></td>
-                        <td class="right_td"></td>
+                        <td class="left_td">{{DogLicenseModel.dog.vaccine.name}}</td>
+                        <td class="left_td">{{DogLicenseModel.dog.vaccine.batchNo}}</td>
+                        <td class="middle_td">{{DogLicenseModel.dog.vaccine.manufacturer}}</td>
+                        <td class="middle_td">{{DogLicenseModel.dog.vaccine.veterinarianName}}</td>
+                        <td class="right_td">{{DogLicenseModel.dog.vaccine.organizationName}}</td>
+                        <td class="right_td">{{DogLicenseModel.dog.vaccine.name}}</td>
                     </tr>
                 </table>
 
@@ -225,7 +225,7 @@
                             <h4>是否绝育:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.residence.isSterilization}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -233,7 +233,7 @@
                             <h4>产权性质:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.residence.houseProperty}}</span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -241,7 +241,7 @@
                             <h4>*房产证号:</h4>
                         </div>
                         <div class="section">
-                            <span></span>房地<span></span>字<span></span>第<span></span>号
+                            {{DogLicenseModel.residence.houseNo}}<span></span>房地<span></span>字<span></span>第<span></span>号
                         </div>
                     </div>
                 </div>
@@ -251,7 +251,7 @@
                             <h4>*登记地址:</h4>
                         </div>
                         <div class="section">
-                            <span></span>
+                            <span>{{DogLicenseModel.residence.address}}</span>
                         </div>
                     </div>
                 </div>
