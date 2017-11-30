@@ -220,7 +220,14 @@
             "description": "<p>是否绝育  0:未绝育 1:绝育</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request Example",
+          "content": "POST  /dogLicense/add\n{  husbandryNo:global.getRandomStr(),\n        dog:{\n            nickname: \"test_\" + global.getRandomStr(),\n            sex:\"1\",\n            breed:\"breed\",\n            usage:\"警卫\",\n            hairColor:\"白色\",\n            bornDate:\"2016-08-10\",\n            irisID:\"a12345678\",\n            photoUrl:\"123\",\n            vaccine:{\n                name:\"av\",\n                batchNo:\"123\",\n                manufacturer:\"manufacturer\",\n                veterinarianName:\"veterinarianName\",\n                organizationName:\"organizationName\",\n            }\n\n        },\n        owner:{\n            name: \"test_\" + global.getRandomStr(),\n            sex:\"1\",\n            tel:\"345033\",\n            phone:\"15901794453\",\n            certificateType:\"1\",\n            certificateCode:\"31010211111111\",\n            province:\"province\",\n            district:\"district\",\n            city:\"city\",\n            address:\"address\",\n            code:\"code\",\n\n        },\n        residence:{\n            houseNo:\"1234\",\n            houseProperty:\"ziyou\",\n            address:\"1234\",\n            isSterilization:\"0\"\n        }\n }",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "examples": [

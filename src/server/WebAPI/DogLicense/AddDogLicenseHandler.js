@@ -64,6 +64,48 @@ var AddDogLicenseHandler = function(){
  * @apiUse Vaccine
  * @apiUse Owner
  * @apiUse Residence
+ * @apiParamExample {json} Request Example
+ * POST  /dogLicense/add
+{  husbandryNo:global.getRandomStr(),
+        dog:{
+            nickname: "test_" + global.getRandomStr(),
+            sex:"1",
+            breed:"breed",
+            usage:"警卫",
+            hairColor:"白色",
+            bornDate:"2016-08-10",
+            irisID:"a12345678",
+            photoUrl:"123",
+            vaccine:{
+                name:"av",
+                batchNo:"123",
+                manufacturer:"manufacturer",
+                veterinarianName:"veterinarianName",
+                organizationName:"organizationName",
+            }
+
+        },
+        owner:{
+            name: "test_" + global.getRandomStr(),
+            sex:"1",
+            tel:"345033",
+            phone:"15901794453",
+            certificateType:"1",
+            certificateCode:"31010211111111",
+            province:"province",
+            district:"district",
+            city:"city",
+            address:"address",
+            code:"code",
+
+        },
+        residence:{
+            houseNo:"1234",
+            houseProperty:"ziyou",
+            address:"1234",
+            isSterilization:"0"
+        }
+ }
  * @apiSuccessExample Success-Response:
   { dogLicense:
    { __v: 0,
