@@ -64,6 +64,17 @@ var AddDogLicenseHandler = function(){
  * @apiUse Vaccine
  * @apiUse Owner
  * @apiUse Residence
+ * @apiSuccessExample Success-Response:
+  { dogLicense:
+   { __v: 0,
+     owner: '5a1f603923027209fcffa110',
+     dog: '5a1f6217fd9fd21fb4f2d8aa',
+     residence: '5a1f6217fd9fd21fb4f2d8a8',
+     husbandryNo: 'jzOM0',
+     _id: '5a1f6217fd9fd21fb4f2d8a7',
+     DogCard: { isCreate: 1, message: '可以办理狗证' },
+     vaccineCard: { isCreate: 1, create: '2017-11-30T01:42:47.637Z' } } }
+
  *
  */
 
