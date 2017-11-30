@@ -69,9 +69,7 @@
   background: #ffffff;
   margin-bottom: 20px;
 }
-//办理狗证--个人办证 ，
-
-
+//办理狗证--个人办证
 .dog_manage{
   min-width: 960px;
   max-width: 1040px;
@@ -90,7 +88,6 @@
   float: left;
   padding: 25px;
 }
-
 .dog_manage>.manage_content>.personal_card>.registration{
   width: 890px;
   height: auto;
@@ -154,6 +151,7 @@
   margin-left: 10px;
   float: left;
   margin-top: 10px;
+
 }
 .dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>#imgs{
   float: left;
@@ -174,8 +172,8 @@
   margin-left: 10px;
   float: left;
   margin-top: 15px;
-}
 
+}
 
 .dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#upload{
   width: 90px;
@@ -191,13 +189,57 @@
   position: absolute;
   z-index: 99;
   top:40px;
-}
 
+}
 
 .input_float{
   float:left;
 }
 
+//办理狗证--个人办证--弹窗
+.modal>.modal-dialog>.modal-content>.modal-header>.modal-title{
+  margin-bottom: 15px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.title{
+  margin-bottom: 15px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.subtitle h4{
+  width: 70px;
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 15px;
+  text-align:right;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.section{
+  float: left;
+  margin-left: 5px;
+}
+
+.modal>.modal-dialog>.modal-content>.modal-body>.top{
+  border-top:1px solid #cccccc ;
+  padding-top:15px;
+}
+
+
+.modal>.modal-dialog>.modal-content>.modal-body>.immune_table{
+  width: 100%;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.immune_table>tbody>.immune_tr>.left_td{
+  width: 100px;
+  height: 30px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.immune_table>tbody>.immune_tr>.right_td{
+  width: 100px;
+  height: 30px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.immune_table>tbody>.immune_tr>.middle_td{
+  width: 200px;
+  height: 30px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.top>h4>.huji{
+  font-size: 12px;
+}
 
 //办理狗证--个人办证--打印磁卡
 .card_img{
