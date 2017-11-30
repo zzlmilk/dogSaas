@@ -140,6 +140,59 @@
   float: left;
   margin-left: 5px;
 }
+.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#birth_date{
+  float: left;
+}
+.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#recollect_iris{
+  width: 90px;
+  height: 20px;
+  border: 1px #cccccc solid;
+  border-radius:10px ;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 10px;
+  float: left;
+  margin-top: 10px;
+}
+.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>#imgs{
+  float: left;
+}
+.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>#collectimg{
+  position: relative;
+  float: left;
+}
+
+.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#recollect_img{
+  width: 90px;
+  height: 20px;
+  border: 1px #cccccc solid;
+  border-radius:10px ;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 10px;
+  float: left;
+  margin-top: 15px;
+}
+
+
+.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#upload{
+  width: 90px;
+  height: 20px;
+  border: 1px #cccccc solid;
+  border-radius:10px ;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 10px;
+  float: left;
+  margin-top: 10px;
+  position: absolute;
+  z-index: 99;
+  top:40px;
+}
+
 
 .input_float{
   float:left;

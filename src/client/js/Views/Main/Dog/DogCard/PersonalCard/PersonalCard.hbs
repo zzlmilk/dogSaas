@@ -207,16 +207,16 @@
                 </div>
                 <div class="section">
                     <input  type="text"  id="birth_date" >
-                    <input  type="submit" value="重新采集虹膜"   >
+                    <a id="recollect_iris"   href="javascript:void(0)">重新采集虹膜</a>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="subtitle">
-                    <img src="" class="dog_img" />
+                <div class="subtitle" id="imgs">
+                    <img src="" id="dog_img" class="dog_img" />
                 </div>
-                <div class="section">
-                    <input  type="button" value="重新采集图片" class="reupload" ><br>
-                    <input  type="button" value="上传本地图片" class="upload"   >
+                <div class="section" id="collectimg" >
+                    <a id="recollect_img"  href="javascript:void(0)">重新采集图片</a>
+                    <input  type="file"   id="upload" value="上传本地图片" class="upload"   >
                 </div>
             </div>
         </div>
