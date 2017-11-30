@@ -134,6 +134,12 @@ var AddOrganizationView = Backbone.View.extend({
         })
 
 
+        //WaitReview_button
+        $("#WaitReview_button").unbind().on('click',function(e){
+          
+           Utils.goPage("main")
+        })
+
 
         //上传图片
         $("#businessLicense").bind().on("click",function(e){
