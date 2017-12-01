@@ -12,7 +12,7 @@
                     <h4>*条形码:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="barcode">
+                    <input type="number" id="barcode" oninput="if(value.length>7)value=value.slice(0,7)">
                     <p style="display: none;" class="null_err" id="barcode_null_tip">*条形码不能为空</p>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                     <label class="radio-inline">
                         <input type="radio" name="gender" id="gender_woman" value="woman">女
                     </label>
-
+                    <p style="display: none;" class="null_err" id="gender_null_tip">*性别不能为空</p>
                 </div>
             </div>
         </div>
@@ -54,8 +54,9 @@
                     <h4>*手机号码:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="phone">
+                    <input type="number" id="phone" oninput="if(value.length>11)value=value.slice(0,11)">
                     <p style="display: none;" class="null_err" id="phone_null_tip">*手机号码不能为空</p>
+                    <p style="display: none;" class="null_err" id="phone_format_tip">*手机号码格式有误</p>
                 </div>
             </div>
             <div class="col-md-6">
@@ -66,7 +67,8 @@
                     <select>
                         <option id="area_code">请选择</option>
                     </select>
-                    - <input type="text" id="tel">
+                    - <input type="number" id="tel" oninput="if(value.length>10)value=value.slice(0,10)">
+                    <p style="display: none;" class="null_err" id="tel_null_tip">*座机不能为空</p>
                 </div>
             </div>
         </div>
@@ -90,8 +92,9 @@
                     <h4>*证件号:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="id_number">
+                    <input  id="id_number" oninput="if(value.length>18)value=value.slice(0,18)">
                     <p style="display: none;" class="null_err" id="id_number_null_tip">*证件号不能为空</p>
+                    <p style="display: none;" class="null_err" id="id_number_format_tip">*证件号格式有误</p>
                 </div>
             </div>
         </div>
@@ -130,7 +133,8 @@
                     <h4>邮编:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="postcode">
+                    <input type="number" id="postcode" oninput="if(value.length>6)value=value.slice(0,6)">
+                    <p style="display: none;" class="null_err" id="postcode_null_tip">*邮编不能为空</p>
                 </div>
             </div>
         </div>
@@ -143,10 +147,11 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>犬名:</h4>
+                    <h4>*犬名:</h4>
                 </div>
                 <div class="section">
                     <input type="text" id="dogname">
+                    <p style="display: none;" class="null_err" id="dogname_null_tip">*犬名不能为空</p>
                 </div>
             </div>
             <div class="col-md-6">
@@ -172,7 +177,18 @@
                 <div class="section">
                     <select id="dog_color">
                         <option value="">请选择</option>
-                        <option value="red">红色</option>
+                        <option value="白色">白色</option>
+                        <option value="黑色">黑色</option>
+                        <option value="褐色">褐色</option>
+                        <option value="青色">青色</option>
+                        <option value="黑褐色">黑褐色</option>
+                        <option value="铁灰色">铁灰色</option>
+                        <option value="灰褐色">灰褐色</option>
+                        <option value="黄褐色">黄褐色</option>
+                        <option value="灰白色">灰白色</option>
+                        <option value="黑白色">黑白色</option>
+                        <option value="黄红色">黄红色</option>
+                        <option value="淡红色">淡红色</option>
                     </select>
                     <p style="display: none;" class="null_err" id="dog_color_null_tip">*犬只颜色不能为空</p>
                 </div>
@@ -188,6 +204,7 @@
                     <label class="radio-inline">
                         <input type="radio" name="usage" id="police" value="警卫">警卫
                     </label>
+                    <p style="display: none;" class="null_err" id="usage_null_tip">*犬只用途不能为空</p>
                 </div>
             </div>
         </div>
@@ -210,6 +227,7 @@
                 </div>
                 <div class="section">
                     <input type="date" id="birth_date">
+                    <p style="display:none;clear: left" class="null_err" id="birth_date_null_tip">*出生日期不能为空</p>
                 </div>
             </div>
         </div>
@@ -219,7 +237,7 @@
                     <h4>*虹膜id:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="iris">
+                    <input type="text" id="iris" maxlength="15">
                     <a id="recollect_iris" href="javascript:void(0)">重新采集虹膜</a>
                     <p style="display:none;clear: left" class="null_err" id="iris_null_tip">*虹膜ID不能为空</p>
                 </div>
@@ -249,7 +267,9 @@
                 <div class="section">
                     <select id="vaccine_name">
                         <option value="">请选择</option>
-                        <option value="1">疫苗名称1</option>
+                        <option value="荷兰英特威">荷兰英特威</option>
+                        <option value="美国辉瑞">美国辉瑞</option>
+                        <option value="梅里亚">梅里亚</option>
                     </select>
                     <p style="display: none;" class="null_err" id="vaccine_name_null_tip">*疫苗名称不能为空</p>
                 </div>
@@ -280,7 +300,7 @@
                     <h4>免疫点名称:</h4>
                 </div>
                 <div class="section">
-                    <input disabled="disabled" type="text" placeholder="上海顽皮家族" id="organizationName">
+                    <input disabled="disabled" type="text" placeholder="上海顽皮家族" id="organizationName" value="上海顽皮家族">
                 </div>
             </div>
         </div>
@@ -323,14 +343,29 @@
                     <h4>房产证号:</h4>
                 </div>
                 <div class="section">
-                    <select>
-                        <option id="house_number">请选择</option>
+                    <select id="house_area">
+                        <option value="">请选择</option>
+                        <option value="黄">黄</option>
+                        <option value="徐">徐</option>
+                        <option value="长">长</option>
+                        <option value="静">静</option>
+                        <option value="普">普</option>
+                        <option value="虹">虹</option>
+                        <option value="杨">杨</option>
+                        <option value="闵">闵</option>
+                        <option value="宝">宝</option>
+                        <option value="嘉">嘉</option>
+                        <option value="浦">浦</option>
+                        <option value="金">金</option>
+                        <option value="松">松</option>
+                        <option value="青">青</option>
+                        <option value="奉">奉</option>
                     </select>
                     <label for="year">年份</label>
-                    <input type="text" style="width: 50px;"/>
+                    <input type="text" style="width: 50px;" id="house_year"/>
                     <label for="">第</label>
-                    <input type="text" style="width: 50px;"/>
-                    <label for="">周</label>
+                    <input type="text" style="width: 50px;" id="house_number"/>
+                    <label for="">号</label>
                 </div>
             </div>
         </div>
@@ -354,7 +389,7 @@
                 </div>
                 <div class="section">
                     <input type="text" id="reg_address">
-                    <input type="checkbox">
+                    <input type="checkbox" id="reg_addr_ck">
                     <label for="">与犬主地址相同</label>
                 </div>
             </div>

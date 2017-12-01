@@ -27,7 +27,8 @@ var InfoPreview = {
 
     show: function (dogLicenseModel) {
         this.DogLicenseModel = dogLicenseModel;
-        console.log(this.DogLicenseModel.toJSON());
+        // console.log(this.DogLicenseModel.toJSON());
+
 
         var self = this;
 
@@ -57,12 +58,12 @@ var InfoPreview = {
             // })
             // alert("进入Main/Dog/DogCard/CardInfo页面")
 
-            console.log(this.DogLicenseModel);
-            return;
+            console.log(self.DogLicenseModel);
+            // return;
 
             DogLicenseClient.add(
                 //狗证信息
-                this.DogLicenseModel,
+                self.DogLicenseModel,
                 //成功回调
                 function (data) {
                     // loginUserManager.setToken(data.token);
@@ -73,7 +74,7 @@ var InfoPreview = {
 
                     var ds = require("../../Main/Dog/DogCard/DogCardView.js");
                     new ds().createCard();
-
+                    self.hide();
                     // Utils.goPage("organization");
 
 
