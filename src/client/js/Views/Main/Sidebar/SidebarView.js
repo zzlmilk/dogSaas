@@ -48,8 +48,8 @@ var SidebarView = Backbone.View.extend({
 
         });
 
-        //犬主信息查询
-         $('#btn_dogOwner').unbind().on('click',function(){
+        //信息查询
+         $('#btn_infoSearch').unbind().on('click',function(){
 
             var DogOwnerView = require('../DogOwner/DogOwnerView');
             
@@ -59,12 +59,12 @@ var SidebarView = Backbone.View.extend({
 
         });
 
-        //犬只信息查询
-        $('#btn_dogInfo').unbind().on('click',function(){
+        //免疫年检
+        $('#btn_immune').unbind().on('click',function(){
 
-            var DogInfoView = require('../DogInfo/DogInfoView');
+            var ImmuneView = require('../Immune/ImmuneView');
 
-            var view = new DogInfoView({
+            var view = new ImmuneView({
                 'el': "#main-content"
             });
 

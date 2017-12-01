@@ -69,9 +69,7 @@
   background: #ffffff;
   margin-bottom: 20px;
 }
-//办理狗证--个人办证 ，
-
-
+//办理狗证--个人办证规范化css
 .dog_manage{
   min-width: 960px;
   max-width: 1040px;
@@ -90,7 +88,6 @@
   float: left;
   padding: 25px;
 }
-
 .dog_manage>.manage_content>.personal_card>.registration{
   width: 890px;
   height: auto;
@@ -154,6 +151,7 @@
   margin-left: 10px;
   float: left;
   margin-top: 10px;
+
 }
 .dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>#imgs{
   float: left;
@@ -176,7 +174,6 @@
   margin-top: 15px;
 }
 
-
 .dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#upload{
   width: 90px;
   height: 20px;
@@ -191,13 +188,56 @@
   position: absolute;
   z-index: 99;
   top:40px;
-}
 
+}
 
 .input_float{
   float:left;
 }
 
+//办理狗证--个人办证--弹窗
+.modal>.modal-dialog>.modal-content>.modal-header>.modal-title{
+  margin-bottom: 15px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.title{
+  margin-bottom: 15px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.subtitle h4{
+  width: 70px;
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 15px;
+  text-align:right;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.section{
+  float: left;
+  margin-left: 5px;
+}
+
+.modal>.modal-dialog>.modal-content>.modal-body>.top{
+  border-top:1px solid #cccccc ;
+  padding-top:15px;
+}
+
+.modal>.modal-dialog>.modal-content>.modal-body>.immune_table{
+  width: 100%;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.immune_table>tbody>.immune_tr>.left_td{
+  width: 100px;
+  height: 30px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.immune_table>tbody>.immune_tr>.right_td{
+  width: 100px;
+  height: 30px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.immune_table>tbody>.immune_tr>.middle_td{
+  width: 200px;
+  height: 30px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.top>h4>.huji{
+  font-size: 12px;
+}
 
 //办理狗证--个人办证--打印磁卡
 .card_img{
@@ -304,4 +344,133 @@
   float: left;
   padding: 25px;
   background:#fcfcfc ;
+}
+
+//免疫年检css
+.immune_content{
+  min-width: 1040px;
+  max-width: 1240px;
+  float: left;
+  background:#fcfcfc ;
+  padding: 25px;
+}
+.immune_content>.immune_detail{
+  width: 990px;
+  float: left;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.immune_content>.immune_detail>.title{
+  margin-bottom: 15px;
+}
+.immune_content>.immune_detail>.row>{
+  margin-bottom: 15px;
+}
+.immune_content>.immune_detail>.row>.col-md-4>.subtitle h4{
+  width: 80px;
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 15px;
+  text-align:right;
+}
+.immune_content>.immune_detail>.row>.col-md-4>.section{
+  float: left;
+  margin-left: 5px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.subtitle h4{
+  width: 80px;
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 15px;
+  text-align:right;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section{
+  float: left;
+  margin-left: 5px;
+}
+
+.immune_content>.immune_detail>h4>span{
+  font-size: 12px;
+}
+.immune_content>.immune_post{
+  margin-top:50px;
+  margin-left: 450px;
+  float: left;
+}
+
+//制卡信息css
+.card_info{
+  min-width: 1040px;
+  max-width: 1240px;
+  float: left;
+  background:#fcfcfc ;
+  padding: 25px;
+}
+.card_info>.title{
+  width: 1140px;
+  height: 80px;
+  float: left;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.card_info>.title>.row{
+  margin-left:20px;
+}
+.card_info>.title>.row>.form-group{
+  float: left;
+  margin-right: 15px;
+  height: 32px;
+  line-height: 32px;
+}
+.card_info>.title>.row>.form-group>.btn{
+  width: 150px;
+  height: 40px;
+  margin-left: 40px;
+}
+.card_info>.table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px #4888c6 solid;
+}
+.card_info>table th,td{
+  border:1px #4888c6 solid;
+}
+.card_info>.table>thead th{
+  text-align:center;
+  background:#339afe;
+  height: 40px;
+  line-height:40px;
+  color:#ffffff;
+}
+.card_info>.table>tbody tr td{
+  height: 30px;
+}
+.card_info>.table>tbody tr:nth-child(2n+1){background:#daedff;}
+.card_info>.table>tbody tr:nth-child(2n+2){background:#ffffff;}
+
+.card_info>#pagenav{
+  margin-top:100px;
+  margin-left: 350px;
+  float: left;
+}
+.card_info>#pagenav>.pagination>.navcss{
+  width:70px;
+  height: 40px;
+  line-height: 40px;
+  float:left;
+  margin-right:1px;
+  color: #000000;
+}
+.card_info>#pagenav>.pagination>.navcss>a{
+  width:100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
 }
