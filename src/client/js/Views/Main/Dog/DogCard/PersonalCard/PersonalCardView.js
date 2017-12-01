@@ -26,6 +26,12 @@ var PersonalCardView = Backbone.View.extend({
     onLoad: function () {
         var self = this;
 
+
+        // $.each(":input"),function(e){
+        //     console.log("------------ -----"+e);
+        // }
+        console.log($(":input"))
+
         $('#post_info').unbind().on('click', function () {
             //验证非空
             if (!emptyValid()) {

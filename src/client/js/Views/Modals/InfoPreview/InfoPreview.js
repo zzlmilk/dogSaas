@@ -6,6 +6,9 @@ var $ = require('jquery');
 var _ = require('lodash');
 // var validator = require('validator');
 
+var request = require('supertest');
+
+
 var Const = require('../../../lib/consts.js');
 
 var Utils = require('../../../lib/utils.js');
@@ -28,7 +31,7 @@ var InfoPreview = {
 
         var self = this;
 
-        $('body').append(template({DogLicenseModel:this.DogLicenseModel.toJSON()}));
+        $('body').append(template({DogLicenseModel: this.DogLicenseModel.toJSON()}));
         $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
 
@@ -43,12 +46,41 @@ var InfoPreview = {
         $('#modal-btn-close').unbind().on('click', function () {
             self.hide();
         });
-        $('#modal-btn-save').unbind().on('click', function () {
 
-            alert("进入Main/Dog/DogCard/CardInfo页面")
+        //保存并制卡
+        $('#save_and_ccard').unbind().on('click', function () {
 
+            self.hide();
+            // var CardInfoT = require('../../Main/Dog/DogCard/CardInfo/CardInfo.hbs');
+            // new SidebarView().createCard({
+            //     'el': sView.$
+            // })
+            // alert("进入Main/Dog/DogCard/CardInfo页面")
+
+            var ds = require("../../Main/Dog/DogCard/DogCardView.js");
+            new ds().createCard();
+
+            // request(app)
+            //     .post('/dogsystem/v1/dogLicense/add')
+            //     .set('Access-Token', token)
+            //     .send(body)
+            //     .end(function (err, res) {
+            //
+            //         if (err) {
+            //             throw err;
+            //         }
+            //
+            //         console.log(res.body)
+            //         res.body.should.have.property('code');
+            //         res.body.code.should.equal(Const.responsecodeSucceed);
+            //
+            //         done();
+            //
+            //     });
         });
+
     },
+
 
     /**
      * 重新编辑
@@ -63,7 +95,9 @@ var InfoPreview = {
         })
 
         $('#modal-profile').modal('hide');
-    },
+    }
+
+    ,
 
 
     /**
@@ -130,7 +164,8 @@ var InfoPreview = {
                 done();
 
             });
-    },
+    }
+    ,
 
     /**
      * 补办狗证
@@ -196,7 +231,8 @@ var InfoPreview = {
                 done();
 
             });
-    },
+    }
+    ,
 
     /**
      * 免疫年检
