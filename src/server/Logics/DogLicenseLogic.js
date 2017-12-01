@@ -100,7 +100,7 @@ var DogLicenseLogic = {
 
 								  	 residence.save(function(err,residenceResult){
 								  	 		 res.residence = residenceResult;					  	 									  	 		
-								  	 		 dogLicense.residence = residenceResult._id
+								  	 		 // dogLicense.residence = residenceResult._id
 								  	 		 done(null,res)
 
 								  	 })

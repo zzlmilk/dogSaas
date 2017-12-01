@@ -41,14 +41,10 @@ var PersonalCardView = Backbone.View.extend({
         // })
 
 
-
-
-
-
         $('#post_info').unbind().on('click', function () {
             //验证非空
             if (!emptyValid()) {
-                // return;
+                return;
             }
 
             //赋值
@@ -62,15 +58,15 @@ var PersonalCardView = Backbone.View.extend({
                     hairColor: $('#dog_color').val(),
                     bornDate: $('#birth_date').val(),
                     irisID: $('#iris').val(),
-                    photoUrl: $('#dog_img').val(),
+                    photoUrl: "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4174975794,4172539775&fm=173&s=53B113C35CFA489E8735EDE80300A016&w=218&h=146&img.JPEG",
                     vaccine: {
                         name: $('#vaccine_name').val(),
                         batchNo: $('#vaccine_batch').val(),
                         manufacturer: $('#manuf').val(),
                         veterinarianName: $('#doctor_name').val(),
-                        organizationName: $('#organizationName').val()
+                        organizationName: $('#organizationName').val(),
+                        date: new Date().toLocaleDateString()
                     }
-
                 },
                 owner: {
                     name: $('#dogowner_name').val(),
@@ -87,7 +83,7 @@ var PersonalCardView = Backbone.View.extend({
 
                 },
                 residence: {
-                    houseNo: $('#barcode').val(),
+                    houseNo: $('#house_area').val() + $('#house_year').val() + "年第" + $('#house_number').val() + "号",
                     houseProperty: $("input[name='houseProperty']:checked").val(),
                     address: $('#reg_address').val(),
                     isSterilization: $("input[name='isSterilization']:checked").val(),
@@ -121,13 +117,42 @@ var PersonalCardView = Backbone.View.extend({
             }
         });
 
+        //犬主性别 焦点监听
+        $("input[name='gender']").click(function () {
+            var gender = $("input[name='gender']:checked").val();
+            if (gender == undefined) {
+                $("#gender_null_tip").show();
+            } else {
+                $("#gender_null_tip").hide();
+            }
+        });
+
         //手机号 失去焦点监听
         $("#phone").blur(function () {
             var phone = $('#phone').val().trim();
             if (phone == "") {
                 $("#phone_null_tip").show();
+                $("#phone_format_tip").hide();
+                return;
             } else {
                 $("#phone_null_tip").hide();
+            }
+
+            if (!phone.match(/^1[3,5,7,8]\d{9}$/)) {
+                $("#phone_format_tip").show();
+            } else {
+                $("#phone_format_tip").hide();
+            }
+
+        });
+
+        //座机 失去焦点监听
+        $("#tel").blur(function () {
+            var tel = $('#tel').val().trim();
+            if (tel == "") {
+                $("#tel_null_tip").show();
+            } else {
+                $("#tel_null_tip").hide();
             }
         });
 
@@ -146,8 +171,16 @@ var PersonalCardView = Backbone.View.extend({
             var id_number = $('#id_number').val().trim();
             if (id_number == "") {
                 $("#id_number_null_tip").show();
+                $("#id_number_format_tip").hide();
+                return;
             } else {
                 $("#id_number_null_tip").hide();
+            }
+
+            if (!id_number.match(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/)) {
+                $("#id_number_format_tip").show();
+            } else {
+                $("#id_number_format_tip").hide();
             }
         });
 
@@ -169,9 +202,34 @@ var PersonalCardView = Backbone.View.extend({
             } else {
                 $("#address_null_tip").hide();
             }
+
+            //房产证 地址信息同步
+            if ($('#reg_addr_ck').is(':checked')) {
+                $("#reg_address").val(address);
+            }
         });
 
+        //邮编 失去焦点监听
+        $("#postcode").blur(function () {
+            var postcode = $('#postcode').val().trim();
+            if (postcode == "") {
+                $("#postcode_null_tip").show();
+            } else {
+                $("#postcode_null_tip").hide();
+            }
+        });
+
+
         /***********************犬只登记**************************/
+        //犬名 失去焦点监听
+        $("#dogname").blur(function () {
+            var dogname = $('#dogname').val().trim();
+            if (dogname == "") {
+                $("#dogname_null_tip").show();
+            } else {
+                $("#dogname_null_tip").hide();
+            }
+        });
         //犬只性别 失去焦点监听
         $("input[name='dog_gender']").change(function () {
             var dog_gender = $("input[name='dog_gender']:checked").val();
@@ -179,7 +237,6 @@ var PersonalCardView = Backbone.View.extend({
                 $("#dog_gender_null_tip").show();
             } else {
                 $("#dog_gender_null_tip").hide();
-
             }
         });
 
@@ -193,6 +250,16 @@ var PersonalCardView = Backbone.View.extend({
             }
         });
 
+        //犬只用途 失去焦点监听
+        $("input[name='usage']").change(function () {
+            var usage = $("input[name='usage']:checked").val();
+            if (usage == undefined) {
+                $("#usage_null_tip").show();
+            } else {
+                $("#usage_null_tip").hide();
+            }
+        });
+
         //品种 内容变化监听
         $("#breed").change(function () {
             var breed = $('#breed').val().trim();
@@ -200,6 +267,16 @@ var PersonalCardView = Backbone.View.extend({
                 $("#breed_null_tip").show();
             } else {
                 $("#breed_null_tip").hide();
+            }
+        });
+
+        //出生日期 内容变化监听
+        $("#birth_date").change(function () {
+            var birth_date = $('#birth_date').val().trim();
+            if (birth_date == "") {
+                $("#birth_date_null_tip").show();
+            } else {
+                $("#birth_date_null_tip").hide();
             }
         });
 
@@ -254,6 +331,19 @@ var PersonalCardView = Backbone.View.extend({
             }
         });
 
+        //地址相同监听事件
+        $("#reg_addr_ck").change(function () {
+            if ($('#reg_addr_ck').is(':checked')) {
+                //赋值  不可修改
+                $("#reg_address").attr("disabled", true)
+                $("#reg_address").val($('#address').val().trim());
+            } else {
+                //可修改
+                $("#reg_address").attr("disabled", false)
+            }
+
+
+        });
 
         var emptyValid = function () {
             falg = true;
@@ -269,11 +359,28 @@ var PersonalCardView = Backbone.View.extend({
                 falg = false;
                 $("#dogowner_name_null_tip").show();
             }
+            //性别
+            var gender = $("input[name='gender']:checked").val();
+            if (gender == undefined) {
+                falg = false;
+                $("#gender_null_tip").show();
+            }
             //犬主手机号码
             var phone = $("#phone").val();
             if (phone == "") {
                 falg = false;
                 $("#phone_null_tip").show();
+            } else {
+                if (!phone.match(/^1[3,5,7,8]\d{9}$/)) {
+                    falg = false;
+                    $("#phone_format_tip").show();
+                }
+            }
+            //犬主座机
+            var tel = $("#tel").val();
+            if (tel == "") {
+                falg = false;
+                $("#tel_null_tip").show();
             }
             //证件类型
             var cardtype = $("input[name='cardtype']:checked").val();
@@ -286,6 +393,11 @@ var PersonalCardView = Backbone.View.extend({
             if (id_number == "") {
                 falg = false;
                 $("#id_number_null_tip").show();
+            } else {
+                if (!id_number.match(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/)) {
+                    falg = false;
+                    $("#id_number_format_tip").show();
+                }
             }
             //所属区县
             var area_county = $('#area_county').val();
@@ -299,9 +411,21 @@ var PersonalCardView = Backbone.View.extend({
                 falg = false;
                 $("#address_null_tip").show();
             }
+            //邮编
+            var postcode = $('#postcode').val();
+            if (postcode == "") {
+                falg = false;
+                $("#postcode_null_tip").show();
+            }
 
             /******************犬只信息*********************/
-                //犬只性别
+                //犬名
+            var dogname = $('#dogname').val();
+            if (dogname == "") {
+                falg = false;
+                $("#dogname_null_tip").show();
+            }
+            //犬只性别
             var dog_gender = $("input[name='dog_gender']:checked").val();
             if (dog_gender == undefined) {
                 falg = false;
@@ -313,11 +437,24 @@ var PersonalCardView = Backbone.View.extend({
                 falg = false;
                 $("#dog_color_null_tip").show();
             }
+            //犬只用途
+            var usage = $("input[name='usage']:checked").val();
+            if (usage == undefined) {
+                falg = false;
+                $("#usage_null_tip").show();
+            }
             //品种
             var breed = $('#breed').val();
             if (breed == "") {
                 falg = false;
                 $("#breed_null_tip").show();
+            }
+
+            //品种
+            var birth_date = $('#birth_date').val();
+            if (birth_date == "") {
+                falg = false;
+                $("#birth_date_null_tip").show();
             }
             //虹膜id
             var iris = $('#iris').val();
