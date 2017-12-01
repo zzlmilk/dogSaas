@@ -22,13 +22,10 @@ var template = require('./SignIn.hbs');
 var SignInView = BaseView.extend({
 
 	el:null,
-
-
+	container:null,
     initialize: function(options) {
         
-    	
-
-
+   
         this.container = options.container;
         this.render();
     },

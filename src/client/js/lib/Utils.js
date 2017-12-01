@@ -7,7 +7,8 @@
     Utils.prototype.ie8Fix = ie8Fix;
     Utils.prototype.formatDate = formatDate;
     Utils.prototype.formatTime = formatTime; 
-    Utils.prototype.getRandomString = getRandomString;
+    Utils.prototype.randomString = randomString;
+    
     Utils.prototype.now = now;
     Utils.prototype.escapeHtml = escapeHtml;
     Utils.prototype.linkify = linkify;
@@ -19,6 +20,20 @@
     
 
     // Implementation ---------------------------------------
+
+    function  randomString(len, charSet) {
+        charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var randomString = '';
+        
+        for (var i = 0; i < len; i++) {
+            var randomPoz = Math.floor(Math.random() * charSet.length);
+            randomString += charSet.substring(randomPoz,randomPoz+1);
+        }
+                
+        return randomString;
+    }
+
+
     function logging(obj) {
         console.log(obj);
     }

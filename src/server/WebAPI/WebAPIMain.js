@@ -41,6 +41,11 @@ var WebAPIMain = {
 					router.use("/dogLicense/add", require('./DogLicense/AddDogLicenseHandler'));
 					
 
+
+					
+					//Qiniu 
+					router.use("/Qiniu/token" ,require('./QiNiuHandler'));
+
 					
 
 

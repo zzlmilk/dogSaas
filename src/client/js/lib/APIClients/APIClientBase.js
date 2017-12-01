@@ -13,7 +13,7 @@ var loginUserManager = require('../loginUserManager');
 
     var APIClientBase = function(){}
 
-      APIClientBase.prototype.getRequst = function(urlPrefix,success,error){
+      APIClientBase.prototype.getRequst = function(urlPrefix,data,success,error){
       	     var headers = {};
 	         var accessToken = loginUserManager.getToken();
 	         if(accessToken)
@@ -25,7 +25,9 @@ var loginUserManager = require('../loginUserManager');
 		            dataType: 'json',
 		            headers: headers,
 		            success: function(response) {
-		            
+		              
+
+
 		                if(response.code != 1){
 		                    
 		                    if(_.isFunction(error)){
@@ -35,7 +37,12 @@ var loginUserManager = require('../loginUserManager');
 		                    return;
 		                }
 		                
+
+                        
+
 		                if(_.isFunction(success)){
+
+
 		                    success(response.data);
 		                }
 		            },

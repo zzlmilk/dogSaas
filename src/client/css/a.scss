@@ -69,6 +69,7 @@
   background: #ffffff;
   margin-bottom: 20px;
 }
+
 //办理狗证--个人办证规范化css
 .dog_manage{
   min-width: 960px;
@@ -98,22 +99,18 @@
   padding-top: 15px;
   padding-bottom: 20px;
 }
-
 .dog_manage>.manage_content>.personal_card>#post_info{
     float: left;
     margin-left: 300px;
     margin-top: 30px;
     width:300px;
 }
-
 .dog_manage>.manage_content>.personal_card>.registration>.title>h4>.small_title{
   font-size: 12px;
 }
-
 .dog_manage>.manage_content>.personal_card>.registration>.row{
   margin-bottom: 20px;
 }
-
 .dog_manage>.manage_content>.personal_card>.registration>.title{
   margin-left: 10px;
   margin-bottom: 10px;
@@ -160,7 +157,6 @@
   position: relative;
   float: left;
 }
-
 .dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#recollect_img{
   width: 90px;
   height: 20px;
@@ -173,7 +169,6 @@
   float: left;
   margin-top: 15px;
 }
-
 .dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#upload{
   width: 90px;
   height: 20px;
@@ -195,6 +190,7 @@
   float:left;
 }
 
+
 //办理狗证--个人办证--弹窗
 .modal>.modal-dialog>.modal-content>.modal-header>.modal-title{
   margin-bottom: 15px;
@@ -214,12 +210,10 @@
   float: left;
   margin-left: 5px;
 }
-
 .modal>.modal-dialog>.modal-content>.modal-body>.top{
   border-top:1px solid #cccccc ;
   padding-top:15px;
 }
-
 .modal>.modal-dialog>.modal-content>.modal-body>.immune_table{
   width: 100%;
 }
@@ -294,56 +288,188 @@
   height: auto;
   float: left;
 }
-//犬主信息查询
-#dogonwer_info{
+
+
+//信息查询规范化css
+.infosearch{
+  width: 1100px;
+  float: left;
+  background:#fcfcfc ;
+}
+.infosearch>.infosearch_list{
+  width: 100px;
+  float: left;
+  background:#2e3645 ;
+}
+.infosearch>.infosearch_content{
   width: 1000px;
   height: auto;
   float: left;
   padding: 25px;
   background:#fcfcfc ;
 }
-.dogonwer_info_list{
-  width: 950px;
-  height: auto;
+
+//信息查询--犬主信息查询
+.dogownerlist{
+}
+.dogownerlist>.title{
+    width: 950px;
+    height: 80px;
+    float: left;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.dogownerlist>.tilte>.row{
+  margin-left:20px;
+}
+.dogownerlist>.title>.row>.form-group{
   float: left;
-  margin-top: 20px;
-  background: #ffffff;
-  border: 1px solid grey;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  margin-right: 15px;
+  height: 32px;
+  line-height: 32px;
 }
-.table-bordered{
-  border1:1px #3399ff solid ;
+.dogownerlist>.title>.row>.form-group>.btn{
+  width: 150px;
+  height: 40px;
 }
-.tr{
-  text-align: center;
+
+.dogownerlist>.table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px #4888c6 solid;
 }
-.tr_blue{
-  background:#3399ff;
+.dogownerlist>table tr,td{
+  border:1px #4888c6 solid;
 }
-.table .td{
-  padding-top:25px;
-}
-.td-a{
-  color: #3399ff;
-}
-//犬主信息搜索详情
-.dogonwer_ul{
-  list-style: none;
-}
-.dogonwer_ul li{
-  float: left;
-  width: 400px;
+.dogownerlist>.table>tbody tr td{
   height: 30px;
-  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
 }
-//犬只信息查询
-#dog_search{
-  width: 1000px;
-  height: auto;
+.dogownerlist>.table>tbody>.tr_head{
+  background:#339afe;
+  color: #ffffff;
+}
+.dogownerlist>.table>tbody>.tr_odd{
+  background:#daedff
+}
+.dogownerlist>table>tbody>tr>td>.td-a{
+  color:#339afe;
+  text-decoration: underline;
+}
+
+.dogownerlist>#dogowner_nav{
+  margin-top:100px;
+  margin-left: 250px;
   float: left;
-  padding: 25px;
-  background:#fcfcfc ;
+}
+
+//犬主信息搜索详情
+#dogownersearch{
+
+}
+#dogownersearch>.details{
+  width: 950px;
+  float: left;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  background: #ffffff;
+  margin-bottom: 20px;
+}
+#dogownersearch>.details>.row{
+  margin-top: 20px;
+}
+#dogownersearch>.details>.row>.col-md-6>.subtitle h4{
+  width: 80px;
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 15px;
+  text-align:right;
+}
+#dogownersearch>.details>.row>.col-md-6>.section{
+  float: left;
+  margin-left: 5px;
+  height: 32px;
+  line-height: 32px;
+}
+
+#dogownersearch>.details>.dog_table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px #000000 solid;
+  margin-top: 20px;
+}
+#dogownersearch>.details>table>tbody tr td {
+  text-align:center;
+  border:1px #000000 solid;
+
+}
+#dogownersearch>.details>table>tbody>tr>td>.td-a{
+  color:#339afe;
+  text-decoration: underline;
+}
+
+//信息查询--犬只信息查询
+#dog_search{
+}
+#dog_search>.title{
+  width: 950px;
+  height: 80px;
+  float: left;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+#dog_search>.tilte>.row{
+  margin-left:20px;
+}
+#dog_search>.title>.row>.form-group{
+  float: left;
+  margin-right: 15px;
+  height: 32px;
+  line-height: 32px;
+}
+#dog_search>.title>.row>.form-group>.btn{
+  width: 150px;
+  height: 40px;
+}
+#dog_search>.title>.row>#search{
+  float: right;
+  margin-right: 50px;
+}
+
+#dog_search>.table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px #4888c6 solid;
+}
+#dog_search>table th,td{
+
+}
+#dog_search>.table>thead th{
+  text-align:center;
+  background:#339afe;
+  height: 40px;
+  line-height:40px;
+  color:#ffffff;
+}
+#dog_search>.table>tbody tr td{
+  height: 30px;
+  text-align:center;
+}
+#dog_search>.table>tbody tr:nth-child(2n+1){background:#daedff;}
+#dog_search>.table>tbody tr:nth-child(2n+2){background:#ffffff;}
+#dog_search>table>tbody>tr>td>.td-a{
+  color:#339afe;
+  text-decoration: underline;
+}
+
+#dog_search>#dogsearch_nav{
+  margin-top:100px;
+  margin-left: 250px;
+  float: left;
 }
 
 //免疫年检css
@@ -362,7 +488,6 @@
   padding: 20px;
   margin-bottom: 20px;
 }
-
 .immune_content>.immune_detail>.title{
   margin-bottom: 15px;
 }
@@ -393,7 +518,6 @@
   float: left;
   margin-left: 5px;
 }
-
 .immune_content>.immune_detail>h4>span{
   font-size: 12px;
 }
@@ -434,6 +558,7 @@
   height: 40px;
   margin-left: 40px;
 }
+
 .card_info>.table{
   width:100%;
   border-collapse:collapse;
@@ -451,9 +576,14 @@
 }
 .card_info>.table>tbody tr td{
   height: 30px;
+  text-align: center;
 }
 .card_info>.table>tbody tr:nth-child(2n+1){background:#daedff;}
 .card_info>.table>tbody tr:nth-child(2n+2){background:#ffffff;}
+.card_info>table>tbody>tr>td>.td-a{
+  color:#339afe;
+  text-decoration: underline;
+}
 
 .card_info>#pagenav{
   margin-top:100px;

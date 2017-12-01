@@ -9,6 +9,15 @@
 
         port:7070,
 
+        //七牛相关配置
+        QN:{
+        	max_file_size:"2000mb",
+        	chunk_size:"4M",
+        	domain:"p080e0wd7.bkt.clouddn.com",
+        	
+
+        }
+
 
     };
 
