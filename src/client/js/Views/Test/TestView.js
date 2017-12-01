@@ -12,9 +12,10 @@ var template = require('./Test.hbs');
 var SignInClient = require('../../lib/APIClients/SignInClient');
 
 var loginUserManager = require('../../lib/loginUserManager');
-
-
 var userModel = require('../../Models/user');
+
+var UploadView = require("../Parts/Upload/UploadView");
+
 
 
 
@@ -50,7 +51,16 @@ var TestView = Backbone.View.extend({
 
 
 
+
+
+
+    
+ Backbone.on(Const.NotificationUploadImageDone,function(obj){
+                console.log(obj)
+ });   
+
         
+
 
 
     $("#iddd").bind("click",function(){
@@ -80,8 +90,13 @@ var TestView = Backbone.View.extend({
 
     })
 
+       // $("#uploadTest").html("acbsdli")
 
-        
+        var UploadView1 = new UploadView({
+                el:"#uploadTest"
+        })
+
+     
 
     
             

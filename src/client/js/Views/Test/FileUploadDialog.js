@@ -42,18 +42,23 @@ var FileUploadDialogView = Backbone.View.extend({
 
         self.getqntoken()
         
-
-    
-        
-
          $("#businessLicensePic").on("click",function(){
-         		 
+         		
          })
+
 
          $("#businessLicenseP").off("click").on("click",function(){
          	
          		$("#businessLicensePic").trigger("click")
          })
+
+
+        
+
+
+
+
+
 
 
 
@@ -76,11 +81,9 @@ var FileUploadDialogView = Backbone.View.extend({
      getqntoken:function(){
         var self  = this
          QiNiuClient.send({                                    
-                },function(data){                                  
-                    
+                },function(data){                                                      
                     self.uploadfile(data.token)
-                },function(errorCode){
-                     alert("aaa")
+                },function(errorCode){                     
                      console.log(errorCode)                  
 
                 })
@@ -147,6 +150,7 @@ var FileUploadDialogView = Backbone.View.extend({
       },
       'UploadComplete': function() {
         // $('#success').show();
+        console.log("====aaaaaaa")
       },
       'FileUploaded': function(up, file, info) {
     
@@ -154,7 +158,6 @@ var FileUploadDialogView = Backbone.View.extend({
         // var progress = new FileProgress(file, 'fsUploadProgress');
             console.log(info.response)
             var res  = info.response
-
                 
                 var res = JSON.parse(info.response); 
        
@@ -162,8 +165,14 @@ var FileUploadDialogView = Backbone.View.extend({
                                     
 
                var src = "http://"+domain +"/" +res.key;
+                $("#abc").remove()
+                $("#businessLicense p").after("<img id=abc src =" + src +'> </img>' )
+                $("#abc").bind("click",function(){                                    
+                $("#businessLicensePic").trigger("click")
 
-               $("#businessLicense p").after("<img src =" + src +'> </img>' )
+
+                
+         })
         // progress.setComplete(up, info.response);
       },
       'Error': function(up, err, errTip) {

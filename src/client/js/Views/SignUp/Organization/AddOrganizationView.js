@@ -18,10 +18,17 @@ var User = require('../../../Models/user');
 
 var LocalStorage = require('backbone.localstorage').LocalStorage;
 
+var UploadView = require("../../Parts/Upload/UploadView");
+
+
+
 
 var AddOrganizationView = Backbone.View.extend({
     organization:null,
     el : null,
+    businessLicenseUrl:null,
+    animalMedicalLicenseUrl:null,
+
     initialize: function(options) {
 
 
@@ -141,22 +148,29 @@ var AddOrganizationView = Backbone.View.extend({
         })
 
 
-        //上传图片
-        $("#businessLicense").bind().on("click",function(e){
-               var n = $(this).find("input").attr("id");                              
-               $("#"+n).on("aaaclick",function(e){         
-                                     
-                    $(this).show()
+    
+        var UploadView1 = new UploadView({
+                el:"#businessLicense"
+        })
 
-                   
-               }) 
 
-               
-               console.log(n)
-               $("#"+n).trigger("aaaclick")
+         var UploadView2 = new UploadView({
+                el:"#animalMedicalLicense"
+        })
 
-                
-        });
+         console.log(UploadView1)
+         console.log(UploadView2)
+
+
+
+
+         //图片上传成功后的通知
+         Backbone.on(Const.NotificationUploadImageDone,function(obj){
+                        console.log(obj)
+
+         });  
+
+
 
     },
 
@@ -165,8 +179,12 @@ var AddOrganizationView = Backbone.View.extend({
 
 
     addOrganization:function(){
+        var self = this;
          var name = $("#organization_name").val()
+         var businessLicenseUrl = $("#businessLicense img").attr("src")
+         var animalMedicalLicenseUrl = $("#animalMedicalLicense img").attr("src")
 
+         
             var organization = {                            
                             name: name ,
                             province:"上海",
@@ -175,8 +193,8 @@ var AddOrganizationView = Backbone.View.extend({
                             address:"1",
                             code:"1",
                             tel:"1",
-                            businessLicense:"1",
-                            animalMedicalLicense:"1",
+                            businessLicense:businessLicenseUrl,
+                            animalMedicalLicense:animalMedicalLicenseUrl,
                             serviceScope:"1",
                             contacts_name:"1",
                             contacts_phone:"1"

@@ -3,6 +3,8 @@
 
         NotificationUpdateWindowSize: "notification_update_window_size",
 
+        NotificationUploadImageDone: "NotificationUploadImageDone",
+
           ErrorCodes : {
                 2000000 : "Unknown Error",
                 2000001 : "Username is empty",
