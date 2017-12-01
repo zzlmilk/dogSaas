@@ -30,7 +30,20 @@ var PersonalCardView = Backbone.View.extend({
         // $.each(":input"),function(e){
         //     console.log("------------ -----"+e);
         // }
-        console.log($(":input"))
+        // console.log($(":input"))
+        // var dogs = {}
+        // $(":input").each(function (e) {
+        //     //     console.log($(this).val())
+        //     //   console.log($(this).attr("name"))
+        //     //  var key = $(this).attr("id")
+        //     // var value = $(this).val()
+        //
+        // })
+
+
+
+
+
 
         $('#post_info').unbind().on('click', function () {
             //验证非空

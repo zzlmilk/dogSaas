@@ -7,7 +7,7 @@ var _ = require('lodash');
 // var validator = require('validator');
 
 var request = require('supertest');
-
+var DogLicenseClient = require('../../../lib/APIClients/DogLicenseClient');
 
 var Const = require('../../../lib/consts.js');
 
@@ -27,7 +27,7 @@ var InfoPreview = {
 
     show: function (dogLicenseModel) {
         this.DogLicenseModel = dogLicenseModel;
-
+        console.log(this.DogLicenseModel.toJSON());
 
         var self = this;
 
@@ -50,33 +50,43 @@ var InfoPreview = {
         //保存并制卡
         $('#save_and_ccard').unbind().on('click', function () {
 
-            self.hide();
+            // self.hide();
             // var CardInfoT = require('../../Main/Dog/DogCard/CardInfo/CardInfo.hbs');
             // new SidebarView().createCard({
             //     'el': sView.$
             // })
             // alert("进入Main/Dog/DogCard/CardInfo页面")
 
-            var ds = require("../../Main/Dog/DogCard/DogCardView.js");
-            new ds().createCard();
+            console.log(this.DogLicenseModel);
+            return;
 
-            // request(app)
-            //     .post('/dogsystem/v1/dogLicense/add')
-            //     .set('Access-Token', token)
-            //     .send(body)
-            //     .end(function (err, res) {
-            //
-            //         if (err) {
-            //             throw err;
-            //         }
-            //
-            //         console.log(res.body)
-            //         res.body.should.have.property('code');
-            //         res.body.code.should.equal(Const.responsecodeSucceed);
-            //
-            //         done();
-            //
-            //     });
+            DogLicenseClient.add(
+                //狗证信息
+                this.DogLicenseModel,
+                //成功回调
+                function (data) {
+                    // loginUserManager.setToken(data.token);
+                    // //存入本地缓存
+                    // var user = UserModel.modelByResult(data.user)
+                    // loginUserManager.setLoginUserID(user.get("id"))
+                    // user.save();
+
+                    var ds = require("../../Main/Dog/DogCard/DogCardView.js");
+                    new ds().createCard();
+
+                    // Utils.goPage("organization");
+
+
+                },
+                //失败回调
+                function (errorCode) {
+                    console.log(errorCode);
+                    if (Const.ErrorCodes[errorCode]) {
+                        var message = Const.ErrorCodes[errorCode]
+                        alert(message)
+                    }
+
+                });
         });
 
     },
