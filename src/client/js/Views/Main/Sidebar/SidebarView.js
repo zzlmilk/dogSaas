@@ -51,9 +51,9 @@ var SidebarView = Backbone.View.extend({
         //信息查询
          $('#btn_infoSearch').unbind().on('click',function(){
 
-            var DogOwnerView = require('../DogOwner/DogOwnerView');
+            var InfoSearchView = require('../InfoSearch/InfoSearchView');
             
-            var view = new DogOwnerView({
+            var view = new InfoSearchView({
                   'el': "#main-content"
             });
 
