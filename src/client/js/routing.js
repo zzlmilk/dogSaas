@@ -5,9 +5,12 @@ var Config = require('./lib/init');
 
 var LoginUserManager = require('./lib/loginUserManager');
 
-var LocalStorage = require('backbone.localstorage').LocalStorage;
+
 var User = require('./Models/user');
 var Organization = require('./Models/organization');
+
+
+
 
 
 
@@ -23,6 +26,7 @@ var Routing = function(){
                 "signin":"signinRoute", //注册路由
                 "veriftemail":"veriftemailRoute",          
                 "test":"testRoute",
+                "file":"FileRoute",
                 "reset":"resetRoute",              
                 "signup":"signupRoute",//登陆路由
                 "nav":"navRoute",//首页导航路由
@@ -49,7 +53,7 @@ var Routing = function(){
 
 
 
-            Utils.goPage('start');
+           Utils.goPage('start');
         });
 
         //测试
@@ -59,6 +63,17 @@ var Routing = function(){
             var view = new TestView();
                     
         });
+
+        //测试上传文件
+         appRouter.on('route:FileRoute', function(actions) {
+            
+            var FileUploadDialogView = require('./Views/Test/FileUploadDialog.js');   
+            var view = new FileUploadDialogView();
+                    
+        });
+
+
+
 
         //按钮
         appRouter.on('route:buttonRoute', function(actions) {
@@ -147,10 +162,10 @@ var Routing = function(){
 
 
              if (user) {   
-                console.log("==user",user)
+
                     var organization = user.organization
 
-                    console.log("==ro",organization)
+                   
 
                         //不存在organizationq 去添加组织
                          if (organization == null   ) {                    
@@ -161,7 +176,9 @@ var Routing = function(){
                                    });
 
                          }else{   
-                         var status = organization.checkStatus.status                                                                                  
+                         var status = organization.checkStatus.status    
+
+                         status = 1                                                                              
                                 if (status == 1) {
                                      var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');  
                                      var view = new AddOrganizationView({

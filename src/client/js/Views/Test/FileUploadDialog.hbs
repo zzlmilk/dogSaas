@@ -1,0 +1,83 @@
+<div>
+
+
+    <div id="signheader-content"></div>
+    
+
+
+     <div class="wrapper">
+        <div class="org_companyInfo">
+                <div class="row">
+                        <div class="subtitle">
+                            <h4>*免疫点名称:</h4>
+                        </div>
+                        <div class="section">
+                            <input required="" errmsg="请填写公司名称" value='{{organization.name}}' id="organization_name" type="text" class="form-control" placeholder="免疫点名称">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="subtitle">
+                            <h4>联系地址</h4>
+                        </div>
+                        <!-- 提示错误需要在 section 上加 .error 并添加 div.tree_tip-->
+                        <div class="section ot_city_select error">
+                            <div class="selectGroup">
+                                <div id="selectProvince" class="selectWrap"><div class="selectBtn"> 
+                                   <span title="选择省份" val="">选择省份</span>
+                                   <span title="选择城市" val="">选择城市</span>
+                                   <span title="选择区县" val="">选择区县</span>
+                            </div>
+                            <input required="" errmsg="请填写联系地址" value='{{organization.location.address}}' id="acct_detail_address" type="text" class="form-control" placeholder="详细地址">
+                        </div>
+                    </div>
+
+
+
+                    </div>
+                 </div>                 			         
+                    <div class="row">
+                        <div class="subtitle">
+                            <h4>营业执照</h4>                            
+                            <p>* 彩色无水印 <br>
+                                * png 或者 jpg 格式 <br>
+                                * 2M 以内</p>
+                        </div>
+                        <div class="section">
+                            <div id="businessLicense" class="uploadWrap img-lg">
+                                 <p id ="businessLicenseP" >上传图片</p>                               
+                                 <input id="businessLicensePic" name="file" type="file" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+
+<!--                   <div class="row">
+                        <div class="subtitle">
+                            <h4>*动物诊疗许可证</h4>                            
+                            <p>* 彩色无水印 <br>
+                                * png 或者 jpg 格式 <br>
+                                * 2M 以内</p>
+                        </div>
+                        <div class="section">
+                            <div id="businessLicense1" class="uploadWrap img-lg">
+                                <p>上传图片</p>                               
+                                 <input id="businessLicensePic1" name="userfile" type="file" style="display: none;">
+                            </div>
+                        </div>
+                    </div> -->
+
+
+        </div>
+
+        <div style="margin-top: 30px">
+            <!--<button class="btn btnNone">返回上一步</button>-->
+            <button id="addOrganizationBtn" class="btn btnBlueE btn-block" >提交</button>
+
+        </div>
+
+
+    </div>
+
+
+
+

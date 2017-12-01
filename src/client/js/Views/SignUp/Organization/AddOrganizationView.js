@@ -128,10 +128,10 @@ var AddOrganizationView = Backbone.View.extend({
         });
 
 
-        $("#addOrganizationBtn").unbind().on('click',function(e){
-          
+        $("#addOrganizationBtn").unbind().on('click',function(e){          
             self.addOrganization()
         })
+
 
 
         //WaitReview_button

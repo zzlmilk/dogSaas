@@ -28,8 +28,7 @@ var LocalStorage = require('backbone.localstorage').LocalStorage;
             tel:"",
 
         
-        },
-        localStorage: new LocalStorage("OrganizationModel"),
+        },       
         initialize: function(){
     
         }
