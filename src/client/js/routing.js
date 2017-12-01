@@ -178,7 +178,7 @@ var Routing = function(){
                          }else{   
                          var status = organization.checkStatus.status    
 
-                         status = 1                                                                              
+                        // status = 1                                                                              
                                 if (status == 1) {
                                      var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');  
                                      var view = new AddOrganizationView({
