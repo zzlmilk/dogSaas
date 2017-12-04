@@ -7,6 +7,7 @@ var Const = require("../../lib/consts");
 var authenticator = require("../middleware/auth");
 
 var DogLicenseModel = require('../../Models/DogLicense');
+var FindDogLicenseLogic = require("../../Logics/FindDogLicenseLogic");
 
 
 
@@ -14,6 +15,37 @@ var FindDogLicenseHandler = function(){
        	
 
 }
+/*
+/**
+	* @api {post} /dogLicense/find 查询狗证（犬主）
+	* @apiName findDogLicense
+	* @apiGroup DogLicense
+	* @apiDescription 查询api接口，获取狗证信息
+	* @apiParam {String} name 犬主名
+	* @apiParam {String} phone 手机号
+	* @apiParam   {String} certificateType 证件类型
+	* @apiParam    {String} certificateCode 证件号
+	* @apiHeader {String} token Access-Token
+    * @apiSuccessExample Success-Response:
+{ dogLicenses:
+   [ { _id: '5a1f603923027209fcffa10d',
+       owner: '5a1f603923027209fcffa110',
+       dog: '5a1f603923027209fcffa10f',
+       husbandryNo: 'Jykjx',
+       __v: 0,
+       DogCard: [Object],
+       vaccineCard: [Object] },
+     { _id: '5a24f583bf77595ff08bf873',
+       owner: '5a24f583bf77595ff08bf876',
+       dog: '5a24f583bf77595ff08bf875',
+       husbandryNo: '33RNR',
+       __v: 0,
+       DogCard: [Object],
+       vaccineCard: [Object] } ] }
+
+
+
+ */
 
 
 
@@ -25,41 +57,26 @@ _.extend(FindDogLicenseHandler.prototype,RequestHandlerBase.prototype);
 FindDogLicenseHandler.prototype.attach = function(route){
 	 var self = this;
 
-	 route.get('/',authenticator,function(request,response){
+	 route.post('/',authenticator,function(request,response){
 
-	 		var husbandryNo = request.body.husbandryNo
+        FindDogLicenseLogic.find(request.body,function(result){
+             self.successResponse(response,Const.responsecodeSucceed,{
+                 dogLicenses:result
+             });
 
-	 			if(Utils.isEmpty(husbandryNo)){
-				 			
-				 self.successResponse(response,Const.resCodeDogNoHusbandryNo);
+         },function(err,code){
+             if (err) {
+                 self.errorResponse(response,Const.httpCodeServerError);
+             }else{
+                 self.successResponse(response,code);
+             }
 
-				 		 return;
-				 }
-
-	 		var dogLicenseModel = DogLicenseModel.get();
-	 		dogLicenseModel.find({"husbandryNo":husbandryNo},function(err,rows){
-	 					// console.log(err)
-	 					//console.log(result)
-	 				self.successResponse(response,Const.responsecodeSucceed,{
-                          dogLicenses:rows
-                    });
+         });
 
 
 
 
-	 		})
-	 		//验证 husbandryNo 有没有
- 		return;
-
-	 			
-
-
-
-
-
-
-            
-	 })
+     })
 }
 
 

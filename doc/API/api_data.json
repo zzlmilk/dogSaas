@@ -196,14 +196,14 @@
             "type": "String",
             "optional": false,
             "field": "houseNo",
-            "description": "<p>自由和租凭</p>"
+            "description": "<p>(沪)房地（长）字（2006）第(000386)号</p>"
           },
           {
             "group": "residence",
             "type": "String",
             "optional": false,
             "field": "houseProperty",
-            "description": "<p>(沪)房地（长）字（2006）第(000386)号</p>"
+            "description": "<p>自由和租凭</p>"
           },
           {
             "group": "residence",
@@ -240,6 +240,73 @@
     },
     "version": "0.0.0",
     "filename": "src/server/WebAPI/DogLicense/AddDogLicenseHandler.js",
+    "groupTitle": "DogLicense"
+  },
+  {
+    "type": "post",
+    "url": "/dogLicense/find",
+    "title": "查询狗证（犬主）",
+    "name": "findDogLicense",
+    "group": "DogLicense",
+    "description": "<p>查询api接口，获取狗证信息</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>犬主名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>手机号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "certificateType",
+            "description": "<p>证件类型</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "certificateCode",
+            "description": "<p>证件号</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Access-Token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{ dogLicenses:\n   [ { _id: '5a1f603923027209fcffa10d',\n       owner: '5a1f603923027209fcffa110',\n       dog: '5a1f603923027209fcffa10f',\n       husbandryNo: 'Jykjx',\n       __v: 0,\n       DogCard: [Object],\n       vaccineCard: [Object] },\n     { _id: '5a24f583bf77595ff08bf873',\n       owner: '5a24f583bf77595ff08bf876',\n       dog: '5a24f583bf77595ff08bf875',\n       husbandryNo: '33RNR',\n       __v: 0,\n       DogCard: [Object],\n       vaccineCard: [Object] } ] }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/DogLicense/FindDogLicenseHandler.js",
     "groupTitle": "DogLicense"
   },
   {
@@ -606,6 +673,59 @@
   },
   {
     "type": "post",
+    "url": "owner/find",
+    "title": "查询犬主",
+    "name": "findOwner",
+    "group": "Owner",
+    "description": "<p>查询api接口，获取犬主信息</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "certificateType",
+            "description": "<p>证件类型</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "certificateCode",
+            "description": "<p>证件号</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Access-Token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{ Owner:\n   { _id: '5a24f583bf77595ff08bf876',\n     name: 'test_kEiAr',\n     sex: '1',\n     phone: '15901794453',\n     tel: '345033',\n     certificateType: '1',\n     certificateCode: '31010222222222',\n     __v: 1,\n     dogs: [ '5a24f5c6a8b1f54b60bfbd1a' ],\n     location:\n      { province: 'province',\n        district: 'district',\n        city: 'city',\n        address: 'address',\n        code: 'code' } } }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/Owner/FindOwnerHandler.js",
+    "groupTitle": ""
+  },
+  {
+    "type": "post",
     "url": "/user/login",
     "title": "用户登录",
     "name": "login",
@@ -790,5 +910,49 @@
     "version": "0.0.0",
     "filename": "src/server/WebAPI/TestHandler.js",
     "groupTitle": "WebAPI"
+  },
+  {
+    "type": "GET",
+    "url": "/Qiniu/token",
+    "title": "获取qiniu tokern",
+    "name": "qiuniu",
+    "group": "qiuniu",
+    "description": "<p>获取qiniu</p>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "Sting",
+            "optional": false,
+            "field": "access-key",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{ code: 1,\n  data: \n  { token: 'k-ZxbCCBV3eLH5k2nUnSZo6OG_2zWfohupr_DZa2:0Zt0mMjvEWaRySAPFGLMFbvv3pU=:eyJzY29wZSI6ImhhbG9raXQiLCJkZWFkbGluZSI6MTQ5OTkzNTM3OX0=' } }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/QiNiuHandler.js",
+    "groupTitle": "qiuniu"
   }
 ]
