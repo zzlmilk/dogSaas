@@ -27,7 +27,7 @@ var sourceCSS = 'src/client/css/',
 
 gulp.task('copy', function() {
 	gulp.src('src/client/index.html').pipe( gulp.dest('public') );
-  gulp.src('src/client/bower_components/**/*').pipe( gulp.dest('public/bower_components') );
+   gulp.src('src/client/bower_components/**/*').pipe( gulp.dest('public/bower_components') );
 	gulp.src('src/client/img/**/*').pipe( gulp.dest('public/img') );
 	gulp.src('node_modules/bootstrap-sass/assets/fonts/**/*').pipe( gulp.dest('public/fonts') );
 
