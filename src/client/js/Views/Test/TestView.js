@@ -15,6 +15,7 @@ var loginUserManager = require('../../lib/loginUserManager');
 var userModel = require('../../Models/user');
 
 var UploadView = require("../Parts/Upload/UploadView");
+var SelectPluginView = require("../Parts/selectPlugin/SelectPluginView");
 
 
 
@@ -44,6 +45,14 @@ var TestView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;
+
+
+        var selectPluginView = new SelectPluginView({
+                el:"#selectPlugin"
+        })
+        
+         
+
 
 
         var username = $("#inputaaa").val();
@@ -92,9 +101,14 @@ var TestView = Backbone.View.extend({
 
        // $("#uploadTest").html("acbsdli")
 
-        var UploadView1 = new UploadView({
-                el:"#uploadTest"
-        })
+        // var UploadView1 = new UploadView({
+        //         el:"#uploadTest"
+        // })
+
+
+
+
+
 
      
 

@@ -180,12 +180,12 @@ var Routing = function(){
 
                         // status = 1                                                                              
                                 if (status == 1) {
-                                     var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');  
-                                     var view = new AddOrganizationView({
-                                        action:"edit",
-                                        user:user,
-                                   });
-                                 // Utils.goPage("main")
+                                   //   var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');  
+                                   //   var view = new AddOrganizationView({
+                                   //      action:"edit",
+                                   //      user:user,
+                                   // });
+                                   Utils.goPage("main")
 
                                 }else if (status == 0 || status == -1 ){
                                   //等待审核

@@ -4,9 +4,9 @@ var RequestHandlerBase = require('../RequestHandlerBase');
 const Utils = require("../../lib/Utils");
 var _ = require('lodash');
 var Const = require("../../lib/consts");
-
-
 var authenticator = require("../middleware/auth");
+
+
 var DogLicenseLogic = require("../../Logics/DogLicenseLogic");
 
 var AddDogLicenseHandler = function(){
