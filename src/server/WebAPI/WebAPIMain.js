@@ -37,8 +37,11 @@ var WebAPIMain = {
 
 
 
-					//AddDogHandler
+					//dogLicense
 					router.use("/dogLicense/add", require('./DogLicense/AddDogLicenseHandler'));
+					router.use("/dogLicense/find", require('./DogLicense/FindDogLicenseHandler'));
+
+					
 					
 
 
