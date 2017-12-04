@@ -12,6 +12,9 @@ const Const = require("../lib/consts");
 var OwnerModel  = function(){};
 
 
+//选在owner里面找手机号的对象
+//找到对象的_id ，去dogLicense 去匹配owner对象
+
 OwnerModel.prototype.init = function(mongoose){
 	this.schema = new mongoose.Schema({			
 			name: String, //主人名字		
