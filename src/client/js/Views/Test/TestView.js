@@ -31,7 +31,7 @@ var TestView = Backbone.View.extend({
     render: function() {
 
         $(Config.defaultContaier).html(template({
-
+                a:1
         }));
 
 
@@ -50,7 +50,7 @@ var TestView = Backbone.View.extend({
         var selectPluginView = new SelectPluginView({
                 el:"#selectPlugin"
         })
-        
+
          
 
 
