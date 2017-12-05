@@ -19,7 +19,149 @@ var OwnerModel = require('../Models/Owner');
 
 var DogLicenseLogic = {
 
-		//添加狗
+
+		//有了狗证之后创建Residence信息
+		createResidence:function(param, onSuccess, onError){
+					var residenceParam = param.residence;
+					var dogLicense = param.dogLicense
+
+
+
+			//根据户籍房产信息验证能不能办理狗证 DogCard
+			  		if (Utils.isEmpty(residenceParam.houseProperty) || Utils.isEmpty(residenceParam.houseNo)
+							|| Utils.isEmpty(residenceParam.address) || Utils.isEmpty(residenceParam.isSterilization)){
+			  			
+
+			  			onError(null,Consts.resCodeMissResidenceParam)
+
+
+			  		}else{
+
+			  				var res = {}
+			  				res.dogLicense = dogLicense
+			  				res.organization = param.organization
+
+			  			async.waterfall([
+						  	function(done){
+						  			ResidenceModel.get().findOne({"address":residenceParam.address},function(err,residenceModel){
+			  						//改房产已经办理过
+			  						if(residenceModel){
+
+									  onError(null,Consts.resCodeHaveResidenceParam)
+										
+			  						}else{
+
+
+								  	 //创建户籍对象
+								  	 var residenceModel	= ResidenceModel.get();
+								  	 var residence = new residenceModel({
+								  	 		 houseProperty:residenceParam.houseProperty,
+								  	 		 houseNo:residenceParam.houseNo,
+								  	 		 address:residenceParam.address,
+								  	 		 isSterilization:residenceParam.isSterilization,
+								  	 		 created:Utils.now(),
+								  	 })
+
+
+
+								  	 residence.save(function(err,residenceResult){								  	 		 
+								  	 		 //更新 
+								  	 		done(null,residenceResult)
+
+
+								  	 })
+
+
+			  					}
+
+			  						
+
+			  				  });
+						  	}
+						  	,function(result,done){
+						  		//更新户籍信息						  		
+						  		dogLicense.residence = result._id;
+						  		done(null,result);
+						  			
+						  		// dogLicense.save(function(err,r){
+						  		// 	console.log(r)
+						  		// })
+
+						  	},
+						  	function(result,done){
+						  			//寻找主人信息
+						  			 OwnerModel.get().findOne({"_id":dogLicense.owner},function(err,ownerResult){
+						  			 		if (ownerResult) {
+						  			 			res.owner = ownerResult
+						  			 			done(null,result)
+						  			 		}else{
+						  			 			done("no ownerResult",null)						  			 			
+						  			 		}
+						  			 })
+						  	},
+						  	function(result,done){
+						  		//寻找狗信息
+						  		DogModel.get().findOne({"_id":dogLicense.dog},function(err,dogResult){
+						  			 		if (dogResult) {
+						  			 			res.dog = dogResult
+						  			 			done(null,result)
+						  			 		}else{
+						  			 			done("no dogResult",null)						  			 			
+						  			 		}
+						  			 })
+
+						  	},
+						  	function(result,done){
+						  			//更新dogcard信息
+						  			dogLicense.DogCard = {
+									isCreate:1,
+									message:"成功办理狗证",
+									create:Utils.now(),		
+									annual:{
+										  		canAnnual:0,  
+										  		updateDate:Utils.now(),
+										 },
+										 info:{
+											  		cardNo:Utils.dogCardNo(),	
+											  		name:res.owner.name,
+											  		addressres:res.owner.address,
+											  		district:res.owner.district,
+											  		irisID:res.dog.irisID,
+											  		breed:res.dog.breed,
+											  		hairColor:res.dog.hairColor,
+											  		loopLineType:1, //默认写死
+											  		annualDate:Utils.annualDate([]),
+											  		signOrganization:res.organization.name +"公安",
+											  		signCretate:Utils.now(),
+											  		vaccineCreate:Utils.now(),
+
+												 }
+
+								}
+
+								dogLicense.save(function(err,dogLicenseResult){
+									if (err) {
+										throw err
+									}
+										if (dogLicenseResult) {
+												onSuccess(dogLicenseResult)
+										}
+								})
+
+						  	}
+						  	],function(err,result){
+
+						  	})
+
+			  		
+
+			  		}
+
+
+
+		},
+
+		//添加狗证
 		add:function(param, onSuccess, onError){			
 			//验证参数
 			var self = this;
@@ -104,7 +246,7 @@ var DogLicenseLogic = {
 
 								  	 residence.save(function(err,residenceResult){
 								  	 		 res.residence = residenceResult;					  	 									  	 		
-								  	 		 // dogLicense.residence = residenceResult._id
+								  	 		  dogLicense.residence = residenceResult._id
 								  	 		 done(null,res)
 
 								  	 })
@@ -245,10 +387,6 @@ var DogLicenseLogic = {
 												  	}
 
 								  			}
-
-
-
-						
 						
 						//有户籍信息就可以直接办理狗证
 						if (dogLicense.DogCard.isCreate == 1) {
@@ -425,6 +563,10 @@ var DogLicenseLogic = {
 			callback(null)
 
 		}
+
+
+
+
 		
 }
 

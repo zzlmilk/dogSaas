@@ -8,6 +8,8 @@
      Const.httpCodeServerError =500;
      Const.httpCodeForbidden = 403;
 
+     Const.httpCodeNodogLicenseId = 4000001;
+
 
      Const.resCodeRegisterNoEmail = 1000001
      Const.resCodeRegisterNoPassword  = 1000002
@@ -86,6 +88,15 @@
      Const.resCodeDogWorngHusbandryNo = 2000035 //已经被使用过的条形码
     Const.resCodeFindOwnerParamIsEmpty=2000036
     Const.resCodeFindDogLinceseParamIsEmpty=2000037
+
+
+    Const.resCodeResidenceCanNotUpdate=2000038
+
+    Const.resCodeMissResidenceParam = 2000039
+    Const.resCodeHaveResidenceParam = 2000040
+
+
+
 
 
 
