@@ -5,6 +5,7 @@ const Utils = require("../../lib/Utils");
 var _ = require('lodash');
 var Const = require("../../lib/consts");
 var authenticator = require("../middleware/auth");
+var OrganizationMiddleware = require("../middleware/organizationMiddleware");
 
 
 var DogLicenseLogic = require("../../Logics/DogLicenseLogic");
@@ -126,8 +127,9 @@ _.extend(AddDogLicenseHandler.prototype,RequestHandlerBase.prototype);
 AddDogLicenseHandler.prototype.attach = function(route){
 	 var self = this;
 
-	 route.post('/',authenticator,function(request,response){
-
+	 route.post('/',authenticator,OrganizationMiddleware,function(request,response){
+            request.body.user = request.user
+            request.body.organization = request.organization
             DogLicenseLogic.add(request.body,function(result){
                      self.successResponse(response,Const.responsecodeSucceed,{
                          dogLicense:   result

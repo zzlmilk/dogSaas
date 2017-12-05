@@ -6,7 +6,7 @@ var moment = require('moment');
     };
 
 
- 	 Utils.prototype.now = now;     
+ 	   Utils.prototype.now = now;     
      Utils.prototype.isEmpty = isEmpty;
      Utils.prototype.randomString = randomString;
      Utils.prototype.randomCode = randomCode;
@@ -15,13 +15,44 @@ var moment = require('moment');
      Utils.prototype.md5 = md5;
      Utils.prototype.vaild = vaild;
 
+     Utils.prototype.vaccineCardNo = vaccineCardNo;
+
+     Utils.prototype.dogCardNo = dogCardNo;
+     Utils.prototype.annualDate = annualDate;
 
 
      Utils.prototype.pickUser = pickUser;
 
 
+    function annualDate(annualDate){
+        if(!_.isArray(annualDate)){
+
+            return;
+        }else{
+          
+          var m = moment().month() //Accepts numbers from 0 to 11
+          var y =moment().year().toString()
 
 
+          var string = y.substring(2) + (m+1)
+          annualDate.push(string)
+
+          
+
+        return annualDate
+          
+        }
+
+    }
+
+    function dogCardNo(){
+        return randomString(10)
+    }
+
+     function vaccineCardNo(){
+           return randomString(10)
+
+     }
 
 	function pickUser (user){
 			 return    _.pick(user, [

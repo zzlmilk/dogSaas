@@ -44,9 +44,9 @@ describe('WEB API', function () {
 
                             },                        
                             residence:{
-                                houseNo:"1234",
+                                houseNo:global.getRandomStr(),
                                 houseProperty:"ziyou",
-                                address:"global.getRandomStr()",
+                                address:global.getRandomStr(),
                                 isSterilization:"0"
                             }
                                               	

@@ -30,7 +30,11 @@ var DogLicenseLogic = {
 						return;
 					}
 				
+
 				var res = {};
+				res.user = param.user
+				res.organization = param.organization
+
 				var dogParam = param.dog
 				var vaccineParam = param.dog.vaccine
 				var ownerParam = param.owner
@@ -175,9 +179,9 @@ var DogLicenseLogic = {
 			  						var dogs = ownerResult.dogs;
 			  						dogs.push(res.dog._id)
 			  						ownerResult.dogs = dogs
+			  						res.owner = ownerResult
 			  						ownerResult.save(function(err,oResult){
-			  							if (err) { throw err; return}
-			  							
+			  							if (err) { throw err; return}			  							
 			  								done(null,dogLicense)
 			  						})
 			  				}else{
@@ -203,6 +207,7 @@ var DogLicenseLogic = {
 							  		owner.save(function(err,ownerResult){							  			
 							  			if (err) { throw err; return;}
 							  				dogLicense.owner = ownerResult._id;
+							  				res.owner = ownerResult
 							  				done(null,dogLicense)
 							  		})
 
@@ -214,11 +219,66 @@ var DogLicenseLogic = {
 			  	function(result,done){		
 			  	//判断是不是能治疫苗卡 vaccineCard 	  				  						  		
 			  	//因为参数之前都验证过所以到这里总能办理疫苗卡
+
+			  			
 			  			dogLicense.vaccineCard = {
 								  					isCreate:1,
-												  	message:"可以疫苗卡狗证",	
-												  	create:Utils.now(),											  	
+												  	message:"可以疫苗卡狗证",													  	
+												  	create:Utils.now(),		
+												  	annual:{
+												  		canAnnual:1,
+												  		updateDate:Utils.now(),
+												  	},
+												  	info:{
+												  		cardNo:Utils.vaccineCardNo(),	
+												  		name:res.owner.name,
+												  		addressres:res.owner.address,
+												  		district:res.owner.district,
+												  		irisID:res.dog.irisID,
+												  		breed:res.dog.breed,
+												  		hairColor:res.dog.hairColor,
+												  		annualDate:Utils.annualDate([]),
+												  		signOrganization:res.organization.name,
+												  		signCretate:Utils.now(),
+												  		vaccineCreate:Utils.now(),
+
+												  	}
+
 								  			}
+
+
+
+						
+						
+						//有户籍信息就可以直接办理狗证
+						if (dogLicense.DogCard.isCreate == 1) {
+								dogLicense.DogCard = {
+									isCreate:dogLicense.DogCard.isCreate,
+									message:dogLicense.DogCard.message,
+									create:Utils.now(),		
+									annual:{
+										  		canAnnual:0,  
+										  		updateDate:Utils.now(),
+										 },
+										 info:{
+											  		cardNo:Utils.dogCardNo(),	
+											  		name:res.owner.name,
+											  		addressres:res.owner.address,
+											  		district:res.owner.district,
+											  		irisID:res.dog.irisID,
+											  		breed:res.dog.breed,
+											  		hairColor:res.dog.hairColor,
+											  		loopLineType:1, //默认写死
+											  		annualDate:Utils.annualDate([]),
+											  		signOrganization:res.organization.name +"公安",
+											  		signCretate:Utils.now(),
+											  		vaccineCreate:Utils.now(),
+
+												 }
+
+								}
+						}	  			
+
 
 						
 

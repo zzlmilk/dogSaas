@@ -18,6 +18,7 @@ ResidenceModel.prototype.init = function (mongoose) {
 			address:String,       //xxx路xxx弄xxx号 ，用户判断唯一性
 			isSterilization:Number,    //是否绝育  0:未绝育 1:绝育:String, 		
 			created:Date, //创建时间		
+			loopLineType:Number,  //上海的环线 1.环线内  2外环内 3 外环外
 
 			
 	});
