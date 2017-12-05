@@ -37,12 +37,7 @@ var DogCardView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;
-        //$(".form_datetime").datetimepicker({
-        //    format: "dd MM yyyy - hh:ii",
-        //    autoclose: true,
-        //    todayBtn: true,
-        //    pickerPosition: "bottom-left"
-        //});
+
 
 
         var PersonalCardView = require('./PersonalCard/PersonalCardView.js');
@@ -66,6 +61,8 @@ var DogCardView = Backbone.View.extend({
             });
 
         });
+
+
 
     }
     ,
