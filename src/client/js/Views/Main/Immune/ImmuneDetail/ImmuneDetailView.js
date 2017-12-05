@@ -34,7 +34,7 @@ var ImmuneDetailView = Backbone.View.extend({
         var self = this;
 
         $('#post').unbind().on('click',function(){
-            alert("Aa");
+
             var CardInfoView = require('../../Dog/DogCard/CardInfo/CardInfoView.js');
             var view = new CardInfoView({
                 'el': "#immune_content"

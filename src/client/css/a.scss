@@ -361,17 +361,17 @@
 //办理狗证--个人办证--打印磁卡
 
 .print_card{
-  min-width: 750px;
-  max-width: 960px;
+  width:100%;
   float: left;
   background:#fcfcfc ;
+  padding: 25px;
 }
 .print_card>.title_nav{
   margin-top:15px;
-
+  width: 100%;
 }
 .print_card>.content{
-  width: 890px;
+  width: 100%;
   float: left;
   margin-top: 20px;
   background: #ffffff;
@@ -386,17 +386,18 @@
 .print_card>.content>.row{
   margin-bottom: 15px;
 }
-.print_card>.content>.row>.card_front{
+.print_card>.content>.row>.col-md-6>.card_front{
   width: 250px;
   height: 150px;
+  border:1px #cccccc solid;
   float: left;
-  margin-left:50px;
+  margin-left: 30px;
 }
-.print_card>.content>.row>.card_behind{
+.print_card>.content>.row>.col-md-6>.card_behind{
   width: 250px;
   height: 150px;
+  border:1px #cccccc solid;
   float: left;
-  margin-left:50px;
 }
 .print_card>.content>.row>.col-md-4>#print_card{
   margin-left: 50px;
@@ -407,6 +408,19 @@
   height: 32px;
   line-height: 32px;
   margin-left: 40px;
+  text-align:right;
+}
+.print_card>.content>.row>.col-md-6>.subtitle>.codetip{
+  width: 100px;
+  float: left;
+  height: 40px;
+  margin-left: 40px;
+}
+.print_card>.content>.row>.col-md-6>.subtitle>.codetip>span{
+  width: 100px;
+  float: left;
+  height: 20px;
+  line-height:20px;
   text-align:right;
 }
 .print_card>.content>.row>.col-md-6>.section{
