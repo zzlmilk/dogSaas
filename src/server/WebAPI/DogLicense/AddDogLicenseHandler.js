@@ -49,8 +49,8 @@ var AddDogLicenseHandler = function(){
  */
 /**
  * @apiDefine Residence
- * @apiParam (residence) {String} houseNo 自由和租凭
- * @apiParam (residence) {String} houseProperty (沪)房地（长）字（2006）第(000386)号
+ * @apiParam (residence) {String} houseNo (沪)房地（长）字（2006）第(000386)号
+ * @apiParam (residence) {String} houseProperty 自由和租凭
  * @apiParam (residence) {String} address xxx路xxx弄xxx号 ，用户判断唯一性
  * @apiParam (residence) {Number} isSterilization  是否绝育  0:未绝育 1:绝育
  */

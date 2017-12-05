@@ -81,6 +81,12 @@ var SidebarView = Backbone.View.extend({
 
         });
 
+        $('.nav_a').each(function (i) {
+            $(this).click(function(){
+                $('.second_nav').eq(i).slideToggle();
+            })
+        })
+
 
 
     }

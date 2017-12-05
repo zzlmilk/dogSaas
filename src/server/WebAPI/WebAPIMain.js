@@ -41,12 +41,14 @@ var WebAPIMain = {
 					router.use("/dogLicense/add", require('./DogLicense/AddDogLicenseHandler'));
 					router.use("/dogLicense/find", require('./DogLicense/FindDogLicenseHandler'));
 
-					
-					
+					//owner
+                    router.use("/owner/find", require('./Owner/FindOwnerHandler'));
 
 
-					
-					//Qiniu 
+
+
+
+                //Qiniu
 					router.use("/Qiniu/token" ,require('./QiNiuHandler'));
 
 					

@@ -5,18 +5,21 @@ var helper = require('./helper');
 
 
 describe('WEB API', function () {
-		it('should be add dog sucessful', function (done) {
+		it(' find DogLicense by phone ', function (done) {
 
 				signin(function(token){
 
 							//参数
-							var body = {                            
-                            	 husbandryNo:"1234",
+							var body = {
+							    name:" ",
+                                phone:"15901794453",
+                                certificateType:"1",
+                                certificateCode:"31010222222222"
                             	
                         	}; 
 
                         request(app)
-                        .get('/dogsystem/v1/dogLicense/find')
+                        .post('/dogsystem/v1/dogLicense/find')
                         .set('Access-Token', token)    
                         .send(body)
                         .end(function (err, res) {
@@ -25,20 +28,15 @@ describe('WEB API', function () {
                             throw err;
                         }
 
-                        console.log(res.body)
+                        console.log(res.body.data)
                         
-                        // res.body.should.have.property('code');
-                        // res.body.code.should.equal(1);
-                        
+                         res.body.should.have.property('code');
+                         res.body.code.should.equal(1);
                         done();
                     
                     });    
 
 
 				})
-
-		})
-
-
-
+        })
 })

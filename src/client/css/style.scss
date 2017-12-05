@@ -115,6 +115,7 @@ a{
 
 .btn:active, .btn.active {
     outline: 0;
+    opacity: .8;
     background-image: none
 }
 
@@ -384,22 +385,143 @@ ul li{
 /*==== 添加组织的css*/
 .wrapper{
     margin: 0 auto ;
-    width:750px;
-    padding:72px 0;
+    width:450px;
     min-height:100%;
 }
 
-.wrapper > .org_companyInfo > .row 
-{
-    margin-top: 32px;
+.wrapper > .org_companyInfo > .row {
+    margin-top: 25px;
 }
-
-
 
 .wrapper > .org_companyInfo > .row >.subtitle{
      float: left;
-     width: 220px;
+     width: 160px;
+     height: 40px;
+     text-align: right;
+}
 
+.wrapper > .org_companyInfo > .row >.subtitle>h4{
+    height: 40px;
+    line-height: 40px;
+}
+
+.wrapper > .org_companyInfo > .row >.section{
+    float: left;
+    width: 280px;
+    margin-left: 10px;
+}
+
+.wrapper > .org_companyInfo > .row >.section>input{
+    height: 40px;
+}
+
+.wrapper > .org_companyInfo > .row >.section>p{
+    height: 10px;
+}
+
+.wrapper > .org_companyInfo > .row >.section>.chose_phone>select{
+    width: 80px;
+    height: 40px;
+    border: 2px #cccccc solid;
+    border-radius: 4px;
+    float: left;
+}
+
+.wrapper > .org_companyInfo > .row >.section>.connet{
+    width: 20px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    float: left;
+}
+
+.wrapper > .org_companyInfo > .row >.section>.phone_number>input{
+    width: 180px;
+    height: 40px;
+    float: left;
+}
+
+.wrapper > .org_companyInfo > .row >.section>.medical{
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    margin-right: 20px;
+}
+
+.wrapper > .org_companyInfo > .row >.section>.facial{
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+}
+
+.wrapper > .org_companyInfo > .row >.section>#doctor{
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    border-color: #3399ff;
+    float:left;
+    margin-right: 20px;
+}
+
+.wrapper > .org_companyInfo > .row >.section>.add_doctor{
+    height: 40px;
+    line-height: 40px;
+}
+
+.wrapper > .org_companyInfo > .row >.section>.detail_address{
+    text-align: right;
+    font-size: 10px;
+    color: #ff0000;
+}
+
+.wrapper >.org_companyInfo>.row>.section>.selectGroup>.selectWrap>.selectBtn{
+    float: left;
+    width: 80px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.wrapper >.org_companyInfo>.row>.section>.selectGroup>.selectWrap>#last{
+    margin-right: 0px;
+}
+
+.wrapper >.org_companyInfo>.row>.section>.selectGroup>.selectWrap>.selectBtn>select{
+    width: 80px;
+    border: 2px #cccccc solid;
+    border-radius: 4px;
+    height: 40px;
+}
+
+.wrapper >.org_companyInfo>.row>.section>.selectGroup>.selectWrap>.selectBtn>p{
+    width: 80px;
+    height: 10px;
+}
+
+.wrapper >.org_companyInfo>.row>#addOrganizationBtn{
+    width: 280px;
+    height: 40px;
+    float: left;
+    margin-left: 170px;
+}
+
+.wrapper > .org_companyInfo > .row >.section>table>tbody>tr>td{
+    border: 2px #9a9b9a solid;
+}
+
+.wrapper > .org_companyInfo > .row >.section>table>tbody>tr>.name{
+    width:120px;
+    height: 40px;
+    line-height:40px;
+    text-align: center;
+}
+
+.wrapper > .org_companyInfo > .row >.section>table>tbody>tr>.number{
+    width:160px;
+    height: 40px;
+    line-height:40px;
+    text-align: center;
 }
 
 .uploadWrap {
@@ -429,7 +551,6 @@ ul li{
 
 }
 
-
 .uploadWrap > img {
     position: absolute;
     z-index: 20;
@@ -446,31 +567,18 @@ ul li{
     text-align:center
 }
 
-
-
-
-
-.wrapper > .org_companyInfo >.row > .section{
-     width: 330px;
-      margin-left: 220px;
-
-}
-
-
-
-
-
-
 .wrap {
     padding-left: calc(100vw - 100%)
 
 }
+
 .wrap .box {
     padding: 0;
     width: 400px;
     min-width:420px;
     margin: 0 auto;
 }
+
 .wrap .box .form-groups{
     width: 400px;
     height: 35px;
@@ -478,6 +586,7 @@ ul li{
     float: left;
     margin-bottom: 10px;
 }
+
 .wrap .box .form-groups label{
     width: 110px;
     height: 35px;
@@ -487,6 +596,7 @@ ul li{
     text-align: right;
     float: left;
 }
+
 .form-groups input,.form-groups select,.form-groups button{
     width: 280px;
     height: 35px;
