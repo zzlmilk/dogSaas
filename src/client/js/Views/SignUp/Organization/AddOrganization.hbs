@@ -6,7 +6,7 @@
         <div class="org_companyInfo">
 
             <div class="row">
-                <p  style="font-size:20px" class="text-center">完成以下信息并提交即可完成注册</p>
+                <p style="font-size:20px" class="text-center">完成以下信息并提交即可完成注册</p>
             </div>
 
             <div class="row">
@@ -25,67 +25,46 @@
                     <h4>联系地址：</h4>
                 </div>
                 <!-- 提示错误需要在 section 上加 .error 并添加 div.tree_tip-->
-                <div class="section ot_city_select error">
-                    <div class="selectGroup">
-                        <div id="selectProvince" class="selectWrap">
-                            <div class="selectBtn">
-                                <select id="province">
-                                    <option value="">选择省份</option>
-                                    <option value="上海">上海</option>
-                                </select>
-                                <p style="display: none;" class="null_err" id="province_null_tip">*省份不能为空</p>
-                            </div>
-                            <div class="selectBtn">
-                                <select id="city">
-                                    <option value="">选择城市</option>
-                                    <option value="虹梅镇">虹梅镇</option>
-                                </select>
-                                <p style="display: none;" class="null_err" id="city_null_tip">*城市不能为空</p>
-                            </div>
-                            <div class="selectBtn" id="last">
-                                <select id="district">
-                                    <option value="">选择区县</option>
-                                    <option value="闵行区">闵行区</option>
-                                </select>
-                                <p style="display: none;" class="null_err" id="district_null_tip">*区县不能为空</p>
-                            </div>
+                <div class="section" style="background: #112221">
+                    <div id="orga_area">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                    <div class="subtitle">
+                        <h4>详细地址：</h4>
+                    </div>
+                    <div class="section">
+                        <input required="" errmsg="请填写联系地址"
+                               id="address" type="text" class="form-control" placeholder="详细地址">
+                        <p style="display: none;" class="null_err" id="address_null_tip">*地址不能为空</p>
+                    </div>
+                </div>
+
+            <div class="row">
+                    <div class="subtitle">
+                        <h4>座机：</h4>
+                    </div>
+                    <div class="section">
+                        <div class="chose_phone">
+                            <select>
+                                <option>021</option>
+                            </select>
                         </div>
+                        <div class="connet">
+                            —
+                        </div>
+                        <div class="phone_number">
+                            <input required="" errmsg="" value="" id="tel" type="number"
+                                   oninput="if(value.length>10)value=value.slice(0,10)" class="form-control"
+                                   placeholder="座机">
+                        </div>
+                        <p class="detail_address" style="display: none;color:#ff0000" class="null_err"
+                           id="tel_null_tip">*座机不能为空</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="subtitle">
-                    <h4>详细地址：</h4>
-                </div>
-                <div class="section">
-                    <input required="" errmsg="请填写联系地址"
-                           id="address" type="text" class="form-control" placeholder="详细地址">
-                    <p style="display: none;" class="null_err" id="address_null_tip">*地址不能为空</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="subtitle">
-                    <h4>座机：</h4>
-                </div>
-                <div class="section">
-                    <div class="chose_phone">
-                        <select>
-                            <option>021</option>
-                        </select>
-                    </div>
-                    <div class="connet">
-                        —
-                    </div>
-                    <div class="phone_number">
-                        <input required="" errmsg="" value="" id="tel" type="number"
-                               oninput="if(value.length>10)value=value.slice(0,10)" class="form-control"
-                               placeholder="座机">
-                    </div>
-                    <p class="detail_address" style="display: none;color:#ff0000" class="null_err" id="tel_null_tip">*座机不能为空</p>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="subtitle">
@@ -123,30 +102,30 @@
             </div>
 
             <div class="row">
-                    <div class="subtitle">
-                        <h4>*服务范围：</h4>
+                <div class="subtitle">
+                    <h4>*服务范围：</h4>
+                </div>
+                <div class="section">
+                    <div class="medical">
+                        <input name="medical" type="checkbox" id="medical">
+                        <span for="medical">医疗</span>
                     </div>
-                    <div class="section">
-                        <div class="medical">
-                            <input name="medical" type="checkbox"  id="medical">
-                            <span for="medical">医疗</span>
-                        </div>
-                        <div class="facial">
-                            <input name="facial"  type="checkbox"  id="facial">
-                            <span for="facial">美容</span>
-                        </div>
-                   </div>
-           </div>
+                    <div class="facial">
+                        <input name="facial" type="checkbox" id="facial">
+                        <span for="facial">美容</span>
+                    </div>
+                </div>
+            </div>
 
             <div class="row">
-                   <div class="subtitle">
-                       <h4>*添加兽医：</h4>
-                   </div>
-                   <div class="section">
-                       <input required="" errmsg="" value="添加" id="doctor" type="button" class="form-control" />
-                       <span class="add_doctor">至少添加一位兽医</span>
-                       <!--<p style="display: none;" class="null_err" id="doctor_null_tip">*兽医姓名不能为空</p>-->
-                   </div>
+                <div class="subtitle">
+                    <h4>*添加兽医：</h4>
+                </div>
+                <div class="section">
+                    <input required="" errmsg="" value="添加" id="doctor" type="button" class="form-control"/>
+                    <span class="add_doctor">至少添加一位兽医</span>
+                    <!--<p style="display: none;" class="null_err" id="doctor_null_tip">*兽医姓名不能为空</p>-->
+                </div>
             </div>
 
             <div class="row">
@@ -155,56 +134,58 @@
                 <div class="section">
                     <table>
                         <tbody>
-                            <tr style="background:#cccccc;">
-                                <td class="name">姓名</td>
-                                <td class="number">职业兽医资格证编号</td>
-                            </tr>
-                            <tr>
-                                <td class="name"></td>
-                                <td class="number"></td>
-                            </tr>
+                        <tr style="background:#cccccc;">
+                            <td class="name">姓名</td>
+                            <td class="number">职业兽医资格证编号</td>
+                        </tr>
+                        <tr >
+                            <td class="name"></td>
+                            <td class="number"></td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
             <div class="row">
-                   <div class="subtitle">
-                       <h4>*联系人：</h4>
-                   </div>
-                   <div class="section">
-                       <input required="" errmsg="" value="" id="contacts" type="text" class="form-control"
-                              placeholder="联系人">
-                       <p style="display: none;" class="null_err" id="contacts_null_tip">*联系人不能为空</p>
-                   </div>
-           </div>
+                <div class="subtitle">
+                    <h4>*联系人：</h4>
+                </div>
+                <div class="section">
+                    <input required="" errmsg="" value="" id="contacts" type="text" class="form-control"
+                           placeholder="联系人">
+                    <p style="display: none;" class="null_err" id="contacts_null_tip">*联系人不能为空</p>
+                </div>
+            </div>
 
             <div class="row">
-                   <div class="subtitle">
-                       <h4>*联系人电话：</h4>
-                   </div>
-                   <div class="section">
-                       <input required="" errmsg="" value="" id="contacts_phone" type="number" maxlength="11"
-                              oninput="if(value.length>11)value=value.slice(0,11)" class="form-control"
-                              placeholder="联系人电话">
-                       <p style="display: none;" class="null_err" id="contacts_phone_null_tip">*联系人电话不能为空</p>
-                       <p style="display: none;" class="null_err" id="contacts_phone_format_tip">*联系人电话格式有误</p>
-                   </div>
-           </div>
+                <div class="subtitle">
+                    <h4>*联系人电话：</h4>
+                </div>
+                <div class="section">
+                    <input required="" errmsg="" value="" id="contacts_phone" type="number" maxlength="11"
+                           oninput="if(value.length>11)value=value.slice(0,11)" class="form-control"
+                           placeholder="联系人电话">
+                    <p style="display: none;" class="null_err" id="contacts_phone_null_tip">*联系人电话不能为空</p>
+                    <p style="display: none;" class="null_err" id="contacts_phone_format_tip">*联系人电话格式有误</p>
+                </div>
+            </div>
 
             <div class="row">
-               <!--<button class="btn btnNone">返回上一步</button>-->
-                <button id="addOrganizationBtn" class="btn btnBlueE btn-block">提交</button>
+                    <!--<button class="btn btnNone">返回上一步</button>-->
+                    <button id="addOrganizationBtn" class="btn btnBlueE btn-block">提交</button>
+                </div>
+
             </div>
 
         </div>
-
-    </div>
-    <!--<div id="signfooter-content"></div>-->
-    <div style="width:100%;height: 100px; background:#cccccc;margin-top: 50px;">
-        <div class="container">
-            <p class="text-center">沪ICP备 16015040号-2 上海市徐汇区虹梅路2071号二号楼311室</p>
-            <p class="text-center" style="margin-top:-20px;">Copyright©2016-2017，HALOKIT.CN,All Rights Reserved</p>
+        <!--<div id="signfooter-content"></div>-->
+        <div style="width:100%;height: 100px; background:#cccccc;margin-top: 50px;">
+            <div class="container">
+                <p class="text-center">沪ICP备 16015040号-2 上海市徐汇区虹梅路2071号二号楼311室</p>
+                <p class="text-center" style="margin-top:-20px;">Copyright©2016-2017，HALOKIT.CN,All Rights Reserved</p>
+            </div>
         </div>
     </div>
+
 </div>

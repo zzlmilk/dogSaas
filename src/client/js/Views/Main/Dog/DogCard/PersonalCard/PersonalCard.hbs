@@ -39,10 +39,10 @@
                 </div>
                 <div class="section">
                     <label class="radio-inline">
-                        <input type="radio" name="gender" id="gender_man" value="man">男
+                        <input type="radio" name="gender" id="gender_man" value="1" text="男">男
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="gender" id="gender_woman" value="woman">女
+                        <input type="radio" name="gender" id="gender_woman" value="2" text="女">女
                     </label>
                     <p style="display: none;" class="null_err" id="gender_null_tip">*性别不能为空</p>
                 </div>
@@ -79,10 +79,10 @@
                 </div>
                 <div class="section">
                     <label class="radio-inline">
-                        <input type="radio" name="cardtype" id="idcard" value="option1">身份证
+                        <input type="radio" name="cardtype" id="idcard" value="1">身份证
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="cardtype" id="passport" value="option2">护照
+                        <input type="radio" name="cardtype" id="passport" value="2">护照
                     </label>
                     <p style="display: none;" class="null_err" id="cardtype_null_tip">*证件类型不能为空</p>
                 </div>
@@ -92,31 +92,23 @@
                     <h4>*证件号:</h4>
                 </div>
                 <div class="section">
-                    <input  id="id_number" oninput="if(value.length>18)value=value.slice(0,18)">
+                    <input id="id_number" oninput="if(value.length>18)value=value.slice(0,18)">
                     <p style="display: none;" class="null_err" id="id_number_null_tip">*证件号不能为空</p>
                     <p style="display: none;" class="null_err" id="id_number_format_tip">*证件号格式有误</p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <div class="subtitle">
-                    <h4>*所属区县:</h4>
-                </div>
-                <div class="section">
-                    <select id="area_province">
-                        <option>请选择</option>
-                    </select>
-                    <select id="area_city">
-                        <option>请选择</option>
-                    </select>
-                    <select id="area_county">
-                        <option value="">请选择</option>
-                        <option value="1">1</option>
-                    </select>
-                    <p style="display: none;" class="null_err" id="area_null_tip">*所属区县不能为空</p>
+            <div class="col-md-8">
+                <div class="subtitle"  >
+                    <h4 style="float: left;margin-left: 30px">*所属区县:</h4>
+                    <div  class="section" id="owner_area" style="float:left" >
                 </div>
             </div>
+
+        </div>
+
+        <div class="row">
             <div class="col-md-6">
                 <div class="subtitle">
                     <h4>*详细地址:</h4>
@@ -126,8 +118,6 @@
                     <p style="display: none;" class="null_err" id="address_null_tip">*详细地址不能为空</p>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-md-6">
                 <div class="subtitle">
                     <h4>邮编:</h4>
@@ -160,10 +150,10 @@
                 </div>
                 <div class="section">
                     <label class="radio-inline">
-                        <input type="radio" name="dog_gender" id="doggender_male" value="option1">雄
+                        <input type="radio" name="dog_gender" id="doggender_male" value="1">雄
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="dog_gender" id="doggender_female" value="option2">雌
+                        <input type="radio" name="dog_gender" id="doggender_female" value="2">雌
                     </label>
                     <p style="display: none;" class="null_err" id="dog_gender_null_tip">*犬只性别不能为空</p>
                 </div>
@@ -244,13 +234,15 @@
 
             </div>
             <div class="col-md-6">
-                <div class="subtitle" id="imgs">
-                    <img src="" id="dog_img" class="dog_img"/>
+                <div class="section" id="imgs">
+
                 </div>
                 <div class="section" id="collectimg">
                     <a id="recollect_img" href="javascript:void(0)">重新采集图片</a>
                     <input type="file" id="upload" value="上传本地图片" class="upload">
                 </div>
+                <p style="display:none;clear: left" class="null_err" id="imgs_null_tip">*图片不能为空</p>
+
             </div>
         </div>
     </div>
@@ -331,10 +323,10 @@
                 </div>
                 <div class="section">
                     <label class="radio-inline">
-                        <input type="radio" name="houseProperty" id="owner" value="option1">自有
+                        <input type="radio" name="houseProperty" id="owner" value="自由">自由
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="houseProperty" id="rent" value="option2">租赁
+                        <input type="radio" name="houseProperty" id="rent" value="租赁">租赁
                     </label>
                 </div>
             </div>
@@ -376,10 +368,10 @@
                 </div>
                 <div class="section">
                     <label class="radio-inline">
-                        <input type="radio" name="isSterilization" value="是">是
+                        <input type="radio" name="isSterilization" value="1">是
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="isSterilization" value="否">否
+                        <input type="radio" name="isSterilization" value="0">否
                     </label>
                 </div>
             </div>

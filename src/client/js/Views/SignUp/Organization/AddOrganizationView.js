@@ -12,6 +12,7 @@ var templateAdd = require('./AddOrganization.hbs');
 
 
 var AddOrganizationClient = require('../../../lib/APIClients/AddOrganizationClient');
+var SelectPluginView = require("../../Parts/selectPlugin/SelectPluginView");
 
 var OrganizationModel = require('../../../Models/organization');
 var User = require('../../../Models/user');
@@ -106,6 +107,9 @@ var AddOrganizationView = Backbone.View.extend({
         new SignFooterView({
             'el': "#signfooter-content"
         });
+        new SelectPluginView({
+            el: "#orga_area"
+        })
 
         /**
          * 为各个元素添加监听事件
@@ -121,31 +125,31 @@ var AddOrganizationView = Backbone.View.extend({
                 }
             });
 
-            //省份 内容变化监听
+            //省 内容变化监听
             $("#province").change(function () {
                 var province = $('#province').val().trim();
-                if (province == "") {
+                if (province == -1) {
                     $("#province_null_tip").show();
                 } else {
                     $("#province_null_tip").hide();
                 }
             });
             //所属区县 内容变化监听
-            $("#district").change(function () {
-                var district = $('#district').val().trim();
-                if (district == "") {
-                    $("#district_null_tip").show();
+            $("#citys").change(function () {
+                var citys = $('#citys').val().trim();
+                if (citys == -1) {
+                    $("#citys_null_tip").show();
                 } else {
-                    $("#district_null_tip").hide();
+                    $("#citys_null_tip").hide();
                 }
             });
-            //所属城市 内容变化监听
-            $("#city").change(function () {
-                var city = $('#city').val().trim();
-                if (city == "") {
-                    $("#city_null_tip").show();
+            //城市 内容变化监听
+            $("#county").change(function () {
+                var county = $('#county').val().trim();
+                if (county == -1) {
+                    $("#county_null_tip").show();
                 } else {
-                    $("#city_null_tip").hide();
+                    $("#county_null_tip").hide();
                 }
             });
 
@@ -167,24 +171,6 @@ var AddOrganizationView = Backbone.View.extend({
                     $("#tel_null_tip").hide();
                 }
             });
-            //营业执照 失去焦点监听
-            // $("#businessLicense img").attr("src").change(function () {
-            //     var businessLicense = $("#businessLicense img").attr("src");
-            //     if (businessLicense == undefined) {
-            //         $("#businessLicense_null_tip").show();
-            //     } else {
-            //         $("#businessLicense_null_tip").hide();
-            //     }
-            // });
-            //许可证
-            // $("#animalMedicalLicense img").attr("src").change(function () {
-            //     var animalMedicalLicense = $("#animalMedicalLicense img").attr("src");
-            //     if (animalMedicalLicense == undefined) {
-            //         $("#animalMedicalLicense_null_tip").show();
-            //     } else {
-            //         $("#animalMedicalLicense_null_tip").hide();
-            //     }
-            // });
             //兽医姓名: 失去焦点监听
             $("#doctor").blur(function () {
                 var doctor = $('#doctor').val().trim();
@@ -237,23 +223,23 @@ var AddOrganizationView = Backbone.View.extend({
                 falg = false;
                 $("#name_null_tip").show();
             }
-            //省
-            var province = $('#province').val();
-            if (province == "") {
+            //所属省份
+            var province = $('#province').val().trim();
+            if (province == -1) {
                 falg = false;
                 $("#province_null_tip").show();
             }
-            //区
-            var district = $('#district').val();
-            if (district == "") {
+            //所属城市
+            var citys = $('#citys').val().trim();
+            if (citys == -1) {
                 falg = false;
-                $("#district_null_tip").show();
+                $("#citys_null_tip").show();
             }
-            //城市
-            var city = $('#city').val();
-            if (city == "") {
+            //所属区/县
+            var county = $('#county').val().trim();
+            if (county == -1) {
                 falg = false;
-                $("#city_null_tip").show();
+                $("#county_null_tip").show();
             }
 
             //联系地址
@@ -316,6 +302,14 @@ var AddOrganizationView = Backbone.View.extend({
             }
             return falg;
         }
+
+        $('#doctor').unbind().on('click',function(){
+
+            var AddDoctorDialogModal = require('../../Modals/AddDoctorDialog/AddDoctorDialogView');
+            AddDoctorDialogModal.show(function(){
+            });
+
+        });
 
         $("#addOrganizationBtn").unbind().on('click', function (e) {
             //非空验证
