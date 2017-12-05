@@ -69,6 +69,84 @@
   margin-bottom: 20px;
 }
 
+//侧边栏
+.sidebar{
+  width: 100px;
+  min-height:100%;
+  background:#202732;
+}
+
+.sidebar>.nav{
+  width: 100px;
+  background:#202732;
+}
+
+.sidebar>.nav>.nav_li{
+  width:100px;
+  background:#202732;
+  overflow: hidden;
+  float: left;
+}
+.sidebar>.nav>.nav_li>.nav_a{
+  width:100px;
+  height:80px;
+  display:block;
+  line-height:60px;
+  text-decoration: none;
+  border-radius: 0;
+  color:#cccccc;
+  text-align: center;
+  border-bottom:2px #cccccc solid;
+}
+
+.sidebar>.nav>.nav_li>.nav_a:link{
+  color:#ffffff;
+  background: #202732;
+}
+.sidebar>.nav>.nav_li>.nav_a:hover{
+  color:#ffffff;
+  background: #202732;
+}
+.sidebar>.nav>.nav_li>.nav_a:visited{
+  background: #202732;
+  color: #ffffff;
+}
+.sidebar>.nav>.nav_li>.nav_a:active{
+  background: #202732;
+  color: #ffffff;
+}
+
+.sidebar>.nav>.nav_li>.second_nav{
+  width: 100px;
+  height:120px;
+  background: #000000;
+  display:none;
+}
+.sidebar>.nav>.nav_li>.second_nav>.second_nav_li{
+  width: 100px;
+  height: 60px;
+  display: block;
+}
+.sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a{
+  width: 100px;
+  height: 60px;
+  line-height:60px;
+  text-align:center;
+  display: block;
+  color:#ffffff;
+  text-decoration:none;
+}
+
+
+.sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:hover{
+  color:#3399ff;
+}
+
+.sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:active{
+  color:#3399ff;
+}
+
+
 //办理狗证--个人办证
 .dog_manage{
   min-width: 960px;
