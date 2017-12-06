@@ -6,19 +6,19 @@ var _ = require('lodash');
 var Const = require("../../lib/consts");
 var authenticator = require("../middleware/auth");
 
-var DogLicenseModel = require('../../Models/DogLicense');
+
 var FindDogLicenseLogic = require("../../Logics/FindDogLicenseLogic");
 
 
 
-var FindDogLicenseHandler = function(){
+var FindDogLicenseByOwnerHandler = function(){
        	
 
 }
 /*
 /**
-	* @api {post} /dogLicense/find 查询狗证（犬主）
-	* @apiName findDogLicense
+	* @api {get} /dogLicense/find_by_owner 查询狗证（犬主）
+	* @apiName findDogLicenseByOwner
 	* @apiGroup DogLicense
 	* @apiDescription 查询api接口，获取狗证信息
 	* @apiParam {String} name 犬主名
@@ -49,17 +49,17 @@ var FindDogLicenseHandler = function(){
 
 
 
-_.extend(FindDogLicenseHandler.prototype,RequestHandlerBase.prototype);
+_.extend(FindDogLicenseByOwnerHandler.prototype,RequestHandlerBase.prototype);
 
 
 
 
-FindDogLicenseHandler.prototype.attach = function(route){
+FindDogLicenseByOwnerHandler.prototype.attach = function(route){
 	 var self = this;
 
-	 route.post('/',authenticator,function(request,response){
+	 route.get('/',authenticator,function(request,response){
 
-        FindDogLicenseLogic.find(request.body,function(result){
+        FindDogLicenseLogic.find_by_owner(request.body,function(result){
              self.successResponse(response,Const.responsecodeSucceed,{
                  dogLicenses:result
              });
@@ -81,5 +81,5 @@ FindDogLicenseHandler.prototype.attach = function(route){
 
 
 
-new FindDogLicenseHandler().attach(router);
+new FindDogLicenseByOwnerHandler().attach(router);
 module["exports"] = router;

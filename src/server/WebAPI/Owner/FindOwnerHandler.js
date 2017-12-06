@@ -18,7 +18,7 @@ var FindOwnerHandler = function(){
 }
 /*
 /**
-	* @api {post} owner/find 查询犬主
+	* @api {get} owner/find 查询犬主
 	* @apiName findOwner
 	* @apiGroup Owner
 	* @apiDescription 查询api接口，获取犬主信息
@@ -26,7 +26,7 @@ var FindOwnerHandler = function(){
 	* @apiParam    {String} certificateCode 证件号
 	* @apiHeader {String} token Access-Token
     * @apiSuccessExample Success-Response:
-{ Owner:
+{ owner:
    { _id: '5a24f583bf77595ff08bf876',
      name: 'test_kEiAr',
      sex: '1',
@@ -54,11 +54,11 @@ _.extend(FindOwnerHandler.prototype,RequestHandlerBase.prototype);
 FindOwnerHandler.prototype.attach = function(route){
     var self = this;
 
-    route.post('/',authenticator,function(request,response){
+    route.get('/',authenticator,function(request,response){
 
         FindOwnerLogic.findOwner(request.body,function(result){
             self.successResponse(response,Const.responsecodeSucceed,{
-                Owner:result
+                owner:result
             });
 
         },function(err,code){

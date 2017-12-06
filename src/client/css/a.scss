@@ -1,3 +1,13 @@
+
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 15px;
+}
+#main-content{
+  padding-left: 0;
+  padding-right: 0;
+}
 //个人中心
 #personal_center_view{
   width: 1000px;
@@ -69,26 +79,74 @@
   margin-bottom: 20px;
 }
 
+
+//个人中心头部导航
+.personal_header{
+  width: 100%;
+  height: 80px;
+  line-height:80px;
+  background:#3399ff;
+}
+.personal_header>.logo{
+  width: 180px;
+  height: 80px;
+  display: block;
+  float: left;
+  margin-left:80px ;
+}
+.personal_header>.logo>img{
+  width: 180px;
+  height: 80px;
+  display: block;
+}
+.personal_header>#title{
+  width:200px;
+  height:80px;
+  line-height:80px;
+  float:left;
+  margin-left:10px;
+  font-size:20px;
+  color:#ffffff;
+}
+.personal_header>#personal_info{
+  width: 400px;
+  height:80px;
+  float: right;
+}
+.personal_header>#personal_info>li{
+  width: 100px;
+  height: 80px;
+  line-height: 80px;
+  margin-right: 30px;
+  float: left;
+  color:#ffffff;
+}
+.personal_header>#personal_info>li>a{
+  margin-right: 10px;
+  color:#ffffff;
+}
+.personal_header>#personal_info>li>#user_icon{
+  margin-left: 30px;
+}
+
 //侧边栏
 .sidebar{
-  width: 100px;
+  width: 100%;
   min-height:100%;
   background:#202732;
 }
-
 .sidebar>.nav{
-  width: 100px;
+  width: 100%;
   background:#202732;
 }
-
 .sidebar>.nav>.nav_li{
-  width:100px;
+  width:100%;
   background:#202732;
   overflow: hidden;
   float: left;
 }
 .sidebar>.nav>.nav_li>.nav_a{
-  width:100px;
+  width:100%;
   height:80px;
   display:block;
   line-height:60px;
@@ -98,7 +156,6 @@
   text-align: center;
   border-bottom:2px #cccccc solid;
 }
-
 .sidebar>.nav>.nav_li>.nav_a:link{
   color:#ffffff;
   background: #202732;
@@ -115,20 +172,19 @@
   background: #202732;
   color: #ffffff;
 }
-
 .sidebar>.nav>.nav_li>.second_nav{
-  width: 100px;
+  width: 100%;
   height:120px;
   background: #000000;
   display:none;
 }
 .sidebar>.nav>.nav_li>.second_nav>.second_nav_li{
-  width: 100px;
+  width: 100%;
   height: 60px;
   display: block;
 }
 .sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a{
-  width: 100px;
+  width: 100%;
   height: 60px;
   line-height:60px;
   text-align:center;
@@ -136,85 +192,137 @@
   color:#ffffff;
   text-decoration:none;
 }
-
-
 .sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:hover{
   color:#3399ff;
 }
-
 .sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:active{
   color:#3399ff;
 }
 
 
 //办理狗证--个人办证
-.dog_manage{
-  min-width: 960px;
-  max-width: 1040px;
-  float: left;
-  background:#fcfcfc ;
-}
-.dog_manage>.manage_list{
-  width: 100px;
-  float: left;
-  background:#2e3645 ;
-}
-.dog_manage>.manage_content{
-  min-width: 860px;
-  max-width: 940px;
-  height: auto;
+//.dog_manage{
+//  width: 100%;
+//  float: left;
+//  padding: 25px;
+//  background:#fcfcfc ;
+//}
+//.dog_manage>.manage_list{
+//  width: 100px;
+//  float: left;
+//  background:#2e3645 ;
+//}
+//.dog_manage>.manage_content{
+//  height: auto;
+//  float: left;
+//}{
+.personal_card{
+  width: 100%;
+  height:auto ;
   float: left;
   padding: 25px;
+  background:#fcfcfc ;
 }
-.dog_manage>.manage_content>.personal_card>.registration{
-  width: 890px;
+.personal_card>.title{
+  margin-bottom: 20px;
+}
+.personal_card>.registration{
+  width: 100%;
   height: auto;
   float: left;
-  margin-top: 20px;
+  margin-bottom: 20px;
   background: #ffffff;
   border: 1px solid #cccccc;
   padding-top: 15px;
   padding-bottom: 20px;
 }
-.dog_manage>.manage_content>.personal_card>#post_info{
+.personal_card>#post_info{
     float: left;
     margin-left: 300px;
     margin-top: 30px;
     width:300px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.title>h4>.small_title{
+.personal_card>.registration>.title>h4>.small_title{
   font-size: 12px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row{
+.personal_card>.registration>.row{
   margin-bottom: 20px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.title{
+.personal_card>.registration>.title{
   margin-left: 10px;
   margin-bottom: 10px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.subtitle h4{
+.personal_card>.registration>.row>.col-md-6>.subtitle h4{
   float: left;
   width: 80px;
-  height: 32px;
-  line-height: 32px;
+  height: 44px;
+  line-height: 44px;
   margin-left: 15px;
   text-align:right;
 
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.subtitle>.dog_img{
+.personal_card>.registration>.row>.col-md-6>.subtitle>.dog_img{
   width: 170px;
   height: 90px;
   float: left;
   margin-left: 100px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section{
+.personal_card>.registration>.row>.col-md-6>.section{
   float: left;
   margin-left: 5px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#birth_date{
+.personal_card>.registration>.row>.col-md-6>.section>input[type="text"]{
+  width: 230px;
+  height:44px;
+  border-radius: 4px;
+  border: 2px #cccccc solid;
+}
+.personal_card>.registration>.row>.col-md-6>.section>input[type="date"]{
+  width: 230px;
+  height:44px;
+  border-radius: 4px;
+  border: 2px #cccccc solid;
+}
+.personal_card>.registration>.row>.col-md-6>.section>input[type="radio"]{
+  height: 35px;
+  float:left;
+  margin-right:10px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#iris{
   float: left;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#recollect_iris{
+.personal_card>.registration>.row>.col-md-6>.section>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>select{
+  width: 90px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.kinds{
+    width:230px;
+    height:44px;
+    line-height:44px;
+    border: 2px #cccccc solid;
+    text-align: center;
+    border-radius:4px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#connect{
+  width: 20px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  float: left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#birth_date{
+  float: left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#recollect_iris{
   width: 90px;
   height: 20px;
   border: 1px #cccccc solid;
@@ -227,14 +335,14 @@
   margin-top: 10px;
 
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>#imgs{
+.personal_card>.registration>.row>.col-md-6>#imgs{
   float: left;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>#collectimg{
+.personal_card>.registration>.row>.col-md-6>#collectimg{
   position: relative;
   float: left;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#recollect_img{
+.personal_card>.registration>.row>.col-md-6>.section>#recollect_img{
   width: 90px;
   height: 20px;
   border: 1px #cccccc solid;
@@ -246,7 +354,7 @@
   float: left;
   margin-top: 15px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#upload{
+.personal_card>.registration>.row>.col-md-6>.section>#upload{
   width: 90px;
   height: 20px;
   border: 1px #cccccc solid;
@@ -261,6 +369,71 @@
   z-index: 99;
   top:40px;
 
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label{
+  width: 30px;
+  height: 44px;
+  color:#000000;
+  line-height: 44px;
+  text-align: center;
+  float: left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#reg_addr_ck{
+  float: left;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
+  width:320px;
+  height:60px;
+  overflow: hidden;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province{
+  width: 100px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province>select{
+  width: 100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city{
+  width: 100px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city>select{
+  width: 100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county{
+  width: 100px;
+  height: 40px;
+  float: left;
+}
+
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county>select{
+  width: 100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+
+
+.personal_card>.post_info{
+  width: 345px;
 }
 
 //办理狗证--个人办证--弹窗
@@ -308,17 +481,17 @@
 //办理狗证--个人办证--打印磁卡
 
 .print_card{
-  min-width: 750px;
-  max-width: 960px;
+  width:100%;
   float: left;
   background:#fcfcfc ;
+  padding: 25px;
 }
 .print_card>.title_nav{
   margin-top:15px;
-
+  width: 100%;
 }
 .print_card>.content{
-  width: 890px;
+  width: 100%;
   float: left;
   margin-top: 20px;
   background: #ffffff;
@@ -333,17 +506,18 @@
 .print_card>.content>.row{
   margin-bottom: 15px;
 }
-.print_card>.content>.row>.card_front{
+.print_card>.content>.row>.col-md-6>.card_front{
   width: 250px;
   height: 150px;
+  border:1px #cccccc solid;
   float: left;
-  margin-left:50px;
+  margin-left: 30px;
 }
-.print_card>.content>.row>.card_behind{
+.print_card>.content>.row>.col-md-6>.card_behind{
   width: 250px;
   height: 150px;
+  border:1px #cccccc solid;
   float: left;
-  margin-left:50px;
 }
 .print_card>.content>.row>.col-md-4>#print_card{
   margin-left: 50px;
@@ -354,6 +528,19 @@
   height: 32px;
   line-height: 32px;
   margin-left: 40px;
+  text-align:right;
+}
+.print_card>.content>.row>.col-md-6>.subtitle>.codetip{
+  width: 100px;
+  float: left;
+  height: 40px;
+  margin-left: 40px;
+}
+.print_card>.content>.row>.col-md-6>.subtitle>.codetip>span{
+  width: 100px;
+  float: left;
+  height: 20px;
+  line-height:20px;
   text-align:right;
 }
 .print_card>.content>.row>.col-md-6>.section{
@@ -373,6 +560,7 @@
 .print_card>.content>.row>.col-md-4>#save{
   margin-left: 50px;
 }
+
 //办理狗证--企业办证
 
 
@@ -397,12 +585,17 @@
 
 //信息查询--犬主信息查询
 .dogownerlist{
+  float: left;
+  background:#fcfcfc ;
+  padding: 25px;
+  position: relative;
 }
 .dogownerlist>.title{
-    width: 950px;
+    width: 100%;
     height: 80px;
     float: left;
     border: 1px solid #cccccc;
+    background: #FFFFFF;
     padding: 20px;
     margin-bottom: 20px;
 }
@@ -415,9 +608,21 @@
   height: 32px;
   line-height: 32px;
 }
-.dogownerlist>.title>.row>.form-group>.btn{
-  width: 150px;
+.dogownerlist>.title>.row>.form-group>label{
+  height: 44px;
+  line-height: 44px;
+}
+.dogownerlist>.title>.row>.form-group>input{
+  width: 160px;
   height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.dogownerlist>.title>.row>#lastbtn{
+  width: 230px;
+  height: 44px;
+  float: right;
+  margin-right: 50px;
 }
 
 .dogownerlist>.table{
@@ -446,17 +651,21 @@
 }
 
 .dogownerlist>#dogowner_nav{
-  margin-top:100px;
-  margin-left: 250px;
-  float: left;
+  width: 500px;
+  position: absolute;
+  margin-left:-250px ;
+  left:50%;
+  margin-top: 50px;
 }
 
 //信息查询--犬主信息搜索详情
 #dogownersearch{
-
+  float: left;
+  background:#fcfcfc ;
+  padding: 25px;
+  position: relative;
 }
 #dogownersearch>.details{
-  width: 950px;
   float: left;
   border: 1px solid #cccccc;
   padding: 20px;
@@ -499,12 +708,16 @@
 
 //信息查询--犬只信息查询
 #dog_search{
+float: left;
+background:#fcfcfc ;
+padding: 25px;
 }
 #dog_search>.title{
-  width: 950px;
+  width: 100%;
   height: 80px;
   float: left;
   border: 1px solid #cccccc;
+  background: #FFFFFF;
   padding: 20px;
   margin-bottom: 20px;
 }
@@ -517,13 +730,21 @@
   height: 32px;
   line-height: 32px;
 }
-#dog_search>.title>.row>.form-group>.btn{
-  width: 150px;
+#dog_search>.title>.row>.form-group>label{
+  height: 44px;
+  line-height: 44px;
+}
+#dog_search>.title>.row>.form-group>input{
+  width: 230px;
   height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
 }
 #dog_search>.title>.row>#search{
   float: right;
   margin-right: 50px;
+  width: 230px;
+  height: 44px;
 }
 
 #dog_search>.table{
@@ -557,21 +778,23 @@
 }
 
 #dog_search>#dogsearch_nav{
-  margin-top:100px;
-  margin-left: 250px;
-  float: left;
+  width: 500px;
+  position: absolute;
+  margin-left:-250px ;
+  left:50%;
+  margin-top: 50px;
 }
 
-//免疫年检
+
+
+//免疫年检细节
 .immune_content{
-  min-width: 1040px;
-  max-width: 1240px;
   float: left;
   background:#fcfcfc ;
   padding: 25px;
 }
 .immune_content>.immune_detail{
-  width: 990px;
+  width: 100%;
   float: left;
   background: #ffffff;
   border: 1px solid #cccccc;
@@ -582,52 +805,232 @@
   margin-bottom: 15px;
 }
 .immune_content>.immune_detail>.row>{
-  margin-bottom: 15px;
-}
-.immune_content>.immune_detail>.row>.col-md-4>.subtitle h4{
-  width: 80px;
-  float: left;
-  height: 32px;
-  line-height: 32px;
-  margin-left: 15px;
-  text-align:right;
-}
-.immune_content>.immune_detail>.row>.col-md-4>.section{
-  float: left;
-  margin-left: 5px;
+  margin-bottom:15px;
 }
 .immune_content>.immune_detail>.row>.col-md-6>.subtitle h4{
   width: 80px;
   float: left;
-  height: 32px;
-  line-height: 32px;
+  height: 44px;
+  line-height: 44px;
   margin-left: 15px;
   text-align:right;
+  font-weight:bold;
 }
 .immune_content>.immune_detail>.row>.col-md-6>.section{
   float: left;
   margin-left: 5px;
 }
-.immune_content>.immune_detail>h4>span{
-  font-size: 12px;
+.immune_content>.immune_detail>.row>.col-md-6>.section>input[type="text"]{
+  width: 230px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  float: left;
+  border-radius:4px;
 }
-.immune_content>.immune_post{
-  margin-top:50px;
-  margin-left: 450px;
+.immune_content>.immune_detail>.row>.col-md-6>.section>input[type="date"]{
+  width: 230px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#reput{
+  width: 100px;
+  height: 25px;
+  line-height:25px;
+  text-align:center;
+  border-radius: 20px;
+  border: 1px #cccccc solid;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#dog_img{
+  width: 230px;
+  height: 120px;
+  border: 1px #cccccc solid;
   float: left;
 }
+.immune_content>.immune_detail>.row>.col-md-6>.section>#puts{
+  width: 102px;
+  height: 120px;
+  float: left;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#puts>#reput_img{
+  width: 100px;
+  height: 25px;
+  line-height:25px;
+  text-align:center;
+  border-radius: 20px;
+  border: 1px #cccccc solid;
+  float: left;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#puts>#put_img{
+  width: 100px;
+  height: 25px;
+  line-height:25px;
+  text-align:center;
+  border-radius: 20px;
+  border: 1px #cccccc solid;
+  float: left;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#area_code{
+  width: 100px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float: left;
+  text-align: center;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#connect{
+  width: 10px;
+  height: 44px;
+  line-height: 44px;
+  margin-left:5px;
+  margin-right:5px;
+  float: left;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>span{
+  height: 44px;
+  line-height: 44px;
+  display: inline-block;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>.areas{
+  width: 70px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float: left;
+  margin-right:10px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>.kinds{
+  width: 230px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>.data{
+  width: 90px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>.datatime{
+  width: 40px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  float: left;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>.numbers{
+  width: 80px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.immune_content>.immune_post{
+  width: 345px;
+}
 
-//制卡信息
-.card_info{
-  min-width: 1040px;
-  max-width: 1240px;
+//免疫年检列表
+.immune_list{
   float: left;
   background:#fcfcfc ;
   padding: 25px;
+  position: relative;
+}
+.immune_list>.title{
+  width: 100%;
+  height: 84px;
+  float: left;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.immune_list>.title>.row{
+  margin-left:20px;
+}
+.immune_list>.title>.row>.form-group{
+  float: left;
+  margin-right: 15px;
+  height: 48px;
+  line-height: 48px;
+}
+.immune_list>.title>.row>.form-group>label{
+  margin-right: 10px;
+}
+.immune_list>.title>.row>.form-group>input[type="text"]{
+  width: 160px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.immune_list>.title>.row>.form-group>select{
+  width:85px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.immune_list>.title>.row>.form-group>.btn{
+  width: 150px;
+  height: 40px;
+  margin-left: 120px;
+}
+
+.immune_list>.table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px #4888c6 solid;
+}
+.immune_list>table th,td{
+  border:1px #4888c6 solid;
+}
+.immune_list>.table>thead th{
+  text-align:center;
+  background:#339afe;
+  height: 40px;
+  line-height:40px;
+  color:#ffffff;
+}
+.immune_list>.table>tbody tr td{
+  height: 30px;
+  text-align: center;
+}
+.immune_list>.table>tbody tr:nth-child(2n+1){
+  background:#daedff;
+}
+.immune_list>.table>tbody tr:nth-child(2n+2){
+  background:#ffffff;
+}
+.immune_list>table>tbody>tr>td>.td-a{
+  color:#339afe;
+  text-decoration: underline;
+}
+
+.immune_list>#pagenav{
+   width: 500px;
+   position: absolute;
+   margin-left:-250px ;
+   left:50%;
+}
+
+
+//制卡信息
+.card_info{
+  float: left;
+  background:#fcfcfc ;
+  padding: 25px;
+  position: relative;
 }
 .card_info>.title{
-  width: 1140px;
-  height: 80px;
+  width: 100%;
+  height: 84px;
   float: left;
   background: #ffffff;
   border: 1px solid #cccccc;
@@ -642,6 +1045,21 @@
   margin-right: 15px;
   height: 32px;
   line-height: 32px;
+}
+.card_info>.title>.row>.form-group>label{
+  margin-right: 10px;
+}
+.card_info>.title>.row>.form-group>input[type="text"]{
+  width: 160px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.card_info>.title>.row>.form-group>select{
+  width:85px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
 }
 .card_info>.title>.row>.form-group>.btn{
   width: 150px;
@@ -680,7 +1098,8 @@
 }
 
 .card_info>#pagenav{
-  margin-top:100px;
-  margin-left: 350px;
-  float: left;
+  width: 500px;
+  position: absolute;
+  margin-left:-250px ;
+  left:50%;
 }

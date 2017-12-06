@@ -18,7 +18,7 @@ describe('WEB API', function () {
                                 usage:"警卫",
                                 hairColor:"白色",
                                 bornDate:"2016-08-10",
-                                irisID:"a12345678",
+                                irisID:"a123456789",
                                 photoUrl:"123",
                                 vaccine:{
                                     name:"av",
@@ -48,7 +48,8 @@ describe('WEB API', function () {
                                 houseProperty:"ziyou",
                                 address:global.getRandomStr(),
                                 isSterilization:"0"
-                            }
+                            },
+
                                               	
                         };  
 

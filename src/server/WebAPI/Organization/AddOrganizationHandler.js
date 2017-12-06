@@ -14,6 +14,11 @@ var AddOrganizationHandler = function(){
 
 }
 /**
+ * @apiDefine Veterinarian 兽医名字
+ * @apiParam (veterinarian) {String}  name  兽医名字
+ * @apiParam (veterinarian) {String} code 兽医执照号
+ */
+/**
  * @api {post} /organization/add 添加机构
  * @apiName addOrganization
  * @apiGroup Organization
@@ -30,26 +35,50 @@ var AddOrganizationHandler = function(){
  * @apiParam  serviceScope 服务范围
  * @apiParam {String} contacts_name 联系人姓名
  * @apiParam {String} contacts_phone 联系人电话
+ * @apiUse Veterinarian
+ * @apiParamExample {json} Request Example
+
+	 {
+		 name: "test_" + global.getRandomStr(),
+		 province: "上海",
+		 district: "浦东新区",
+		 city: "航头镇",
+		 address: "杭南公路",
+		 code: "123456",
+		 tel: "15838365455",
+		 businessLicense: "123",
+		 animalMedicalLicense: "123",
+		 serviceScope: "美容",
+		 contacts_name: "admin",
+		 contacts_phone: "15838365455",
+
+		 veterinarian: {
+			 name: "张三",
+			 code: "110"
+		 }
+	 }
  * @apiSuccessExample Success-Response:
  { organization:
    { __v: 0,
-     name: 'test_Esv3Q',
+     name: 'test_xChnk',
      tel: '15838365455',
      businessLicense: '123',
      animalMedicalLicense: '123',
      adminUser: '5a0bec3f3bea6821641c8c18',
-     created: '2017-11-28T07:45:57.005Z',
-     _id: '5a1d1435185d925c9c3c14c8',
-     veterinarians: [],
-     checkStatus: { status: 0, time: '2017-11-28T07:45:57.004Z' },
+     created: '2017-12-06T04:44:19.124Z',
+     _id: '5a2775a36449ea31dc31a9ff',
+     veterinarian: [ '5a2775a36449ea31dc31a9fe' ],
+     checkStatus: { status: 0, time: '2017-12-06T04:44:19.123Z' },
      contacts: { name: 'admin', phone: '15838365455' },
-     serviceScope: [],
+     serviceScope: [ '美容' ],
      location:
       { province: '上海',
         district: '浦东新区',
         city: '航头镇',
         address: '杭南公路',
         code: '123456' } } }
+
+
 
 
 

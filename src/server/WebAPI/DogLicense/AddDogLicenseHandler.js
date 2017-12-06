@@ -66,7 +66,7 @@ var AddDogLicenseHandler = function(){
  * @apiUse Owner
  * @apiUse Residence
  * @apiParamExample {json} Request Example
- * POST  /dogLicense/add
+
 {  husbandryNo:global.getRandomStr(),
         dog:{
             nickname: "test_" + global.getRandomStr(),

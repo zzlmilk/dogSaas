@@ -5,11 +5,12 @@ var async = require('async');
 var _ = require('lodash');
 var DogLicenseModel = require('../Models/DogLicense');
 var OwnerModel = require('../Models/Owner');
+var DogModel = require('../Models/Dog');
 
 
 var FindDogLicenseLogic = {
 
-    find: function (param, onSuccess, onError) {
+    find_by_owner: function (param, onSuccess, onError) {
         var name = param.name;
         var phone=param.phone;
         var certificateType=param.certificateType
@@ -65,9 +66,51 @@ var FindDogLicenseLogic = {
         ], function (err,result) {
 
         })
+    },
+
+    find_by_dog: function (param, onSuccess, onError) {
+        var irisID = param.irisID;
+        if (Utils.isEmpty(irisID) ){
+            onError(null,
+                Const.resCodeDogNoIrisID
+            )
+
+            return;
+
+        }
+
+        async.waterfall([
+            function (done) {
+
+                var dogModel = DogModel.get();
+                dogModel.findOne({"irisID":irisID}, function (err, res) {
+
+                    if (err) {
+                        throw (err)
+                    }
+                    else {
+                        done(null, res)
+                    }
+                })
+            },
+            function (result, done) {
+                var dogLicenseModel = DogLicenseModel.get();
+                dogLicenseModel.findOne({"dog": result}, function (err,res ) {
+                    if (err) {
+                        throw (err)
+                    }
+                    else {
+                        done(null, res)
+                        onSuccess(res)
+                    }
+
+                })
+            }
+
+        ], function (err,result) {
+
+        })
     }
-
-
 
 
 }

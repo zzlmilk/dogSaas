@@ -1,37 +1,61 @@
-<div>
-    <table rules=none border=0>
-        <tr>
-            <td>
-                <select id="province" name="province">
-                    <option id="choosePro" value="-1">请选择省份</option>
-                </select>
-            </td>
-            <td>
-                <select id="citys" name="city">
-                    <option id='chooseCity' value='-1'>请选择城市</option>
-                </select>
-            </td>
-            <td>
-                <select id="county" name="county">
-                    <option id='chooseCounty' value='-1'>请选择区/县</option>
-                </select>
-            </td>
+<!--<div class="org_address">-->
+    <!--<table rules=none >-->
+        <!--<tr>-->
+            <!--<td style="border:none;">-->
+                <!--<select id="province" name="province">-->
+                    <!--<option id="choosePro" value="-1">请选择省份</option>-->
+                <!--</select>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<select id="citys" name="city">-->
+                    <!--<option id='chooseCity' value='-1'>请选择城市</option>-->
+                <!--</select>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<select id="county" name="county">-->
+                    <!--<option id='chooseCounty' value='-1'>请选择区/县</option>-->
+                <!--</select>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>-->
+                <!--<p style="display: none;" class="null_err" id="province_null_tip">*省份不能为空</p>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<p style="display: none;" class="null_err" id="citys_null_tip">*城市不能为空</p>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<p style="display: none;" class="null_err" id="county_null_tip">*区/县不能为空</p>-->
+            <!--</td>-->
 
-        </tr>
-        <tr>
-            <td>
-                <p style="display: none;" class="null_err" id="province_null_tip">*省份不能为空</p>
-            </td>
-            <td>
-                <p style="display: none;" class="null_err" id="citys_null_tip">*城市不能为空</p>
-            </td>
-            <td>
-                <p style="display: none;" class="null_err" id="county_null_tip">*区/县不能为空</p>
-            </td>
+        <!--</tr>-->
+    <!--</table>-->
+<!--</div>-->
+<ul class="org_address">
+    <li class="province">
+        <select id="province" name="province">
+            <option id="choosePro" value="-1">请选择省份</option>
+        </select>
+    </li>
+    <li class="city">
+        <select id="citys" name="city">
+            <option id='chooseCity' value='-1'>请选择城市</option>
+        </select>
+    </li>
+    <li class="county">
+        <select id="county" name="county">
+            <option id='chooseCounty' value='-1'>请选择区/县</option>
+        </select>
+    </li>
+    <li class="province">
+        <span style="display: none;" class="null_err" id="province_null_tip">*省份不能为空</span>
+    </li>
+    <li class="city">
+        <span style="display: none;" class="null_err" id="citys_null_tip">*城市不能为空</span>
+    </li>
+    <li class="county">
+        <span style="display: none;" class="null_err" id="county_null_tip">*区/县不能为空</span>
+    </li>
+</ul>
 
-        </tr>
-    </table>
-
-
-</div>
 
