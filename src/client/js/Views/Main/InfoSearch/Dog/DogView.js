@@ -37,8 +37,12 @@ var DogView = Backbone.View.extend({
         //点击查看详情进入弹窗页面
         $(".td-a").unbind().on("click", function () {
             alert('进入弹窗页面');
-            // var InfoPreviewModal = require('../../../Modals/InfoPreview/InfoPreview');
-            // InfoPreviewModal.show();
+            var InfoPreviewModal = require('../../../Modals/InfoPreview/InfoPreview');
+            InfoPreviewModal.show();
+            // var InfoPreviewModal = require('../../../../Modals/InfoPreview/InfoPreview.js');
+            // InfoPreviewModal.show(function(){
+            //
+            // });
         })
 
 
