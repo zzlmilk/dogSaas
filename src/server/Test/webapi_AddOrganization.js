@@ -66,11 +66,18 @@ describe('WEB', function () {
                          serviceScope: "美容",
                          contacts_name: "admin",
                          contacts_phone: "15838365455",
+                         veterinarians:[
+                                 {
+                                 name: "张三",
+                                 code: "110"
+                                },
+                                 {
+                                 name: "张三2",
+                                 code: "111"
+                                },
 
-                         veterinarian: {
-                             name: "张三",
-                             code: "110"
-                         }
+                            ]
+                         
                      }
 
 

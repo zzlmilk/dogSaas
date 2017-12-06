@@ -13,8 +13,8 @@ var VeterinarianModel  = function(){};
 
 VeterinarianModel.prototype.init = function (mongoose) {
     this.schema = new mongoose.Schema({
-        name: String,        //疫苗名称
-        code:String,
+        name: String,  //疫苗名称
+        code:String,  //证件号
         created:Date, //创建时间
 
     });

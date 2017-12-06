@@ -12,10 +12,15 @@ var VeterinarianModel=require('../Models/Veterinarian');
 
 var OrganizationLogics = {
 
+
+
 	add: function (param, onSuccess, onError) {
 		var self = this;
 
 		var user = param.user
+		
+
+
 		self.validatorParam(param.body, function (err) {
 			if (err) {
 				onError(null,
@@ -24,10 +29,13 @@ var OrganizationLogics = {
 				return;
 			}
 			var organizationParam = param.body
-			var veterinarianParam=organizationParam.veterinarian
+			var veterinariansParam=param.body.veterinarians
+
+
 			var res = {}
 			async.waterfall([
 				function (done) {
+					console.log("a")
 					//用户是否能添加机构
 					if (user.organization) {
 
@@ -44,25 +52,55 @@ var OrganizationLogics = {
 
 					done(null, res)
 				},function (result,done) {
-                    var veterinarianModel =  VeterinarianModel.get();
-                    var veterinarian = new veterinarianModel({
+                    // var veterinarianModel =  VeterinarianModel.get();
+                    // var veterinarian = new veterinarianModel({
 
-                        name: veterinarianParam.name,
-                        code: veterinarianParam.code
+                    //     name: veterinarianParam.name,
+                    //     code: veterinarianParam.code
 
-                    })
+                    // })
 
-                    veterinarian.save(function(err,veterinarianResult){
-                        if (err) {
-                            throw err
-                        }
-                        res.veterinarian = veterinarianResult;
-
-
-                        done(null,res)
-                    })
+                    // veterinarian.save(function(err,veterinarianResult){
+                    //     if (err) {
+                    //         throw err
+                    //     }
+                    //     res.veterinarian = veterinarianResult;
 
 
+                    //     done(null,res)
+                    // })
+
+                    	done(null,res)
+
+                },
+                //添加兽医逻辑
+                function (result, done) {
+ 						var veterinarianModel =  VeterinarianModel.get();
+                		var veterinarians = param.body.veterinarians;
+                		var veterinarianList = [];
+                		_.each(veterinarians,function(item){
+                			console.log(item)
+
+                    		 var veterinarian = new veterinarianModel({
+                    		     name: item.name,
+                    		     code: item.code
+                    		 });
+
+
+                    		
+
+                    		 veterinarianList.push(veterinarian._id)
+
+                    		 veterinarian.save(function(err,veterinarianResult){
+                    		 		
+                    		 })
+
+
+                		});
+
+                		res.veterinarianList = veterinarianList
+
+                		done(null,res)
                 },
 				function (result, done) {
 					//添加机构信息
@@ -91,12 +129,16 @@ var OrganizationLogics = {
                                 time: Utils.now()
                             },
 
-                        veterinarian:res.veterinarian._id,
+                        veterinarians:res.veterinarianList,
                         serviceScope:organizationParam.serviceScope,
 						created: Utils.now()
 
 
 					});
+
+
+					
+
 
 
 
@@ -189,6 +231,9 @@ var OrganizationLogics = {
 			contacts_name = param.contacts_name,
 			contacts_phone = param.contacts_phone;
 
+			var veterinarians = param.veterinarians;
+
+			
 
 
 
@@ -203,17 +248,16 @@ var OrganizationLogics = {
 
                 callback(Const.resCodeOrganizationParamIsEmpty);
 		}
-        var veterinarian = param.veterinarian;
-        if(Utils.isEmpty(veterinarian.name)){
-            callback(Const.resCodeVerterinarianNoName)
-            return;
-        }
 
-        if(Utils.isEmpty(veterinarian.code)){
-            callback(Const.resCodeVerterinarianNoCode)
+		if(!_.isArray(veterinarians) ||  veterinarians[0] == null){
+				console.log("不是数组");
 
-            return;
-        }
+		}
+
+
+
+
+        
 			callback();
 
 	},
