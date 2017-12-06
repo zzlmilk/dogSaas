@@ -8,6 +8,8 @@
      Const.httpCodeServerError =500;
      Const.httpCodeForbidden = 403;
 
+     Const.httpCodeNodogLicenseId = 4000001;
+
 
      Const.resCodeRegisterNoEmail = 1000001
      Const.resCodeRegisterNoPassword  = 1000002
@@ -87,6 +89,15 @@
     Const.resCodeFindOwnerParamIsEmpty=2000036
     Const.resCodeVerterinarianNoName=2100037
     Const.resCodeVerterinarianNoCode=2100038
+
+
+
+    Const.resCodeResidenceCanNotUpdate=2000038
+
+    Const.resCodeMissResidenceParam = 2000039
+    Const.resCodeHaveResidenceParam = 2000040
+
+
 
 
 

@@ -32,7 +32,8 @@ var InfoPreview = {
 
         var self = this;
 
-        $('body').append(template({DogLicenseModel: this.DogLicenseModel.toJSON()}));
+        $('body').append(template({
+            DogLicenseModel: this.DogLicenseModel.toJSON()}));
         $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
 

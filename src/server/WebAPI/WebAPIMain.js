@@ -47,6 +47,10 @@ var WebAPIMain = {
                     router.use("/owner/find", require('./Owner/FindOwnerHandler'));
 
 
+                    //ResidenceModel
+                    router.use("/residence/edit", require('./Residence/EditResidenceHandler'));
+
+
 
 
 
