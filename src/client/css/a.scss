@@ -584,6 +584,220 @@
 }
 
 //办理狗证--企业办证
+.business_card{
+  width: 100%;
+  height:auto ;
+  float: left;
+  padding: 25px;
+  background:#fcfcfc ;
+}
+.business_card>.title{
+  margin-bottom: 20px;
+}
+.business_card>.registration{
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+.business_card>#post_info{
+  float: left;
+  margin-left: 300px;
+  margin-top: 30px;
+  width:300px;
+}
+.business_card>.registration>.title>h4>.small_title{
+  font-size: 12px;
+}
+.business_card>.registration>.row{
+  margin-bottom: 20px;
+}
+.business_card>.registration>.title{
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.business_card>.registration>.row>.col-md-6>.subtitle h4{
+  float: left;
+  width: 80px;
+  height: 44px;
+  line-height: 44px;
+  margin-left: 15px;
+  text-align:right;
+
+}
+.business_card>.registration>.row>.col-md-6>.subtitle>.dog_img{
+  width: 170px;
+  height: 90px;
+  float: left;
+  margin-left: 100px;
+}
+.business_card>.registration>.row>.col-md-6>.section{
+  float: left;
+  margin-left: 5px;
+}
+.business_card>.registration>.row>.col-md-6>.section>input[type="text"]{
+  width: 230px;
+  height:44px;
+  border-radius: 4px;
+  border: 2px #cccccc solid;
+}
+.business_card>.registration>.row>.col-md-6>.section>input[type="date"]{
+  width: 230px;
+  height:44px;
+  border-radius: 4px;
+  border: 2px #cccccc solid;
+}
+.business_card>.registration>.row>.col-md-6>.section>input[type="radio"]{
+  height: 35px;
+  float:left;
+  margin-right:10px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#iris{
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>.section>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+}
+.business_card>.registration>.row>.col-md-6>.section>select{
+  width: 90px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.business_card>.registration>.row>.col-md-6>.section>.kinds{
+  width:230px;
+  height:44px;
+  line-height:44px;
+  border: 2px #cccccc solid;
+  text-align: center;
+  border-radius:4px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#connect{
+  width: 20px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>.section>#birth_date{
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>.section>#recollect_iris{
+  width: 90px;
+  height: 20px;
+  border: 1px #cccccc solid;
+  border-radius:10px ;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 10px;
+  float: left;
+  margin-top: 10px;
+
+}
+.business_card>.registration>.row>.col-md-6>#imgs{
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>#collectimg{
+  position: relative;
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>.section>#recollect_img{
+  width: 90px;
+  height: 20px;
+  border: 1px #cccccc solid;
+  border-radius:10px ;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 10px;
+  float: left;
+  margin-top: 15px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#upload{
+  width: 90px;
+  height: 20px;
+  border: 1px #cccccc solid;
+  border-radius:10px ;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 10px;
+  float: left;
+  margin-top: 10px;
+  position: absolute;
+  z-index: 99;
+  top:40px;
+
+}
+.business_card>.registration>.row>.col-md-6>.section>.label{
+  width: 30px;
+  height: 44px;
+  color:#000000;
+  line-height: 44px;
+  text-align: center;
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>.section>#reg_addr_ck{
+  float: left;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
+  width:320px;
+  height:60px;
+  overflow: hidden;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province{
+  width: 100px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province>select{
+  width: 100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city{
+  width: 100px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city>select{
+  width: 100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county{
+  width: 100px;
+  height: 40px;
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county>select{
+  width: 100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.business_card>.post_info{
+  width: 345px;
+}
+
+
+
 
 
 //信息查询
