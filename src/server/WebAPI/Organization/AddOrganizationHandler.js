@@ -14,9 +14,9 @@ var AddOrganizationHandler = function(){
 
 }
 /**
- * @apiDefine Veterinarian 兽医名字
- * @apiParam (veterinarian) {String}  name  兽医名字
- * @apiParam (veterinarian) {String} code 兽医执照号
+ * @apiDefine Veterinarians 兽医名字
+ * @apiParam (veterinarians[{name,code}]) {String}  name  兽医名字
+ * @apiParam (veterinarians[{name,code}]) {String} code 兽医执照号
  */
 /**
  * @api {post} /organization/add 添加机构
@@ -35,10 +35,9 @@ var AddOrganizationHandler = function(){
  * @apiParam  serviceScope 服务范围
  * @apiParam {String} contacts_name 联系人姓名
  * @apiParam {String} contacts_phone 联系人电话
- * @apiUse Veterinarian
+ * @apiUse Veterinarians
  * @apiParamExample {json} Request Example
-
-	 {
+{
 		 name: "test_" + global.getRandomStr(),
 		 province: "上海",
 		 district: "浦东新区",
@@ -51,24 +50,30 @@ var AddOrganizationHandler = function(){
 		 serviceScope: "美容",
 		 contacts_name: "admin",
 		 contacts_phone: "15838365455",
+		 veterinarians:[
+		 {
+		 name: "张三",
+		 code: "110"
+		 },
+		 {
+		 name: "张三2",
+		 code: "111"
+		},
 
-		 veterinarian: {
-			 name: "张三",
-			 code: "110"
-		 }
-	 }
+    ]
+}
  * @apiSuccessExample Success-Response:
  { organization:
    { __v: 0,
-     name: 'test_xChnk',
+     name: 'test_Z6OMZ',
      tel: '15838365455',
      businessLicense: '123',
      animalMedicalLicense: '123',
      adminUser: '5a0bec3f3bea6821641c8c18',
-     created: '2017-12-06T04:44:19.124Z',
-     _id: '5a2775a36449ea31dc31a9ff',
-     veterinarian: [ '5a2775a36449ea31dc31a9fe' ],
-     checkStatus: { status: 0, time: '2017-12-06T04:44:19.123Z' },
+     created: '2017-12-06T10:36:37.436Z',
+     _id: '5a27c8353a919b7d484cfed4',
+     veterinarians: [ '5a27c8353a919b7d484cfed2', '5a27c8353a919b7d484cfed3' ],
+     checkStatus: { status: 0, time: '2017-12-06T10:36:37.435Z' },
      contacts: { name: 'admin', phone: '15838365455' },
      serviceScope: [ '美容' ],
      location:
@@ -77,6 +82,7 @@ var AddOrganizationHandler = function(){
         city: '航头镇',
         address: '杭南公路',
         code: '123456' } } }
+
 
 
 

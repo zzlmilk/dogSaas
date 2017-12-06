@@ -89,6 +89,7 @@
     Const.resCodeFindOwnerParamIsEmpty=2000036
     Const.resCodeVerterinarianNoName=2100037
     Const.resCodeVerterinarianNoCode=2100038
+    Const.resCodeVerterinarianNotArray=2100039
 
 
 

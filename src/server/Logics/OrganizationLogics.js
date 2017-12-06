@@ -35,7 +35,7 @@ var OrganizationLogics = {
 			var res = {}
 			async.waterfall([
 				function (done) {
-					console.log("a")
+					//console.log("a")
 					//用户是否能添加机构
 					if (user.organization) {
 
@@ -79,7 +79,7 @@ var OrganizationLogics = {
                 		var veterinarians = param.body.veterinarians;
                 		var veterinarianList = [];
                 		_.each(veterinarians,function(item){
-                			console.log(item)
+                			//console.log(item)
 
                     		 var veterinarian = new veterinarianModel({
                     		     name: item.name,
@@ -250,7 +250,10 @@ var OrganizationLogics = {
 		}
 
 		if(!_.isArray(veterinarians) ||  veterinarians[0] == null){
-				console.log("不是数组");
+
+            callback(Const.resCodeVerterinarianNotArray);
+
+
 
 		}
 

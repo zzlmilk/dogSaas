@@ -74,7 +74,7 @@ describe('WEB', function () {
                                  {
                                  name: "张三2",
                                  code: "111"
-                                },
+                                }
 
                             ]
                          

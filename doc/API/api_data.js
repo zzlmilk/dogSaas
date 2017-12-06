@@ -562,16 +562,16 @@ define({ "api": [
             "description": "<p>联系人电话</p>"
           }
         ],
-        "veterinarian": [
+        "veterinarians[{name,code}]": [
           {
-            "group": "veterinarian",
+            "group": "veterinarians[{name,code}]",
             "type": "String",
             "optional": false,
             "field": "name",
             "description": "<p>兽医名字</p>"
           },
           {
-            "group": "veterinarian",
+            "group": "veterinarians[{name,code}]",
             "type": "String",
             "optional": false,
             "field": "code",
@@ -582,7 +582,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request Example",
-          "content": "\n {\n\t name: \"test_\" + global.getRandomStr(),\n\t province: \"上海\",\n\t district: \"浦东新区\",\n\t city: \"航头镇\",\n\t address: \"杭南公路\",\n\t code: \"123456\",\n\t tel: \"15838365455\",\n\t businessLicense: \"123\",\n\t animalMedicalLicense: \"123\",\n\t serviceScope: \"美容\",\n\t contacts_name: \"admin\",\n\t contacts_phone: \"15838365455\",\n\n\t veterinarian: {\n\t\t name: \"张三\",\n\t\t code: \"110\"\n\t }\n }",
+          "content": "{\n\t\t name: \"test_\" + global.getRandomStr(),\n\t\t province: \"上海\",\n\t\t district: \"浦东新区\",\n\t\t city: \"航头镇\",\n\t\t address: \"杭南公路\",\n\t\t code: \"123456\",\n\t\t tel: \"15838365455\",\n\t\t businessLicense: \"123\",\n\t\t animalMedicalLicense: \"123\",\n\t\t serviceScope: \"美容\",\n\t\t contacts_name: \"admin\",\n\t\t contacts_phone: \"15838365455\",\n\t\t veterinarians:[\n\t\t {\n\t\t name: \"张三\",\n\t\t code: \"110\"\n\t\t },\n\t\t {\n\t\t name: \"张三2\",\n\t\t code: \"111\"\n\t\t},\n\n    ]\n}",
           "type": "json"
         }
       ]
@@ -591,7 +591,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{ organization:\n  { __v: 0,\n    name: 'test_xChnk',\n    tel: '15838365455',\n    businessLicense: '123',\n    animalMedicalLicense: '123',\n    adminUser: '5a0bec3f3bea6821641c8c18',\n    created: '2017-12-06T04:44:19.124Z',\n    _id: '5a2775a36449ea31dc31a9ff',\n    veterinarian: [ '5a2775a36449ea31dc31a9fe' ],\n    checkStatus: { status: 0, time: '2017-12-06T04:44:19.123Z' },\n    contacts: { name: 'admin', phone: '15838365455' },\n    serviceScope: [ '美容' ],\n    location:\n     { province: '上海',\n       district: '浦东新区',\n       city: '航头镇',\n       address: '杭南公路',\n       code: '123456' } } }",
+          "content": "{ organization:\n  { __v: 0,\n    name: 'test_Z6OMZ',\n    tel: '15838365455',\n    businessLicense: '123',\n    animalMedicalLicense: '123',\n    adminUser: '5a0bec3f3bea6821641c8c18',\n    created: '2017-12-06T10:36:37.436Z',\n    _id: '5a27c8353a919b7d484cfed4',\n    veterinarians: [ '5a27c8353a919b7d484cfed2', '5a27c8353a919b7d484cfed3' ],\n    checkStatus: { status: 0, time: '2017-12-06T10:36:37.435Z' },\n    contacts: { name: 'admin', phone: '15838365455' },\n    serviceScope: [ '美容' ],\n    location:\n     { province: '上海',\n       district: '浦东新区',\n       city: '航头镇',\n       address: '杭南公路',\n       code: '123456' } } }",
           "type": "json"
         }
       ]
