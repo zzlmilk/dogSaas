@@ -4,6 +4,7 @@
         NotificationUpdateWindowSize: "notification_update_window_size",
 
         NotificationUploadImageDone: "NotificationUploadImageDone",
+        NotificationAddDoctorDone: "NotificationAddDoctorDone",
 
           ErrorCodes : {
                 2000000 : "Unknown Error",

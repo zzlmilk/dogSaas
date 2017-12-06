@@ -3,6 +3,7 @@
  */
 var $ = require('jquery');
 var _ = require('lodash');
+var Backbone = require('backbone');
 // var validator = require('validator');
 
 var Const = require('../../../lib/consts.js');
@@ -33,6 +34,16 @@ var AddDoctorDialog = {
 
         $('#modal-profile').modal('show');
         $('#modal-btn-close').unbind().on('click', function() {
+            self.hide();
+        });
+        $('#modal-btn-save').unbind().on('click', function() {
+            //传值给打开的页面
+
+            var obj = {
+                name:$("#dname").val(),
+                code:$("#dcode").val()
+            }
+            Backbone.trigger(Const.NotificationAddDoctorDone,obj);
             self.hide();
         });
     },

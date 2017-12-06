@@ -4,6 +4,7 @@ var _ = require('lodash');
 var Utils = require('../../../lib/utils');
 var Const = require('../../../lib/consts');
 var Config = require('../../../lib/init');
+var StringBuffer = require('../../Parts/selectPlugin/StringBuffer.js');
 
 // load template
 var templateAdd = require('./AddOrganization.hbs');
@@ -23,6 +24,7 @@ var UploadView = require("../../Parts/Upload/UploadView");
 
 
 var AddOrganizationView = Backbone.View.extend({
+    doctors: [],
     organization: null,
     el: null,
     businessLicenseUrl: null,
@@ -171,6 +173,22 @@ var AddOrganizationView = Backbone.View.extend({
                     $("#tel_null_tip").hide();
                 }
             });
+
+            $('input[name="server"]').change(function () {
+                var server_value = []
+                $('input[name="server"]:checked').each(function () {
+                    server_value.push($(this).val());
+                });
+                if (server_value.length == 0) {
+                    falg = false;
+                    $("#server_null_tip").show();
+                } else {
+                    $("#server_null_tip").hide();
+                }
+
+                console.log(server_value)
+            });
+
             //兽医姓名: 失去焦点监听
             $("#doctor").blur(function () {
                 var doctor = $('#doctor').val().trim();
@@ -277,9 +295,21 @@ var AddOrganizationView = Backbone.View.extend({
                 falg = false;
                 $("#animalMedicalLicense_null_tip").show();
             }
+            //服务范围
+            var server_value = []
+            $('input[name="server"]:checked').each(function () {
+                server_value.push($(this).val());
+            });
+            if (server_value.length == 0) {
+                falg = false;
+                $("#server_null_tip").show();
+            } else {
+                $("#server_null_tip").hide();
+            }
+
             //兽医姓名
-            var doctor = $('#doctor').val();
-            if (doctor == "") {
+
+            if (self.doctors.length == 0) {
                 falg = false;
                 $("#doctor_null_tip").show();
             }
@@ -303,10 +333,10 @@ var AddOrganizationView = Backbone.View.extend({
             return falg;
         }
 
-        $('#doctor').unbind().on('click',function(){
+        $('#doctor').unbind().on('click', function () {
 
             var AddDoctorDialogModal = require('../../Modals/AddDoctorDialog/AddDoctorDialogView');
-            AddDoctorDialogModal.show(function(){
+            AddDoctorDialogModal.show(function () {
             });
 
         });
@@ -351,12 +381,29 @@ var AddOrganizationView = Backbone.View.extend({
             }
 
         });
+        //添加医生完成的通知
+        Backbone.on(Const.NotificationAddDoctorDone, function (obj) {
+            self.doctors.push(obj);
+            var sb = new StringBuffer();
+            sb.append("<tr><td class=\"name\">" + obj.name + "</td> <td class=\"number\">" + obj.code + "</td></tr>");
+            $("#doctor_table").show();
+            $("#doctor_null_tip").hide();
+            $("#doctor_table").after(sb.toString());
+
+            console.log(self.doctors)
+
+
+        });
 
 
     },
 
 
     addOrganization: function () {
+        var server_value = []
+        $('input[name="server"]:checked').each(function () {
+            server_value.push($(this).val());
+        });
         var organization = {
             name: $('#name').val().trim(),
             province: $('#province').val().trim(),
@@ -367,7 +414,7 @@ var AddOrganizationView = Backbone.View.extend({
             tel: $('#tel').val().trim(),
             businessLicense: $("#businessLicense img").attr("src"),
             animalMedicalLicense: $("#animalMedicalLicense img").attr("src"),
-            serviceScope: "1",
+            serviceScope: server_value,
             contacts_name: $('#contacts').val().trim(),
             contacts_phone: $('#contacts_phone').val().trim()
         };
