@@ -6,7 +6,6 @@ var Const = require('../../../../lib/consts');
 var Config = require('../../../../lib/init');
 
 // load template
-//var template = require('./DogOwnerDetail/DogOwnerDetail.hbs');
 var template = require('./DogOwner.hbs');
 
 var DogOwnerView = Backbone.View.extend({
@@ -35,10 +34,10 @@ var DogOwnerView = Backbone.View.extend({
 
         var self = this;
 
-        var DogOwnerListView = require('./DogOwnerList/DogOwnerListView.js');
-        var view = new DogOwnerListView({
-            'el': "#dogonwer_info"
-        });
+        // var DogOwnerListView = require('./DogOwnerList/DogOwnerListView.js');
+        // var view = new DogOwnerListView({
+        //     'el': "#dogonwer_info"
+        // });
 
 
 
