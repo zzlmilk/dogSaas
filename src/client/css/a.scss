@@ -142,23 +142,19 @@
   line-height: 44px;
 }
 #personal_center_view>.basic_info>.row>.col-md-3>.section>#license{
-  position: absolute;
-  left: -70px;
-  top:40px;
-  z-index: 99;
-  width: 200px;
-  height: 160px;
-  border:1px solid #cccccc;
+  width: 231px;
+  height: 161px;
+  float:left;
+  margin-left:40px;
 }
 #personal_center_view>.basic_info>.row>.col-md-3>.section>#permit{
-  position: absolute;
-  left: -120px;
-  top:40px;
-  z-index: 99;
-  width: 200px;
-  height: 160px;
-  border:1px solid #cccccc;
+  width: 231px;
+  height: 161px;
+  float:left;
+  margin-left:40px;
 }
+
+
 //控制台侧边栏
 .sidebar{
   width: 100%;
@@ -798,26 +794,24 @@
 
 
 
-
-
 //信息查询
-.infosearch{
-  width: 1100px;
-  float: left;
-  background:#fcfcfc ;
-}
-.infosearch>.infosearch_list{
-  width: 100px;
-  float: left;
-  background:#2e3645 ;
-}
-.infosearch>.infosearch_content{
-  width: 1000px;
-  height: auto;
-  float: left;
-  padding: 25px;
-  background:#fcfcfc ;
-}
+//.infosearch{
+//  width: 1100px;
+//  float: left;
+//  background:#fcfcfc ;
+//}
+//.infosearch>.infosearch_list{
+//  width: 100px;
+//  float: left;
+//  background:#2e3645 ;
+//}
+//.infosearch>.infosearch_content{
+//  width: 1000px;
+//  height: auto;
+//  float: left;
+//  padding: 25px;
+//  background:#fcfcfc ;
+//}
 
 //信息查询--犬主信息查询
 .dogownerlist{
@@ -826,7 +820,6 @@
   padding: 25px;
   position: relative;
 }
-
 .dogownerlist>.top_tip{
   width: 100%;
   height: 40px;
@@ -892,11 +885,10 @@
   text-decoration: underline;
 }
 .dogownerlist>#dogowner_nav{
-  width: 500px;
-  position: absolute;
-  margin-left:-250px ;
-  left:50%;
-  margin-top: 50px;
+  //width: 500px;
+  //position: absolute;
+  //margin-left:-250px ;
+  //left:50%;
 }
 
 //信息查询--犬主信息搜索详情
@@ -1033,11 +1025,10 @@
   text-decoration: underline;
 }
 #dog_search>#dogsearch_nav{
-  width: 500px;
-  position: absolute;
-  margin-left:-250px ;
-  left:50%;
-  margin-top: 50px;
+  //width: 500px;
+  //position: absolute;
+  //margin-left:-250px ;
+  //left:50%;
 }
 
 
@@ -1269,10 +1260,10 @@
 }
 
 .immune_list>#pagenav{
-   width: 500px;
-   position: absolute;
-   margin-left:-250px ;
-   left:50%;
+   //width: 500px;
+   //position: absolute;
+   //margin-left:-250px ;
+   //left:50%;
 }
 
 
@@ -1353,8 +1344,8 @@
 }
 
 .card_info>#pagenav{
-  width: 500px;
-  position: absolute;
-  margin-left:-250px ;
-  left:50%;
+  //width: 500px;
+  //position: absolute;
+  //margin-left:-250px ;
+  //left:50%;
 }
