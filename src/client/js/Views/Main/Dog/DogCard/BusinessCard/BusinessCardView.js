@@ -15,6 +15,13 @@ var DogLicenseModel = require('../../../../../Models/DogLicense.js');
 // load template
 var template = require('./BusinessCard.hbs');
 
+var SelectPluginView = require("../../../../Parts/selectPlugin/SelectPluginView");
+var UploadView = require("../../../../Parts/Upload/UploadView");
+var UserClient = require("../../../../../lib/APIClients/UserClient.js");
+var CityJson = require('../../../../Parts/selectPlugin/CityJson.js');//地区数据 回填
+//var DogBreed = require('./DogBreed.js');//宠物品种
+var StringBuffer = require('../../../../Parts/selectPlugin/StringBuffer.js');
+
 var BusinessCardView = Backbone.View.extend({
 
 
@@ -28,6 +35,10 @@ var BusinessCardView = Backbone.View.extend({
 
     onLoad: function () {
         var self = this;
+
+        new SelectPluginView({
+            el: "#orga_area"
+        });
 
         $('#post_info').unbind().on('click', function () {
             //验证非空
