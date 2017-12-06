@@ -224,7 +224,7 @@
       "examples": [
         {
           "title": "Request Example",
-          "content": "POST  /dogLicense/add\n{  husbandryNo:global.getRandomStr(),\n        dog:{\n            nickname: \"test_\" + global.getRandomStr(),\n            sex:\"1\",\n            breed:\"breed\",\n            usage:\"警卫\",\n            hairColor:\"白色\",\n            bornDate:\"2016-08-10\",\n            irisID:\"a12345678\",\n            photoUrl:\"123\",\n            vaccine:{\n                name:\"av\",\n                batchNo:\"123\",\n                manufacturer:\"manufacturer\",\n                veterinarianName:\"veterinarianName\",\n                organizationName:\"organizationName\",\n            }\n\n        },\n        owner:{\n            name: \"test_\" + global.getRandomStr(),\n            sex:\"1\",\n            tel:\"345033\",\n            phone:\"15901794453\",\n            certificateType:\"1\",\n            certificateCode:\"31010211111111\",\n            province:\"province\",\n            district:\"district\",\n            city:\"city\",\n            address:\"address\",\n            code:\"code\",\n\n        },\n        residence:{\n            houseNo:\"1234\",\n            houseProperty:\"ziyou\",\n            address:\"1234\",\n            isSterilization:\"0\"\n        }\n }",
+          "content": "\n{  husbandryNo:global.getRandomStr(),\n        dog:{\n            nickname: \"test_\" + global.getRandomStr(),\n            sex:\"1\",\n            breed:\"breed\",\n            usage:\"警卫\",\n            hairColor:\"白色\",\n            bornDate:\"2016-08-10\",\n            irisID:\"a12345678\",\n            photoUrl:\"123\",\n            vaccine:{\n                name:\"av\",\n                batchNo:\"123\",\n                manufacturer:\"manufacturer\",\n                veterinarianName:\"veterinarianName\",\n                organizationName:\"organizationName\",\n            }\n\n        },\n        owner:{\n            name: \"test_\" + global.getRandomStr(),\n            sex:\"1\",\n            tel:\"345033\",\n            phone:\"15901794453\",\n            certificateType:\"1\",\n            certificateCode:\"31010211111111\",\n            province:\"province\",\n            district:\"district\",\n            city:\"city\",\n            address:\"address\",\n            code:\"code\",\n\n        },\n        residence:{\n            houseNo:\"1234\",\n            houseProperty:\"ziyou\",\n            address:\"1234\",\n            isSterilization:\"0\"\n        }\n }",
           "type": "json"
         }
       ]
@@ -567,6 +567,13 @@
             "group": "veterinarian",
             "type": "String",
             "optional": false,
+            "field": "name",
+            "description": "<p>兽医名字</p>"
+          },
+          {
+            "group": "veterinarian",
+            "type": "String",
+            "optional": false,
             "field": "code",
             "description": "<p>兽医执照号</p>"
           }
@@ -575,7 +582,7 @@
       "examples": [
         {
           "title": "Request Example",
-          "content": "POST  /organization/add\n\t {\n\t\t name: \"test_\" + global.getRandomStr(),\n\t\t province: \"上海\",\n\t\t district: \"浦东新区\",\n\t\t city: \"航头镇\",\n\t\t address: \"杭南公路\",\n\t\t code: \"123456\",\n\t\t tel: \"15838365455\",\n\t\t businessLicense: \"123\",\n\t\t animalMedicalLicense: \"123\",\n\t\t serviceScope: \"美容\",\n\t\t contacts_name: \"admin\",\n\t\t contacts_phone: \"15838365455\",\n\n\t\t veterinarian: {\n\t\t\t name: \"张三\",\n\t\t\t code: \"110\"\n\t\t }\n\t }",
+          "content": "\n {\n\t name: \"test_\" + global.getRandomStr(),\n\t province: \"上海\",\n\t district: \"浦东新区\",\n\t city: \"航头镇\",\n\t address: \"杭南公路\",\n\t code: \"123456\",\n\t tel: \"15838365455\",\n\t businessLicense: \"123\",\n\t animalMedicalLicense: \"123\",\n\t serviceScope: \"美容\",\n\t contacts_name: \"admin\",\n\t contacts_phone: \"15838365455\",\n\n\t veterinarian: {\n\t\t name: \"张三\",\n\t\t code: \"110\"\n\t }\n }",
           "type": "json"
         }
       ]

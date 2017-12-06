@@ -15,7 +15,7 @@ var AddOrganizationHandler = function(){
 }
 /**
  * @apiDefine Veterinarian 兽医名字
- * @apiParam (veterinarian) {String} 名字 兽医名字
+ * @apiParam (veterinarian) {String}  name  兽医名字
  * @apiParam (veterinarian) {String} code 兽医执照号
  */
 /**
@@ -37,7 +37,7 @@ var AddOrganizationHandler = function(){
  * @apiParam {String} contacts_phone 联系人电话
  * @apiUse Veterinarian
  * @apiParamExample {json} Request Example
- * POST  /organization/add
+
 	 {
 		 name: "test_" + global.getRandomStr(),
 		 province: "上海",
