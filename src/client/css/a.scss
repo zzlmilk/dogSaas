@@ -201,73 +201,128 @@
 
 
 //办理狗证--个人办证
-.dog_manage{
-  min-width: 960px;
-  max-width: 1040px;
-  float: left;
-  background:#fcfcfc ;
-}
-.dog_manage>.manage_list{
-  width: 100px;
-  float: left;
-  background:#2e3645 ;
-}
-.dog_manage>.manage_content{
-  min-width: 860px;
-  max-width: 940px;
-  height: auto;
+//.dog_manage{
+//  width: 100%;
+//  float: left;
+//  padding: 25px;
+//  background:#fcfcfc ;
+//}
+//.dog_manage>.manage_list{
+//  width: 100px;
+//  float: left;
+//  background:#2e3645 ;
+//}
+//.dog_manage>.manage_content{
+//  height: auto;
+//  float: left;
+//}{
+.personal_card{
+  width: 100%;
+  height:auto ;
   float: left;
   padding: 25px;
+  background:#fcfcfc ;
 }
-.dog_manage>.manage_content>.personal_card>.registration{
-  width: 890px;
+.personal_card>.title{
+  margin-bottom: 20px;
+}
+.personal_card>.registration{
+  width: 100%;
   height: auto;
   float: left;
-  margin-top: 20px;
+  margin-bottom: 20px;
   background: #ffffff;
   border: 1px solid #cccccc;
   padding-top: 15px;
   padding-bottom: 20px;
 }
-.dog_manage>.manage_content>.personal_card>#post_info{
+.personal_card>#post_info{
     float: left;
     margin-left: 300px;
     margin-top: 30px;
     width:300px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.title>h4>.small_title{
+.personal_card>.registration>.title>h4>.small_title{
   font-size: 12px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row{
+.personal_card>.registration>.row{
   margin-bottom: 20px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.title{
+.personal_card>.registration>.title{
   margin-left: 10px;
   margin-bottom: 10px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.subtitle h4{
+.personal_card>.registration>.row>.col-md-6>.subtitle h4{
   float: left;
   width: 80px;
-  height: 32px;
-  line-height: 32px;
+  height: 44px;
+  line-height: 44px;
   margin-left: 15px;
   text-align:right;
 
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.subtitle>.dog_img{
+.personal_card>.registration>.row>.col-md-6>.subtitle>.dog_img{
   width: 170px;
   height: 90px;
   float: left;
   margin-left: 100px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section{
+.personal_card>.registration>.row>.col-md-6>.section{
   float: left;
   margin-left: 5px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#birth_date{
+.personal_card>.registration>.row>.col-md-6>.section>input[type="text"]{
+  width: 230px;
+  height:44px;
+  border-radius: 4px;
+  border: 2px #cccccc solid;
+}
+.personal_card>.registration>.row>.col-md-6>.section>input[type="date"]{
+  width: 230px;
+  height:44px;
+  border-radius: 4px;
+  border: 2px #cccccc solid;
+}
+.personal_card>.registration>.row>.col-md-6>.section>input[type="radio"]{
+  height: 35px;
+  float:left;
+  margin-right:10px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#iris{
   float: left;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#recollect_iris{
+.personal_card>.registration>.row>.col-md-6>.section>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>select{
+  width: 90px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.kinds{
+    width:230px;
+    height:44px;
+    line-height:44px;
+    border: 2px #cccccc solid;
+    text-align: center;
+    border-radius:4px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#connect{
+  width: 20px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  float: left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#birth_date{
+  float: left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#recollect_iris{
   width: 90px;
   height: 20px;
   border: 1px #cccccc solid;
@@ -280,14 +335,14 @@
   margin-top: 10px;
 
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>#imgs{
+.personal_card>.registration>.row>.col-md-6>#imgs{
   float: left;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>#collectimg{
+.personal_card>.registration>.row>.col-md-6>#collectimg{
   position: relative;
   float: left;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#recollect_img{
+.personal_card>.registration>.row>.col-md-6>.section>#recollect_img{
   width: 90px;
   height: 20px;
   border: 1px #cccccc solid;
@@ -299,7 +354,7 @@
   float: left;
   margin-top: 15px;
 }
-.dog_manage>.manage_content>.personal_card>.registration>.row>.col-md-6>.section>#upload{
+.personal_card>.registration>.row>.col-md-6>.section>#upload{
   width: 90px;
   height: 20px;
   border: 1px #cccccc solid;
@@ -314,6 +369,71 @@
   z-index: 99;
   top:40px;
 
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label{
+  width: 30px;
+  height: 44px;
+  color:#000000;
+  line-height: 44px;
+  text-align: center;
+  float: left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#reg_addr_ck{
+  float: left;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
+  width:320px;
+  height:60px;
+  overflow: hidden;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province{
+  width: 100px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province>select{
+  width: 100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city{
+  width: 100px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city>select{
+  width: 100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county{
+  width: 100px;
+  height: 40px;
+  float: left;
+}
+
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county>select{
+  width: 100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+
+
+.personal_card>.post_info{
+  width: 345px;
 }
 
 //办理狗证--个人办证--弹窗
@@ -440,6 +560,7 @@
 .print_card>.content>.row>.col-md-4>#save{
   margin-left: 50px;
 }
+
 //办理狗证--企业办证
 
 

@@ -25,7 +25,7 @@ var PersonalCardView = Backbone.View.extend({
         // this.render();
         $(this.el).html(template({}));
         var area = new SelectPluginView({
-            el: "#owner_area"
+            el: "#orga_area"
         })
         this.onLoad();
     },
@@ -33,7 +33,9 @@ var PersonalCardView = Backbone.View.extend({
     onLoad: function () {
         var self = this;
 
-
+        new SelectPluginView({
+            el: "#orga_area"
+        });
         function initEvent() {
             //条形码 失去焦点监听
             $("#barcode").blur(function () {
@@ -565,7 +567,7 @@ var PersonalCardView = Backbone.View.extend({
 
         //上传图片控件
         new UploadView({
-            el: "#imgs"
+            el: "#collectimg"
         })
 
         //图片上传成功后的通知

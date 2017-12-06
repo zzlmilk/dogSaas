@@ -385,7 +385,7 @@ ul li{
 /*==== 添加组织的css*/
 .wrapper{
     margin: 0 auto ;
-    width:450px;
+    width:620px;
     min-height:100%;
 }
 
@@ -525,7 +525,7 @@ ul li{
 
 .wrapper > .org_companyInfo > .row >.section>#orga_area>.org_address{
     width:440px;
-    height:55px;
+    height:60px;
     overflow: hidden;
 }
 
@@ -535,6 +535,7 @@ ul li{
     float: left;
     margin-right: 10px;
 }
+
 .wrapper > .org_companyInfo > .row >.section>#orga_area>.org_address>.province>select{
     width: 140px;
     height: 40px;
@@ -548,6 +549,7 @@ ul li{
     float: left;
     margin-right: 10px;
 }
+
 .wrapper > .org_companyInfo > .row >.section>#orga_area>.org_address>.city>select{
     width: 180px;
     height: 40px;
@@ -560,12 +562,15 @@ ul li{
     height: 40px;
     float: left;
 }
+
 .wrapper > .org_companyInfo > .row >.section>#orga_area>.org_address>.county>select{
     width: 100px;
     height: 40px;
     border: 2px #cccccc solid;
     border-radius:4px;
 }
+
+
 
 .uploadWrap {
     position: relative;
