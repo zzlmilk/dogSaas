@@ -243,10 +243,56 @@ define({ "api": [
     "groupTitle": "DogLicense"
   },
   {
-    "type": "post",
-    "url": "/dogLicense/find",
+    "type": "get",
+    "url": "/dogLicense/find_by_dog",
+    "title": "查询狗证（犬只）",
+    "name": "findDogLicenseByDog",
+    "group": "DogLicense",
+    "description": "<p>查询api接口，获取狗证信息</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "irisID",
+            "description": "<p>虹膜ID</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Access-Token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{ dogLicenses:\n   { _id: '5a26561758875261c0a5da71',\n     owner: '5a1f603923027209fcffa110',\n     dog: '5a26561758875261c0a5da73',\n     husbandryNo: 'jK3qR',\n     __v: 0,\n     DogCard: { isCreate: 0, message: '该房产已经被注册' },\n     vaccineCard: { isCreate: 1, create: '2017-12-05T08:17:27.078Z' } } }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/DogLicense/FindDogLicenseByDogHandler.js",
+    "groupTitle": "DogLicense"
+  },
+  {
+    "type": "get",
+    "url": "/dogLicense/find_by_owner",
     "title": "查询狗证（犬主）",
-    "name": "findDogLicense",
+    "name": "findDogLicenseByOwner",
     "group": "DogLicense",
     "description": "<p>查询api接口，获取狗证信息</p>",
     "parameter": {
@@ -306,7 +352,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "src/server/WebAPI/DogLicense/FindDogLicenseHandler.js",
+    "filename": "src/server/WebAPI/DogLicense/FindDogLicenseByOwnerHandler.js",
     "groupTitle": "DogLicense"
   },
   {
@@ -515,14 +561,30 @@ define({ "api": [
             "field": "contacts_phone",
             "description": "<p>联系人电话</p>"
           }
+        ],
+        "veterinarian": [
+          {
+            "group": "veterinarian",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>兽医执照号</p>"
+          }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request Example",
+          "content": "POST  /organization/add\n\t {\n\t\t name: \"test_\" + global.getRandomStr(),\n\t\t province: \"上海\",\n\t\t district: \"浦东新区\",\n\t\t city: \"航头镇\",\n\t\t address: \"杭南公路\",\n\t\t code: \"123456\",\n\t\t tel: \"15838365455\",\n\t\t businessLicense: \"123\",\n\t\t animalMedicalLicense: \"123\",\n\t\t serviceScope: \"美容\",\n\t\t contacts_name: \"admin\",\n\t\t contacts_phone: \"15838365455\",\n\n\t\t veterinarian: {\n\t\t\t name: \"张三\",\n\t\t\t code: \"110\"\n\t\t }\n\t }",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{ organization:\n  { __v: 0,\n    name: 'test_Esv3Q',\n    tel: '15838365455',\n    businessLicense: '123',\n    animalMedicalLicense: '123',\n    adminUser: '5a0bec3f3bea6821641c8c18',\n    created: '2017-11-28T07:45:57.005Z',\n    _id: '5a1d1435185d925c9c3c14c8',\n    veterinarians: [],\n    checkStatus: { status: 0, time: '2017-11-28T07:45:57.004Z' },\n    contacts: { name: 'admin', phone: '15838365455' },\n    serviceScope: [],\n    location:\n     { province: '上海',\n       district: '浦东新区',\n       city: '航头镇',\n       address: '杭南公路',\n       code: '123456' } } }",
+          "content": "{ organization:\n  { __v: 0,\n    name: 'test_xChnk',\n    tel: '15838365455',\n    businessLicense: '123',\n    animalMedicalLicense: '123',\n    adminUser: '5a0bec3f3bea6821641c8c18',\n    created: '2017-12-06T04:44:19.124Z',\n    _id: '5a2775a36449ea31dc31a9ff',\n    veterinarian: [ '5a2775a36449ea31dc31a9fe' ],\n    checkStatus: { status: 0, time: '2017-12-06T04:44:19.123Z' },\n    contacts: { name: 'admin', phone: '15838365455' },\n    serviceScope: [ '美容' ],\n    location:\n     { province: '上海',\n       district: '浦东新区',\n       city: '航头镇',\n       address: '杭南公路',\n       code: '123456' } } }",
           "type": "json"
         }
       ]
@@ -672,7 +734,7 @@ define({ "api": [
     "groupTitle": "Organization"
   },
   {
-    "type": "post",
+    "type": "get",
     "url": "owner/find",
     "title": "查询犬主",
     "name": "findOwner",
@@ -715,7 +777,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{ Owner:\n   { _id: '5a24f583bf77595ff08bf876',\n     name: 'test_kEiAr',\n     sex: '1',\n     phone: '15901794453',\n     tel: '345033',\n     certificateType: '1',\n     certificateCode: '31010222222222',\n     __v: 1,\n     dogs: [ '5a24f5c6a8b1f54b60bfbd1a' ],\n     location:\n      { province: 'province',\n        district: 'district',\n        city: 'city',\n        address: 'address',\n        code: 'code' } } }",
+          "content": "{ owner:\n   { _id: '5a24f583bf77595ff08bf876',\n     name: 'test_kEiAr',\n     sex: '1',\n     phone: '15901794453',\n     tel: '345033',\n     certificateType: '1',\n     certificateCode: '31010222222222',\n     __v: 1,\n     dogs: [ '5a24f5c6a8b1f54b60bfbd1a' ],\n     location:\n      { province: 'province',\n        district: 'district',\n        city: 'city',\n        address: 'address',\n        code: 'code' } } }",
           "type": "json"
         }
       ]

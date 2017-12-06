@@ -35,7 +35,7 @@ Organization.prototype.init = function(mongoose){
 				comment:String,
 				time:Date, //时间
 			},
-			veterinarians:[{type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "veterinarians" }], //兽医(填写人名)
+			veterinarian:[{type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "veterinarians" }], //兽医(填写人名)
 			created:Date
 
 				

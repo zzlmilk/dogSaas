@@ -7,6 +7,7 @@ var _ = require('lodash');
 
 var OrganizationModel = require('../Models/Organization');
 var UserModel = require('../Models/User');
+var VeterinarianModel=require('../Models/Veterinarian');
 
 
 var OrganizationLogics = {
@@ -18,11 +19,12 @@ var OrganizationLogics = {
 		self.validatorParam(param.body, function (err) {
 			if (err) {
 				onError(null,
-					Const.resCodeOrganizationParamIsEmpty
+                    err
 				)
 				return;
 			}
 			var organizationParam = param.body
+			var veterinarianParam=organizationParam.veterinarian
 			var res = {}
 			async.waterfall([
 				function (done) {
@@ -30,7 +32,7 @@ var OrganizationLogics = {
 					if (user.organization) {
 
 						if (user.email == "413124766@qq.com") {
-								 
+
 								done(null, res)
 								return;
 						}
@@ -41,32 +43,56 @@ var OrganizationLogics = {
 
 
 					done(null, res)
-				},
+				},function (result,done) {
+                    var veterinarianModel =  VeterinarianModel.get();
+                    var veterinarian = new veterinarianModel({
+
+                        name: veterinarianParam.name,
+                        code: veterinarianParam.code
+
+                    })
+
+                    veterinarian.save(function(err,veterinarianResult){
+                        if (err) {
+                            throw err
+                        }
+                        res.veterinarian = veterinarianResult;
+
+
+                        done(null,res)
+                    })
+
+
+                },
 				function (result, done) {
 					//添加机构信息
 					var organizationModel = OrganizationModel.get();
 					var organization = new organizationModel({
-						name: organizationParam.name,
-						location: {
-							province: organizationParam.province,
-							district: organizationParam.district,
-							city: organizationParam.city,
-							address: organizationParam.address,
-							code: organizationParam.code
-						},
-						tel: organizationParam.tel,
-						businessLicense: organizationParam.businessLicense,
-						animalMedicalLicense: organizationParam.animalMedicalLicense,
-						contacts: {
-							name: organizationParam.contacts_name,
-							phone: organizationParam.contacts_phone,
-						},
-						
-						adminUser: user._id,
-						checkStatus: {
-							status: 0,
-							time: Utils.now()
-						},
+
+                                name: organizationParam.name,
+                            location: {
+                                province: organizationParam.province,
+                                district: organizationParam.district,
+                                city: organizationParam.city,
+                                address: organizationParam.address,
+                                code: organizationParam.code
+                            },
+                            tel: organizationParam.tel,
+                            businessLicense: organizationParam.businessLicense,
+                            animalMedicalLicense: organizationParam.animalMedicalLicense,
+                            contacts: {
+                                name: organizationParam.contacts_name,
+                                phone: organizationParam.contacts_phone,
+                            },
+
+                            adminUser: user._id,
+                            checkStatus: {
+                                status: 0,
+                                time: Utils.now()
+                            },
+
+                        veterinarian:res.veterinarian._id,
+                        serviceScope:organizationParam.serviceScope,
 						created: Utils.now()
 
 
@@ -89,12 +115,13 @@ var OrganizationLogics = {
 					})
 
 				},
+
 				function (result, done) {
-					//添加机构成功后 更新改账户为VIP 超级管理员和关联用户于机构信息						 			
+					//添加机构成功后 更新改账户为VIP 超级管理员和关联用户于机构信息
 					user.update({
 						organization: res.organization._id,
 						logionProcess: 1, //机构添加后，等待机构审核
-					}, {}, function (err, userResult) {
+					}, function (err, userResult) {
 						if (err) {
 							onError(err, null);
 							return;
@@ -134,7 +161,7 @@ var OrganizationLogics = {
 					if (organization) {
 						res.organization = organization;
 						onSuccess(res);
-					}	
+					}
 				});
 
 			}
@@ -147,7 +174,9 @@ var OrganizationLogics = {
 	},
 	validatorParam: function (param, callback) {
 
-		var name = param.name,
+
+
+		    var name = param.name,
 			province = param.province,
 			district = param.district,
 			city = param.city,
@@ -161,18 +190,32 @@ var OrganizationLogics = {
 			contacts_phone = param.contacts_phone;
 
 
-				
+
+
 
 		if (Utils.isEmpty(name) || Utils.isEmpty(province)
-			|| Utils.isEmpty(district) || Utils.isEmpty(city)
-			|| Utils.isEmpty(address) || Utils.isEmpty(code)
-			|| Utils.isEmpty(tel) || Utils.isEmpty(businessLicense)
-			|| Utils.isEmpty(animalMedicalLicense) || Utils.isEmpty(serviceScope)
-			|| Utils.isEmpty(contacts_name) || Utils.isEmpty(contacts_phone)) {
-			callback(Const.resCodeOrganizationParamIsEmpty);
-		} else {
-			callback();
+                || Utils.isEmpty(district) || Utils.isEmpty(city)
+                || Utils.isEmpty(address) || Utils.isEmpty(code)
+                || Utils.isEmpty(tel) || Utils.isEmpty(businessLicense)
+                || Utils.isEmpty(animalMedicalLicense) || Utils.isEmpty(serviceScope)
+                || Utils.isEmpty(contacts_name) || Utils.isEmpty(contacts_phone)) {
+
+
+                callback(Const.resCodeOrganizationParamIsEmpty);
 		}
+        var veterinarian = param.veterinarian;
+        if(Utils.isEmpty(veterinarian.name)){
+            callback(Const.resCodeVerterinarianNoName)
+            return;
+        }
+
+        if(Utils.isEmpty(veterinarian.code)){
+            callback(Const.resCodeVerterinarianNoCode)
+
+            return;
+        }
+			callback();
+
 	},
 
 

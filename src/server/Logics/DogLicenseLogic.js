@@ -72,11 +72,11 @@ var DogLicenseLogic = {
 
 			  		}else{
 			  			ResidenceModel.get().findOne({"address":residenceParam.address},function(err,residenceModel){
-			  						//改房产已经办理过
+			  						//该房产已经办理过
 			  						if(residenceModel){
 									  		dogLicense.DogCard = {
 									  					isCreate:0,
-													  	message:"改房产已经被注册",
+													  	message:"该房产已经被注册",
 									  			}
 
 									  	done(null,dogLicense)
