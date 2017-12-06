@@ -15,6 +15,8 @@ var SelectPluginView = require("../../../../Parts/selectPlugin/SelectPluginView"
 var UploadView = require("../../../../Parts/Upload/UploadView");
 var UserClient = require("../../../../../lib/APIClients/UserClient.js");
 var CityJson = require('../../../../Parts/selectPlugin/CityJson.js');//地区数据 回填
+var DogBreed = require('./DogBreed.js');//宠物品种
+var StringBuffer = require('../../../../Parts/selectPlugin/StringBuffer.js');
 
 var PersonalCardView = Backbone.View.extend({
 
@@ -32,7 +34,13 @@ var PersonalCardView = Backbone.View.extend({
 
     onLoad: function () {
         var self = this;
-
+        //初始化狗的品种
+        var sb = new StringBuffer();
+        $.each(DogBreed,
+            function (i, val) {
+                sb.append("<option value='" + val.breed_name + "'>" + val.breed_name + "</option>");
+            });
+        $("#breed_null").after(sb.toString());
 
         function initEvent() {
             //条形码 失去焦点监听
