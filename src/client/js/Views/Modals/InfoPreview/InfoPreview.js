@@ -72,13 +72,19 @@ var InfoPreview = {
                     // var user = UserModel.modelByResult(data.user)
                     // loginUserManager.setLoginUserID(user.get("id"))
                     // user.save();
-                    console.log(data)
+                    // console.log(data)
 
-                    var ds = require("../../Main/Dog/DogCard/DogCardView.js");
-                    new ds().createCard();
-                    self.hide();
-                    // Utils.goPage("organization");
+                    console.log(data.dogLicense);
 
+                    // var ds = require("../../Main/Dog/DogCard/DogCardView.js");
+                    // new ds().createCard(data.dogLicense);
+                    // self.hide();
+                    // // Utils.goPage("organization");
+                    var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
+                    var view = new CardInfoView({
+                        'el': "#main-content",
+                        "dogLicense":data.dogLicense
+                    });
 
                 },
                 //失败回调
