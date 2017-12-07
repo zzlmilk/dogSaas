@@ -369,8 +369,8 @@ var PersonalCardView = Backbone.View.extend({
                     sexText: $("input[name='gender']:checked").val() == 1 ? "男" : "女",
                     tel: $('#tel').val(),
                     phone: $('#phone').val(),
-                    certificateType: $("input[name='cardtype']:checked").val(),
-                    certificateTypeText: $("input[name='cardtype']:checked").val() == 1 ? "身份证" : "护照",
+                    certificateType: $('#cardtype').val(),
+                    certificateTypeText: $('#cardtype').val() == 1 ? "身份证" : "护照",
                     certificateCode: $('#id_number').val(),
                     province: $('#province').val(),
                     provinceText: $("#province").find("option:selected").text(),
@@ -438,12 +438,6 @@ var PersonalCardView = Backbone.View.extend({
             if (tel == "") {
                 falg = false;
                 $("#tel_null_tip").show();
-            }
-            //证件类型
-            var cardtype = $("input[name='cardtype']:checked").val();
-            if (cardtype == undefined) {
-                falg = false;
-                $("#cardtype_null_tip").show();
             }
             //证件号
             var id_number = $('#id_number').val();
