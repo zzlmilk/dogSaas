@@ -54,35 +54,30 @@
   color:#ffffff;
 }
 .personal_header>#personal_info>li>#user_icon{
-  margin-left: 30px;
+  margin-left: 60px;
   position:relative;
 }
 .personal_header>#personal_info>li>#user_icon>ul{
-  width:80px;
-  height:40px;
-  background:#ffffff;
-  left:-30px;
-  top:20px;
+  width:140px;
+  height:44px;
+  left:-60px;
+  top:40px;
   position:absolute;
   z-index:99;
   display: none;
 }
 .personal_header>#personal_info>li>#user_icon>ul>li{
-  width:80px;
-  height:40px;
-  text-align: center;
+  width:140px;
+  height:44px;
   float:left;
 }
 .personal_header>#personal_info>li>#user_icon>ul>li>a{
-  width: 80px;
-  height: 40px;
+  width: 140px;
+  height: 44px;
   float: left;
-  line-height: 40px;
+  line-height: 44px;
   text-align: center;
   text-decoration: none;
-  color:#000000;
-}
-.personal_header>#personal_info>li>#user_icon>ul>li>a:hover{
   background: #3399ff;
   color:#ffffff;
 }
@@ -481,6 +476,56 @@
 }
 .personal_card>.post_info{
   width: 345px;
+}
+
+//组织机构添加兽医
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8{
+
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.subtitle{
+  float: left;
+  width:155px;
+  height: 44px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.subtitle h4 {
+  float: left;
+  width:155px;
+  height: 44px;
+  line-height: 44px;
+  text-align: right;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.section{
+  float: left;
+  margin-left: 10px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.section>input{
+  width: 300px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.subtitle h4 {
+  float: left;
+  width:155px;
+  height: 44px;
+  line-height: 44px;
+  text-align: right;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.section{
+  float: left;
+  margin-left: 10px;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.section>button{
+  width:115px;
+  height: 44px;
+  border-radius: 4px;
+  display: inline-block;
+  float:left;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.section>#modal-btn-close{
+  margin-left: 65px;
+  background:#ffffff;
+  outline:0;
 }
 
 //办理狗证--个人办证--弹窗
