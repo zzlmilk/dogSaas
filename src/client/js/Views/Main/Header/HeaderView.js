@@ -11,17 +11,17 @@ var template = require('./Header.hbs');
 //var AlertDialog = require('../Modals/AlertDialog/AlertDialog');
 
 
+var HeaderView;
+HeaderView = Backbone.View.extend({
 
-var HeaderView = Backbone.View.extend({
+    el: null,
 
-    el : null,
-
-    initialize: function(options) {
+    initialize: function (options) {
         this.el = options.el;
         this.render();
     },
 
-    render: function() {
+    render: function () {
 
         $(this.el).html(template());
 
@@ -31,11 +31,11 @@ var HeaderView = Backbone.View.extend({
 
     },
 
-    onLoad: function(){
+    onLoad: function () {
 
         var self = this;
 
-        $('#personal_center').unbind().on('click',function(){
+        $('#personal_center').unbind().on('click', function () {
 
             var PersonalCenterView = require('../PersonalCenter/PersonalCenterView');
 
@@ -44,9 +44,20 @@ var HeaderView = Backbone.View.extend({
             });
 
         });
+        $('#user_icon').mouseover(function () {
+            $('#quit').show();
+
+        });
+        $('#quit').mouseout(function () {
+            $(this).hide();
+
+        });
 
 
-     }
+
+
+
+    }
 
 });
 

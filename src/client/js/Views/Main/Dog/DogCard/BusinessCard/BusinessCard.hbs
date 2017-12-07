@@ -66,35 +66,48 @@
                     <select>
                         <option id="area_code">021</option>
                     </select>
-                    <div id="connect">--</div>
+                    <div class="connect">--</div>
                     <input type="text" id="tel" oninput="if(value.length>10)value=value.slice(0,10)">
                     <p style="display: none;" class="null_err" id="tel_null_tip">*座机不能为空</p>
                 </div>
             </div>
         </div>
         <div class="row">
+
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>邮编:</h4>
+                </div>
+                <div class="section">
+                    <input  type="text" id="postcode" oninput="if(value.length>6)value=value.slice(0,6)">
+                    <p style="display: none;" class="null_err" id="postcode_null_tip">*邮编不能为空</p>
+                </div>
+            </div>
             <div class="col-md-6">
                 <div class="subtitle">
                     <h4>*证件类型:</h4>
                 </div>
                 <div class="section">
-                    <input type="radio" name="cardtype" id="idcard" value="1">
-                    <label for="cardtype">身份证</label>
-                    <input type="radio" name="cardtype" id="passport" value="2">
-                    <label for="cardtype">护照</label>
-                    <p style="display: none;" class="null_err" id="cardtype_null_tip">*证件类型不能为空</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="subtitle">
-                    <h4>*证件号:</h4>
-                </div>
-                <div class="section">
+                    <select>
+                        <option id="ID_card">身份证</option>
+                        <option id="passport">护照</option>
+                    </select>
+                    <div class="connect">--</div>
                     <input type="text" id="id_number" oninput="if(value.length>18)value=value.slice(0,18)">
                     <p style="display: none;" class="null_err" id="id_number_null_tip">*证件号不能为空</p>
                     <p style="display: none;" class="null_err" id="id_number_format_tip">*证件号格式有误</p>
                 </div>
             </div>
+            <!--<div class="col-md-6">-->
+                <!--<div class="subtitle">-->
+                    <!--<h4>*证件号:</h4>-->
+                <!--</div>-->
+                <!--<div class="section">-->
+                    <!--<input type="text" id="id_number" oninput="if(value.length>18)value=value.slice(0,18)">-->
+                    <!--<p style="display: none;" class="null_err" id="id_number_null_tip">*证件号不能为空</p>-->
+                    <!--<p style="display: none;" class="null_err" id="id_number_format_tip">*证件号格式有误</p>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -127,17 +140,6 @@
             </div>
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>邮编:</h4>
-                </div>
-                <div class="section">
-                    <input  type="text" id="postcode" oninput="if(value.length>6)value=value.slice(0,6)">
-                    <p style="display: none;" class="null_err" id="postcode_null_tip">*邮编不能为空</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="subtitle">
                     <h4>邮箱:</h4>
                 </div>
                 <div class="section">
@@ -146,7 +148,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <div class="registration">

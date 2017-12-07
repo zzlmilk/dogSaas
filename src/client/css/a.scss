@@ -54,9 +54,33 @@
   color:#ffffff;
 }
 .personal_header>#personal_info>li>#user_icon{
-  margin-left: 30px;
+  margin-left: 60px;
+  position:relative;
 }
-
+.personal_header>#personal_info>li>#user_icon>ul{
+  width:140px;
+  height:44px;
+  left:-60px;
+  top:40px;
+  position:absolute;
+  z-index:99;
+  display: none;
+}
+.personal_header>#personal_info>li>#user_icon>ul>li{
+  width:140px;
+  height:44px;
+  float:left;
+}
+.personal_header>#personal_info>li>#user_icon>ul>li>a{
+  width: 140px;
+  height: 44px;
+  float: left;
+  line-height: 44px;
+  text-align: center;
+  text-decoration: none;
+  background: #3399ff;
+  color:#ffffff;
+}
 //控制台头部导航个人中心按钮
 #personal_center_view{
   width: 100%;
@@ -338,7 +362,7 @@
     text-align: center;
     border-radius:4px;
 }
-.personal_card>.registration>.row>.col-md-6>.section>#connect{
+.personal_card>.registration>.row>.col-md-6>.section>.connect{
   width: 20px;
   height: 44px;
   line-height: 44px;
@@ -411,47 +435,97 @@
   margin-right: 15px;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
-  width:320px;
+  width:280px;
   height:60px;
   overflow: hidden;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province{
-  width: 100px;
+  width: 90px;
   height: 40px;
   float: left;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province>select{
-  width: 100px;
+  width: 90px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city{
-  width: 100px;
+  width: 90px;
   height: 40px;
   float: left;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city>select{
-  width: 100px;
+  width: 90px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county{
-  width: 100px;
+  width: 90px;
   height: 40px;
   float: left;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county>select{
-  width: 100px;
+  width: 90px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .personal_card>.post_info{
   width: 345px;
+}
+
+//组织机构添加兽医
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8{
+
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.subtitle{
+  float: left;
+  width:155px;
+  height: 44px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.subtitle h4 {
+  float: left;
+  width:155px;
+  height: 44px;
+  line-height: 44px;
+  text-align: right;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.section{
+  float: left;
+  margin-left: 10px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.section>input{
+  width: 300px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.subtitle h4 {
+  float: left;
+  width:155px;
+  height: 44px;
+  line-height: 44px;
+  text-align: right;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.section{
+  float: left;
+  margin-left: 10px;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.section>button{
+  width:115px;
+  height: 44px;
+  border-radius: 4px;
+  display: inline-block;
+  float:left;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.section>#modal-btn-close{
+  margin-left: 65px;
+  background:#ffffff;
+  outline:0;
 }
 
 //办理狗证--个人办证--弹窗
@@ -521,21 +595,47 @@
   margin-bottom: 15px;
   margin-left: 15px;
 }
+.print_card>.content>.title>h3>#QR_Code{
+  float: right;
+  display: inline-block;
+  margin-right: 400px;
+}
 .print_card>.content>.row{
   margin-bottom: 15px;
 }
-.print_card>.content>.row>.col-md-6>.card_front{
-  width: 250px;
-  height: 150px;
+.print_card>.content>.row>.col-md-4>.card_front{
+  width: 320px;
+  height: 160px;
   border:1px #cccccc solid;
   float: left;
   margin-left: 30px;
 }
-.print_card>.content>.row>.col-md-6>.card_behind{
-  width: 250px;
-  height: 150px;
+.print_card>.content>.row>.col-md-4>.card_front>img{
+  width: 320px;
+  height: 160px;
+  display: block;
+}
+.print_card>.content>.row>.col-md-4>.card_behind{
+  width: 320px;
+  height: 160px;
   border:1px #cccccc solid;
   float: left;
+}
+.print_card>.content>.row>.col-md-4>.card_behind>img{
+  width: 320px;
+  height: 160px;
+  display: block;
+}
+.print_card>.content>.row>.col-md-4>.qrcode{
+  width: 160px;
+  height: 160px;
+  border:1px #cccccc solid;
+  float: left;
+}
+.print_card>.content>.row>.col-md-4>.qrcode>img{
+  width: 160px;
+  height: 160px;
+  display: block;
 }
 .print_card>.content>.row>.col-md-4>#print_card{
   margin-left: 50px;
@@ -676,7 +776,7 @@
   text-align: center;
   border-radius:4px;
 }
-.business_card>.registration>.row>.col-md-6>.section>#connect{
+.business_card>.registration>.row>.col-md-6>.section>.connect{
   width: 20px;
   height: 44px;
   line-height: 44px;
@@ -749,41 +849,41 @@
   margin-right: 15px;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
-  width:320px;
+  width:280px;
   height:60px;
   overflow: hidden;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province{
-  width: 100px;
+  width: 90px;
   height: 40px;
   float: left;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province>select{
-  width: 100px;
+  width: 90px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city{
-  width: 100px;
+  width: 90px;
   height: 40px;
   float: left;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city>select{
-  width: 100px;
+  width: 90px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county{
-  width: 100px;
+  width: 90px;
   height: 40px;
   float: left;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county>select{
-  width: 100px;
+  width: 90px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
