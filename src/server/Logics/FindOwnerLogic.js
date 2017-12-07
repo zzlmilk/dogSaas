@@ -9,22 +9,10 @@ var OwnerModel = require('../Models/Owner');
 var FindOwnerLogic = {
 
     findOwner: function (param, onSuccess, onError) {
-        var certificateType = param.certificateType;
+
+        var certificateType =param.certificateType;
         var certificateCode=param.certificateCode
-        if (Utils.isEmpty(certificateType)) {
-            onError(null,
-                Const.resCodeDogOwnerNoCertificateType
-            )
 
-            return;
-        }
-        if (Utils.isEmpty(certificateCode)) {
-            onError(null,
-                Const.resCodeDogOwnerNocertificateCode
-            )
-
-            return;
-        }
 
         async.waterfall([
             function (done) {

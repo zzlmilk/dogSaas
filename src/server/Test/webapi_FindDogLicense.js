@@ -2,6 +2,7 @@ var should = require('should');
 var request = require('supertest');
 var app = require('../mainTest');
 var helper = require('./helper');
+var Const = require('../lib/consts');
 
 
 describe('WEB API', function () {
@@ -30,8 +31,8 @@ describe('WEB API', function () {
 
                         console.log(res.body.data)
                         
-                         res.body.should.have.property('code');
-                         res.body.code.should.equal(1);
+                      //   res.body.should.have.property('code');
+                         res.body.code.should.equal(Const.responsecodeSucceed);
                         done();
                     
                     });    
@@ -45,7 +46,8 @@ describe('WEB API', function () {
 
             //参数
             var body = {
-                irisID:"a123456789"
+                irisID:"b123456789",
+                cardNo:"6VTUvrMRnT"
 
             };
 

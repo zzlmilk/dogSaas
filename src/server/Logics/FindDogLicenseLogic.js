@@ -70,6 +70,7 @@ var FindDogLicenseLogic = {
 
     find_by_dog: function (param, onSuccess, onError) {
         var irisID = param.irisID;
+        var cardNo=param.cardNo;
         if (Utils.isEmpty(irisID) ){
             onError(null,
                 Const.resCodeDogNoIrisID
@@ -78,24 +79,19 @@ var FindDogLicenseLogic = {
             return;
 
         }
+        if (Utils.isEmpty(cardNo) ){
+            onError(null,
+                Const.resCodeVaccineCardNocardNo
+            )
 
+            return;
+
+        }
         async.waterfall([
-            function (done) {
 
-                var dogModel = DogModel.get();
-                dogModel.findOne({"irisID":irisID}, function (err, res) {
-
-                    if (err) {
-                        throw (err)
-                    }
-                    else {
-                        done(null, res)
-                    }
-                })
-            },
-            function (result, done) {
+            function ( done) {
                 var dogLicenseModel = DogLicenseModel.get();
-                dogLicenseModel.findOne({"dog": result}, function (err,res ) {
+                dogLicenseModel.find({$or:[{"vaccineCard.info.irisID": irisID},{"vaccineCard.info.cardNo":cardNo}]}, function (err,res ) {
                     if (err) {
                         throw (err)
                     }

@@ -2,6 +2,7 @@ var should = require('should');
 var request = require('supertest');
 var app = require('../mainTest');
 var helper = require('./helper');
+var Const = require('../lib/consts');
 
 
 describe('WEB API', function () {
@@ -19,17 +20,18 @@ describe('WEB API', function () {
             request(app)
                 .get('/dogsystem/v1/owner/find')
                 .set('Access-Token', token)
-                .send(body)
+                .query(body)
+
                 .end(function (err, res) {
 
                     if (err) {
                         throw err;
                     }
 
-                    console.log(res.body.data)
+                    console.log(res.body)
 
-                     res.body.should.have.property('code');
-                     res.body.code.should.equal(1);
+                    res.body.should.have.property('code');
+                    res.body.code.should.equal( Const.responsecodeSucceed);
                     done();
 
                 });
