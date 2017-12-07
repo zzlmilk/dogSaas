@@ -24,7 +24,7 @@ var UploadView = require("../../Parts/Upload/UploadView");
 
 
 var AddOrganizationView = Backbone.View.extend({
-    doctors: [],
+    veterinarys: [],
     organization: null,
     el: null,
     businessLicenseUrl: null,
@@ -309,7 +309,7 @@ var AddOrganizationView = Backbone.View.extend({
 
             //兽医姓名
 
-            if (self.doctors.length == 0) {
+            if (self.veterinarys.length == 0) {
                 falg = false;
                 $("#doctor_null_tip").show();
             }
@@ -346,9 +346,9 @@ var AddOrganizationView = Backbone.View.extend({
             if (!emptyValid()) {
                 return;
             }
-
-            self.addOrganization()
+            self.addOrganization(self.veterinarys)
         })
+
 
 
         //WaitReview_button
@@ -383,14 +383,22 @@ var AddOrganizationView = Backbone.View.extend({
         });
         //添加医生完成的通知
         Backbone.on(Const.NotificationAddDoctorDone, function (obj) {
-            self.doctors.push(obj);
+          // var veter =new Veterinary({
+          //       name:obj.name,
+          //       code:obj.code
+          //   });
+          var veter ={
+                name:obj.name,
+                code:obj.code
+            };
+            self.veterinarys.push(veter);
             var sb = new StringBuffer();
-            sb.append("<tr><td class=\"name\">" + obj.name + "</td> <td class=\"number\">" + obj.code + "</td></tr>");
+            sb.append("<tr><td class=\"name\">" + veter.name + "</td> <td class=\"number\">" + veter.code + "</td></tr>");
             $("#doctor_table").show();
             $("#doctor_null_tip").hide();
             $("#doctor_table").after(sb.toString());
 
-            console.log(self.doctors)
+            console.log(self.veterinarys)
 
 
         });
@@ -399,7 +407,7 @@ var AddOrganizationView = Backbone.View.extend({
     },
 
 
-    addOrganization: function () {
+    addOrganization: function (veterinarians) {
         var server_value = []
         $('input[name="server"]:checked').each(function () {
             server_value.push($(this).val());
@@ -407,14 +415,15 @@ var AddOrganizationView = Backbone.View.extend({
         var organization = {
             name: $('#name').val().trim(),
             province: $('#province').val().trim(),
-            city: $('#city').val().trim(),
-            district: $('#district').val().trim(),
+            city: $('#citys').val().trim(),
+            district: $('#county').val().trim(),
             address: $('#address').val().trim(),
-            code: "1",
+            code: "xxxxxx",
             tel: $('#tel').val().trim(),
             businessLicense: $("#businessLicense img").attr("src"),
             animalMedicalLicense: $("#animalMedicalLicense img").attr("src"),
             serviceScope: server_value,
+            veterinarians:veterinarians,
             contacts_name: $('#contacts').val().trim(),
             contacts_phone: $('#contacts_phone').val().trim()
         };

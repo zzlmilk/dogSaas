@@ -59,7 +59,7 @@ var InfoPreview = {
             // })
             // alert("进入Main/Dog/DogCard/CardInfo页面")
 
-            console.log(self.DogLicenseModel);
+            // console.log(self.DogLicenseModel);
             // return;
 
             DogLicenseClient.add(
@@ -72,6 +72,7 @@ var InfoPreview = {
                     // var user = UserModel.modelByResult(data.user)
                     // loginUserManager.setLoginUserID(user.get("id"))
                     // user.save();
+                    console.log(data)
 
                     var ds = require("../../Main/Dog/DogCard/DogCardView.js");
                     new ds().createCard();

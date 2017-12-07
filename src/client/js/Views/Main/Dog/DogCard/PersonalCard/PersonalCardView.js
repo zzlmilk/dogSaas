@@ -577,7 +577,7 @@ var PersonalCardView = Backbone.View.extend({
 
         //上传图片控件
         new UploadView({
-            el: "#collectimg"
+            el: "#imgs"
         })
 
         //图片上传成功后的通知
