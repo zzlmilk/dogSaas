@@ -42,6 +42,23 @@ var DogView = Backbone.View.extend({
             
 
         });
+        $('#btn_account').unbind().on('click',function(){
+
+            var AddDoctorDialogModal = require('../../Modals/AddDoctorDialog/AddDoctorDialogView');
+            AddDoctorDialogModal.show(function(){
+
+            });
+
+        });
+
+        $('.delete').unbind().on('click',function(){
+
+            var DeleteDoctorModal = require('../../Modals/DeleteDoctor/DeleteDoctorView');
+            DeleteDoctorModal.show(function(){
+
+            });
+
+        });
 
 
 

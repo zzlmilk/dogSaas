@@ -37,50 +37,62 @@
   color:#ffffff;
 }
 .personal_header>#personal_info{
-  width: 400px;
+  width: 440px;
   height:80px;
   float: right;
 }
 .personal_header>#personal_info>li{
-  width: 100px;
+  width: 120px;
   height: 80px;
   line-height: 80px;
-  margin-right: 30px;
+  margin-right: 20px;
   float: left;
   color:#ffffff;
 }
 .personal_header>#personal_info>li>a{
-  margin-right: 10px;
+  width: 80px;
+  height: 80px;
+  display:inline-block;
+  line-height: 80px;
   color:#ffffff;
+  float:left;
+}
+.personal_header>#personal_info>li>i{
+  width: 20px;
+  height: 80px;
+  display: inline-block;
+  line-height: 80px;
+  float:left;
 }
 .personal_header>#personal_info>li>#user_icon{
-  margin-left: 60px;
+  margin-right: 0px;
   position:relative;
 }
 .personal_header>#personal_info>li>#user_icon>ul{
   width:140px;
-  height:44px;
+  height:40px;
   left:-60px;
-  top:40px;
+  top:60px;
   position:absolute;
   z-index:99;
   display: none;
 }
 .personal_header>#personal_info>li>#user_icon>ul>li{
   width:140px;
-  height:44px;
+  height:40px;
   float:left;
 }
 .personal_header>#personal_info>li>#user_icon>ul>li>a{
   width: 140px;
-  height: 44px;
+  height: 40px;
   float: left;
-  line-height: 44px;
+  line-height: 40px;
   text-align: center;
   text-decoration: none;
   background: #3399ff;
   color:#ffffff;
 }
+
 //控制台头部导航个人中心按钮
 #personal_center_view{
   width: 100%;
@@ -178,7 +190,6 @@
   margin-left:40px;
 }
 
-
 //控制台侧边栏
 .sidebar{
   width: 100%;
@@ -248,7 +259,6 @@
 .sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:active{
   color:#3399ff;
 }
-
 
 //办理狗证--个人办证
 //.dog_manage{
@@ -571,7 +581,6 @@
 }
 
 //办理狗证--个人办证--打印磁卡
-
 .print_card{
   width:100%;
   float: left;
@@ -892,8 +901,6 @@
   width: 345px;
 }
 
-
-
 //信息查询
 //.infosearch{
 //  width: 1100px;
@@ -954,11 +961,11 @@
   border: 2px #cccccc solid;
   border-radius:4px;
 }
-.dogownerlist>.title>.row>#lastbtn{
-  width: 230px;
+.dogownerlist>.title>.row>#search{
+  width:150px;
   height: 44px;
-  float: right;
-  margin-right: 50px;
+  float: left;
+  margin-left: 30px;
 }
 .dogownerlist>.table{
   width:100%;
@@ -998,7 +1005,6 @@
   padding: 25px;
   position: relative;
 }
-
 #dogownersearch>.details{
   float: left;
   border: 1px solid #cccccc;
@@ -1023,7 +1029,6 @@
   height: 32px;
   line-height: 32px;
 }
-
 #dogownersearch>.details>.dog_table{
   width:100%;
   border-collapse:collapse;
@@ -1082,10 +1087,12 @@
   border-radius:4px;
 }
 #dog_search>.title>.row>#search{
-  float: right;
-  margin-right: 50px;
-  width: 230px;
+  width: 150px;
   height: 44px;
+  float: left;
+  margin-left: 140px;
+  margin-right: 0px;
+
 }
 #dog_search>.table{
   width:100%;
@@ -1130,8 +1137,6 @@
   //margin-left:-250px ;
   //left:50%;
 }
-
-
 
 //免疫年检细节
 .immune_content{
@@ -1290,6 +1295,10 @@
   padding: 25px;
   position: relative;
 }
+.immune_list>.top_tip{
+  width: 100%;
+  margin-bottom: 20px;
+}
 .immune_list>.title{
   width: 100%;
   height: 84px;
@@ -1328,7 +1337,6 @@
   height: 40px;
   margin-left: 120px;
 }
-
 .immune_list>.table{
   width:100%;
   border-collapse:collapse;
@@ -1358,7 +1366,6 @@
   color:#339afe;
   text-decoration: underline;
 }
-
 .immune_list>#pagenav{
    //width: 500px;
    //position: absolute;
@@ -1366,13 +1373,16 @@
    //left:50%;
 }
 
-
 //制卡信息
 .card_info{
   float: left;
   background:#fcfcfc ;
   padding: 25px;
   position: relative;
+}
+.card_info>.top_tip{
+  margin-bottom: 20px;
+  width: 100%;
 }
 .card_info>.title{
   width: 100%;
@@ -1412,7 +1422,6 @@
   height: 40px;
   margin-left: 40px;
 }
-
 .card_info>.table{
   width:100%;
   border-collapse:collapse;
@@ -1442,10 +1451,24 @@
   color:#339afe;
   text-decoration: underline;
 }
-
 .card_info>#pagenav{
   //width: 500px;
   //position: absolute;
   //margin-left:-250px ;
   //left:50%;
+}
+
+//个人中心--删除兽医--弹窗
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-sm-6>button{
+  width: 120px;
+  height: 40px;
+  border-radius: 4px;
+  float: left;
+  margin-left:5px;
+  display: inline-block;
+  outline: 0;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-sm-6>#modal-btn-close{
+  background: #ffffff;
+  color:#000000;
 }
