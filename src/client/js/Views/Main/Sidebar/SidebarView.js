@@ -36,6 +36,13 @@ SidebarView = Backbone.View.extend({
             'el': "#main-content"
         });
 
+        //左侧导航二级菜单展开
+        $('.nav_a').each(function (i) {
+            $(this).click(function () {
+                $('.second_nav').eq(i).slideToggle();
+            })
+        });
+
         //办理狗证
         $('#btn_dogCard').unbind().on('click', function () {
 
@@ -131,11 +138,7 @@ SidebarView = Backbone.View.extend({
 
         });
 
-        $('.nav_a').each(function (i) {
-            $(this).click(function () {
-                $('.second_nav').eq(i).slideToggle();
-            })
-        })
+
 
 
     }
