@@ -17,7 +17,7 @@ var FindDogLicenseByOwnerHandler = function(){
 }
 /*
 /**
-	* @api {get} /dogLicense/find_by_owner 查询狗证（犬主）
+	* @api {post} /dogLicense/find_by_owner 查询狗证（犬主）
 	* @apiName findDogLicenseByOwner
 	* @apiGroup DogLicense
 	* @apiDescription 查询api接口，获取狗证信息
@@ -57,7 +57,7 @@ _.extend(FindDogLicenseByOwnerHandler.prototype,RequestHandlerBase.prototype);
 FindDogLicenseByOwnerHandler.prototype.attach = function(route){
 	 var self = this;
 
-	 route.get('/',authenticator,function(request,response){
+	 route.post('/',authenticator,function(request,response){
 
         FindDogLicenseLogic.find_by_owner(request.body,function(result){
              self.successResponse(response,Const.responsecodeSucceed,{

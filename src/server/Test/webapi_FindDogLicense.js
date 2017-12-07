@@ -20,7 +20,7 @@ describe('WEB API', function () {
                         	}; 
 
                         request(app)
-                        .get('/dogsystem/v1/dogLicense/find_by_owner')
+                        .post('/dogsystem/v1/dogLicense/find_by_owner')
                         .set('Access-Token', token)    
                         .send(body)
                         .end(function (err, res) {
@@ -52,7 +52,7 @@ describe('WEB API', function () {
             };
 
             request(app)
-                .get('/dogsystem/v1/dogLicense/find_by_dog')
+                .post('/dogsystem/v1/dogLicense/find_by_dog')
                 .set('Access-Token', token)
                 .send(body)
                 .end(function (err, res) {

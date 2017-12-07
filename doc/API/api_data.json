@@ -243,7 +243,7 @@
     "groupTitle": "DogLicense"
   },
   {
-    "type": "get",
+    "type": "post",
     "url": "/dogLicense/find_by_dog",
     "title": "查询狗证（犬只）",
     "name": "findDogLicenseByDog",
@@ -289,7 +289,7 @@
     "groupTitle": "DogLicense"
   },
   {
-    "type": "get",
+    "type": "post",
     "url": "/dogLicense/find_by_owner",
     "title": "查询狗证（犬主）",
     "name": "findDogLicenseByOwner",
@@ -741,7 +741,7 @@
     "groupTitle": "Organization"
   },
   {
-    "type": "get",
+    "type": "post",
     "url": "owner/find",
     "title": "查询犬主",
     "name": "findOwner",

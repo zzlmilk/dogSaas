@@ -13,6 +13,23 @@ var FindOwnerLogic = {
         var certificateType =param.certificateType;
         var certificateCode=param.certificateCode
 
+        if (Utils.isEmpty(certificateType)) {
+            onError(null,
+                Const.resCodeDogOwnerNoCertificateType
+            )
+
+            return;
+        }
+        if (Utils.isEmpty(certificateCode)) {
+            onError(null,
+                Const.resCodeDogOwnerNocertificateCode
+            )
+
+            return;
+        }
+
+
+
 
         async.waterfall([
             function (done) {

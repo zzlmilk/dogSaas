@@ -18,7 +18,7 @@ var FindOwnerHandler = function(){
 }
 /*
 /**
-	* @api {get} owner/find 查询犬主
+	* @api {post} owner/find 查询犬主
 	* @apiName findOwner
 	* @apiGroup Owner
 	* @apiDescription 查询api接口，获取犬主信息
@@ -54,26 +54,12 @@ _.extend(FindOwnerHandler.prototype,RequestHandlerBase.prototype);
 FindOwnerHandler.prototype.attach = function(route){
     var self = this;
 
-    route.get('/',authenticator,function(request,response){
-        var certificateType =request.query.certificateType;
-        var certificateCode=request.query.certificateCode
-        if (Utils.isEmpty(certificateType)) {
-            self.successResponse(response,
-                Const.resCodeDogOwnerNoCertificateType
-            )
-
-            return;
-        }
-        if (Utils.isEmpty(certificateCode)) {
-            self.successResponse(response,
-                Const.resCodeDogOwnerNocertificateCode
-            )
-
-            return;
-        }
+    route.post('/',authenticator,function(request,response){
 
 
-        FindOwnerLogic.findOwner(request.query,function(result){
+
+
+        FindOwnerLogic.findOwner(request.body,function(result){
             self.successResponse(response,Const.responsecodeSucceed,{
                 owner:result
             });
