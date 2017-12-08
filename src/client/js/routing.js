@@ -150,22 +150,13 @@ var Routing = function(){
         //机构
          appRouter.on('route:organizationRoute', function(actions) {
            
-
-
-
              var user = User.getLoginUser();
-            
 
-            
               // user.organization.checkStatus.status = 1
              // console.log(user.organization.checkStatus)
-
-
-             if (user) {   
+             if (user) {
 
                     var organization = user.organization
-
-                   
 
                         //不存在organizationq 去添加组织
                          if (organization == null   ) {                    
@@ -197,19 +188,12 @@ var Routing = function(){
 
                                 }
                          }
-
-                
                      }
              else{
                          console.log("no user")
                          Utils.goPage('start')
                  }
-
-
-
         });
-
-
 
 
         appRouter.on('route:mainRoute', function(actions) {
@@ -219,8 +203,7 @@ var Routing = function(){
             //    return;
             //}
 
-
-            var MainView = require('./Views/Main/MainView.js');   
+            var MainView = require('./Views/Main/MainView.js');
             var view = new MainView({
                 'el': Config.defaultContaier
             });

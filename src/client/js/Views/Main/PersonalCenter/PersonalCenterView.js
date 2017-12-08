@@ -7,6 +7,7 @@ var _ = require('lodash');
 var Utils = require('../../../lib/utils');
 var Const = require('../../../lib/consts');
 var Config = require('../../../lib/init');
+var User = require('../../../Models/user');
 
 // load template
 var template = require('./PersonalCenter.hbs');
@@ -21,7 +22,7 @@ var PersonalCenterView = Backbone.View.extend({
 
     render: function() {
         $(this.el).html(template({
-
+            user: User.getLoginUser()
         }));
 
 
