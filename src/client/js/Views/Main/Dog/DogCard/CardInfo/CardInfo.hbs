@@ -40,7 +40,7 @@
                     <h4>*养犬人姓名:</h4>
                 </div>
                 <div class="section">
-                    <span>{{dogLicense.husbandryNo}}</span>
+                    <span>{{dogLicense.vaccineCard.info.name}}</span>
                 </div>
             </div>
             <div class="col-md-6">
@@ -48,7 +48,7 @@
                     <h4>免疫证号:</h4>
                 </div>
                 <div class="section">
-                    <span>{{dogLicense.husbandryNo}}</span>
+                    <span>{{dogLicense.vaccineCard.info.cardNo}}</span>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                     <h4>住址:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.addresses}}</span>
                 </div>
             </div>
             <div class="col-md-6">
@@ -66,7 +66,7 @@
                     <h4>所属区县:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.district}}</span>
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@
                     <h4>犬品种:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.breed}}</span>
                 </div>
             </div>
             <div class="col-md-6">
@@ -84,7 +84,7 @@
                     <h4>毛色:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.hairColor}}</span>
                 </div>
             </div>
         </div>
@@ -94,7 +94,9 @@
                     <h4>免疫时间:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <!--循环-->
+                    <span>{{dogLicense.vaccineCard.info.annualDate.[0]}}</span>
+
                 </div>
             </div>
         </div>
@@ -104,7 +106,7 @@
                     <h4>虹膜标志:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.irisID}}</span>
                 </div>
             </div>
         </div>
@@ -114,7 +116,7 @@
                     <h4></h4>
                 </div>
                 <div class="section">
-                    <img src="img/iris.png" />
+                    <img src="img/iris.png"/>
                 </div>
             </div>
         </div>
@@ -124,7 +126,7 @@
                     <h4>签发单位：</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.signOrganization}}</span>
                 </div>
             </div>
         </div>
@@ -134,13 +136,13 @@
                     <h4>初识发证日期：</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.vaccineCreate}}</span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <button class="btn btnBlueE btn-block infoBtn"  id="print_card">打印磁卡</button>
+                <button class="btn btnBlueE btn-block infoBtn" id="print_card">打印磁卡</button>
             </div>
         </div>
     </div>
@@ -155,7 +157,7 @@
                     <h4>养犬人姓名:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.name}}</span>
                 </div>
             </div>
             <div class="col-md-6">
@@ -163,7 +165,7 @@
                     <h4>登记证号:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.cardNo}}</span>
                 </div>
             </div>
         </div>
@@ -173,7 +175,7 @@
                     <h4>住址:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.addresses}}</span>
                 </div>
             </div>
             <div class="col-md-6">
@@ -181,7 +183,7 @@
                     <h4>所属区县:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.district}}</span>
                 </div>
             </div>
         </div>
@@ -191,7 +193,7 @@
                     <h4>犬品种:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.breed}}</span>
                 </div>
             </div>
             <div class="col-md-6">
@@ -199,7 +201,7 @@
                     <h4>毛色:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.hairColor}}</span>
                 </div>
             </div>
         </div>
@@ -209,7 +211,7 @@
                     <h4>年审时间:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.signCretate}}</span>
                 </div>
             </div>
         </div>
@@ -219,12 +221,12 @@
                     <h4>虹膜标志:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.irisID}}</span>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6" >
+            <div class="col-md-6">
                 <div class="subtitle">
                     <div class="codetip">
                         <span>环线内</span>
@@ -232,7 +234,7 @@
                     </div>
                 </div>
                 <div class="section">
-                    <img src="img/iris.png" />
+                    <img src="img/iris.png"/>
                 </div>
             </div>
         </div>
@@ -242,7 +244,7 @@
                     <h4>签发单位:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.signOrganization}}</span>
                 </div>
             </div>
         </div>
@@ -252,7 +254,7 @@
                     <h4>初识发证日期:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <span>{{dogLicense.vaccineCard.info.vaccineCreate}}</span>
                 </div>
             </div>
         </div>
@@ -262,18 +264,18 @@
         <div class="row">
             <div class="col-md-6">
                 <div id="take">
-                    <input type="radio" name="way"   />
+                    <input type="radio" name="way"/>
                     <label>自取</label>
                 </div>
                 <div id="mailing">
-                    <input type="radio" name="way"   />
+                    <input type="radio" name="way"/>
                     <label>邮寄房产证地址</label>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <button class="btn btnBlueE btn-block infoBtn"  id="save">年审</button>
+                <button class="btn btnBlueE btn-block infoBtn" id="save">年审</button>
             </div>
         </div>
     </div>
