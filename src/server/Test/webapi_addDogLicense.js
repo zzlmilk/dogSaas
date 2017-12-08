@@ -62,8 +62,8 @@ describe('WEB API', function () {
                         if (err) {
                             throw err;
                         }
-                        
-                        console.log(res.body)
+
+                        console.log(res.body.data.dogLicense.DogCard.info)
                         res.body.should.have.property('code');
                         res.body.code.should.equal(Const.responsecodeSucceed);
                         

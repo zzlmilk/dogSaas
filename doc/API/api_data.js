@@ -258,6 +258,13 @@ define({ "api": [
             "optional": false,
             "field": "irisID",
             "description": "<p>虹膜ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cardNo",
+            "description": "<p>免疫卡号</p>"
           }
         ]
       }

@@ -27,7 +27,7 @@ DogLicenseModel.prototype.init = function(mongoose){
 				info:{
 						cardNo:String, //免疫证号
 						name:String, //犬主姓名
-						address:String,
+						addresses:String,
 						district:String,//区县
 						breed:String,
 						hairColor:String,
@@ -35,7 +35,7 @@ DogLicenseModel.prototype.init = function(mongoose){
 						irisID:String,
 						annualDate:[], //1306 1806
 						signOrganization:String, //签发机构
-						signCretate:Date, //初始发证日期
+						signCreate:Date, //初始发证日期
 
 				}, //制卡信息		
 
@@ -57,7 +57,7 @@ DogLicenseModel.prototype.init = function(mongoose){
 			info:{
 				cardNo:String, //登记证号
 				name:String,
-				address:String,
+				addresses:String,
 				district:String,//区县
 				irisID:String,
 				breed:String,
@@ -65,7 +65,7 @@ DogLicenseModel.prototype.init = function(mongoose){
 				annualDate:[], //1206 1806
 				loopLineType:Number,
 				signOrganization:String, //签发机构
-				signCretate:Date, //初始发证日期			
+				signCreate:Date, //初始发证日期
 			},
 			create:Date,//创建时间
 		},

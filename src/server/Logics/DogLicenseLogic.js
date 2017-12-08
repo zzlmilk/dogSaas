@@ -374,14 +374,14 @@ var DogLicenseLogic = {
 												  	info:{
 												  		cardNo:Utils.vaccineCardNo(),	
 												  		name:res.owner.name,
-												  		addressres:res.owner.address,
-												  		district:res.owner.district,
+												  		addresses:res.owner.location.address,
+												  		district:res.owner.location.district,
 												  		irisID:res.dog.irisID,
 												  		breed:res.dog.breed,
 												  		hairColor:res.dog.hairColor,
 												  		annualDate:Utils.annualDate([]),
 												  		signOrganization:res.organization.name,
-												  		signCretate:Utils.now(),
+												  		signCreate:Utils.now(),
 												  		vaccineCreate:Utils.now(),
 
 												  	}
@@ -401,15 +401,15 @@ var DogLicenseLogic = {
 										 info:{
 											  		cardNo:Utils.dogCardNo(),	
 											  		name:res.owner.name,
-											  		addressres:res.owner.address,
-											  		district:res.owner.district,
+											  		addresses:res.owner.location.address,
+											  		district:res.owner.location.district,
 											  		irisID:res.dog.irisID,
 											  		breed:res.dog.breed,
 											  		hairColor:res.dog.hairColor,
 											  		loopLineType:1, //默认写死
 											  		annualDate:Utils.annualDate([]),
 											  		signOrganization:res.organization.name +"公安",
-											  		signCretate:Utils.now(),
+											  		signCreate:Utils.now(),
 											  		vaccineCreate:Utils.now(),
 
 												 }

@@ -61,7 +61,7 @@ describe('WEB API', function () {
                         throw err;
                     }
 
-                    console.log(res.body.data)
+                    console.log(res.body)
 
                     res.body.should.have.property('code');
                     res.body.code.should.equal(1);

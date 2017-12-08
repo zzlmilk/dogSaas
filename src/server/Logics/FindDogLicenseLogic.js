@@ -16,8 +16,8 @@ var FindDogLicenseLogic = {
         var certificateType=param.certificateType
         var certificateCode=param.certificateCode
 
-        if (Utils.isEmpty(name) || Utils.isEmpty(phone) ||(Utils.isEmpty(certificateType)
-            &&Utils.isEmpty(certificateCode))){
+        if (Utils.isEmpty(name) || Utils.isEmpty(phone) ||Utils.isEmpty(certificateType)
+            ||Utils.isEmpty(certificateCode)){
             onError(null,
                 Const.resCodeFindDogLinceseParamIsEmpty
             )
@@ -71,6 +71,7 @@ var FindDogLicenseLogic = {
     find_by_dog: function (param, onSuccess, onError) {
         var irisID = param.irisID;
         var cardNo=param.cardNo;
+
         if (Utils.isEmpty(irisID) ){
             onError(null,
                 Const.resCodeDogNoIrisID
