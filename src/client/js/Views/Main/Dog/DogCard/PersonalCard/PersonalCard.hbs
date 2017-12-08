@@ -97,9 +97,9 @@
                     <h4>*证件类型:</h4>
                 </div>
                 <div class="section">
-                    <select>
-                        <option id="ID_card">身份证</option>
-                        <option id="passport">护照</option>
+                    <select id="cardtype">
+                        <option value="1" selected="selected">身份证</option>
+                        <option value="2">护照</option>
                     </select>
                     <div class="connect">--</div>
                     <input type="text" id="id_number" oninput="if(value.length>18)value=value.slice(0,18)">

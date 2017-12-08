@@ -63,13 +63,16 @@ var DogCardView = Backbone.View.extend({
         // });
 
 
-
     }
     ,
-    createCard:function () {
+    createCard:function (dogLicense) {
+        console.log("--")
+        console.log(dogLicense)
+        console.log("--")
         var CardInfoView = require('./CardInfo/CardInfoView.js');
         var view = new CardInfoView({
-            'el': ".manage_content"
+            'el': ".manage_content",
+            "dogLicense":dogLicense
         });
     }
 });

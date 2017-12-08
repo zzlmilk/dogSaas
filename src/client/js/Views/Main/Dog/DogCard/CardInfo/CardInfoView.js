@@ -15,15 +15,17 @@ var template = require('./CardInfo.hbs');
 
 var CardInfoView = Backbone.View.extend({
 
-    el : null,
-    initialize: function(options) {
+    el: null,
+    dogLicense: null,
+    initialize: function (options) {
         this.el = options.el;
+        this.dogLicense = options.dogLicense;
         this.render();
     },
 
-    render: function() {
+    render: function () {
         $(this.el).html(template({
-
+            dogLicense:this.dogLicense
         }));
 
         this.onLoad();
@@ -32,12 +34,9 @@ var CardInfoView = Backbone.View.extend({
 
     },
 
-    onLoad: function(){
+    onLoad: function () {
 
         var self = this;
-
-
-
 
 
     }

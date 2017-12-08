@@ -186,7 +186,6 @@ var AddOrganizationView = Backbone.View.extend({
                     $("#server_null_tip").hide();
                 }
 
-                console.log(server_value)
             });
 
             //兽医姓名: 失去焦点监听
@@ -350,7 +349,6 @@ var AddOrganizationView = Backbone.View.extend({
         })
 
 
-
         //WaitReview_button
         $("#WaitReview_button").unbind().on('click', function (e) {
 
@@ -367,9 +365,6 @@ var AddOrganizationView = Backbone.View.extend({
             el: "#animalMedicalLicense"
         })
 
-        console.log(UploadView1)
-        console.log(UploadView2)
-
 
         //图片上传成功后的通知
         Backbone.on(Const.NotificationUploadImageDone, function (obj) {
@@ -383,13 +378,9 @@ var AddOrganizationView = Backbone.View.extend({
         });
         //添加医生完成的通知
         Backbone.on(Const.NotificationAddDoctorDone, function (obj) {
-          // var veter =new Veterinary({
-          //       name:obj.name,
-          //       code:obj.code
-          //   });
-          var veter ={
-                name:obj.name,
-                code:obj.code
+            var veter = {
+                name: obj.name,
+                code: obj.code
             };
             self.veterinarys.push(veter);
             var sb = new StringBuffer();
@@ -398,15 +389,10 @@ var AddOrganizationView = Backbone.View.extend({
             $("#doctor_null_tip").hide();
             $("#doctor_table").after(sb.toString());
 
-            console.log(self.veterinarys)
-
-
         });
-
-
     },
 
-
+    //添加组织
     addOrganization: function (veterinarians) {
         var server_value = []
         $('input[name="server"]:checked').each(function () {
@@ -423,7 +409,7 @@ var AddOrganizationView = Backbone.View.extend({
             businessLicense: $("#businessLicense img").attr("src"),
             animalMedicalLicense: $("#animalMedicalLicense img").attr("src"),
             serviceScope: server_value,
-            veterinarians:veterinarians,
+            veterinarians: veterinarians,
             contacts_name: $('#contacts').val().trim(),
             contacts_phone: $('#contacts_phone').val().trim()
         };

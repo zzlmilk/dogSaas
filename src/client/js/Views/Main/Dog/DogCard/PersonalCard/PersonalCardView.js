@@ -46,6 +46,7 @@ var PersonalCardView = Backbone.View.extend({
         new SelectPluginView({
             el: "#orga_area"
         });
+
         function initEvent() {
             //条形码 失去焦点监听
             $("#barcode").blur(function () {
@@ -108,18 +109,14 @@ var PersonalCardView = Backbone.View.extend({
             });
 
             //证件类型 焦点监听
-            $("input[name='cardtype']").click(function () {
-                var cardtype = $("input[name='cardtype']:checked").val();
-                if (cardtype == undefined) {
-                    $("#cardtype_null_tip").show();
-                } else {
-                    $("#cardtype_null_tip").hide();
-                    //查询数据 (已选择类型并且证件号格式正确)
-                    var id_number = $('#id_number').val().trim();
-                    if (id_number.match(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/)) {
-                        info();
-                    }
+            //品种 内容变化监听
+            $("#cardtype").change(function () {
+                //查询数据 (已选择类型并且证件号格式正确)
+                var id_number = $('#id_number').val().trim();
+                if (id_number.match(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/)) {
+                    info();
                 }
+
             });
 
             //证件号 失去焦点监听
@@ -139,12 +136,7 @@ var PersonalCardView = Backbone.View.extend({
                 } else {
                     $("#id_number_format_tip").hide();
                     //查询数据 (已选择类型并且证件号格式正确)
-                    var cardtype = $("input[name='cardtype']:checked").val();
-                    if (cardtype != undefined) {
-                        //查询数据
-                        info();
-                    }
-
+                    info();
                 }
             });
 
@@ -377,8 +369,8 @@ var PersonalCardView = Backbone.View.extend({
                     sexText: $("input[name='gender']:checked").val() == 1 ? "男" : "女",
                     tel: $('#tel').val(),
                     phone: $('#phone').val(),
-                    certificateType: $("input[name='cardtype']:checked").val(),
-                    certificateTypeText: $("input[name='cardtype']:checked").val() == 1 ? "身份证" : "护照",
+                    certificateType: $('#cardtype').val(),
+                    certificateTypeText: $('#cardtype').val() == 1 ? "身份证" : "护照",
                     certificateCode: $('#id_number').val(),
                     province: $('#province').val(),
                     provinceText: $("#province").find("option:selected").text(),
@@ -446,12 +438,6 @@ var PersonalCardView = Backbone.View.extend({
             if (tel == "") {
                 falg = false;
                 $("#tel_null_tip").show();
-            }
-            //证件类型
-            var cardtype = $("input[name='cardtype']:checked").val();
-            if (cardtype == undefined) {
-                falg = false;
-                $("#cardtype_null_tip").show();
             }
             //证件号
             var id_number = $('#id_number').val();
@@ -590,25 +576,31 @@ var PersonalCardView = Backbone.View.extend({
 
         //证件号信息查询
         function info() {
-            UserClient.find(
-                //狗证信息
-                {
-                    certificateType: $("input[name='cardtype']:checked").val(),
-                    certificateCode: $('#id_number').val(),
-                },
+            //证件信息
+            var card = {
+                certificateType: $("#cardtype").val(),
+                certificateCode: $('#id_number').val()
+            };
+            UserClient.find(card,
                 //成功回调
                 function (data) {
                     console.log(data)
-                    var owner = data.Owner;
+                    var owner = data.owner;
                     if (null != owner) {
                         if (confirm('是否加载犬主信息！ ') == true) {
                             console.log("数据回填")
                             $("#dogowner_name").val(owner.name)
+                            console.log(owner.sex)
                             if (owner.sex == 1) {
-                                $("#gender_man").attr("checked", "checked");
-                            } else {
-                                $("#gender_woman").attr("checked", "checked");
+                                $("#gender_woman").removeAttr('checked');
+                                $("#gender_man").attr("checked", true);
+                                $("#gender_man").prop('checked', true);
+                            } else if (owner.sex == 2) {
+                                $("#gender_man").removeAttr('checked');
+                                $("#gender_woman").attr("checked", true);
+                                $("#gender_woman").prop('checked', true);
                             }
+
                             $("#phone").val(owner.phone)
                             $("#tel").val(owner.tel)
 

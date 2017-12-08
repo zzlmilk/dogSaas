@@ -16,7 +16,7 @@ var _ = require('lodash');
     _.extend(UserClient.prototype,APIClientBase.prototype);
 
     UserClient.prototype.find = function(data,success,err){
-    	        
+    	        console.log(data)
         this.postRequst("/owner/find",data,success,err);
      	
     }
