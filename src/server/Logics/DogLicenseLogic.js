@@ -246,7 +246,7 @@ var DogLicenseLogic = {
 
 								  	 residence.save(function(err,residenceResult){
 								  	 		 res.residence = residenceResult;					  	 									  	 		
-								  	 		  dogLicense.residence = residenceResult;
+								  	 		  dogLicense.residence = residenceResult._id;
 								  	 		 done(null,res)
 
 								  	 })
@@ -310,7 +310,7 @@ var DogLicenseLogic = {
 			  					throw err
 			  				}
 			  				res.dog = dogResult;
-		  					dogLicense.dog = dogResult;
+		  					dogLicense.dog = dogResult.id;
 
 							done(null,res)
 			  			})
@@ -328,9 +328,9 @@ var DogLicenseLogic = {
 			  				if (err) { throw err}
 			  				if (ownerResult) {
 			  						//已经有主人信息
-			  						dogLicense.owner = ownerResult;
+			  						dogLicense.owner = ownerResult._id;
 			  						var dogs = ownerResult.dogs;
-			  						dogs.push(res.dog)
+			  						dogs.push(res.dog._id)
 			  						ownerResult.dogs = dogs
 			  						res.owner = ownerResult
 			  						ownerResult.save(function(err,oResult){
@@ -359,7 +359,7 @@ var DogLicenseLogic = {
 
 							  		owner.save(function(err,ownerResult){							  			
 							  			if (err) { throw err; return;}
-							  				dogLicense.owner = ownerResult;
+							  				dogLicense.owner = ownerResult._id;
 							  				res.owner = ownerResult
 							  				done(null,dogLicense)
 							  		})

@@ -18,7 +18,7 @@ describe('WEB API', function () {
                                 usage:"警卫",
                                 hairColor:"白色",
                                 bornDate:"2016-08-10",
-                                irisID:"d123456789",
+                                irisID:"e123456789",
                                 photoUrl:"123",
                                 vaccine:{
                                     name:"av",
@@ -35,7 +35,7 @@ describe('WEB API', function () {
                                 tel:"345033",
                                 phone:"15901794453",
                                 certificateType:"1",
-                                certificateCode:"31010211111111",
+                                certificateCode:"31010222222222",
                                 province:"province",
                                 district:"district",
                                 city:"city",
