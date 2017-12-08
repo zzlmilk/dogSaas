@@ -87,6 +87,7 @@
      Const.resCodeDogNoHusbandryNo = 2000034
      Const.resCodeDogWorngHusbandryNo = 2000035 //已经被使用过的条形码
     Const.resCodeFindOwnerParamIsEmpty=2000036
+    Const.resCodeFindDogParamIsEmpty=2100035
     Const.resCodeVaccineCardNocardNo=2100036
     Const.resCodeVerterinarianNoName=2100037
     Const.resCodeVerterinarianNoCode=2100038

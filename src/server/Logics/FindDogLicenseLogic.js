@@ -71,22 +71,15 @@ var FindDogLicenseLogic = {
         var irisID = param.irisID;
         var cardNo=param.cardNo;
 
-        if (Utils.isEmpty(irisID) ){
+        if (Utils.isEmpty(irisID)&& Utils.isEmpty(cardNo)){
             onError(null,
-                Const.resCodeDogNoIrisID
+                Const.resCodeFindDogParamIsEmpty
             )
 
             return;
 
         }
-        if (Utils.isEmpty(cardNo) ){
-            onError(null,
-                Const.resCodeVaccineCardNocardNo
-            )
 
-            return;
-
-        }
         async.waterfall([
 
             function ( done) {

@@ -12,10 +12,10 @@ describe('WEB API', function () {
 
 							//参数
 							var body = {
-							    name:"test_J7T0v",
+							   // name:"test_J7T0v",
                                 // phone:" "
-                                // certificateType:"1",
-                                // certificateCode:"31010222222222"
+                                certificateType:"1",
+                                certificateCode:"31010222222222"
                             	
                         	}; 
 
