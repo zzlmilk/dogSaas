@@ -37,21 +37,21 @@ SidebarView = Backbone.View.extend({
         });
 
         //左侧导航二级菜单展开
-        $('.nav_a').each(function (i) {
-            $(this).click(function () {
-                $('.second_nav').eq(i).slideToggle();
+
+        $(".nav>li>a").each(function(i){
+            $(this).click(function(){
+                $(this).next("ul").toggle().closest("li").siblings("li").children("ul").hide();
+                $(".nav>li>a>span").eq(i).toggleClass("current");
             })
-        });
+        }).next("ul").hide();
+
+
+
 
         //办理狗证
         $('#btn_dogCard').unbind().on('click', function () {
 
-            //alert("进入二级菜单")
-            // var DogCardView = require('../Dog/DogCard/DogCardView');
-            //
-            // var view = new DogCardView({
-            //     'el': "#main-content"
-            // });
+
             var PersonalCardView = require('../Dog/DogCard/PersonalCard/PersonalCardView');
             var view = new PersonalCardView({
                 'el': "#main-content"
@@ -61,7 +61,6 @@ SidebarView = Backbone.View.extend({
         //办理狗证-->个人办证
         $('#btn_persons').unbind().on('click', function (event) {
             event.stopPropagation();
-            //alert("进入个人办证");
             var PersonalCardView = require('../Dog/DogCard/PersonalCard/PersonalCardView');
             var view = new PersonalCardView({
                 'el': "#main-content"
@@ -83,11 +82,7 @@ SidebarView = Backbone.View.extend({
         //信息查询
         $('#btn_infoSearch').unbind().on('click', function () {
 
-            // var InfoSearchView = require('../InfoSearch/InfoSearchView');
-            //
-            // var view = new InfoSearchView({
-            //     'el': "#main-content"
-            // });
+
             var DogOwnerView = require('../InfoSearch/DogOwner/DogOwnerView.js');
             var view = new DogOwnerView({
                 'el': "#main-content"
