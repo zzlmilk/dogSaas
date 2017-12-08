@@ -76,10 +76,10 @@ var InfoPreview = {
 
                     console.log(data.dogLicense);
 
-                    // var ds = require("../../Main/Dog/DogCard/DogCardView.js");
                     // new ds().createCard(data.dogLicense);
-                    // self.hide();
-                    // // Utils.goPage("organization");
+                    // var ds = require("../../Main/Dog/DogCard/DogCardView.js");
+                    // Utils.goPage("organization");
+                    self.hide();
                     var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
                     var view = new CardInfoView({
                         'el': "#main-content",

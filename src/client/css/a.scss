@@ -7,7 +7,7 @@
   padding-left: 0;
   padding-right: 0;
 }
-
+html,body{height:100%;}
 //控制台头部导航
 .personal_header{
   width: 100%;
@@ -939,6 +939,7 @@
 
 //信息查询--犬主信息查询
 .dogownerlist{
+  width: 100%;
   float: left;
   background:#fcfcfc ;
   padding: 25px;
@@ -1017,6 +1018,7 @@
 
 //信息查询--犬主信息搜索详情
 #dogownersearch{
+  width: 100%;
   float: left;
   background:#fcfcfc ;
   padding: 25px;
@@ -1063,19 +1065,19 @@
 }
 
 //信息查询--犬只信息查询
-#dog_search{
+.dog_search{
   float: left;
   width:100%;
   background:#fcfcfc ;
   padding: 25px;
 }
-#dog_search>.top_tip{
+.dog_search>.top_tip{
   width: 100%;
   height: 40px;
   margin-bottom: 10px;
   float: left;
 }
-#dog_search>.title{
+.dog_search>.title{
   width: 100%;
   height: 80px;
   float: left;
@@ -1084,26 +1086,26 @@
   padding: 20px;
   margin-bottom: 20px;
 }
-#dog_search>.tilte>.row{
+.dog_search>.tilte>.row{
   margin-left:20px;
 }
-#dog_search>.title>.row>.form-group{
+.dog_search>.title>.row>.form-group{
   float: left;
   margin-right: 15px;
   height: 32px;
   line-height: 32px;
 }
-#dog_search>.title>.row>.form-group>label{
+.dog_search>.title>.row>.form-group>label{
   height: 44px;
   line-height: 44px;
 }
-#dog_search>.title>.row>.form-group>input{
+.dog_search>.title>.row>.form-group>input{
   width: 230px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
-#dog_search>.title>.row>#search{
+.dog_search>.title>.row>#search{
   width: 150px;
   height: 44px;
   float: left;
@@ -1111,44 +1113,44 @@
   margin-right: 0px;
 
 }
-#dog_search>.table{
+.dog_search>.table{
   width:100%;
   border-collapse:collapse;
   border:1px #4888c6 solid;
 }
-#dog_search>table th,td{
+.dog_search>table th,td{
 
 }
-#dog_search>.table>thead th{
+.dog_search>.table>thead th{
   text-align:center;
   background:#339afe;
   height: 40px;
   line-height:40px;
   color:#ffffff;
 }
-#dog_search>.table>tbody>.tr_head{
+.dog_search>.table>tbody>.tr_head{
   background:#339afe;
   color: #ffffff;
 }
-#dog_search>.table>tbody tr td{
+.dog_search>.table>tbody tr td{
   height: 30px;
   text-align:center;
 }
-#dog_search>.table>tbody>.tr_head>td{
+.dog_search>.table>tbody>.tr_head>td{
   height: 50px;
   line-height: 50px;
 }
-#dog_search>.table>tbody tr:nth-child(2n+2){
+.dog_search>.table>tbody tr:nth-child(2n+2){
   background:#daedff;
 }
-#dog_search>.table>tbody tr:nth-child(2n+3){
+.dog_search>.table>tbody tr:nth-child(2n+3){
   background:#ffffff;
 }
-#dog_search>table>tbody>tr>td>.td-a{
+.dog_search>table>tbody>tr>td>.td-a{
   color:#339afe;
   text-decoration: underline;
 }
-#dog_search>#dogsearch_nav{
+.dog_search>#dogsearch_nav{
   //width: 500px;
   //position: absolute;
   //margin-left:-250px ;
@@ -1157,6 +1159,7 @@
 
 //免疫年检细节
 .immune_content{
+  width: 100%;
   float: left;
   background:#fcfcfc ;
   padding: 25px;
@@ -1307,6 +1310,7 @@
 
 //免疫年检列表
 .immune_list{
+  width:100%;
   float: left;
   background:#fcfcfc ;
   padding: 25px;
@@ -1392,6 +1396,7 @@
 
 //制卡信息
 .card_info{
+  width: 100%;
   float: left;
   background:#fcfcfc ;
   padding: 25px;
