@@ -246,7 +246,7 @@ var DogLicenseLogic = {
 
 								  	 residence.save(function(err,residenceResult){
 								  	 		 res.residence = residenceResult;					  	 									  	 		
-								  	 		  dogLicense.residence = residenceResult._id
+								  	 		  dogLicense.residence = residenceResult;
 								  	 		 done(null,res)
 
 								  	 })
@@ -278,8 +278,19 @@ var DogLicenseLogic = {
 			  		})
 
 
-			  	},
-			  	function(result,done){
+			  	},function (result,done) {
+			  		//验证irisID唯一性
+			  		var dogModel=DogModel.get();
+			  		var irisID=dogParam.irisID;
+			  		dogModel.findOne({irisID:irisID},function (err,irisIDResult) {
+			  			if(irisIDResult){
+			  				onError(null, Const.resCodeDogIrisIDExisted);
+							return;
+						}
+						done(null,res);
+                    })
+
+                  },function(result,done){
 			  			//录入宠物dog 信息
 			  			var dogModel =  DogModel.get();
 			  			var dog = new dogModel({
@@ -291,7 +302,7 @@ var DogLicenseLogic = {
 			  				  bornDate:dogParam.bornDate,
 			  				  photoUrl:dogParam.photoUrl,
 			  				  irisID:dogParam.irisID,
-			  				  vaccine:res.vaccine._id
+			  				  vaccine:res.vaccine
 			  			})
 
 			  			dog.save(function(err,dogResult){
@@ -299,7 +310,7 @@ var DogLicenseLogic = {
 			  					throw err
 			  				}
 			  				res.dog = dogResult;
-		  					dogLicense.dog = dogResult._id;
+		  					dogLicense.dog = dogResult;
 
 							done(null,res)
 			  			})
@@ -317,9 +328,9 @@ var DogLicenseLogic = {
 			  				if (err) { throw err}
 			  				if (ownerResult) {
 			  						//已经有主人信息
-			  						dogLicense.owner = ownerResult._id;
+			  						dogLicense.owner = ownerResult;
 			  						var dogs = ownerResult.dogs;
-			  						dogs.push(res.dog._id)
+			  						dogs.push(res.dog)
 			  						ownerResult.dogs = dogs
 			  						res.owner = ownerResult
 			  						ownerResult.save(function(err,oResult){
@@ -348,7 +359,7 @@ var DogLicenseLogic = {
 
 							  		owner.save(function(err,ownerResult){							  			
 							  			if (err) { throw err; return;}
-							  				dogLicense.owner = ownerResult._id;
+							  				dogLicense.owner = ownerResult;
 							  				res.owner = ownerResult
 							  				done(null,dogLicense)
 							  		})

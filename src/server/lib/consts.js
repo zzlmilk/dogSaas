@@ -91,7 +91,7 @@
     Const.resCodeVerterinarianNoName=2100037
     Const.resCodeVerterinarianNoCode=2100038
     Const.resCodeVerterinarianNotArray=2100039
-    Const.resCodeRegisterWrongirisID=2100040
+    Const.resCodeDogIrisIDExisted=2100040
 
 
 

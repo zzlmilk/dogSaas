@@ -16,10 +16,9 @@ var FindDogLicenseLogic = {
         var certificateType=param.certificateType
         var certificateCode=param.certificateCode
 
-        if (Utils.isEmpty(name) || Utils.isEmpty(phone) ||Utils.isEmpty(certificateType)
-            ||Utils.isEmpty(certificateCode)){
+        if (Utils.isEmpty(name) && Utils.isEmpty(phone) &&Utils.isEmpty(certificateCode)){
             onError(null,
-                Const.resCodeFindDogLinceseParamIsEmpty
+                Const.resCodeFindOwnerParamIsEmpty
             )
 
             return;

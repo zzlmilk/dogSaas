@@ -13,12 +13,12 @@ describe('WEB API', function () {
                             husbandryNo:global.getRandomStr(),
                             dog:{
                                 nickname: "test_" + global.getRandomStr(),
-                                sex:"1",
+                                sex:"2",
                                 breed:"breed",
                                 usage:"警卫",
                                 hairColor:"白色",
                                 bornDate:"2016-08-10",
-                                irisID:"a123456789",
+                                irisID:"d123456789",
                                 photoUrl:"123",
                                 vaccine:{
                                     name:"av",
@@ -63,7 +63,7 @@ describe('WEB API', function () {
                             throw err;
                         }
 
-                        console.log(res.body.data.dogLicense.DogCard.info)
+                        console.log(res.body.data)
                         res.body.should.have.property('code');
                         res.body.code.should.equal(Const.responsecodeSucceed);
                         

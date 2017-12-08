@@ -6,16 +6,16 @@ var Const = require('../lib/consts');
 
 
 describe('WEB API', function () {
-		it(' find DogLicense by owner', function (done) {
+		it(' should find DogLicense by owner', function (done) {
 
 				signin(function(token){
 
 							//参数
 							var body = {
-							    name:" ",
-                                phone:" ",
-                                certificateType:"1",
-                                certificateCode:"31010211111111"
+							    name:"test_J7T0v",
+                                // phone:" "
+                                // certificateType:"1",
+                                // certificateCode:"31010222222222"
                             	
                         	}; 
 
