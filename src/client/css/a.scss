@@ -129,8 +129,7 @@
   margin-left:50px ;
 }
 #personal_center_view>.basic_info>.title>.row{
-  height: 44px;
-  background:red;
+
 }
 #personal_center_view>.basic_info>.row>.col-md-4>.subtitle{
   float: left;
@@ -154,6 +153,7 @@
   height: 44px;
   line-height: 44px;
 }
+
 #personal_center_view>.basic_info>.row>.col-md-3>.subtitle{
   float: left;
   height: 40px;
@@ -177,17 +177,34 @@
   height: 44px;
   line-height: 44px;
 }
-#personal_center_view>.basic_info>.row>.col-md-3>.section>#license{
-  width: 231px;
-  height: 161px;
-  float:left;
-  margin-left:40px;
+
+#personal_center_view>.basic_info>.row>.col-md-6>.subtitle{
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 45px;
 }
-#personal_center_view>.basic_info>.row>.col-md-3>.section>#permit{
+#personal_center_view>.basic_info>.row>.col-md-6>.subtitle h4{
+  float: left;
+  height: 44px;
+  line-height: 44px;
+  text-align:right;
+}
+#personal_center_view>.basic_info>.row>.col-md-6>.section{
+  float: left;
+  height: 161px;
+  margin-left: 5px;
+  position: relative;
+}
+#personal_center_view>.basic_info>.row>.col-md-6>.section>#license{
   width: 231px;
   height: 161px;
   float:left;
-  margin-left:40px;
+}
+#personal_center_view>.basic_info>.row>.col-md-6>.section>#permit{
+  width: 231px;
+  height: 161px;
+  float:left;
 }
 
 //控制台侧边栏
