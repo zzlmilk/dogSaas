@@ -6,12 +6,17 @@
 
     <div class="title">
         <div class="row">
-            <div class="form-group" >
-                <label for="dogowner_name" class=" control-label ">虹膜ID: </label>
-                <input type="text"  id="dogowner_name" >
-            </div>
+            <!--<div class="form-group" >-->
+                <!--<label for="dogowner_name" class=" control-label ">虹膜ID: </label>-->
+                <!--<input type="text"  id="dogowner_name" >-->
+            <!--</div>-->
             <div class="form-group">
-                <label for="id_number" class=" control-label ">免疫卡号:</label>
+                <label for="dog_number" class=" control-label ">犬只信息:</label>
+                <select class="dog_number">
+                    <option>虹膜ID</option>
+                    <option>免疫卡号</option>
+                    <option>主人手机号</option>
+                </select>
                 <input type="text"  id="id_number" >
             </div>
             <div class="form-group" id="search">
@@ -157,26 +162,26 @@
     </table>
 
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-6 col-md-offset-3 text-center">
             <nav aria-label="Page navigation" id="dogsearch_nav">
                 <ul class="pagination">
-                    <li><a href="#">首页</a></li>
+                    <li><a href="javascript:void(0)">首页</a></li>
                     <li>
-                        <a href="#" aria-label="Previous">
+                        <a href="javascript:void(0)" aria-label="Previous">
                             <span aria-hidden="true">上一页</span>
                         </a>
                     </li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
+                    <li class="active"><a href="javascript:void(0)">1</a></li>
+                    <li><a href="javascript:void(0)">2</a></li>
+                    <li><a href="javascript:void(0)">3</a></li>
+                    <li><a href="javascript:void(0)">4</a></li>
+                    <li><a href="javascript:void(0)">5</a></li>
                     <li>
-                        <a href="#" aria-label="Next">
+                        <a href="javascript:void(0)" aria-label="Next">
                             <span aria-hidden="true">下一页</span>
                         </a>
                     </li>
-                    <li><a href="#">尾页</a></li>
+                    <li><a href="javascript:void(0)">尾页</a></li>
                 </ul>
             </nav>
         </div>

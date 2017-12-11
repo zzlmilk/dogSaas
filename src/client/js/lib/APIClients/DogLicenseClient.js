@@ -23,7 +23,11 @@ var _ = require('lodash');
      */
     DogLicenseClient.prototype.add = function(data,success,err){
         this.postRequst("/dogLicense/add",data,success,err);
-    }
+    };
+
+    DogLicenseClient.prototype.findByOwner=function (data,success,err){
+        this.postRequst("/dogLicense/find_by_owner",data,success,err);
+    };
         
     // returns instance
     module["exports"] = new DogLicenseClient();

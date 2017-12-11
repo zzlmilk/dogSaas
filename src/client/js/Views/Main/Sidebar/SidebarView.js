@@ -8,8 +8,7 @@ var Config = require('../../../lib/init');
 // load template
 var template = require('./Sidebar.hbs');
 
-var SidebarView;
-SidebarView = Backbone.View.extend({
+var SidebarView = Backbone.View.extend({
 
     el: null,
     initialize: function (options) {
@@ -37,63 +36,62 @@ SidebarView = Backbone.View.extend({
         });
 
         //左侧导航二级菜单展开
-        $('.nav_a').each(function (i) {
-            $(this).click(function () {
-                $('.second_nav').eq(i).slideToggle();
+
+        $(".nav>li>a").each(function(){
+            $(this).click(function(){
+                $(this).next("ul").toggle().closest("li").siblings("li").children("ul").hide();
+                $(this).children("span").toggleClass("current");
+                $(this).parent("li").siblings("li").children("a").children("span").removeClass("current");
+
+                //默认二级菜单第一个选项被选中
+                $(this).next("ul").children("li").eq(0).children("a").removeClass("unactived").addClass("active").parent("li").siblings("li").children("a").removeClass("active").addClass("unactived");
+
+                $(".second_nav>li>a").each(function(){
+                    $(this).click(function(){
+                        $(this).removeClass("unactived").addClass("active").parent("li").siblings("li").children("a").removeClass("active").addClass("unactived");
+                    })
+                })
             })
-        });
+        }).next("ul").hide();
+
+
+
+
+
+
 
         //办理狗证
         $('#btn_dogCard').unbind().on('click', function () {
-
-            //alert("进入二级菜单")
-            // var DogCardView = require('../Dog/DogCard/DogCardView');
-            //
-            // var view = new DogCardView({
-            //     'el': "#main-content"
-            // });
             var PersonalCardView = require('../Dog/DogCard/PersonalCard/PersonalCardView');
             var view = new PersonalCardView({
                 'el': "#main-content"
             });
-
         });
         //办理狗证-->个人办证
         $('#btn_persons').unbind().on('click', function (event) {
             event.stopPropagation();
-            //alert("进入个人办证");
             var PersonalCardView = require('../Dog/DogCard/PersonalCard/PersonalCardView');
             var view = new PersonalCardView({
                 'el': "#main-content"
             });
 
         });
-
         //办理狗证-->企业办证
         $('#btn_businesss').unbind().on('click', function (event) {
             event.stopPropagation();
-            //alert("进入企业办证");
             var BusinessCardView = require('../Dog/DogCard/BusinessCard/BusinessCardView');
             var view = new BusinessCardView({
                 'el': "#main-content"
             });
-
         });
 
         //信息查询
-        $('#btn_infoSearch').unbind().on('click', function () {
-
-            // var InfoSearchView = require('../InfoSearch/InfoSearchView');
-            //
-            // var view = new InfoSearchView({
-            //     'el': "#main-content"
-            // });
+        $('#btn_infoSearch').unbind().on('click', function (event) {
+            event.stopPropagation();
             var DogOwnerView = require('../InfoSearch/DogOwner/DogOwnerView.js');
             var view = new DogOwnerView({
                 'el': "#main-content"
             });
-
-
         });
         //信息查询-->犬主查询
         $('#btn_dogowners').unbind().on('click', function (event) {
@@ -102,7 +100,6 @@ SidebarView = Backbone.View.extend({
             var view = new DogOwnerView({
                 'el': "#main-content"
             });
-
         });
         //信息查询-->犬只查询
         $('#btn_dogs').unbind().on('click', function (event) {
@@ -111,17 +108,30 @@ SidebarView = Backbone.View.extend({
             var view = new DogView({
                 'el': "#main-content"
             });
-
         });
 
+        //年检
+        $('#btn_immune').unbind().on('click', function (event) {
+            event.stopPropagation();
+            var ImmuneListView = require('../Immune/ImmuneList/ImmuneListView');
+            var view = new ImmuneListView({
+                'el': "#main-content"
+            });
+        });
+        //年检-->免疫年检
+        $('#btn_check').unbind().on('click', function (event) {
+            event.stopPropagation();
+            var ImmuneListView = require('../Immune/ImmuneList/ImmuneListView');
+            var view = new ImmuneListView({
+                'el': "#main-content"
+            });
+        });
+        //年检-->狗证年检
+        $('#btn_dogcard').unbind().on('click', function () {
+            event.stopPropagation();
+            var DogLicenseView = require('../Immune/DogLicense/DogLicenseView');
 
-
-        //免疫年检
-        $('#btn_immune').unbind().on('click', function () {
-
-            var ImmuneView = require('../Immune/ImmuneView');
-
-            var view = new ImmuneView({
+            var view = new DogLicenseView({
                 'el': "#main-content"
             });
 
