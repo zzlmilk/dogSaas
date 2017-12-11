@@ -45,6 +45,9 @@ var WebAPIMain = {
 
 				      //owner
                     router.use("/owner/find", require('./Owner/FindOwnerHandler'));
+                    //veterinarian
+                    router.use("/veterinarian/add", require('./Veterinarian/AddVeterinarianHandler'));
+
 
 
                     //ResidenceModel

@@ -1,12 +1,13 @@
 var _ = require('lodash');
 var crypto = require('crypto');
 var moment = require('moment');
+var Const = require("../lib/consts");
     // Class ------------------------------------------------
     function Utils() {
     };
 
 
- 	   Utils.prototype.now = now;     
+     Utils.prototype.now = now;
      Utils.prototype.isEmpty = isEmpty;
      Utils.prototype.randomString = randomString;
      Utils.prototype.randomCode = randomCode;
@@ -22,6 +23,13 @@ var moment = require('moment');
 
 
      Utils.prototype.pickUser = pickUser;
+
+     Utils.prototype.skip = skip;
+    function skip(page) {
+
+        var skip=(page-1)*(Const.dogLicensesListLimit);
+        return skip;
+    }
 
 
     function annualDate(annualDate){

@@ -6,7 +6,7 @@ var _ = require('lodash');
 var OwnerModel = require('../Models/Owner');
 
 
-var FindOwnerLogic = {
+var OwnerLogic = {
 
     findOwner: function (param, onSuccess, onError) {
 
@@ -59,4 +59,4 @@ var FindOwnerLogic = {
 }
 
 
-module["exports"] =FindOwnerLogic
+module["exports"] =OwnerLogic

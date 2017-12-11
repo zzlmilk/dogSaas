@@ -7,7 +7,7 @@ var Const = require("../../lib/consts");
 var authenticator = require("../middleware/auth");
 
 
-var FindDogLicenseLogic = require("../../Logics/FindDogLicenseLogic");
+var DogLicenseLogic = require("../../Logics/DogLicenseLogic");
 
 
 
@@ -44,12 +44,16 @@ _.extend(FindDogLicenseByDogHandler.prototype,RequestHandlerBase.prototype);
 
 FindDogLicenseByDogHandler.prototype.attach = function(route){
     var self = this;
+    var res={};
 
     route.post('/',authenticator,function(request,response){
 
-        FindDogLicenseLogic.find_by_dog(request.body,function(result){
+        DogLicenseLogic.find_by_dog(request.body,function(result){
             self.successResponse(response,Const.responsecodeSucceed,{
-                dogLicenses:result
+                dogLicenses:result,
+                count:res.count
+
+
             });
 
         },function(err,code){

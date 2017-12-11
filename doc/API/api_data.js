@@ -968,6 +968,59 @@ define({ "api": [
     "groupTitle": "User"
   },
   {
+    "type": "post",
+    "url": "/veterinarian/add",
+    "title": "添加兽医",
+    "name": "addVeterinarian",
+    "group": "Veterinarian",
+    "description": "<p>添加兽医api接口</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>兽医名字</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>兽医执照号</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{ veterinarian:\n   { __v: 0,\n     name: '张三',\n     code: '119',\n     created: '2017-12-11T02:11:18.705Z',\n     _id: '5a2de9469a2b061da8297704' } }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/Veterinarian/AddVeterinarianHandler.js",
+    "groupTitle": "Veterinarian"
+  },
+  {
     "type": "get",
     "url": "/test",
     "title": "Test",

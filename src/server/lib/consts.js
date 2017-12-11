@@ -93,6 +93,7 @@
     Const.resCodeVerterinarianNoCode=2100038
     Const.resCodeVerterinarianNotArray=2100039
     Const.resCodeDogIrisIDExisted=2100040
+    Const.resCodeVerterinarianExisted=2100041
 
 
 
@@ -116,6 +117,8 @@
      
 
       Const.credentialsMinLength = 6;
+
+     Const.dogLicensesListLimit = 10;
 
      // Exports ----------------------------------------------
     module["exports"] = Const;
