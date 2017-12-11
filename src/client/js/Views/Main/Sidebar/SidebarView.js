@@ -44,10 +44,8 @@ SidebarView = Backbone.View.extend({
                 $(this).children("span").toggleClass("current");
                 $(this).parent("li").siblings("li").children("a").children("span").removeClass("current");
 
-
-                $(this).next("ul").children("li").eq(0).children("a").removeClass("unactived");
-                $(this).next("ul").children("li").eq(0).children("a").addClass("active");
-                $(this).next("ul").children("li").eq(1).children("a").removeClass("active");
+                //默认二级菜单第一个选项被选中
+                $(this).next("ul").children("li").eq(0).children("a").removeClass("unactived").addClass("active").parent("li").siblings("li").children("a").removeClass("active").addClass("unactived");
 
                 $(".second_nav>li>a").each(function(){
                     $(this).click(function(){
