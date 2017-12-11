@@ -8,7 +8,7 @@ var Config = require('../../../../lib/init');
 // load template
  var template = require('./ImmuneList.hbs');
 
-//var template = require('../ImmuneDetail/ImmuneDetail.hbs');
+
 
 
 var ImmuneListView = Backbone.View.extend({
