@@ -32,27 +32,7 @@ var InfoSearchView = Backbone.View.extend({
         var self = this;
 
 
-        // var DogOwnerView = require('./DogOwner/DogOwnerView.js');
-        // var view = new DogOwnerView({
-        //     'el': ".infosearch_content"
-        // });
-        //
-        // //犬主查询
-        // $('#btn_dogowner').unbind().on('click', function () {
-        //     var DogOwnerView = require('./DogOwner/DogOwnerView.js');
-        //     var view = new DogOwnerView({
-        //         'el': ".infosearch_content"
-        //     });
-        //
-        // });
-        // //犬只查询
-        // $('#btn_dog').unbind().on('click', function () {
-        //     var DogView = require('./Dog/DogView.js');
-        //     var view = new DogView({
-        //         'el': ".infosearch_content"
-        //     });
-        //
-        // });
+
 
 
     }

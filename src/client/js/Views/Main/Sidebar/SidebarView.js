@@ -63,13 +63,10 @@ SidebarView = Backbone.View.extend({
 
         //办理狗证
         $('#btn_dogCard').unbind().on('click', function () {
-
-
             var PersonalCardView = require('../Dog/DogCard/PersonalCard/PersonalCardView');
             var view = new PersonalCardView({
                 'el': "#main-content"
             });
-
         });
         //办理狗证-->个人办证
         $('#btn_persons').unbind().on('click', function (event) {
@@ -80,7 +77,6 @@ SidebarView = Backbone.View.extend({
             });
 
         });
-
         //办理狗证-->企业办证
         $('#btn_businesss').unbind().on('click', function (event) {
             event.stopPropagation();
@@ -89,19 +85,14 @@ SidebarView = Backbone.View.extend({
             var view = new BusinessCardView({
                 'el': "#main-content"
             });
-
         });
 
         //信息查询
         $('#btn_infoSearch').unbind().on('click', function () {
-
-
             var DogOwnerView = require('../InfoSearch/DogOwner/DogOwnerView.js');
             var view = new DogOwnerView({
                 'el': "#main-content"
             });
-
-
         });
         //信息查询-->犬主查询
         $('#btn_dogowners').unbind().on('click', function (event) {
@@ -110,7 +101,6 @@ SidebarView = Backbone.View.extend({
             var view = new DogOwnerView({
                 'el': "#main-content"
             });
-
         });
         //信息查询-->犬只查询
         $('#btn_dogs').unbind().on('click', function (event) {
@@ -119,20 +109,29 @@ SidebarView = Backbone.View.extend({
             var view = new DogView({
                 'el': "#main-content"
             });
-
         });
 
-
-
-        //免疫年检
+        //年检
         $('#btn_immune').unbind().on('click', function () {
-
-            var ImmuneView = require('../Immune/ImmuneView');
-
-            var view = new ImmuneView({
+            var ImmuneListView = require('../Immune/ImmuneList/ImmuneListView');
+            var view = new ImmuneListView({
                 'el': "#main-content"
             });
-
+        });
+        //年检-->免疫年检
+        $('#btn_check').unbind().on('click', function () {
+            var ImmuneListView = require('../Immune/ImmuneList/ImmuneListView');
+            var view = new ImmuneListView({
+                'el': "#main-content"
+            });
+        });
+        //年检-->狗证年检
+        $('#btn_dogcard').unbind().on('click', function () {
+            alert("进入狗证年检");
+            var DogLicenseView = require('../Immune/DogLicense/DogLicenseView');
+            var view = new DogLicenseView({
+                'el': "#main-content"
+            });
         });
 
         //制卡信息
