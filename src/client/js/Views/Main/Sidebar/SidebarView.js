@@ -43,14 +43,17 @@ SidebarView = Backbone.View.extend({
                 $(this).next("ul").toggle().closest("li").siblings("li").children("ul").hide();
                 $(this).children("span").toggleClass("current");
                 $(this).parent("li").siblings("li").children("a").children("span").removeClass("current");
+
+
                 $(this).next("ul").children("li").eq(0).children("a").removeClass("unactived");
                 $(this).next("ul").children("li").eq(0).children("a").addClass("active");
-                    $(this).next("ul").children("li").children("a").click(function(){
-                        $(this).removeClass("unactived");
-                        $(this).addClass("active");
-                        $(this).parent("li").siblings("li").children("a").removeClass("active");
-                        $(this).parent("li").siblings("li").children("a").addClass("unactived");
+                $(this).next("ul").children("li").eq(1).children("a").removeClass("active");
+
+                $(".second_nav>li>a").each(function(){
+                    $(this).click(function(){
+                        $(this).removeClass("unactived").addClass("active").parent("li").siblings("li").children("a").removeClass("active").addClass("unactived");
                     })
+                })
             })
         }).next("ul").hide();
 
