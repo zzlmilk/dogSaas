@@ -286,18 +286,24 @@ label{
   line-height:20px;
   text-align:center;
   display: block;
-  color:#ffffff;
   text-decoration:none;
-  border-left:2px #000000 solid ;
 }
-.sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:hover{
-  border-left:2px #3399ff solid ;
-}
+.sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:link{}
+.sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:visited{}
 .sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:hover{
   color:#3399ff;
 }
 .sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:active{
   color:#3399ff;
+  border-left:2px #3399ff solid ;
+}
+.unactived{
+  color:#ffffff;
+  border-left:2px #000000 solid ;
+}
+.active{
+  color:#3399ff;
+  border-left:2px #3399ff solid ;
 }
 
 //办理狗证--个人办证
@@ -965,6 +971,12 @@ label{
 }
 .dogownerlist>.title>.row>.form-group>input{
   width: 160px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.dogownerlist>.title>.row>.form-group>select{
+  width: 80px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;

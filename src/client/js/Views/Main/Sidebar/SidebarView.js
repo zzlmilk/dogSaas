@@ -38,13 +38,24 @@ SidebarView = Backbone.View.extend({
 
         //左侧导航二级菜单展开
 
-        $(".nav>li>a").each(function(i){
+        $(".nav>li>a").each(function(){
             $(this).click(function(){
                 $(this).next("ul").toggle().closest("li").siblings("li").children("ul").hide();
                 $(this).children("span").toggleClass("current");
                 $(this).parent("li").siblings("li").children("a").children("span").removeClass("current");
+                $(this).next("ul").children("li").eq(0).children("a").removeClass("unactived");
+                $(this).next("ul").children("li").eq(0).children("a").addClass("active");
+                    $(this).next("ul").children("li").children("a").click(function(){
+                        $(this).removeClass("unactived");
+                        $(this).addClass("active");
+                        $(this).parent("li").siblings("li").children("a").removeClass("active");
+                        $(this).parent("li").siblings("li").children("a").addClass("unactived");
+                    })
             })
         }).next("ul").hide();
+
+
+
 
 
 
