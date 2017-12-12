@@ -198,20 +198,18 @@ var OrganizationLogics = {
 				OrganizationModel.get().findOne().populate({path:'adminUser',token:param.user.token}).exec(function(err,organization){
 					if (err) {
 						throw  err;
-					}
-					if (organization) {
+
+					} else {
 						res.organization = organization;
 						done(null,res);
 						onSuccess(res);
+
 					}
 				});
 
 			}
 		], function (err, result) {
-			if (err) {
-				onError(err, null);
-				return;
-			}
+
 		})
 	},
 	validatorParam: function (param, callback) {

@@ -334,6 +334,7 @@ label{
     width:300px;
 }
 .personal_card>.registration>.title>h4>.small_title{
+  margin-left: 15px;
   font-size: 12px;
 }
 .personal_card>.registration>.row{
@@ -719,6 +720,10 @@ label{
 .print_card>.content>.row>.col-md-4>#save{
   margin-left: 50px;
 }
+.print_card>.content>.row>.col-md-4>#return{
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
 
 //办理狗证--企业办证
 .business_card{
@@ -748,6 +753,7 @@ label{
   width:300px;
 }
 .business_card>.registration>.title>h4>.small_title{
+  margin-left: 15px;
   font-size: 12px;
 }
 .business_card>.registration>.row{
