@@ -11,6 +11,7 @@ describe('WEB API', function () {
 	 		 signin(function(token){
 	 		 		var body = {
                             husbandryNo:global.getRandomStr(),
+                            takeWay:1,
                             dog:{
                                 nickname: "test_" + global.getRandomStr(),
                                 sex:"2",
@@ -18,7 +19,7 @@ describe('WEB API', function () {
                                 usage:"警卫",
                                 hairColor:"白色",
                                 bornDate:"2016-08-10",
-                                irisID:"e123456789",
+                                irisID:"b123456789",
                                 photoUrl:"123",
                                 vaccine:{
                                     name:"av",
@@ -30,7 +31,7 @@ describe('WEB API', function () {
 
                             },                            
                             owner:{
-                                name: "test_" + global.getRandomStr(),
+                                name: "test_"+global.getRandomStr(),
                                 sex:"1",
                                 tel:"345033",
                                 phone:"15901794453",
@@ -49,6 +50,8 @@ describe('WEB API', function () {
                                 address:global.getRandomStr(),
                                 isSterilization:"0"
                             },
+
+
 
                                               	
                         };  

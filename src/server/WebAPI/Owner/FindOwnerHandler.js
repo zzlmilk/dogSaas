@@ -7,7 +7,7 @@ var Const = require("../../lib/consts");
 var authenticator = require("../middleware/auth");
 
 var OwnerModel = require('../../Models/Owner');
-var FindOwnerLogic = require("../../Logics/FindOwnerLogic");
+var OwnerLogic = require("../../Logics/OwnerLogic");
 
 
 
@@ -59,7 +59,7 @@ FindOwnerHandler.prototype.attach = function(route){
 
 
 
-        FindOwnerLogic.findOwner(request.body,function(result){
+        OwnerLogic.findOwner(request.body,function(result){
             self.successResponse(response,Const.responsecodeSucceed,{
                 owner:result
             });
