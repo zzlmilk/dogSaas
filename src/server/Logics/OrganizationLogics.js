@@ -169,70 +169,7 @@ var OrganizationLogics = {
 
 	edit: function (param, onSuccess, onError) {
 
-        // var name = param.name;
-        // var code = param.code;//兽医执照号code：是唯一的
-        //
-        // if (Utils.isEmpty(name)) {
-        //     onError(null,
-        //         Const.resCodeVerterinarianNoName
-        //     );
-        //     return;
-        // }
-        //
-        // if (Utils.isEmpty(code)) {
-        //     onError(null,
-        //         Const.resCodeVerterinarianNoCode
-        //     );
-        //     return;
-        // }
-        var res = {};
-        async.waterfall([
-            // function (done) {
-            //     //验证该兽医是否之前添加过
-            //     var veterinarianModel = VeterinarianModel.get();
-            //     veterinarianModel.findOne({ code: code }, function (err,veterinarian ) {
-            //         if (!_.isNull(veterinarian)) {
-            //             //该兽医已添加过
-            //
-            //             onError(null, Const.resCodeVerterinarianExisted);
-            //             return;
-            //         }
-            //
-            //         done(null, res)
-            //
-            //     })
-            //
-            // },
-
-            function (done) {
-                var veterinarianModel =  VeterinarianModel.get();
-                var veterinarians = param.body.veterinarians;
-                var veterinarianList = [];
-                _.each(veterinarians,function(item){
-                    //console.log(item)
-
-                    var veterinarian = new veterinarianModel({
-                        name: item.name,
-                        code: item.code
-                    });
-
-
-
-
-                    veterinarianList.push(veterinarian._id)
-
-                    veterinarian.save(function(err,veterinarianResult){
-
-                    })
-
-
-                });
-
-                res.veterinarianList = veterinarianList
-
-                done(null,res)
-            },
-        ], function (err, result) { })
+        
 
 
     },
