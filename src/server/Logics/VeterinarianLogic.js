@@ -4,11 +4,13 @@ var Const = require("../lib/consts");
 var async = require('async');
 var _ = require('lodash');
 var VeterinarianModel = require('../Models/Veterinarian');
+var OrganizationModel = require('../Models/Organization');
 var VeterinarianLogic = {
     add: function (param, onSuccess, onError) {
 
 
         var name = param.name;
+
 
         var code = param.code;//兽医执照号code：是唯一的
 
@@ -57,14 +59,32 @@ var VeterinarianLogic = {
 
                 veterinarian.save(function (err, veterinarianResult) {
                     if (err) {
-                        onError(err, null);
-                        return;
-                    }
-                  //  res.veterinarian = veterinarianResult
-                    done(null,veterinarianResult);
-                    onSuccess(veterinarianResult)
+                        throw err;
+                    }else{
+
+                        done(null,veterinarianResult);
+                        console.log(veterinarianResult)
+
+                        }
+
                 })
 
+
+            },function (result, done) {
+                var organizationModel = OrganizationModel.get()
+
+                organization.save(function (err, organizationResult) {
+
+                    if (err) {
+                       throw err
+                    }
+                    organization.veterinarians=result._id
+
+                    res.organization = organizationResult;
+
+                    done(null, res)
+
+                })
 
             }
 

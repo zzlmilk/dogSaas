@@ -29,13 +29,13 @@ var OrganizationLogics = {
 				return;
 			}
 			var organizationParam = param.body
-			var veterinariansParam=param.body.veterinarians
+
 
 
 			var res = {}
 			async.waterfall([
 				function (done) {
-					//console.log("a")
+
 					//用户是否能添加机构
 					if (user.organization) {
 
@@ -51,35 +51,14 @@ var OrganizationLogics = {
 
 
 					done(null, res)
-				},function (result,done) {
-                    // var veterinarianModel =  VeterinarianModel.get();
-                    // var veterinarian = new veterinarianModel({
-
-                    //     name: veterinarianParam.name,
-                    //     code: veterinarianParam.code
-
-                    // })
-
-                    // veterinarian.save(function(err,veterinarianResult){
-                    //     if (err) {
-                    //         throw err
-                    //     }
-                    //     res.veterinarian = veterinarianResult;
-
-
-                    //     done(null,res)
-                    // })
-
-                    	done(null,res)
-
-                },
+				},
                 //添加兽医逻辑
                 function (result, done) {
  						var veterinarianModel =  VeterinarianModel.get();
                 		var veterinarians = param.body.veterinarians;
                 		var veterinarianList = [];
                 		_.each(veterinarians,function(item){
-                			//console.log(item)
+
 
                     		 var veterinarian = new veterinarianModel({
                     		     name: item.name,
@@ -190,16 +169,21 @@ var OrganizationLogics = {
 
 	edit: function (param, onSuccess, onError) {
 
-	},
+        
+
+
+    },
 	show: function (param, onSuccess, onError) {
+        var veterinarianModel =  VeterinarianModel.get();
+
 		var res = {};
 		async.waterfall([
 			function (done) {
-				OrganizationModel.get().findOne().populate({path:'adminUser',token:param.user.token}).exec(function(err,organization){
+				OrganizationModel.get().findOne().populate({path:'adminUser',token:param.user.token}).populate("veterinarians").exec(function(err,organization){
 					if (err) {
 						throw  err;
-
-					} else {
+					}
+					if (organization) {
 						res.organization = organization;
 						done(null,res);
 						onSuccess(res);
@@ -209,7 +193,11 @@ var OrganizationLogics = {
 
 			}
 		], function (err, result) {
+			if (err) {
+				onError(err, null);
+				return;
 
+			}
 		})
 	},
 	validatorParam: function (param, callback) {

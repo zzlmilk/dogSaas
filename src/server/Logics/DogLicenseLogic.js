@@ -208,6 +208,7 @@ var DogLicenseLogic = {
 
 			  	},
 				  function (result,done) {
+
                       dogLicense.takeWay = param.takeWay;
                       done(null,res)
 

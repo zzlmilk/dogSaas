@@ -12,7 +12,6 @@ describe('WEB API', function () {
             var body = {
                 name: "张三",
                 code: "119"
-
             };
 
             request(app)
@@ -26,6 +25,7 @@ describe('WEB API', function () {
                     }
 
                     console.log(res.body.data)
+                    res.body.should.have.property('code');
                     res.body.code.should.be.equal(Const.responsecodeSucceed);
                     done();
 

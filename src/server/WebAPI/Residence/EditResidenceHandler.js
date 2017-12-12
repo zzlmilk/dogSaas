@@ -18,74 +18,41 @@ var EditResidenceHandler = function(){
 
 }
 /**
- * @apiDefine Veterinarians 兽医名字
- * @apiParam (veterinarians[{name,code}]) {String}  name  兽医名字
- * @apiParam (veterinarians[{name,code}]) {String} code 兽医执照号
+ * @apiDefine Residence
+ * @apiParam (residence) {String} houseNo (沪)房地（长）字（2006）第(000386)号
+ * @apiParam (residence) {String} houseProperty 自由和租凭
+ * @apiParam (residence) {String} address xxx路xxx弄xxx号 ，用户判断唯一性
+ * @apiParam (residence) {Number} isSterilization  是否绝育  0:未绝育 1:绝育
  */
+
 /**
- * @api {post} /organization/add 添加机构
- * @apiName addOrganization
- * @apiGroup Organization
- * @apiDescription 添加机构信息api接口
- * @apiParam {String} name 机构名字
- * @apiParam {String} province 省
- * @apiParam {String} district 区
- * @apiParam {String} city 城市
- * @apiParam {String} address 地址
- * @apiParam {String} code 邮编
- * @apiParam {String} tel 座机
- * @apiParam {String} businessLicense 营业执照图片url地址
- * @apiParam {String} animalMedicalLicense 动物诊疗许可证图片url地址
- * @apiParam  serviceScope 服务范围
- * @apiParam {String} contacts_name 联系人姓名
- * @apiParam {String} contacts_phone 联系人电话
- * @apiUse Veterinarians
+ * @api {post} /residence/edit 编辑房产信息
+ * @apiName editResidence
+ * @apiGroup Residence
+ * @apiDescription 编辑房产信息api接口
+ * @apiParam {String} dogLicenseId 狗证ID
+ * @apiUse Residence
  * @apiParamExample {json} Request Example
  {
-          name: "test_" + global.getRandomStr(),
-          province: "上海",
-          district: "浦东新区",
-          city: "航头镇",
-          address: "杭南公路",
-          code: "123456",
-          tel: "15838365455",
-          businessLicense: "123",
-          animalMedicalLicense: "123",
-          serviceScope: "美容",
-          contacts_name: "admin",
-          contacts_phone: "15838365455",
-          veterinarians:[
-          {
-          name: "张三",
-          code: "110"
-          },
-          {
-          name: "张三2",
-          code: "111"
-         },
-
-     ]
+     dogLicenseId:"5a26475493f3485bc4d470cd",
+        residence:{
+            houseNo:global.getRandomStr(),
+            houseProperty:"ziyou",
+            address:global.getRandomStr(),
+            isSterilization:"0"
+        }
  }
  * @apiSuccessExample Success-Response:
- { organization:
-   { __v: 0,
-     name: 'test_Z6OMZ',
-     tel: '15838365455',
-     businessLicense: '123',
-     animalMedicalLicense: '123',
-     adminUser: '5a0bec3f3bea6821641c8c18',
-     created: '2017-12-06T10:36:37.436Z',
-     _id: '5a27c8353a919b7d484cfed4',
-     veterinarians: [ '5a27c8353a919b7d484cfed2', '5a27c8353a919b7d484cfed3' ],
-     checkStatus: { status: 0, time: '2017-12-06T10:36:37.435Z' },
-     contacts: { name: 'admin', phone: '15838365455' },
-     serviceScope: [ '美容' ],
-     location:
-      { province: '上海',
-        district: '浦东新区',
-        city: '航头镇',
-        address: '杭南公路',
-        code: '123456' } } }
+ *  { dogLicense:
+      { residence: '5a2f425ba2003a1e3815d6f0',
+        _id: '5a2e570792f3982724eea239',
+        owner: '5a24f583bf77595ff08bf876',
+        dog: '5a2e570792f3982724eea23c',
+        husbandryNo: 'wlvFf',
+        __v: 0,
+        DogCard: [Object],
+        vaccineCard: [Object] } }
+
 
 
 

@@ -10,7 +10,7 @@ describe('WEB API', function () {
 	 it('should be Edit Residence', function (done) {
 	 		 signin(function(token){
 	 		 		var body = {                                            
-                            dogLicenseId:"5a26475493f3485bc4d470cd",                                           
+                            dogLicenseId:"5a2e570792f3982724eea239",
                             residence:{
                                 houseNo:global.getRandomStr(),
                                 houseProperty:"ziyou",

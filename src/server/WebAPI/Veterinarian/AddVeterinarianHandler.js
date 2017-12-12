@@ -7,6 +7,7 @@ var Const = require("../../lib/consts");
 var authenticator = require("../middleware/auth");
 
 var VeterinarianLogic = require("../../Logics/VeterinarianLogic");
+var OrganizationMiddleware = require("../middleware/organizationMiddleware");
 
 
 
@@ -39,11 +40,11 @@ _.extend(AddVeterinarianHandler.prototype,RequestHandlerBase.prototype);
 AddVeterinarianHandler.prototype.attach = function(route){
     var self = this;
 
-    route.post('/',authenticator,function(request,response){
-
+    route.post('/',authenticator,OrganizationMiddleware,function(request,response){
+        request.body.organization = request.organization;
         VeterinarianLogic.add(request.body,function(result){
             self.successResponse(response,Const.responsecodeSucceed,{
-              veterinarian:result
+              organization:result
             });
 
         },function(err,code){
