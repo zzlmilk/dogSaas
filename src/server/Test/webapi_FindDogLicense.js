@@ -12,10 +12,11 @@ describe('WEB API', function () {
 
 							//参数
 							var body = {
-							   // name:"test_J7T0v",
-                                // phone:" "
-                                certificateType:"1",
-                                certificateCode:"31010222222222"
+                                  // name:"test_kEiAr",
+                                  // phone:"15901794453",
+                                // certificateType:"1",
+                                // certificateCode:"31010222222222"
+                                  page:"1"
                             	
                         	}; 
 
@@ -30,7 +31,7 @@ describe('WEB API', function () {
                         }
 
                         console.log(res.body.data)
-                        
+
                       //   res.body.should.have.property('code');
                          res.body.code.should.equal(Const.responsecodeSucceed);
                         done();
@@ -46,8 +47,9 @@ describe('WEB API', function () {
 
             //参数
             var body = {
-                irisID:"b123456789",
-                cardNo:"6VTUvrMRnT"
+                 irisID:"b123456789",
+                // cardNo:"3QYuxjeBis",
+                page :"1"
 
             };
 
@@ -61,7 +63,7 @@ describe('WEB API', function () {
                         throw err;
                     }
 
-                    console.log(res.body)
+                    console.log(res.body.data)
 
                     res.body.should.have.property('code');
                     res.body.code.should.equal(1);

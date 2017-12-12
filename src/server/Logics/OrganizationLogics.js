@@ -197,21 +197,19 @@ var OrganizationLogics = {
 			function (done) {
 				OrganizationModel.get().findOne().populate({path:'adminUser',token:param.user.token}).exec(function(err,organization){
 					if (err) {
-						onError(err, null);
-						return;
-					}
-					if (organization) {
+						throw  err;
+
+					} else {
 						res.organization = organization;
+						done(null,res);
 						onSuccess(res);
+
 					}
 				});
 
 			}
 		], function (err, result) {
-			if (err) {
-				onError(err, null);
-				return;
-			}
+
 		})
 	},
 	validatorParam: function (param, callback) {

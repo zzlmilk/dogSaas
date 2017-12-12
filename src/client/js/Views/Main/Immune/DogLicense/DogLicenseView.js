@@ -6,12 +6,12 @@ var Const = require('../../../../lib/consts');
 var Config = require('../../../../lib/init');
 
 // load template
- var template = require('./ImmuneList.hbs');
+var template = require('./DogLicense.hbs');
 
 
 
 
-var ImmuneListView = Backbone.View.extend({
+var DogLicenseView = Backbone.View.extend({
 
 
     el : null,
@@ -42,4 +42,4 @@ var ImmuneListView = Backbone.View.extend({
 
 });
 
-module.exports = ImmuneListView;
+module.exports = DogLicenseView;
