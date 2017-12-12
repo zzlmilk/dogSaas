@@ -25,6 +25,7 @@ var FindDogLicenseByOwnerHandler = function(){
 	* @apiParam {String} phone 手机号
 	* @apiParam   {String} certificateType 证件类型
 	* @apiParam    {String} certificateCode 证件号
+	* @apiParam {String} page 当前页数
 	* @apiHeader {String} token Access-Token
     * @apiSuccessExample Success-Response:
 { dogLicenses:

@@ -265,6 +265,13 @@
             "optional": false,
             "field": "cardNo",
             "description": "<p>免疫卡号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "page",
+            "description": "<p>当前页数</p>"
           }
         ]
       }
@@ -332,6 +339,13 @@
             "optional": false,
             "field": "certificateCode",
             "description": "<p>证件号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "page",
+            "description": "<p>当前页数</p>"
           }
         ]
       }
@@ -798,6 +812,76 @@
     },
     "version": "0.0.0",
     "filename": "src/server/WebAPI/Owner/FindOwnerHandler.js",
+    "groupTitle": ""
+  },
+  {
+    "type": "post",
+    "url": "/residence/edit",
+    "title": "编辑房产信息",
+    "name": "editResidence",
+    "group": "Residence",
+    "description": "<p>编辑房产信息api接口</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dogLicenseId",
+            "description": "<p>狗证ID</p>"
+          }
+        ],
+        "residence": [
+          {
+            "group": "residence",
+            "type": "String",
+            "optional": false,
+            "field": "houseNo",
+            "description": "<p>(沪)房地（长）字（2006）第(000386)号</p>"
+          },
+          {
+            "group": "residence",
+            "type": "String",
+            "optional": false,
+            "field": "houseProperty",
+            "description": "<p>自由和租凭</p>"
+          },
+          {
+            "group": "residence",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>xxx路xxx弄xxx号 ，用户判断唯一性</p>"
+          },
+          {
+            "group": "residence",
+            "type": "Number",
+            "optional": false,
+            "field": "isSterilization",
+            "description": "<p>是否绝育  0:未绝育 1:绝育</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Example",
+          "content": "{\n    dogLicenseId:\"5a26475493f3485bc4d470cd\",\n       residence:{\n           houseNo:global.getRandomStr(),\n           houseProperty:\"ziyou\",\n           address:global.getRandomStr(),\n           isSterilization:\"0\"\n       }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{ dogLicense:\n     { residence: '5a2f425ba2003a1e3815d6f0',\n       _id: '5a2e570792f3982724eea239',\n       owner: '5a24f583bf77595ff08bf876',\n       dog: '5a2e570792f3982724eea23c',\n       husbandryNo: 'wlvFf',\n       __v: 0,\n       DogCard: [Object],\n       vaccineCard: [Object] } }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/Residence/EditResidenceHandler.js",
     "groupTitle": ""
   },
   {
