@@ -6,154 +6,154 @@
 
     <div class="title">
         <div class="row">
-            <!--<div class="form-group" >-->
-                <!--<label for="iris_id" class="control-label">虹膜ID:</label>-->
-                <!--<input type="text"  id="iris_id" >-->
-            <!--</div>-->
+            <div class="form-group" >
+                <label for="iris_id" class="control-label">虹膜ID:</label>
+                <input type="text"  id="iris_id" >
+            </div>
             <div class="form-group">
                 <select>
-                    <option>虹膜ID</option>
                     <option>免疫卡号</option>
+                    <option>登记证号</option>
                 </select>
                 <input type="text"  id="immune_number" >
             </div>
             <div class="form-group">
-                <label for="" class="control-label">证件类型:</label>
+                <!--<label for="" class="control-label">证件类型:</label>-->
                 <select>
                     <option>身份证</option>
                     <option>护照</option>
                 </select>
-                <input type="text"  >
+                <input type="text" id="id_number" >
             </div>
-            <div class="form-group" id="search">
-                <button class="btn btnBlueE btn-block">搜索</button>
+            <div class="form-group search">
+                <button class="btn btnBlueE btn-block" id="search">搜索</button>
             </div>
         </div>
     </div>
 
     <table class="table" >
-        <thead>
-        <th>虹膜ID</th>
-        <th>免疫卡号</th>
-        <th>身份证号(护照)</th>
-        <th>登记证号</th>
-        <th>犬名</th>
-        <th>品种</th>
-        <th>免疫时间</th>
-        <th>下次免疫时间</th>
-        <th>操作</th>
-        </thead>
         <tbody>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-        </tr>
+            <tr class="tr_head">
+                <td>虹膜ID</td>
+                <td>免疫卡号</td>
+                <td>身份证号(护照)</td>
+                <td>登记证号</td>
+                <td>犬名</td>
+                <td>品种</td>
+                <td>免疫时间</td>
+                <td>下次免疫时间</td>
+                <td>操作</td>
+            </tr>
+            <tr class="tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
+            </tr>
+            <tr class="tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
+            </tr>
+            <tr class="tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
+            </tr>
+            <tr class="tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
+            </tr>
+            <tr class="tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
+            </tr>
+            <tr class="tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
+            </tr>
+            <tr class="tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
+            </tr>
+            <tr class="tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
+            </tr>
+            <tr class="tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
+            </tr>
+            <tr class="tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
+            </tr>
         </tbody>
     </table>
 
