@@ -15,6 +15,13 @@ define({ "api": [
             "optional": false,
             "field": "husbandryNo",
             "description": "<p>畜牧业提供的条形码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "takeWay",
+            "description": "<p>取件</p>"
           }
         ],
         "dog": [
@@ -731,6 +738,59 @@ define({ "api": [
     "groupTitle": "Organization"
   },
   {
+    "type": "post",
+    "url": "/Organization/editVeterinarian",
+    "title": "添加兽医",
+    "name": "editVeterinarian",
+    "group": "Organization",
+    "description": "<p>添加兽医api接口</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>兽医名字</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>兽医执照号</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{ organization:\n   { _id: '5a2f96c2519dea21549ac69e',\n     name: 'test_u9tAB',\n     tel: '15838365455',\n     businessLicense: '123',\n     animalMedicalLicense: '123',\n     adminUser: '5a0bec3f3bea6821641c8c18',\n     created: '2017-12-12T08:43:46.586Z',\n     __v: 4,\n     veterinarians:\n      [ '5a2f96c2519dea21549ac69c',\n        '5a2f96c2519dea21549ac69d',\n        '5a2f96deaa7920265c341b2b',\n        '5a2f97e6fb50ff1a1409b6bc',\n        '5a2f985be71a801ee0ac2cc2',\n        '5a2f99d0e3b20c25741b6d27' ],\n     checkStatus: { status: 0, time: '2017-12-12T08:43:46.585Z' },\n     contacts: { name: 'admin', phone: '15838365455' },\n     serviceScope: [ '美容' ],\n     location:\n      { province: '上海',\n        district: '浦东新区',\n        city: '航头镇',\n        address: '杭南公路',\n        code: '123456' } } }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/Veterinarian/EditVeterinarianHandler.js",
+    "groupTitle": "Organization"
+  },
+  {
     "type": "get",
     "url": "/organization/show",
     "title": "获取机构信息",
@@ -1050,59 +1110,6 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "src/server/WebAPI/User/SetPasswordHandler.js",
     "groupTitle": "User"
-  },
-  {
-    "type": "post",
-    "url": "/veterinarian/add",
-    "title": "添加兽医",
-    "name": "addVeterinarian",
-    "group": "Veterinarian",
-    "description": "<p>添加兽医api接口</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>兽医名字</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "code",
-            "description": "<p>兽医执照号</p>"
-          }
-        ]
-      }
-    },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{ veterinarian:\n   { __v: 0,\n     name: '张三',\n     code: '119',\n     created: '2017-12-11T02:11:18.705Z',\n     _id: '5a2de9469a2b061da8297704' } }",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/server/WebAPI/Veterinarian/AddVeterinarianHandler.js",
-    "groupTitle": "Veterinarian"
   },
   {
     "type": "get",

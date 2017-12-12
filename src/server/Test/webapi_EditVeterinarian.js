@@ -10,8 +10,8 @@ describe('WEB API', function () {
     it('should be add successful', function (done) {
         signin(function (token) {
             var body = {
-                name: "张三",
-                code: "119"
+                name: "李四",
+                code: "1190121"
             };
 
             request(app)
