@@ -8,7 +8,7 @@ var Organization = require('./organization');
 
 // Class ------------------------------------------------
 var DogLicenseModel = Backbone.Model.extend({
-
+    
     localStorage: new LocalStorage("DogLicenseModel"),
 
     defaults: {

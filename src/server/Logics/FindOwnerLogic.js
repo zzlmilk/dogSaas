@@ -29,8 +29,6 @@ var FindOwnerLogic = {
         }
 
 
-
-
         async.waterfall([
             function (done) {
 

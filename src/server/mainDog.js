@@ -13,7 +13,7 @@ var WebAPI = require('./WebAPI/WebAPIMain');
 
 DatabaseManager.init(Conf,function(success){
 	 if(!success){
-
+    
         console.log('Failed to connect DB');
         process.exit(1);
 
