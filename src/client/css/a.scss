@@ -110,9 +110,8 @@ label{
 //控制台头部导航个人中心按钮
 #personal_center_view{
   width: 100%;
-  height: auto;
   background: #fcfcfc;
-  padding: 20px;
+  padding: 25px;
 }
 #personal_center_view>.basic_info{
   width: 100%;
@@ -219,6 +218,50 @@ label{
   width: 231px;
   height: 161px;
   float:left;
+}
+
+
+//控制台消息中心按钮
+.news_center{
+  width: 100%;
+  padding: 25px;
+  float: left;
+}
+.news_center>.content{
+  width: 100%;
+  height: auto;
+  float: left;
+  background: #ffffff;
+  border: 1px #cccccc solid ;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  margin-bottom: 100px;
+}
+.news_center>.content>.title{
+  margin-left: 15px;
+  margin-bottom: 20px;
+}
+.news_center>.content>.row{
+  margin-left: 30px;
+  margin-right:30px;
+  padding-bottom:15px;
+  border-bottom: 2px #cccccc solid;
+}
+.news_center>.content>.row>.col-md-4>.subtitle{
+  float: left;
+}
+.news_center>.content>.row>.col-md-4>.section{
+  float: left;
+}
+.news_center>.content>.row>.col-md-2>.subtitle{
+  float: left;
+}
+.news_center>.content>.row>.col-md-2>.section{
+  float: left;
+  margin-left: 10px;
+}
+.news_center>.content>.lastrow{
+  border-bottom: none;
 }
 
 //控制台侧边栏
