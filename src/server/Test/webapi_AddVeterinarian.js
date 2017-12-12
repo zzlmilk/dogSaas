@@ -15,7 +15,7 @@ describe('WEB API', function () {
             };
 
             request(app)
-                .post('/dogsystem/v1/veterinarian/add')
+                .post('/dogsystem/v1/Organization/editVeterinarian')
                 .set('Access-Token', token)
                 .send(body)
                 .end(function (err, res) {
