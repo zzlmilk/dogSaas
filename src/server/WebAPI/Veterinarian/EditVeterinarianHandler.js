@@ -54,7 +54,7 @@ EditVeterinarianHandler.prototype.attach = function(route){
                 name:"1234567",
                 code:"123454567",
         })
-        
+
 
         var veterinarians = organization.veterinarians;
         veterinarians.push(veterinarian)
@@ -64,9 +64,9 @@ EditVeterinarianHandler.prototype.attach = function(route){
             console.log(result)
         })
 
+        request.body.organization  = request.organization;
 
-
-       
+        
 
 
         return;

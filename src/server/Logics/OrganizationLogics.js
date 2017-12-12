@@ -13,6 +13,7 @@ var VeterinarianModel=require('../Models/Veterinarian');
 var OrganizationLogics = {
 
 
+	
 
 	add: function (param, onSuccess, onError) {
 		var self = this;
