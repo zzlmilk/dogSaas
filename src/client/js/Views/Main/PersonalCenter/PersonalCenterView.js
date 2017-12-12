@@ -14,6 +14,7 @@ var VeterinarianClient = require('../../../lib/APIClients/VeterinarianClient.js'
 // load template
 var template = require('./PersonalCenter.hbs');
 
+
 var PersonalCenterView = Backbone.View.extend({
 
     el: null,
@@ -26,6 +27,53 @@ var PersonalCenterView = Backbone.View.extend({
 
     render: function () {
 
+        self.showInfo();
+        self.onLoad();
+
+        return this;
+
+    },
+
+
+    onLoad: function () {
+
+        //添加医生完成的通知
+        Backbone.on(Const.NotificationAddDoctorDone, function (obj) {
+            var veter = {
+                name: obj.name,
+                code: obj.code
+            };
+            OrganizationClient.addVeterinarian(veter,
+
+                //成功回调
+                function (data) {
+
+                    console.log("成功1");
+                    // console.log(data);
+                    // console.log("成功2");
+                    self.showInfo();
+                    // var PersonalCenterView = require('PersonalCenterView');
+                    //
+                    // var view = new PersonalCenterView({
+                    //     'el': "#main-content"
+                    // });
+
+                    // self.reload
+                }
+                ,
+                //失败回调
+                function (errorCode) {
+                    alert(errorCode);
+
+                }
+            );
+
+        });
+
+    },
+
+
+    showInfo: function () {
         OrganizationClient.show(
             //获取成功
             function (data) {
@@ -36,6 +84,7 @@ var PersonalCenterView = Backbone.View.extend({
             //获取失败
             function (errorCode) {
                 //错误回调
+
                 console.log(errorCode.organization);
                 var status = errorCode.organization.checkStatus.status;
                 var statusText = "";
@@ -59,55 +108,15 @@ var PersonalCenterView = Backbone.View.extend({
                     AddDoctorDialogModal.show();
 
                 });
+
+                $('.delete').unbind().on('click', function () {
+                    // alert($(this).attr("value"));
+                    var DeleteDoctorModal = require('../../Modals/DeleteDoctor/DeleteDoctorView');
+                    DeleteDoctorModal.show($(this).attr("value"));
+
+                });
             });
-
-        this.onLoad();
-
-        return this;
-
-    },
-
-
-    onLoad: function () {
-
-
-        $('.delete').unbind().on('click', function () {
-
-            var DeleteDoctorModal = require('../../Modals/DeleteDoctor/DeleteDoctorView');
-            DeleteDoctorModal.show(function () {
-
-            });
-
-        });
-
-        //添加医生完成的通知
-        Backbone.on(Const.NotificationAddDoctorDone, function (obj) {
-            var veter = {
-                name: obj.name,
-                code: obj.code
-            };
-            VeterinarianClient.add(veter,
-
-                //成功回调
-                function (data) {
-
-                    console.log("成功1");
-                    console.log(data);
-                    console.log("成功2");
-                }
-                ,
-                //失败回调
-                function (errorCode) {
-                    alert(errorCode);
-
-                }
-            )
-            ;
-
-        });
-
     }
-
 });
 
 module.exports = PersonalCenterView;

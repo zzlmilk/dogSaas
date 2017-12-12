@@ -35,7 +35,7 @@ var WebAPIMain = {
 					router.use("/organization/edit", require('./Organization/EditOrganizationHandler'));
 					router.use("/organization/show", require('./Organization/ShowOrganizationHandler'));
 					//veterinarian
-                    router.use("/Organization/editVeterinarian", require('./Veterinarian/EditVeterinarianHandler'));
+                    router.use("/organization/editVeterinarian", require('./Veterinarian/EditVeterinarianHandler'));
 
 
 

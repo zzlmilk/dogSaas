@@ -76,7 +76,7 @@
                     <h4>地址：</h4>
                 </div>
                 <div class="section">
-                    <span><span>{{organization.location.city}}{{organization.location.address}}</span></span>
+                    <span><span>{{organization.location.address}}</span></span>
                 </div>
             </div>
             <div class="col-md-3">
@@ -151,41 +151,38 @@
 
         </div>
         <div class="row">
-            <div class="col-md-3">
-                {{organization.veterinarians}}
-                <div class="subtitle">
-                    <h4>姓名：</h4>
+            {{#each organization.veterinarians}}
+
+                <input style="display: none" value="{{this}}">
+                <div class="col-md-4">
+
+                    <div class="subtitle">
+                        <h4>姓名：</h4>
+                    </div>
+                    <div class="section">
+                        <span>{{this.name}}</span>
+                    </div>
                 </div>
-                <div class="section">
-                    <span></span>
+
+                <div class="col-md-4">
+                    <div class="subtitle">
+                        <h4>资格证编号：</h4>
+                    </div>
+                    <div class="section">
+                        <span>{{this.code}}</span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="subtitle">
-                    <h4>身份证号：</h4>
+
+                <div class="col-md-4">
+                    <div class="subtitle" style="visibility: hidden">
+                        <h4>
+                            <a href="javascript:void (0)" class="delete" style="color:red;" value="{{this}}">删除</a>
+                        </h4>
+                    </div>
+
                 </div>
-                <div class="section">
-                    <span></span>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="subtitle">
-                    <h4>职业兽医师资格证编号：</h4>
-                </div>
-                <div class="section">
-                    <span></span>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="subtitle">
-                    <h4>
-                        <a href="javascript:void (0)" class="delete" style="color:red;">删除</a>
-                    </h4>
-                </div>
-                <div class="section">
-                    <span></span>
-                </div>
-            </div>
+            {{/each}}
+
         </div>
     </div>
 

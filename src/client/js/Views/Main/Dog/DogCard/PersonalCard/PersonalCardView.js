@@ -17,15 +17,21 @@ var UserClient = require("../../../../../lib/APIClients/UserClient.js");
 var CityJson = require('../../../../Parts/selectPlugin/CityJson.js');//地区数据 回填
 var DogBreed = require('./DogBreed.js');//宠物品种
 var StringBuffer = require('../../../../Parts/selectPlugin/StringBuffer.js');
+var OrganizationClient = require('../../../../../lib/APIClients/OrganizationClient');
 
 var PersonalCardView = Backbone.View.extend({
 
 
     el: null,
+    self:null,
+    dogLicense:null,
     initialize: function (options) {
-        this.el = options.el;
-        // this.render();
-        $(this.el).html(template({}));
+        self=this;
+        self.el = options.el;
+        self.dogLicense = options.dogLicense;
+
+        $(self.el).html(template({dogLicense:self.dogLicense}));
+
         var area = new SelectPluginView({
             el: "#orga_area"
         })
@@ -33,7 +39,14 @@ var PersonalCardView = Backbone.View.extend({
     },
 
     onLoad: function () {
-        var self = this;
+        //如果狗证信息不为空 完善房产信息
+        if(self.dogLicense!=null){
+            //禁用输入 选择
+            $("#dogLicense_barcode_div").attr("disabled",true);
+            $("#dogLicense_owner_div").attr("disabled",true);
+            $("#dogLicense_dog_div").attr("disabled",true);
+            $("#dogLicense_vaccine_div").attr("disabled",true);
+        }
         //初始化狗的品种
         var sb = new StringBuffer();
         $.each(DogBreed,
@@ -640,7 +653,29 @@ var PersonalCardView = Backbone.View.extend({
                     }
 
                 });
-        }
+        };
+
+        OrganizationClient.show(
+            //获取成功
+            function (data) {
+                console.log("------------------");
+                console.log(data);
+
+            },
+            //获取失败
+            function (errorCode) {
+                //错误回调
+                console.log("cw-------------");
+                var sb = new StringBuffer();
+                var doctor = errorCode.organization.veterinarians;
+                $.each(doctor, function (i, val) {
+                    sb.append("<option value='" + val.name + "'>" + val.name + "</option>");
+                });
+
+                $("#doctor_null").after(sb.toString());
+
+                $("#organizationName").val(errorCode.organization.name)
+            });
 
     }
 
