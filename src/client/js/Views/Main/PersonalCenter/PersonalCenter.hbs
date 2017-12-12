@@ -10,7 +10,7 @@
                     <h4>状态：</h4>
                 </div>
                 <div class="section">
-                    <span>{{user.logionProcess}}</span>
+                    <span>{{organization.checkStatus.status}}</span>
                 </div>
             </div>
             <div class="col-md-3">
@@ -18,7 +18,7 @@
                     <h4>账号：</h4>
                 </div>
                 <div class="section" style="float: left">
-                    <span>{{user.email}}</span>
+                    <span>{{organization.adminUser.email}}</span>
                 </div>
             </div>
             <div class="col-md-3">
@@ -34,7 +34,7 @@
                     <h4>注册时间：</h4>
                 </div>
                 <div class="section" style="float: left">
-                    <span><span>{{user.id}}</span></span>
+                    <span><span>{{organization.adminUser.created}}</span></span>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                     <h4>负责人：</h4>
                 </div>
                 <div class="section" style="float: left">
-                    <span><span>{{user.organization.adminUser}}</span></span>
+                    <span><span>{{organization.contacts.name}}</span></span>
                 </div>
             </div>
             <div class="col-md-3">
@@ -52,7 +52,7 @@
                     <h4>负责人电话：</h4>
                 </div>
                 <div class="section" style="float: left">
-                    <span><span>{{user.organization.tel}}</span></span>
+                    <span><span>{{organization.contacts.phone}}</span></span>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                     <h4>免疫点名称：</h4>
                 </div>
                 <div class="section">
-                    <span><span>{{user.organization.name}}</span></span>
+                    <span><span>{{organization.name}}</span></span>
                 </div>
             </div>
             <div class="col-md-3">
@@ -76,7 +76,7 @@
                     <h4>地址：</h4>
                 </div>
                 <div class="section">
-                    <span><span>{{user.organization.location.address}}</span></span>
+                    <span><span>{{organization.location.city}}{{organization.location.address}}</span></span>
                 </div>
             </div>
             <div class="col-md-3">
@@ -84,7 +84,7 @@
                     <h4>座机：</h4>
                 </div>
                 <div class="section">
-                    <span><span>{{user.organization.tel}}</span></span>
+                    <span><span>{{organization.tel}}</span></span>
                 </div>
             </div>
             <div class="col-md-3">
@@ -92,7 +92,7 @@
                     <h4>服务范围：</h4>
                 </div>
                 <div class="section">
-                    <span><span>{{user.organization.contacts}}</span></span>
+                    <span><span>{{organization.serviceScope}}</span></span>
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@
                 </div>
                 <div class="section">
                     <div id="license">
-                        <img src="img/license.png"/>
+                        <img src="{{organization.businessLicense}}"/>
                     </div>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="section">
                     <div id="permit">
-                        <img src="img/peimit.png"/>
+                        <img src="{{organization.animalMedicalLicense}}"/>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                     <h4>设备ID：</h4>
                 </div>
                 <div class="section">
-                    <span><span>{{user.organization.name}}</span></span>
+                    <span><span>{{organization.name}}</span></span>
                 </div>
             </div>
             <div class="col-md-3">
@@ -137,7 +137,7 @@
                     <h4>硬件版本：</h4>
                 </div>
                 <div class="section">
-                    <span><span>{{user.organization.name}}</span></span>
+                    <span><span>{{organization.name}}</span></span>
                 </div>
             </div>
         </div>
@@ -152,6 +152,7 @@
         </div>
         <div class="row">
             <div class="col-md-3">
+                {{organization.veterinarians}}
                 <div class="subtitle">
                     <h4>姓名：</h4>
                 </div>

@@ -12,7 +12,7 @@ var templateAdd = require('./AddOrganization.hbs');
 //var templateStatus = require('./organzationStatus.hbs');
 
 
-var AddOrganizationClient = require('../../../lib/APIClients/AddOrganizationClient');
+var OrganizationClient = require('../../../lib/APIClients/OrganizationClient');
 var SelectPluginView = require("../../Parts/selectPlugin/SelectPluginView");
 
 var OrganizationModel = require('../../../Models/organization');
@@ -335,8 +335,7 @@ var AddOrganizationView = Backbone.View.extend({
         $('#doctor').unbind().on('click', function () {
 
             var AddDoctorDialogModal = require('../../Modals/AddDoctorDialog/AddDoctorDialogView');
-            AddDoctorDialogModal.show(function () {
-            });
+            AddDoctorDialogModal.show();
 
         });
 
@@ -415,7 +414,7 @@ var AddOrganizationView = Backbone.View.extend({
         };
 
         console.log(organization)
-        AddOrganizationClient.send(
+        OrganizationClient.add(
             organization,
             function (data) {
                 //成功回调
