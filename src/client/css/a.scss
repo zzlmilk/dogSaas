@@ -22,6 +22,61 @@ html,body{height:100%;}
 label{
   font-weight: normal;
 }
+//分页器组件
+.pagination{
+  margin-top: 100px;
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  line-height: 1.42857;
+  text-decoration: none;
+  color: #000000;
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  margin-left: 10px;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+ }
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  margin-right: -2px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.pagination > li > a:hover, .pagination > li > a:focus,
+.pagination > li > span:hover,
+.pagination > li > span:focus {
+  z-index: 2;
+  color: #23527c;
+  background-color: #eeeeee;
+  border-color: #ddd; }
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus,
+.pagination > .active > span,
+.pagination > .active > span:hover,
+.pagination > .active > span:focus {
+  z-index: 3;
+  color: #fff;
+  background-color: #3b4249;
+  border-color: #337ab7;
+  cursor: default; }
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #777777;
+  background-color: #fff;
+  border-color: #ddd;
+  cursor: not-allowed; }
+
 //控制台头部导航
 .personal_header{
   width: 100%;
@@ -1184,13 +1239,18 @@ label{
 }
 .dog_search>.title>.row>.col-md-6>.input-group>.input-group-btn>.dog_number{
   width: 80px;
-  height: 44px;
+  height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px 0 0 4px;
 
 }
 .dog_search>.title>.row>.col-md-6>.input-group>span{
   width: 80px;
+  height: 40px;
+}
+.dog_search>.title>.row>.col-md-6>.input-group>span>button{
+  width: 80px;
+  height: 40px;
 }
 .dog_search>.title>.row>.col-md-6>.input-group>input{
   border-radius: none;
