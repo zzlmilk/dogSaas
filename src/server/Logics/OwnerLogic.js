@@ -10,23 +10,23 @@ var OwnerLogic = {
 
     findOwner: function (param, onSuccess, onError) {
 
-        var certificateType =param.certificateType;
-        var certificateCode=param.certificateCode
-
-        if (Utils.isEmpty(certificateType)) {
-            onError(null,
-                Const.resCodeDogOwnerNoCertificateType
-            )
-
-            return;
-        }
-        if (Utils.isEmpty(certificateCode)) {
-            onError(null,
-                Const.resCodeDogOwnerNocertificateCode
-            )
-
-            return;
-        }
+        // var certificateType =request.certificateType;
+        // var certificateCode=request.certificateCode
+        //
+        // if (Utils.isEmpty(certificateType)) {
+        //     onError(null,
+        //         Const.resCodeDogOwnerNoCertificateType
+        //     )
+        //
+        //     return;
+        // }
+        // if (Utils.isEmpty(certificateCode)) {
+        //     onError(null,
+        //         Const.resCodeDogOwnerNocertificateCode
+        //     )
+        //
+        //     return;
+        // }
 
 
         async.waterfall([
@@ -34,7 +34,7 @@ var OwnerLogic = {
 
                 var ownerModel = OwnerModel.get();
 
-                ownerModel.findOne({"certificateType": certificateType,"certificateCode":certificateCode}, function (err, res) {
+                ownerModel.findOne({"certificateType": param.certificateType,"certificateCode":param.certificateCode}, function (err, res) {
 
                     if (err) {
                         throw (err)

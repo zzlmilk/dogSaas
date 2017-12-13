@@ -18,9 +18,9 @@ describe('WEB API', function () {
             };
 
             request(app)
-                .post('/dogsystem/v1/owner/find')
+                .get('/dogsystem/v1/owner/find')
                 .set('Access-Token', token)
-                .send(body)
+                .query(body)
 
                 .end(function (err, res) {
 
