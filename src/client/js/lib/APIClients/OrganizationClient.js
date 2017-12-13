@@ -29,8 +29,18 @@ var _ = require('lodash');
      * @param err
      */
     OrganizationClient.prototype.show = function (success, err) {
-        console.log("get-------- - ssss");
         this.getRequst("/organization/show", success, err);
+    }
+
+    /**
+     * 添加兽医
+     * @param data 兽医对象{name:"",code:""}
+     * @param success
+     * @param err
+     */
+    OrganizationClient.prototype.addVeterinarian = function (data, success, err) {
+
+        this.postRequst("/organization/editVeterinarian", data, success, err);
 
     }
 

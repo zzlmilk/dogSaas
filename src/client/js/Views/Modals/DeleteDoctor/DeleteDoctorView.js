@@ -16,31 +16,36 @@ var template = require('./DeleteDoctor.hbs');
 // var loginUserManager = require('../../../lib/loginUserManager');
 
 var DeleteDoctor = {
-    show: function(title, text, onRetry) {
+    show: function (id) {
 
+        var ids=id;
         var self = this;
 
         $('body').append(template({
-            title: title,
-            text: text
+
         }));
-        $('#modal-profile').on('hidden.bs.modal', function(e) {
+        $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
 
         })
 
-        $('#modal-profile').on('show.bs.modal', function (e) {
-
+        $('#modal-profile').on('show.bs.modal', function (e) {  
 
         })
 
         $('#modal-profile').modal('show');
-        $('#modal-btn-close').unbind().on('click', function() {
+
+        $('#modal-btn-save').unbind().on('click', function () {
+            console.log(ids);
             self.hide();
         });
+         $('#modal-btn-close').unbind().on('click', function () {
+            self.hide();
+        });
+
     },
-    hide: function(onFinish) {
-        $('#modal-profile').on('hidden.bs.modal', function(e) {
+    hide: function (onFinish) {
+        $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
             if (!_.isUndefined(onFinish)) {
                 onFinish();
@@ -51,8 +56,5 @@ var DeleteDoctor = {
     },
 
 
-
-
-
 }
-module.exports =DeleteDoctor;
+module.exports = DeleteDoctor;

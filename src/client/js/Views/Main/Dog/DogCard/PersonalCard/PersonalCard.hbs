@@ -3,7 +3,7 @@
         <h3>办理狗证/个人办证</h3>
     </div>
 
-    <div class="registration">
+    <div class="registration" id="dogLicense_barcode_div">
         <div class="title">
             <h4>个人办证</h4>
         </div>
@@ -13,14 +13,15 @@
                     <h4>*条形码:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="barcode" oninput="if(value.length>7)value=value.slice(0,7)">
+                    <input type="text" id="barcode" oninput="if(value.length>7)value=value.slice(0,7)"
+                           value="{{dogLicense.husbandryNo}}">
                     <p style="display: none;" class="null_err" id="barcode_null_tip">*条形码不能为空</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="registration">
+    <div class="registration" id="dogLicense_owner_div">
         <div class="title">
             <h4>犬主登记</h4>
         </div>
@@ -30,7 +31,7 @@
                     <h4>*犬主姓名:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="dogowner_name">
+                    <input type="text" id="dogowner_name" value="{{dogLicense.owner}}">
                     <p style="display: none;" class="null_err" id="dogowner_name_null_tip">*请输入犬主姓名</p>
                 </div>
             </div>
@@ -75,20 +76,20 @@
         <div class="row">
             <div class="col-md-6">
                 <!--<div class="subtitle">-->
-                    <!--<h4>*证件类型:</h4>-->
+                <!--<h4>*证件类型:</h4>-->
                 <!--</div>-->
                 <!--<div class="section">-->
-                    <!--<input type="radio" name="cardtype" id="idcard" value="1">-->
-                    <!--<label for="cardtype">身份证</label>-->
-                    <!--<input type="radio" name="cardtype" id="passport" value="2">-->
-                    <!--<label for="cardtype">护照</label>-->
-                    <!--<p style="display: none;" class="null_err" id="cardtype_null_tip">*证件类型不能为空</p>-->
+                <!--<input type="radio" name="cardtype" id="idcard" value="1">-->
+                <!--<label for="cardtype">身份证</label>-->
+                <!--<input type="radio" name="cardtype" id="passport" value="2">-->
+                <!--<label for="cardtype">护照</label>-->
+                <!--<p style="display: none;" class="null_err" id="cardtype_null_tip">*证件类型不能为空</p>-->
                 <!--</div>-->
                 <div class="subtitle">
                     <h4>邮编:</h4>
                 </div>
                 <div class="section">
-                    <input  type="text" id="postcode" oninput="if(value.length>6)value=value.slice(0,6)">
+                    <input type="text" id="postcode" oninput="if(value.length>6)value=value.slice(0,6)">
                     <p style="display: none;" class="null_err" id="postcode_null_tip">*邮编不能为空</p>
                 </div>
             </div>
@@ -130,7 +131,7 @@
 
     </div>
 
-    <div class="registration">
+    <div class="registration" id="dogLicense_dog_div">
         <div class="title">
             <h4>犬只登记</h4>
         </div>
@@ -163,7 +164,7 @@
                     <h4>*毛色:</h4>
                 </div>
                 <div class="section">
-                    <select class="kinds"  id="dog_color">
+                    <select class="kinds" id="dog_color">
                         <option value="">请选择</option>
                         <option value="白色">白色</option>
                         <option value="黑色">黑色</option>
@@ -188,7 +189,7 @@
                 <div class="section">
                     <input type="radio" name="usage" id="watch" value="观赏">
                     <label for="usage">观赏</label>
-                    <input type="radio"  name="usage" id="police" value="警卫">
+                    <input type="radio" name="usage" id="police" value="警卫">
                     <label for="usage">警卫</label>
                     <p style="display: none;" class="null_err" id="usage_null_tip">*犬只用途不能为空</p>
                 </div>
@@ -230,7 +231,7 @@
 
             </div>
             <div class="col-md-6">
-                <div class="subtitle" >
+                <div class="subtitle">
                     <h4></h4>
                 </div>
                 <div class="section" id="imgs">
@@ -242,7 +243,7 @@
         </div>
     </div>
 
-    <div class="registration">
+    <div class="registration" id="dogLicense_vaccine_div">
         <div class="title">
             <h4>疫苗登记</h4>
         </div>
@@ -252,7 +253,7 @@
                     <h4>*疫苗名称:</h4>
                 </div>
                 <div class="section">
-                    <select class="kinds"  id="vaccine_name">
+                    <select class="kinds" id="vaccine_name">
                         <option value="">请选择</option>
                         <option value="荷兰英特威">荷兰英特威</option>
                         <option value="美国辉瑞">美国辉瑞</option>
@@ -287,7 +288,7 @@
                     <h4>免疫点名称:</h4>
                 </div>
                 <div class="section">
-                    <input disabled="disabled" type="text" placeholder="上海顽皮家族" id="organizationName" value="上海顽皮家族">
+                    <input disabled="disabled" type="text" id="organizationName">
                 </div>
             </div>
         </div>
@@ -296,10 +297,9 @@
                 <div class="subtitle">
                     <h4>*兽医:</h4>
                 </div>
-                <div  class="section">
+                <div class="section">
                     <select class="kinds" id="doctor_name">
-                        <option value="">请选择</option>
-                        <option value="zhangsan">张三</option>
+                        <option value="" id="doctor_null">请选择</option>
                     </select>
                     <p style="display: none;" class="null_err" id="doctor_name_null_tip">*兽医不能为空</p>
                 </div>
@@ -346,9 +346,9 @@
                         <option value="青">青</option>
                         <option value="奉">奉</option>
                     </select>
-                    <label  class="label">年份</label>
-                    <input  name="year" type="text" style="width: 50px;float: left" id="house_year"/>
-                    <label  class="label" for="name">第</label>
+                    <label class="label">年份</label>
+                    <input name="year" type="text" style="width: 50px;float: left" id="house_year"/>
+                    <label class="label" for="name">第</label>
                     <input type="text" style="width: 50px;float: left" id="house_number"/>
                     <label class="label">号</label>
                 </div>
@@ -372,7 +372,7 @@
                 </div>
                 <div class="section">
                     <input type="text" style="float: left" id="reg_address">
-                    <input type="checkbox"  id="reg_addr_ck">
+                    <input type="checkbox" id="reg_addr_ck">
                     <label for="">与犬主地址相同</label>
                 </div>
             </div>
@@ -380,6 +380,6 @@
     </div>
 
     <div class="post_info">
-            <button class="btn btnBlueE btn-block" id="post_info">提交</button>
+        <button class="btn btnBlueE btn-block" id="post_info">提交</button>
     </div>
 </div>

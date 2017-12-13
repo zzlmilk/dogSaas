@@ -1,15 +1,23 @@
 <div class="print_card">
 
     <div class="title_nav">
-        <h4>办理狗证/个人办证/打印磁卡</h4>
+        <h3>办理狗证/个人办证/打印磁卡</h3>
     </div>
 
     <div class="content">
         <div class="title">
-            <h3>
-                电子卡
-                <span id="QR_Code">二维码</span>
-            </h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="subtitle">
+                        <h3>电子卡</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="subtitle">
+                        <h3>微信二维码</h3>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-4">
@@ -24,7 +32,7 @@
             </div>
             <div class="col-md-4">
                 <div class="qrcode">
-                    <!--<img src="" />-->
+                    <img src="img/qrcode.png" />
                 </div>
             </div>
         </div>
@@ -142,15 +150,15 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <button class="btn btnBlueE btn-block infoBtn" id="print_card">打印磁卡</button>
+                <button class="btn btnBlueE btn-block infoBtn" id="immune_print">打印磁卡</button>
             </div>
             <div class="col-md-4 col-md-offset-2">
-                <button class="btn btnBlueE btn-block infoBtn" id="check">年审</button>
+                <button class="btn btnBlueE btn-block infoBtn" id="immune_check">年审</button>
             </div>
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" id="dogcard_info">
         <div class="title">
             <h3>狗证信息</h3>
         </div>
@@ -278,18 +286,21 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <button class="btn btnBlueE btn-block infoBtn" id="save">保存</button>
+                <button class="btn btnBlueE btn-block infoBtn" id="dogcard_save">保存</button>
+            </div>
+            <div class="col-md-4 col-md-offset-2">
+                <button class="btn btnBlueE btn-block infoBtn" id="dogcard_check">年审</button>
             </div>
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" id="dogcard_no">
         <div class="title">
             <h3>狗证信息</h3>
         </div>
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <button class="btn btnBlueE btn-block infoBtn" id="return">未填写户籍信息，去填写</button>
+            <div class="col-md-4 col-md-offset-4" style="margin-top: 150px;margin-bottom: 150px;">
+                <button class="btn btnBlueE btn-block infoBtn" id="dogcard_to_house">未填写户籍信息，去填写</button>
             </div>
         </div>
     </div>
