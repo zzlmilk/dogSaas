@@ -29,31 +29,7 @@ var DogView = Backbone.View.extend({
 
         var self = this;
 
-        $('#btn-dogEdit').unbind().on('click', function () {
 
-            var DogEditView = require('./DogEdit/DogEditView.js');
-            var view = new DogEditView({
-                'el': "#main-content"
-            });
-
-
-        });
-        $('#btn_account').unbind().on('click', function () {
-
-            var AddDoctorDialogModal = require('../../Modals/AddDoctorDialog/AddDoctorDialogView');
-            AddDoctorDialogModal.show(function () {
-
-            });
-
-        });
-        $('.delete').unbind().on('click', function () {
-
-            var DeleteDoctorModal = require('../../Modals/DeleteDoctor/DeleteDoctorView');
-            DeleteDoctorModal.show(function () {
-
-            });
-
-        });
 
 
     }
