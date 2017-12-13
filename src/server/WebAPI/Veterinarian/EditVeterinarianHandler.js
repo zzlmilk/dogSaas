@@ -19,13 +19,13 @@ var EditVeterinarianHandler = function(){
 
 }
 /**
- * @api {post} /Organization/editVeterinarian 添加兽医
+ * @api {post} /organization/editVeterinarian 添加兽医
  * @apiName editVeterinarian
  * @apiGroup Organization
  * @apiDescription 添加兽医api接口
  * @apiParam {String} name 兽医名字
  * @apiParam {String} code 兽医执照号
- * @apiHeader {String} token
+ * @apiHeader  {Sting} access-key token
  * @apiSuccessExample Success-Response:
  *{ organization:
    { _id: '5a2f96c2519dea21549ac69e',

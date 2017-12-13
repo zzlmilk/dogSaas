@@ -10,12 +10,12 @@ describe('WEB API', function () {
     it('should be add successful', function (done) {
         signin(function (token) {
             var body = {
-                name: "李四",
-                code: "219012111111111"
+                dogLicenseId:"5a30beb43b78e04c742cb422",
+                takeWay:1
             };
 
             request(app)
-                .post('/dogsystem/v1/Organization/editVeterinarian')
+                .post('/dogsystem/v1/dogLicense/add_takeWay')
                 .set('Access-Token', token)
                 .send(body)
                 .end(function (err, res) {
@@ -28,7 +28,6 @@ describe('WEB API', function () {
                     res.body.should.have.property('code');
                     res.body.code.should.be.equal(Const.responsecodeSucceed);
                     done();
-
 
                 });
 

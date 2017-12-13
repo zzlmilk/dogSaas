@@ -60,8 +60,8 @@ var AddDogLicenseHandler = function(){
  * @apiName addDogLicense
  * @apiGroup DogLicense
  * @apiDescription 办理狗证信息api接口,获取狗，疫苗，用户，房产信息
+ * @apiHeader  {Sting} access-key token
  * @apiParam {String} husbandryNo 畜牧业提供的条形码
- * @apiParam {String} takeWay 取件
  * @apiUse Dog
  * @apiUse Vaccine
  * @apiUse Owner

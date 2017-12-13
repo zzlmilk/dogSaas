@@ -6,6 +6,19 @@
     "name": "addDogLicense",
     "group": "DogLicense",
     "description": "<p>办理狗证信息api接口,获取狗，疫苗，用户，房产信息</p>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "Sting",
+            "optional": false,
+            "field": "access-key",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -15,13 +28,6 @@
             "optional": false,
             "field": "husbandryNo",
             "description": "<p>畜牧业提供的条形码</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "takeWay",
-            "description": "<p>取件</p>"
           }
         ],
         "dog": [
@@ -251,6 +257,59 @@
   },
   {
     "type": "post",
+    "url": "/dogLicense/add_takeWay",
+    "title": "添加取证方式",
+    "name": "addTakeWay",
+    "group": "DogLicense",
+    "description": "<p>添加取证方式api接口</p>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "Sting",
+            "optional": false,
+            "field": "access-key",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dogLicenseId",
+            "description": "<p>狗证ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "takeWay",
+            "description": "<p>1自取 2邮寄</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{ dogLicense:\n   { _id: '5a30a165f6bd632ab063b5e0',\n     owner: '5a24f583bf77595ff08bf876',\n     dog: '5a30a165f6bd632ab063b5e3',\n     residence: '5a30a165f6bd632ab063b5e1',\n     husbandryNo: 'LCPeu',\n     __v: 0,\n     DogCard:\n      { isCreate: 1,\n        message: '可以办理狗证',\n        create: '2017-12-13T03:41:25.346Z',\n        info: [Object],\n        annual: [Object] },\n     vaccineCard:\n      { isCreate: 1,\n        create: '2017-12-13T03:41:25.345Z',\n        annual: [Object],\n        info: [Object] } } }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/DogLicense/EditDogLicenseHandler.js",
+    "groupTitle": "DogLicense"
+  },
+  {
+    "type": "post",
     "url": "/dogLicense/find_by_dog",
     "title": "查询狗证（犬只）",
     "name": "findDogLicenseByDog",
@@ -288,10 +347,10 @@
         "Header": [
           {
             "group": "Header",
-            "type": "String",
+            "type": "Sting",
             "optional": false,
-            "field": "token",
-            "description": "<p>Access-Token</p>"
+            "field": "access-key",
+            "description": "<p>token</p>"
           }
         ]
       }
@@ -362,10 +421,10 @@
         "Header": [
           {
             "group": "Header",
-            "type": "String",
+            "type": "Sting",
             "optional": false,
-            "field": "token",
-            "description": "<p>Access-Token</p>"
+            "field": "access-key",
+            "description": "<p>token</p>"
           }
         ]
       }
@@ -503,6 +562,19 @@
     "name": "addOrganization",
     "group": "Organization",
     "description": "<p>添加机构信息api接口</p>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "Sting",
+            "optional": false,
+            "field": "access-key",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -635,6 +707,19 @@
     "name": "editOrganization",
     "group": "Organization",
     "description": "<p>编辑机构信息api接口</p>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "Sting",
+            "optional": false,
+            "field": "access-key",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -739,7 +824,7 @@
   },
   {
     "type": "post",
-    "url": "/Organization/editVeterinarian",
+    "url": "/organization/editVeterinarian",
     "title": "添加兽医",
     "name": "editVeterinarian",
     "group": "Organization",
@@ -769,10 +854,10 @@
         "Header": [
           {
             "group": "Header",
-            "type": "String",
+            "type": "Sting",
             "optional": false,
-            "field": "token",
-            "description": ""
+            "field": "access-key",
+            "description": "<p>token</p>"
           }
         ]
       }
@@ -801,9 +886,10 @@
         "Header": [
           {
             "group": "Header",
+            "type": "Sting",
             "optional": false,
-            "field": "token",
-            "description": "<p>Access-Token</p>"
+            "field": "access-key",
+            "description": "<p>token</p>"
           }
         ]
       }
@@ -853,10 +939,10 @@
         "Header": [
           {
             "group": "Header",
-            "type": "String",
+            "type": "Sting",
             "optional": false,
-            "field": "token",
-            "description": "<p>Access-Token</p>"
+            "field": "access-key",
+            "description": "<p>token</p>"
           }
         ]
       }
@@ -881,6 +967,19 @@
     "name": "editResidence",
     "group": "Residence",
     "description": "<p>编辑房产信息api接口</p>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "Sting",
+            "optional": false,
+            "field": "access-key",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [

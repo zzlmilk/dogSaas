@@ -11,7 +11,6 @@ describe('WEB API', function () {
 	 		 signin(function(token){
 	 		 		var body = {
                             husbandryNo:global.getRandomStr(),
-                            takeWay:1,
                             dog:{
                                 nickname: "test_" + global.getRandomStr(),
                                 sex:"2",

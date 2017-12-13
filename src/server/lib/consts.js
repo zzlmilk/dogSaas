@@ -101,6 +101,7 @@
 
     Const.resCodeMissResidenceParam = 2000039
     Const.resCodeHaveResidenceParam = 2000040
+    Const.resCodeDogLicenseNoTakeway=2000041;
 
 
 

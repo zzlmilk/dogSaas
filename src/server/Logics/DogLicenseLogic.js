@@ -207,12 +207,7 @@ var DogLicenseLogic = {
 			  		})
 
 			  	},
-				  function (result,done) {
 
-                      dogLicense.takeWay = param.takeWay;
-                      done(null,res)
-
-                  },
 			  	function(result,done){
 			  		//根据户籍房产信息验证能不能办理狗证 DogCard
 			  		if (Utils.isEmpty(residenceParam.houseProperty) || Utils.isEmpty(residenceParam.houseNo)
@@ -288,15 +283,15 @@ var DogLicenseLogic = {
 
 			  	},function (result,done) {
 			  		//验证irisID唯一性
-			  		// var dogModel=DogModel.get();
-			  		// var irisID=dogParam.irisID;
-			  		// dogModel.findOne({irisID:irisID},function (err,irisIDResult) {
-			  		// 	if(irisIDResult){
-			  		// 		onError(null, Const.resCodeDogIrisIDExisted);
-						// 	return;
-						// }
+			  		 var dogModel=DogModel.get();
+			  		 var irisID=dogParam.irisID;
+			  		 dogModel.findOne({irisID:irisID},function (err,irisIDResult) {
+			  			if(irisIDResult){
+			  		 		onError(null, Const.resCodeDogIrisIDExisted);
+						 	return;
+						 }
 						done(null,res);
-                  //  })
+                     })
 
                   },function(result,done){
 			  			//录入宠物dog 信息
@@ -573,7 +568,7 @@ var DogLicenseLogic = {
                     })
 
 
-			},//{$or:[{"vaccineCard.info.irisID": irisID},{"vaccineCard.info.cardNo":cardNo}]}
+			},
 
             function (result,done) {
                 var dogLicenseModel = DogLicenseModel.get();
@@ -609,6 +604,28 @@ var DogLicenseLogic = {
         ], function (err,result) {
 
         })
+    },
+    add_takeWay:function(param, onSuccess, onError) {//添加取证方式
+
+        var dogLicense=param.dogLicense
+		var takeWay=param.takeWay
+		if(Utils.isEmpty(takeWay)){
+				onError(null,Const.resCodeDogLicenseNoTakeway);
+           return;
+		}
+		dogLicense.DogCard.info.takeWay=takeWay;
+
+		dogLicense.save(function (err,dogLicense) {
+			if(err){
+				throw  err;
+			}else{
+
+				onSuccess(dogLicense);
+			}
+
+        })
+
+
     },
 
     validatorParam:function(param,callback){
