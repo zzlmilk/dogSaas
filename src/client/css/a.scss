@@ -51,21 +51,22 @@ label{
   color:#ffffff;
 }
 .personal_header>#personal_info{
-  width: 440px;
+  width: 380px;
   height:80px;
   float: right;
 }
 .personal_header>#personal_info>li{
-  width: 120px;
+  width: 80px;
   height: 80px;
   line-height: 80px;
-  margin-right: 20px;
+  margin-right: 40px;
   float: left;
   color:#ffffff;
 }
 .personal_header>#personal_info>li>a{
-  width: 80px;
+  width: 60px;
   height: 80px;
+  text-align: center;
   display:inline-block;
   line-height: 80px;
   color:#ffffff;
@@ -214,10 +215,20 @@ label{
   height: 161px;
   float:left;
 }
+#personal_center_view>.basic_info>.row>.col-md-6>.section>#license>img{
+  width: 231px;
+  height: 161px;
+  display: block;
+}
 #personal_center_view>.basic_info>.row>.col-md-6>.section>#permit{
   width: 231px;
   height: 161px;
   float:left;
+}
+#personal_center_view>.basic_info>.row>.col-md-6>.section>#permit>img{
+  width: 231px;
+  height: 161px;
+  display: block;
 }
 
 
@@ -245,7 +256,7 @@ label{
   margin-left: 30px;
   margin-right:30px;
   padding-bottom:15px;
-  border-bottom: 2px #cccccc solid;
+  border-bottom: 1px #cccccc solid;
 }
 .news_center>.content>.row>.col-md-4>.subtitle{
   float: left;
@@ -587,6 +598,9 @@ label{
   width:155px;
   height: 44px;
 }
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>p{
+  margin-left: 165px;
+}
 .modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.subtitle h4 {
   float: left;
   width:155px;
@@ -643,8 +657,18 @@ label{
   margin-left: 15px;
   text-align:right;
 }
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.subtitle>#dog_img{
+  position:absolute;
+  top:0;
+  left:30px;
+  width:160px;
+  height:80px;
+  display:block;
+}
 .modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.section{
   float: left;
+  height: 32px;
+  line-height: 32px;
   margin-left: 5px;
 }
 .modal>.modal-dialog>.modal-content>.modal-body>.top{
@@ -1169,6 +1193,12 @@ label{
 }
 .dog_search>.title>.row>.col-md-6>.input-group>span{
   width: 80px;
+}
+.dog_search>.title>.row>.col-md-6>.input-group>input{
+  border-radius: none;
+  width:350px;
+  height: 40px;
+  border: 2px #cccccc solid ;
 }
 .dog_search>.title>.row>.form-group{
   float: left;
