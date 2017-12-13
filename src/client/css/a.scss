@@ -427,6 +427,15 @@ label{
 }
 
 //办理狗证--个人办证
+/*----------用来移除上下小箭头----------*/
+input[type='date']::-webkit-inner-spin-button {
+  display:none;
+}
+
+/*----------用来移除清除按钮----------*/
+//input[type="date"]::-webkit-clear-button{
+//  display:none;
+//}
 .personal_card{
   width: 100%;
   height:auto ;

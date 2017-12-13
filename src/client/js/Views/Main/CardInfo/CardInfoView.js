@@ -10,7 +10,7 @@ var _ = require('lodash');
 var Utils = require('../../../lib/utils');
 var Const = require('../../../lib/consts');
 var Config = require('../../../lib/init');
-
+var DogLicenseModel = require('../../../Models/DogLicense.js');
 // load template
 var template = require('./CardInfo.hbs');
 
@@ -37,7 +37,53 @@ var CardInfoView = Backbone.View.extend({
 
         var self = this;
 
+        $(".td-a").unbind().on("click", function () {
+            //赋值
+            var dogLicenseModeldefaults = new DogLicenseModel({
+                husbandryNo: "",
+                dog: {
+                    nickname: "",
+                    sex: "",
+                    breed: "",
+                    usage: "",
+                    hairColor: "",
+                    bornDate: "",
+                    irisID: "",
+                    photoUrl: "",
+                    vaccine: {
+                        name: "",
+                        batchNo: "",
+                        manufacturer: "",
+                        veterinarianName: "",
+                        organizationName: "",
+                    }
 
+                },
+                owner: {
+                    name: "",
+                    sex: "",
+                    tel: "",
+                    phone: "",
+                    certificateType: "",
+                    certificateCode: "",
+                    province: "",
+                    district: "",
+                    city: "",
+                    address: "",
+                    code: "",
+
+                },
+                residence: {
+                    houseNo: "",
+                    houseProperty: "",
+                    address: "",
+                    isSterilization: ""
+                }
+            });
+            var InfoPreviewModal = require('../../Modals/InfoPreview/InfoPreview');
+            InfoPreviewModal.show(dogLicenseModeldefaults);
+
+        })
 
 
     }

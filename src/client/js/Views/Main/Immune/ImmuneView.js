@@ -34,19 +34,6 @@ var ImmuneView = Backbone.View.extend({
         var self = this;
 
 
-        // var ImmuneListView = require('./ImmuneList/ImmuneListView.js');
-        // var view = new ImmuneListView({
-        //     'el': "#immune_content"
-        // });
-
-        $('.td-a').unbind().on('click',function(){
-            var ImmuneDetailView = require('./ImmuneDetail/ImmuneDetailView.js');
-            var view = new ImmuneDetailView({
-                'el': "#immune_content"
-            });
-
-        });
-
 
     }
 
