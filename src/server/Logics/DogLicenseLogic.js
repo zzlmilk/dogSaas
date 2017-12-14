@@ -439,7 +439,7 @@ var DogLicenseLogic = {
 
 								if (dogLicenseResult) {
 									done(null,dogLicenseResult)
-								//	onSuccess(dogLicenseReslut)
+
 								}
 							
 						})
@@ -448,7 +448,7 @@ var DogLicenseLogic = {
 			  	},function (result,done) {
                       var dogLicenseModel = DogLicenseModel.get();
                       dogLicenseModel.find({"_id":result}).populate("owner")
-                          .populate("dog").exec(function (err,dogLicenseResult) {
+                          .populate({path:"dog",populate:{path: "vaccine"}}).exec(function (err,dogLicenseResult) {
                           if (err) {
                               throw(err);
 
