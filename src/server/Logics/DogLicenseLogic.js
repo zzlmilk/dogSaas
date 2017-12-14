@@ -447,7 +447,7 @@ var DogLicenseLogic = {
 
 			  	},function (result,done) {
                       var dogLicenseModel = DogLicenseModel.get();
-                      dogLicenseModel.findOne().populate("owner")
+                      dogLicenseModel.find({"_id":result}).populate("owner")
                           .populate("dog").exec(function (err,dogLicenseResult) {
                           if (err) {
                               throw(err);
