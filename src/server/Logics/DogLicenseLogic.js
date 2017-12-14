@@ -434,17 +434,33 @@ var DogLicenseLogic = {
 
 						
 
-						dogLicense.save(function(err,dogLicenseReslut){
+						dogLicense.save(function(err,dogLicenseResult){
 								if (err) { throw err; return}
 
-								if (dogLicenseReslut) {
-									onSuccess(dogLicenseReslut)
+								if (dogLicenseResult) {
+									done(null,dogLicenseResult)
+								//	onSuccess(dogLicenseReslut)
 								}
 							
 						})
 			  			//dogLicense.save(function(err,r){})
 
-			  	}
+			  	},function (result,done) {
+                      var dogLicenseModel = DogLicenseModel.get();
+                      dogLicenseModel.find().populate("owner")
+                          .populate("dog").exec(function (err,dogLicenseResult) {
+                          if (err) {
+                              throw(err);
+
+                          } else {
+
+                              done(null,dogLicenseResult);
+                              onSuccess(dogLicenseResult)
+
+                          }
+                      })
+                  }
+
 
 			  	],function(err,result){
 			  			

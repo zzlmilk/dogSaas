@@ -54,29 +54,10 @@ _.extend(FindOwnerHandler.prototype,RequestHandlerBase.prototype);
 FindOwnerHandler.prototype.attach = function(route){
     var self = this;
 
-    route.get('/',authenticator,function(request,response){
-
-        var certificateType =request.query.certificateType;
-        var certificateCode=request.query.certificateCode;
+    route.post('/',authenticator,function(request,response){
 
 
-        if (Utils.isEmpty(certificateType)) {
-            self.successResponse(response,
-                Const.resCodeDogOwnerNoCertificateType
-            )
-
-            return;
-        }
-        if (Utils.isEmpty(certificateCode)) {
-            self.successResponse(response,
-                Const.resCodeDogOwnerNocertificateCode
-            )
-
-            return;
-        }
-
-
-        OwnerLogic.findOwner(request.query,function(result){
+        OwnerLogic.findOwner(request.body,function(result){
             self.successResponse(response,Const.responsecodeSucceed,{
                 owner:result
             });
