@@ -126,8 +126,8 @@ var DogLicenseLogic = {
 										 info:{
 											  		cardNo:Utils.dogCardNo(),	
 											  		name:res.owner.name,
-											  		addresses:res.owner.address,
-											  		district:res.owner.district,
+											  		addresses:res.owner.location.address,
+											  		district:res.owner.location.district,
 											  		irisID:res.dog.irisID,
 											  		breed:res.dog.breed,
 											  		hairColor:res.dog.hairColor,
