@@ -48,9 +48,9 @@ var PersonalCardView = Backbone.View.extend({
             $("#breed_null").after(sb.toString());
 
             $('.form_date').datetimepicker({
-                language:"zh-CN",
+                language: "zh-CN",
                 weekStart: 1,
-                todayBtn:  1,
+                todayBtn: 1,
                 autoclose: 1,
                 todayHighlight: 1,
                 startView: 2,
@@ -898,6 +898,8 @@ var PersonalCardView = Backbone.View.extend({
             if (birth_date == "") {
                 falg = false;
                 $("#birth_date_null_tip").show();
+            } else {
+                $("#birth_date_null_tip").hide();
             }
             //虹膜id
             var iris = $('#iris').val();
