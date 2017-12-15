@@ -39,6 +39,19 @@ var PersonalCardView = Backbone.View.extend({
     },
 
     onLoad: function () {
+        $('.form_date').datetimepicker({
+            language:"zh-CN",
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            pickerPosition: "bottom-right"
+        });
+
+
         //如果狗证信息不为空 完善房产信息
         if(self.dogLicense!=null){
             //禁用输入 选择
