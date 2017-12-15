@@ -22,6 +22,9 @@ html,body{height:100%;}
 label{
   font-weight: normal;
 }
+input[disabled]:hover{
+  cursor:not-allowed;
+}
 //分页器组件
 .pagination{
   margin-top: 100px;
@@ -265,22 +268,22 @@ label{
   margin-left: 5px;
   position: relative;
 }
-#personal_center_view>.basic_info>.row>.col-md-6>.section>#license{
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#license{
   width: 231px;
   height: 161px;
   float:left;
 }
-#personal_center_view>.basic_info>.row>.col-md-6>.section>#license>img{
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#license>img{
   width: 231px;
   height: 161px;
   display: block;
 }
-#personal_center_view>.basic_info>.row>.col-md-6>.section>#permit{
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#permit{
   width: 231px;
   height: 161px;
   float:left;
 }
-#personal_center_view>.basic_info>.row>.col-md-6>.section>#permit>img{
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#permit>img{
   width: 231px;
   height: 161px;
   display: block;
