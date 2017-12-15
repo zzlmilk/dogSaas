@@ -47,7 +47,7 @@ var DogLicenseLogic = {
 			  						//改房产已经办理过
 			  						if(residenceModel){
 
-									  onError(null,Consts.resCodeHaveResidenceParam)
+									  onError(null,Const.resCodeHaveResidenceParam)
 										
 			  						}else{
 

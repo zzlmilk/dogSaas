@@ -26,76 +26,95 @@ var InfoPreview = {
     residence: null,
 
     show: function (dogLicenseModel) {
-        this.DogLicenseModel = dogLicenseModel;
-        // console.log(this.DogLicenseModel.toJSON());
-
-
         var self = this;
+        self.DogLicenseModel = dogLicenseModel;
+        console.log("弹窗预览");
+        console.log(self.DogLicenseModel);
 
         $('body').append(template({
-            DogLicenseModel: this.DogLicenseModel.toJSON()}));
+            DogLicenseModel: self.DogLicenseModel
+        }));
         $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
-
-        })
+        });
 
         $('#modal-profile').on('show.bs.modal', function (e) {
-
-
-        })
+        });
 
         $('#modal-profile').modal('show');
         $('#modal-btn-close').unbind().on('click', function () {
             self.hide();
         });
 
-        //保存并制卡
+        //制卡
         $('#save_and_ccard').unbind().on('click', function () {
 
-            // self.hide();
-            // var CardInfoT = require('../../Main/Dog/DogCard/CardInfo/CardInfo.hbs');
-            // new SidebarView().createCard({
-            //     'el': sView.$
-            // })
-            // alert("进入Main/Dog/DogCard/CardInfo页面")
+            if (self.DogLicenseModel.id) {
+                //完善房产信息
+                var residence = {
+                    houseNo: self.DogLicenseModel.residence.houseNo,
+                    houseProperty: self.DogLicenseModel.residence.houseProperty,
+                    address: self.DogLicenseModel.residence.address,
+                    isSterilization: self.DogLicenseModel.residence.isSterilization,
+                };
+                var houseInfo = {
+                    dogLicenseId: self.DogLicenseModel.id,
+                    residence: residence
+                }
+                console.log("完善房产信息");
+                console.log(houseInfo);
 
-            // console.log(self.DogLicenseModel);
-            // return;
+                DogLicenseClient.editResidence(
+                    //房产信息
+                    houseInfo,
+                    //成功回调
+                    function (data) {
+                        console.log("完善房产信息成功");
+                        console.log(data);
+                        self.hide();
+                        var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
+                        var view = new CardInfoView({
+                            'el': "#main-content",
+                            "dogLicense": data.dogLicense
+                        });
 
-            DogLicenseClient.add(
-                //狗证信息
-                self.DogLicenseModel,
-                //成功回调
-                function (data) {
-                    // loginUserManager.setToken(data.token);
-                    // //存入本地缓存
-                    // var user = UserModel.modelByResult(data.user)
-                    // loginUserManager.setLoginUserID(user.get("id"))
-                    // user.save();
-                    // console.log(data)
+                    },
+                    //失败回调
+                    function (errorCode) {
+                        console.log("办理狗证信息成功");
+                        console.log(errorCode);
+                        if (Const.ErrorCodes[errorCode]) {
+                            var message = Const.ErrorCodes[errorCode];
+                            alert(message)
+                        }
 
-                    console.log(data.dogLicense);
-
-                    // new ds().createCard(data.dogLicense);
-                    // var ds = require("../../Main/Dog/DogCard/DogCardView.js");
-                    // Utils.goPage("organization");
-                    self.hide();
-                    var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
-                    var view = new CardInfoView({
-                        'el': "#main-content",
-                        "dogLicense":data.dogLicense
                     });
+            } else {
+                DogLicenseClient.add(
+                    //狗证信息
+                    self.DogLicenseModel,
+                    //成功回调
+                    function (data) {
+                        console.log(data.dogLicense[0]);
+                        self.hide();
+                        var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
+                        var view = new CardInfoView({
+                            'el': "#main-content",
+                            "dogLicense": data.dogLicense[0]
+                        });
 
-                },
-                //失败回调
-                function (errorCode) {
-                    console.log(errorCode);
-                    if (Const.ErrorCodes[errorCode]) {
-                        var message = Const.ErrorCodes[errorCode]
-                        alert(message)
-                    }
+                    },
+                    //失败回调
+                    function (errorCode) {
+                        console.log(errorCode);
+                        if (Const.ErrorCodes[errorCode]) {
+                            var message = Const.ErrorCodes[errorCode]
+                            alert(message)
+                        }
 
-                });
+                    });
+            }
+
         });
 
     },
@@ -114,151 +133,7 @@ var InfoPreview = {
         })
 
         $('#modal-profile').modal('hide');
-    }
-
-    ,
-
-
-    /**
-     * 添加狗证
-     */
-    addDogCard: function () {
-        var body = {
-            husbandryNo: global.getRandomStr(),
-            dog: {
-                nickname: "test_" + global.getRandomStr(),
-                sex: "1",
-                breed: "breed",
-                usage: "警卫",
-                hairColor: "白色",
-                bornDate: "2016-08-10",
-                irisID: "a12345678",
-                photoUrl: "123",
-                vaccine: {
-                    name: "av",
-                    batchNo: "123",
-                    manufacturer: "manufacturer",
-                    veterinarianName: "veterinarianName",
-                    organizationName: "organizationName",
-                }
-
-            },
-            owner: {
-                name: "test_" + global.getRandomStr(),
-                sex: "1",
-                tel: "345033",
-                phone: "15901794453",
-                certificateType: "1",
-                certificateCode: "31010211111111",
-                province: "province",
-                district: "district",
-                city: "city",
-                address: "address",
-                code: "code",
-
-            },
-            residence: {
-                houseNo: "1234",
-                houseProperty: "ziyou",
-                address: "global.getRandomStr()",
-                isSterilization: "0"
-            }
-
-        };
-
-        request(app)
-            .post('/dogsystem/v1/dogLicense/add')
-            .set('Access-Token', token)
-            .send(body)
-            .end(function (err, res) {
-
-                if (err) {
-                    throw err;
-                }
-
-                console.log(res.body)
-                res.body.should.have.property('code');
-                res.body.code.should.equal(Const.responsecodeSucceed);
-
-                done();
-
-            });
-    }
-    ,
-
-    /**
-     * 补办狗证
-     */
-    issueDogCard: function () {
-        var body = {
-            husbandryNo: global.getRandomStr(),
-            dog: {
-                nickname: "test_" + global.getRandomStr(),
-                sex: "1",
-                breed: "breed",
-                usage: "警卫",
-                hairColor: "白色",
-                bornDate: "2016-08-10",
-                irisID: "a12345678",
-                photoUrl: "123",
-                vaccine: {
-                    name: "av",
-                    batchNo: "123",
-                    manufacturer: "manufacturer",
-                    veterinarianName: "veterinarianName",
-                    organizationName: "organizationName",
-                }
-
-            },
-            owner: {
-                name: "test_" + global.getRandomStr(),
-                sex: "1",
-                tel: "345033",
-                phone: "15901794453",
-                certificateType: "1",
-                certificateCode: "31010211111111",
-                province: "province",
-                district: "district",
-                city: "city",
-                address: "address",
-                code: "code",
-
-            },
-            residence: {
-                houseNo: "1234",
-                houseProperty: "ziyou",
-                address: "global.getRandomStr()",
-                isSterilization: "0"
-            }
-
-        };
-
-        request(app)
-            .post('/dogsystem/v1/dogLicense/add')
-            .set('Access-Token', token)
-            .send(body)
-            .end(function (err, res) {
-
-                if (err) {
-                    throw err;
-                }
-
-                console.log(res.body)
-                res.body.should.have.property('code');
-                res.body.code.should.equal(Const.responsecodeSucceed);
-
-                done();
-
-            });
-    }
-    ,
-
-    /**
-     * 免疫年检
-     */
-    immuneYearCheck: function () {
-
-    }
+    },
 
 
 };
