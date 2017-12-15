@@ -47,11 +47,23 @@ var PersonalCardView = Backbone.View.extend({
                 });
             $("#breed_null").after(sb.toString());
 
+            $('.form_date').datetimepicker({
+                language:"zh-CN",
+                weekStart: 1,
+                todayBtn:  1,
+                autoclose: 1,
+                todayHighlight: 1,
+                startView: 2,
+                minView: 2,
+                forceParse: 0,
+                pickerPosition: "bottom-right"
+            });
             this.onLoad();
             return this;
         },
 
         onLoad: function () {
+
             //如果狗证信息不为空 完善房产信息
             if (self.dogLicense != null) {
                 //数据回填
