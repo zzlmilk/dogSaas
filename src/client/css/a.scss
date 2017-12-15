@@ -4,17 +4,19 @@ html,body{height:100%;}
   margin-right: 0px;
   margin-bottom: 15px;
 }
+#content-area{
+  margin-bottom: -15px;
+  background: #202732;
+}
 #sidebar-content{
   padding: 0;
-  //padding-bottom: 200px;
-  //margin-bottom: -200px;
+  min-height: calc(100vh-80px);
   overflow: hidden;
   background: #202732;
 }
 #main-content{
   padding: 0;
-  //padding-bottom: 200px;
-  //margin-bottom: -200px;
+  min-height: calc(100vh-80px);
   overflow: hidden;
   background: #fcfcfc;
   margin-left: 0px;
@@ -25,6 +27,9 @@ label{
 input[disabled]:hover{
   cursor:not-allowed;
 }
+
+
+
 //分页器组件
 .pagination{
   margin-top: 100px;
@@ -250,42 +255,24 @@ input[disabled]:hover{
   line-height: 44px;
 }
 
-#personal_center_view>.basic_info>.row>.col-md-6>.subtitle{
-  float: left;
-  height: 40px;
-  line-height: 40px;
-  margin-left: 45px;
-}
-#personal_center_view>.basic_info>.row>.col-md-6>.subtitle h4{
-  float: left;
-  height: 44px;
-  line-height: 44px;
-  text-align:right;
-}
-#personal_center_view>.basic_info>.row>.col-md-6>.section{
-  float: left;
-  height: 161px;
-  margin-left: 5px;
-  position: relative;
-}
 #personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#license{
-  width: 231px;
-  height: 161px;
+  width: 230px;
+  height: 160px;
   float:left;
 }
 #personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#license>img{
-  width: 231px;
-  height: 161px;
+  width: 230px;
+  height: 160px;
   display: block;
 }
 #personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#permit{
-  width: 231px;
-  height: 161px;
+  width: 230px;
+  height: 160px;
   float:left;
 }
 #personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#permit>img{
-  width: 231px;
-  height: 161px;
+  width: 230px;
+  height: 160px;
   display: block;
 }
 
@@ -336,7 +323,7 @@ input[disabled]:hover{
 //控制台侧边栏
 .sidebar{
   width: 100%;
-  min-height:100%;
+  height:100%;
   background:#202732;
 }
 .sidebar>.nav{

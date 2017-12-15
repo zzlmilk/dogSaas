@@ -19,7 +19,6 @@ var DogBreed = require('./DogBreed.js');//宠物品种
 var StringBuffer = require('../../../../Parts/selectPlugin/StringBuffer.js');
 var OrganizationClient = require('../../../../../lib/APIClients/OrganizationClient');
 
-
 var PersonalCardView = Backbone.View.extend({
         el: null,
         self: null,
