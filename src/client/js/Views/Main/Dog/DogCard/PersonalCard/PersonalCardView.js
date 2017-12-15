@@ -27,7 +27,7 @@ var PersonalCardView = Backbone.View.extend({
             self = this;
             self.el = options.el;
             self.dogLicense = options.dogLicense;
-            self.render();
+            this.render();
         },
         render: function () {
             $(self.el).html(template({}));
@@ -67,7 +67,7 @@ var PersonalCardView = Backbone.View.extend({
             //如果狗证信息不为空 完善房产信息
             if (self.dogLicense != null) {
                 //数据回填
-                self.setValue();
+                this.setValue();
                 //禁用输入 选择
                 var d1 = $('#dogLicense_barcode_div *');
                 for (i = 0; i < d1.length; i++) {
@@ -90,19 +90,182 @@ var PersonalCardView = Backbone.View.extend({
             }
 
             //添加监听事件
-            self.initEvent();
+            this.initEvent();
 
+            /**
+             * 非空验证
+             * @returns {boolean}
+             */
+            var emptyValid= function () {
+                falg = true;
+                //条形码
+                var barcode = $('#barcode').val();
+                if (barcode == "") {
+                    falg = false;
+                    $("#barcode_null_tip").show();
+                }
+                //犬主姓名
+                var dogowner_name = $('#dogowner_name').val();
+                if (dogowner_name == "") {
+                    falg = false;
+                    $("#dogowner_name_null_tip").show();
+                }
+                //性别
+                var gender = $("input[name='gender']:checked").val();
+                if (gender == undefined) {
+                    falg = false;
+                    $("#gender_null_tip").show();
+                }
+                //犬主手机号码
+                var phone = $("#phone").val();
+                if (phone == "") {
+                    falg = false;
+                    $("#phone_null_tip").show();
+                } else {
+                    if (!phone.match(/^1[3,5,7,8]\d{9}$/)) {
+                        falg = false;
+                        $("#phone_format_tip").show();
+                    }
+                }
+                //犬主座机
+                var tel = $("#tel").val();
+                if (tel == "") {
+                    falg = false;
+                    $("#tel_null_tip").show();
+                }
+                //证件号
+                var id_number = $('#id_number').val();
+                if (id_number == "") {
+                    falg = false;
+                    $("#id_number_null_tip").show();
+                } else {
+                    if (!id_number.match(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/)) {
+                        falg = false;
+                        $("#id_number_format_tip").show();
+                    }
+                }
+                //所属省份
+                var province = $('#province').val().trim();
+                if (province == -1) {
+                    falg = false;
+                    $("#province_null_tip").show();
+                }
+                //所属城市
+                var citys = $('#citys').val().trim();
+                if (citys == -1) {
+                    falg = false;
+                    $("#citys_null_tip").show();
+                }
+                //所属区/县
+                var county = $('#county').val().trim();
+                if (county == -1) {
+                    falg = false;
+                    $("#county_null_tip").show();
+                }
+                //详细地址
+                var address = $('#address').val();
+                if (address == "") {
+                    falg = false;
+                    $("#address_null_tip").show();
+                }
+                //邮编
+                var postcode = $('#postcode').val();
+                if (postcode == "") {
+                    falg = false;
+                    $("#postcode_null_tip").show();
+                }
 
+                /******************犬只信息*********************/
+                    //犬名
+                var dogname = $('#dogname').val();
+                if (dogname == "") {
+                    falg = false;
+                    $("#dogname_null_tip").show();
+                }
+                //犬只性别
+                var dog_gender = $("input[name='dog_gender']:checked").val();
+                if (dog_gender == undefined) {
+                    falg = false;
+                    $("#dog_gender_null_tip").show();
+                }
+                //毛色
+                var dog_color = $('#dog_color').val();
+                if (dog_color == "") {
+                    falg = false;
+                    $("#dog_color_null_tip").show();
+                }
+                //犬只用途
+                var usage = $("input[name='usage']:checked").val();
+                if (usage == undefined) {
+                    falg = false;
+                    $("#usage_null_tip").show();
+                }
+                //品种
+                var breed = $('#breed').val();
+                if (breed == "") {
+                    falg = false;
+                    $("#breed_null_tip").show();
+                }
+                //许可证
+                var imgs = $("#imgs img").attr("src");
+                if (imgs == undefined) {
+                    falg = false;
+                    $("#imgs_null_tip").show();
+                }
+
+                //生日
+                var birth_date = $('#birth_date').val();
+                if (birth_date == "") {
+                    falg = false;
+                    $("#birth_date_null_tip").show();
+                } else {
+                    $("#birth_date_null_tip").hide();
+                }
+                //虹膜id
+                var iris = $('#iris').val();
+                if (iris == "") {
+                    falg = false;
+                    $("#iris_null_tip").show();
+                }
+
+                /********************疫苗登记******************/
+                    //疫苗名称
+                var vaccine_name = $('#vaccine_name').val();
+                if (vaccine_name == "") {
+                    falg = false;
+                    $("#vaccine_name_null_tip").show();
+                }
+                //疫苗批号
+                var vaccine_batch = $('#vaccine_batch').val();
+                if (vaccine_batch == "") {
+                    falg = false;
+                    $("#vaccine_batch_null_tip").show();
+                }
+                //生产厂商
+                var manuf = $('#manuf').val();
+                if (manuf == "") {
+                    falg = false;
+                    $("#manuf_null_tip").show();
+                }
+                //兽医
+                var doctor_name = $('#doctor_name').val();
+                if (doctor_name == "") {
+                    falg = false;
+                    $("#doctor_name_null_tip").show();
+                }
+
+                return falg;
+            };
             $('#post_info').unbind().on('click', function () {
                 //完善房产信息
                 if (self.dogLicense != null) {
                     //验证房产信息
-                    if (!self.emptyHouseValid()) {
+                    if (!this.emptyHouseValid()) {
                         return;
                     }
                 } else {
                     //验证非空
-                    if (!self.emptyValid()) {
+                    if (!emptyValid()) {
                         return;
                     }
                 }
@@ -342,7 +505,7 @@ var PersonalCardView = Backbone.View.extend({
                 //查询数据 (已选择类型并且证件号格式正确)
                 var id_number = $('#id_number').val().trim();
                 if (id_number.match(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/)) {
-                    self.info();
+                    this.info();
                 }
 
             });
@@ -364,7 +527,7 @@ var PersonalCardView = Backbone.View.extend({
                 } else {
                     $("#id_number_format_tip").hide();
                     //查询数据 (已选择类型并且证件号格式正确)
-                    self.info();
+                    this.info();
                 }
             });
 
@@ -772,170 +935,7 @@ var PersonalCardView = Backbone.View.extend({
             $('#doctor_name').val(vaccine.veterinarianName);
         },
 
-        /**
-         * 非空验证
-         * @returns {boolean}
-         */
-        emptyValid: function () {
-            falg = true;
-            //条形码
-            var barcode = $('#barcode').val();
-            if (barcode == "") {
-                falg = false;
-                $("#barcode_null_tip").show();
-            }
-            //犬主姓名
-            var dogowner_name = $('#dogowner_name').val();
-            if (dogowner_name == "") {
-                falg = false;
-                $("#dogowner_name_null_tip").show();
-            }
-            //性别
-            var gender = $("input[name='gender']:checked").val();
-            if (gender == undefined) {
-                falg = false;
-                $("#gender_null_tip").show();
-            }
-            //犬主手机号码
-            var phone = $("#phone").val();
-            if (phone == "") {
-                falg = false;
-                $("#phone_null_tip").show();
-            } else {
-                if (!phone.match(/^1[3,5,7,8]\d{9}$/)) {
-                    falg = false;
-                    $("#phone_format_tip").show();
-                }
-            }
-            //犬主座机
-            var tel = $("#tel").val();
-            if (tel == "") {
-                falg = false;
-                $("#tel_null_tip").show();
-            }
-            //证件号
-            var id_number = $('#id_number').val();
-            if (id_number == "") {
-                falg = false;
-                $("#id_number_null_tip").show();
-            } else {
-                if (!id_number.match(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/)) {
-                    falg = false;
-                    $("#id_number_format_tip").show();
-                }
-            }
-            //所属省份
-            var province = $('#province').val().trim();
-            if (province == -1) {
-                falg = false;
-                $("#province_null_tip").show();
-            }
-            //所属城市
-            var citys = $('#citys').val().trim();
-            if (citys == -1) {
-                falg = false;
-                $("#citys_null_tip").show();
-            }
-            //所属区/县
-            var county = $('#county').val().trim();
-            if (county == -1) {
-                falg = false;
-                $("#county_null_tip").show();
-            }
-            //详细地址
-            var address = $('#address').val();
-            if (address == "") {
-                falg = false;
-                $("#address_null_tip").show();
-            }
-            //邮编
-            var postcode = $('#postcode').val();
-            if (postcode == "") {
-                falg = false;
-                $("#postcode_null_tip").show();
-            }
 
-            /******************犬只信息*********************/
-                //犬名
-            var dogname = $('#dogname').val();
-            if (dogname == "") {
-                falg = false;
-                $("#dogname_null_tip").show();
-            }
-            //犬只性别
-            var dog_gender = $("input[name='dog_gender']:checked").val();
-            if (dog_gender == undefined) {
-                falg = false;
-                $("#dog_gender_null_tip").show();
-            }
-            //毛色
-            var dog_color = $('#dog_color').val();
-            if (dog_color == "") {
-                falg = false;
-                $("#dog_color_null_tip").show();
-            }
-            //犬只用途
-            var usage = $("input[name='usage']:checked").val();
-            if (usage == undefined) {
-                falg = false;
-                $("#usage_null_tip").show();
-            }
-            //品种
-            var breed = $('#breed').val();
-            if (breed == "") {
-                falg = false;
-                $("#breed_null_tip").show();
-            }
-            //许可证
-            var imgs = $("#imgs img").attr("src");
-            if (imgs == undefined) {
-                falg = false;
-                $("#imgs_null_tip").show();
-            }
-
-            //生日
-            var birth_date = $('#birth_date').val();
-            if (birth_date == "") {
-                falg = false;
-                $("#birth_date_null_tip").show();
-            } else {
-                $("#birth_date_null_tip").hide();
-            }
-            //虹膜id
-            var iris = $('#iris').val();
-            if (iris == "") {
-                falg = false;
-                $("#iris_null_tip").show();
-            }
-
-            /********************疫苗登记******************/
-                //疫苗名称
-            var vaccine_name = $('#vaccine_name').val();
-            if (vaccine_name == "") {
-                falg = false;
-                $("#vaccine_name_null_tip").show();
-            }
-            //疫苗批号
-            var vaccine_batch = $('#vaccine_batch').val();
-            if (vaccine_batch == "") {
-                falg = false;
-                $("#vaccine_batch_null_tip").show();
-            }
-            //生产厂商
-            var manuf = $('#manuf').val();
-            if (manuf == "") {
-                falg = false;
-                $("#manuf_null_tip").show();
-            }
-            //兽医
-            var doctor_name = $('#doctor_name').val();
-            if (doctor_name == "") {
-                falg = false;
-                $("#doctor_name_null_tip").show();
-            }
-
-            return falg;
-        },
 
         /**
          * 非空房产信息验证
