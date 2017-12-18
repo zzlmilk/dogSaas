@@ -30,7 +30,7 @@ describe('WEB API', function () {
                             throw err;
                         }
 
-                        console.log(res.body.data)
+                        console.log(res.body.data.dogLicenses)
 
                       //   res.body.should.have.property('code');
                          res.body.code.should.equal(Const.responsecodeSucceed);
@@ -63,7 +63,7 @@ describe('WEB API', function () {
                         throw err;
                     }
 
-                    console.log(res.body.data)
+                    console.log(res.body.data.dogLicenses)
 
                     res.body.should.have.property('code');
                     res.body.code.should.equal(1);

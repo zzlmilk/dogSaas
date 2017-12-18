@@ -45,6 +45,7 @@ var WebAPIMain = {
                     router.use("/dogLicense/find_by_dog", require('./DogLicense/FindDogLicenseByDogHandler'));
                     router.use("/dogLicense/add_takeWay", require('./DogLicense/EditDogLicenseHandler'));
 
+
 				      //owner
                     router.use("/owner/find", require('./Owner/FindOwnerHandler'));
                     
@@ -53,6 +54,9 @@ var WebAPIMain = {
 
                     //ResidenceModel
                     router.use("/residence/edit", require('./Residence/EditResidenceHandler'));
+
+                    //Vaccine
+                    router.use("/vaccine/add", require('./Vaccine/AddVaccineHandler'));
 
 
 

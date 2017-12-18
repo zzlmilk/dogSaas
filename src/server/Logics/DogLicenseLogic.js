@@ -198,7 +198,7 @@ var DogLicenseLogic = {
 			  		//验证条形码没有被使用
 			  		dogLicenseModel.findOne({"husbandryNo":param.husbandryNo},function(err,dogLicenseResult){
 			  				if (dogLicenseResult) {
-			  						console.log("wrong husbandryNo")
+			  						//console.log("wrong husbandryNo")
 			  					onError(null, Const.resCodeDogWorngHusbandryNo);
 			  				}else{
 			  					dogLicense.husbandryNo = param.husbandryNo;
@@ -460,19 +460,9 @@ var DogLicenseLogic = {
                           }
                       })
                   }
-
-
 			  	],function(err,result){
-			  			
 			  })
-
-
-
-			  		
-
-
 			})
-
 		},
 	//通过主人姓名，手机号和身份证号查询狗证信息
 	    find_by_owner: function (param, onSuccess, onError) {
@@ -482,6 +472,7 @@ var DogLicenseLogic = {
         var certificateCode=param.certificateCode;
         var page=param.page||1
 		var res={};
+        var vaccineModel=VaccineModel.get();
 
 
         async.waterfall([
@@ -509,7 +500,7 @@ var DogLicenseLogic = {
 
         	if(Utils.isEmpty(name)&&Utils.isEmpty(phone)&&Utils.isEmpty(certificateCode)){
                 dogLicenseModel.find().populate("owner")
-                    .populate("dog").sort({"vaccineCreate":1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err,doglicenseResult) {
+                    .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate":1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err,doglicenseResult) {
                     if (err) {
                         throw(err);
 
@@ -523,7 +514,7 @@ var DogLicenseLogic = {
 
 
                     dogLicenseModel.find({owner: result}).populate("owner")
-                        .populate("dog").sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, doglicenseResult) {
+                        .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, doglicenseResult) {
                         if (err) {
                             throw(err);
 
@@ -568,8 +559,7 @@ var DogLicenseLogic = {
         var page=param.page||1;
 		var res={};
 
-
-        async.waterfall([
+		async.waterfall([
 			function (done) {//获取count
                 var dogLicenseModel = DogLicenseModel.get();
                 dogLicenseModel.count().exec(function(err,count){
@@ -579,17 +569,14 @@ var DogLicenseLogic = {
 
 							res.count=count;
 							done(null,res)
-
 						}
                     })
-
-
 			},
 
             function (result,done) {
                 var dogLicenseModel = DogLicenseModel.get();
                 if (Utils.isEmpty(irisID) && Utils.isEmpty(cardNo)) {
-                    dogLicenseModel.find().populate("owner").populate("dog").sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
+                    dogLicenseModel.find().populate("owner").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw (err)
                         }
@@ -603,7 +590,7 @@ var DogLicenseLogic = {
 
                 } else {
                     dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": cardNo}]})
-                        .populate("owner").populate("dog").sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
+                        .populate("owner").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw (err)
                         }
@@ -638,13 +625,61 @@ var DogLicenseLogic = {
 
 				onSuccess(dogLicense);
 			}
+		})
+	},
+	editVaccine:function (param,onSuccess,onError) {//免疫年检，更新免疫信息
+        var vaccineParam = param.vaccine;
+        var dogLicense = param.dogLicense;
+        var husbandryNo = param.husbandryNo;
+        var dogLicenseModel=DogLicenseModel.get();
+        if(Utils.isEmpty(husbandryNo)){
+        	onError(null,Const.resCodeDogNoHusbandryNo);
+        	return;
+		}
+        async.waterfull([
+            function (done) {//验证条形码有没有被使用过
+                dogLicenseModel.findOne({"husbandryNo":husbandryNo},function(err,dogLicenseResult){
+                    if (dogLicenseResult) {
+						onError(null, Const.resCodeDogWorngHusbandryNo);
+                    }else{
+                        dogLicense.husbandryNo = husbandryNo;
+                        done(null,res)
+                    }
+                })
+            },function (result,done) {
+        	var vaccineModel=vaccineModel.get();
+                var vaccine = new vaccineModel({
+                    name:vaccineParam.name,
+                    batchNo:vaccineParam.batchNo,
+                    manufacturer:vaccineParam.manufacturer,
+                    veterinarianName:vaccineParam.veterinarianName,
+                    organizationName:vaccineParam.organizationName,
+                    created:Utils.now()
+                });
+                vaccine.save(function (err, vaccine) {
+                    if (err) {
+                        throw err;
+                    }else{
+						done(null,vaccine);
+					}
+				})
+			},function (result,done) {
 
-        })
-
-
-    },
-
-    validatorParam:function(param,callback){
+        	var vaccine=dogLicense.dog.vaccine;
+        	vaccine.push(result);
+        	dogLicense.dog.vaccine=vaccine;
+        	dogLicense.save(function (err, res) {
+					if (err) {
+						throw err
+					}else {
+						done(null, res);
+						onSuccess(res);
+					}
+				})
+			}
+        ])
+	},
+	validatorParam:function(param,callback){
 			//条形码
 			if(Utils.isEmpty(param.husbandryNo)){
 	                callback(Const.resCodeDogNoHusbandryNo)
