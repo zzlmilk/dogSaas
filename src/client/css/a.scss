@@ -485,6 +485,11 @@ input[type='date']::-webkit-inner-spin-button {
   float: left;
   margin-left: 5px;
 }
+.personal_card>.registration>.row>.col-md-6>.section>.radio_container{
+  width: 265px;
+  height:44px;
+  line-height: 44px;
+}
 .personal_card>.registration>.row>.col-md-6>.section>input[type="text"]{
   width: 265px;
   height:44px;
@@ -518,7 +523,7 @@ input[type='date']::-webkit-inner-spin-button {
   border-radius:4px;
   float:left;
 }
-.personal_card>.registration>.row>.col-md-6>.section>.kinds{
+.personal_card>.registration>.row>.col-md-6>.section>.radio_container>.kinds{
     width:265px;
     height:44px;
     line-height:44px;
