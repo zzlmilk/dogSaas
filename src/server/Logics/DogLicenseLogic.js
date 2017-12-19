@@ -271,11 +271,9 @@ var DogLicenseLogic = {
 			  	function(result,done){
 			  		//录入免疫信息
 			  			var vaccineModel = VaccineModel.get();
-
-			  			var vaccineList = [];
+					    var vaccineList = [];
 			  		_.forEach(vaccineParam,function(_vaccine){
-
-			  				var vaccine = new vaccineModel({
+						    var vaccine = new vaccineModel({
 			  				name:_vaccine.name,
 			  				batchNo:_vaccine.batchNo,
 			  				manufacturer:_vaccine.manufacturer,
@@ -288,18 +286,12 @@ var DogLicenseLogic = {
 			  			vaccine.save(function(err,vaccineResult){
 			  				
 			  			})
-
-
-			  				vaccineList.push(vaccine)
+						vaccineList.push(vaccine)
 
 			  		})
-
-
-			  			res.vaccines = vaccineList;
+					     res.vaccines = vaccineList;
                          done(null,res)
-
-
-			  	},function (result,done) {
+				},function (result,done) {
 			  		//验证irisID唯一性
 			  		 var dogModel=DogModel.get();
 			  		 var irisID=dogParam.irisID;
@@ -696,9 +688,9 @@ var DogLicenseLogic = {
                     if (err) {
                         throw err;
                     } else {
-                        var vaccine = dogResult.vaccine;
-                        vaccine.push(result);
-                        dogResult.vaccine = vaccine;
+                        var vaccines = dogResult.vaccine;
+                        vaccines.push(result);
+                        dogResult.vaccine = vaccines;
                         done(null, dogResult)
                     }
                 })
