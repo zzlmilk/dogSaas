@@ -1110,7 +1110,7 @@ input[type='date']::-webkit-inner-spin-button {
 }
 .dogownerlist>.title>.row>.form-group{
   float: left;
-  margin-right: 15px;
+  margin-left: 15px;
   height: 44px;
   line-height: 44px;
 }
@@ -1119,13 +1119,13 @@ input[type='date']::-webkit-inner-spin-button {
   line-height: 44px;
 }
 .dogownerlist>.title>.row>.form-group>input{
-  width: 160px;
+  width: 230px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .dogownerlist>.title>.row>.form-group>select{
-  width: 80px;
+  width: 100px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
@@ -1160,12 +1160,6 @@ input[type='date']::-webkit-inner-spin-button {
 }
 .dogownerlist>.table>tbody>.tr_head{
   background:#fbfbfb;
-}
-.dogownerlist>#dogowner_nav{
-  //width: 500px;
-  //position: absolute;
-  //margin-left:-250px ;
-  //left:50%;
 }
 
 //信息查询--犬主信息搜索详情
@@ -1241,6 +1235,45 @@ input[type='date']::-webkit-inner-spin-button {
 .dog_search>.tilte>.row{
   margin-left:20px;
 }
+.dog_search>.title>.row>.form-group{
+  float: left;
+  margin-left: 15px;
+  height: 44px;
+  line-height: 44px;
+}
+.dog_search>.title>.row>.form-group>label{
+  height: 44px;
+  line-height: 44px;
+}
+.dog_search>.title>.row>.form-group>input{
+  width: 230px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.dog_search>.title>.row>.form-group>select{
+  width: 100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.dog_search>.title>.row>.form-group>.btn{
+  width: 150px;
+  height: 40px;
+}
+.dog_search>.title>.row>.search{
+  float: right;
+  margin-right: 20px;
+}
+.dog_search>.title>.row>#search{
+  width: 150px;
+  height: 44px;
+  float: left;
+  margin-left: 140px;
+  margin-right: 0px;
+
+}
+
 .dog_search>.title>.row>.col-md-6>.input-group>.input-group-btn>.dog_number{
   width: 80px;
   height: 40px;
@@ -1262,36 +1295,9 @@ input[type='date']::-webkit-inner-spin-button {
   height: 40px;
   border: 2px #cccccc solid ;
 }
-.dog_search>.title>.row>.form-group{
-  float: left;
-  margin-right: 15px;
-  height: 44px;
-  line-height: 44px;
-}
-.dog_search>.title>.row>.form-group>label{
-  height: 44px;
-  line-height: 44px;
-}
-.dog_search>.title>.row>.form-group>input{
-  width: 230px;
-  height: 40px;
-  border: 2px #cccccc solid;
-  border-radius:4px;
-}
-.dog_search>.title>.row>.form-group>select{
-  width: 80px;
-  height: 40px;
-  border:2px #cfcfcf solid;
-  border-radius: 4px;
-}
-.dog_search>.title>.row>#search{
-  width: 150px;
-  height: 44px;
-  float: left;
-  margin-left: 140px;
-  margin-right: 0px;
 
-}
+
+
 .dog_search>.table{
   width:100%;
   border-collapse:collapse;
@@ -1317,12 +1323,7 @@ input[type='date']::-webkit-inner-spin-button {
   color:#339afe;
   text-decoration: underline;
 }
-.dog_search>#dogsearch_nav{
-  //width: 500px;
-  //position: absolute;
-  //margin-left:-250px ;
-  //left:50%;
-}
+
 
 //免疫年检
 .immune_content{
@@ -1499,11 +1500,11 @@ input[type='date']::-webkit-inner-spin-button {
   margin-bottom: 20px;
 }
 .immune_list>.title>.row{
-  margin-left:20px;
+
 }
 .immune_list>.title>.row>.form-group{
   float: left;
-  margin-right: 15px;
+  margin-left: 15px;
   height: 44px;
   line-height: 44px;
 }
@@ -1511,13 +1512,13 @@ input[type='date']::-webkit-inner-spin-button {
   margin-right: 10px;
 }
 .immune_list>.title>.row>.form-group>input[type="text"]{
-  width: 160px;
+  width: 230px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .immune_list>.title>.row>.form-group>select{
-  width:85px;
+  width:100px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
@@ -1554,12 +1555,6 @@ input[type='date']::-webkit-inner-spin-button {
   color:#339afe;
   text-decoration: underline;
 }
-.immune_list>#pagenav{
-   //width: 500px;
-   //position: absolute;
-   //margin-left:-250px ;
-   //left:50%;
-}
 
 //制卡信息
 .card_info{
@@ -1585,11 +1580,11 @@ input[type='date']::-webkit-inner-spin-button {
   margin-bottom: 20px;
 }
 .card_info>.title>.row{
-  margin-left:20px;
+
 }
 .card_info>.title>.row>.form-group{
   float: left;
-  margin-right: 15px;
+  margin-left: 15px;
   height: 44px;
   line-height: 44px;
 }
@@ -1603,7 +1598,7 @@ input[type='date']::-webkit-inner-spin-button {
   border-radius:4px;
 }
 .card_info>.title>.row>.form-group>select{
-  width:85px;
+  width:100px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;

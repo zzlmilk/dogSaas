@@ -147,7 +147,7 @@
                     <div class="radio_container">
                         <input type="radio" name="dog_gender" id="doggender_male" value="1">
                         <label for="dog_gender">雄</label>
-                        <input type="radio" style="margin-left: 15px" name="dog_gender" id="doggender_female" value="2">
+                        <input type="radio" style="margin-left: 30px" name="dog_gender" id="doggender_female" value="2">
                         <label for="dog_gender">雌</label>
                     </div>
                      <p style="display: none;" class="null_err" id="dog_gender_null_tip">*犬只性别不能为空</p>
@@ -188,7 +188,7 @@
                     <div class="radio_container">
                         <input type="radio" name="usage" id="watch" value="观赏">
                         <label for="usage">观赏</label>
-                        <input type="radio" name="usage" id="police" value="警卫">
+                        <input type="radio" name="usage" style="margin-left:15px;" id="police" value="警卫">
                         <label for="usage">警卫</label>
                     </div>
                     <p style="display: none;" class="null_err" id="usage_null_tip">*犬只用途不能为空</p>
@@ -326,10 +326,12 @@
                     <h4>产权性质:</h4>
                 </div>
                 <div class="section">
-                    <input type="radio" name="houseProperty" id="owner" value="自由">
-                    <label for="houseProperty">自由</label>
-                    <input type="radio" style="margin-left: 15px" name="houseProperty" id="rent" value="租赁">
-                    <label for="houseProperty">租赁</label>
+                    <div class="radio_container">
+                        <input type="radio" name="houseProperty" id="owner" value="自由">
+                        <label for="houseProperty">自由</label>
+                        <input type="radio" style="margin-left: 15px" name="houseProperty" id="rent" value="租赁">
+                        <label for="houseProperty">租赁</label>
+                    </div>
                     <p style="display:none;" class="null_err" id="houseProperty_null_tip">*产权性质不能为空</p>
                 </div>
 
@@ -373,10 +375,12 @@
                     <h4>是否绝育:</h4>
                 </div>
                 <div class="section">
-                    <input type="radio" name="isSterilization" value="1">
-                    <label for="isSterilization">是</label>
-                    <input type="radio" style="margin-left: 30px" name="isSterilization" value="0">
-                    <label for="isSterilization">否</label>
+                    <div class="radio_container">
+                        <input type="radio" name="isSterilization" value="1">
+                        <label for="isSterilization">是</label>
+                        <input type="radio" style="margin-left: 30px" name="isSterilization" value="0">
+                        <label for="isSterilization">否</label>
+                    </div>
                     <p style="display:none;" class="null_err" id="isSterilization_null_tip">*请选择是否绝育</p>
                 </div>
             </div>
