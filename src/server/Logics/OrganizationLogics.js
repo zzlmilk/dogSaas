@@ -241,8 +241,7 @@ var OrganizationLogics = {
                     if (err) {
                         throw err
                     }else {
-						done(null, res)
-                        onSuccess(res)
+						onSuccess(res)
                     }
 				})
 			}
@@ -259,9 +258,7 @@ var OrganizationLogics = {
 					}
 					if (organization) {
 						res.organization = organization;
-						done(null,res);
 						onSuccess(res);
-
 					}
 				});
 
@@ -270,6 +267,7 @@ var OrganizationLogics = {
 			if (err) {
 				onError(err, null);
 				return;
+
 
 			}
 		})

@@ -11,7 +11,7 @@ describe('WEB API', function () {
         signin(function(token){
             var body = {
                 husbandryNo:global.getRandomStr(),
-                    dogLicenseId:"5a38ab2141f4be48b891cb70",
+                    dogLicenseId:"5a3346aba1584b20b4e72e31",
                     vaccine:{
                         name:"av",
                         batchNo:"1234",

@@ -463,8 +463,6 @@ var DogLicenseLogic = {
                               throw(err);
 
                           } else {
-
-                              done(null,dogLicenseResult);
                               onSuccess(dogLicenseResult)
 
                           }
@@ -539,7 +537,7 @@ var DogLicenseLogic = {
 						}
 					})
                 }
-			},
+			}
 		], function (err,result) {
 		})
     },
@@ -571,8 +569,7 @@ var DogLicenseLogic = {
                         }
                         else {
                             res.dogLicenses = dogLicenseResult //符合条件的集合
-                            done(null, res)
-                            onSuccess(res)
+							onSuccess(res)
                         }
 
                     })
@@ -679,10 +676,10 @@ var DogLicenseLogic = {
                 })
 
             }, function (result, done) {
-
-              res.dog=result;
+        	  res.dog=result;
               dogLicense.vaccineCard.annual.updateDate=Utils.now();
-              dogLicense.vaccineCard.info.annualDate=Utils.annualDate([]);
+              var annualDate=dogLicense.vaccineCard.info.annualDate;
+              dogLicense.vaccineCard.info.annualDate=Utils.annualDate(annualDate);
               dogLicense.save(function (err, res) {
                     if (err) {
                         throw err
@@ -700,9 +697,7 @@ var DogLicenseLogic = {
                         throw(err);
 
                     } else {
-
-                        done(null,res);
-                        onSuccess(res)
+						onSuccess(res)
 
                     }
                 })

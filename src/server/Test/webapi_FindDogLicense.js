@@ -14,7 +14,7 @@ describe('WEB API', function () {
 							var body = {
                                 //  name:"test_kEiAr",
                                   //phone:"15901794453",
-                                 //certificateType:"1",
+                               //  certificateType:"1",
                                 // certificateCode:"31010222222222",
                                 // page:"2"
                             	
@@ -50,7 +50,7 @@ describe('WEB API', function () {
             //参数
             var body = {
                 // irisID:"a123456789",
-                 cardNo:"sYcZ7iFU67",
+                //cardNo:"sYcZ7iFU67",
                // page :"1"
 
             };
