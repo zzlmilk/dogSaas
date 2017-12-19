@@ -40,10 +40,12 @@
                     <h4>性别:</h4>
                 </div>
                 <div class="section">
-                    <input type="radio" name="gender" id="gender_man" value="1" text="男">
-                    <label for="gender">男</label>
-                    <input type="radio" style="margin-left: 30px" name="gender" id="gender_woman" value="2" text="女">
-                    <label for="gender">女</label>
+                    <div class="radio_container" >
+                        <input type="radio" name="gender" id="gender_man" value="1" text="男">
+                        <label for="gender">男</label>
+                        <input type="radio" style="margin-left: 30px" name="gender" id="gender_woman" value="2" text="女">
+                        <label for="gender">女</label>
+                    </div>
                     <p style="display: none;" class="null_err" id="gender_null_tip">*性别不能为空</p>
                 </div>
             </div>
@@ -142,11 +144,13 @@
                     <h4>*性别:</h4>
                 </div>
                 <div class="section">
-                    <input type="radio" name="dog_gender" id="doggender_male" value="1">
-                    <label for="dog_gender">雄</label>
-                    <input type="radio" style="margin-left: 15px" name="dog_gender" id="doggender_female" value="2">
-                    <label for="dog_gender">雌</label>
-                    <p style="display: none;" class="null_err" id="dog_gender_null_tip">*犬只性别不能为空</p>
+                    <div class="radio_container">
+                        <input type="radio" name="dog_gender" id="doggender_male" value="1">
+                        <label for="dog_gender">雄</label>
+                        <input type="radio" style="margin-left: 30px" name="dog_gender" id="doggender_female" value="2">
+                        <label for="dog_gender">雌</label>
+                    </div>
+                     <p style="display: none;" class="null_err" id="dog_gender_null_tip">*犬只性别不能为空</p>
                 </div>
             </div>
         </div>
@@ -156,21 +160,23 @@
                     <h4>*毛色:</h4>
                 </div>
                 <div class="section">
-                    <select class="kinds" id="dog_color">
-                        <option value="">请选择</option>
-                        <option value="白色">白色</option>
-                        <option value="黑色">黑色</option>
-                        <option value="褐色">褐色</option>
-                        <option value="青色">青色</option>
-                        <option value="黑褐色">黑褐色</option>
-                        <option value="铁灰色">铁灰色</option>
-                        <option value="灰褐色">灰褐色</option>
-                        <option value="黄褐色">黄褐色</option>
-                        <option value="灰白色">灰白色</option>
-                        <option value="黑白色">黑白色</option>
-                        <option value="黄红色">黄红色</option>
-                        <option value="淡红色">淡红色</option>
-                    </select>
+                    <div class="radio_container">
+                        <select class="kinds" id="dog_color">
+                            <option value="">请选择</option>
+                            <option value="白色">白色</option>
+                            <option value="黑色">黑色</option>
+                            <option value="褐色">褐色</option>
+                            <option value="青色">青色</option>
+                            <option value="黑褐色">黑褐色</option>
+                            <option value="铁灰色">铁灰色</option>
+                            <option value="灰褐色">灰褐色</option>
+                            <option value="黄褐色">黄褐色</option>
+                            <option value="灰白色">灰白色</option>
+                            <option value="黑白色">黑白色</option>
+                            <option value="黄红色">黄红色</option>
+                            <option value="淡红色">淡红色</option>
+                        </select>
+                    </div>
                     <p style="display: none;" class="null_err" id="dog_color_null_tip">*犬只颜色不能为空</p>
                 </div>
             </div>
@@ -179,10 +185,12 @@
                     <h4>用途:</h4>
                 </div>
                 <div class="section">
-                    <input type="radio" name="usage" id="watch" value="观赏">
-                    <label for="usage">观赏</label>
-                    <input type="radio" name="usage" id="police" value="警卫">
-                    <label for="usage">警卫</label>
+                    <div class="radio_container">
+                        <input type="radio" name="usage" id="watch" value="观赏">
+                        <label for="usage">观赏</label>
+                        <input type="radio" name="usage" style="margin-left:15px;" id="police" value="警卫">
+                        <label for="usage">警卫</label>
+                    </div>
                     <p style="display: none;" class="null_err" id="usage_null_tip">*犬只用途不能为空</p>
                 </div>
             </div>
@@ -193,10 +201,11 @@
                     <h4>*品种:</h4>
                 </div>
                 <div class="section">
-
-                    <select class="kinds" id="breed">
-                        <option id="breed_null" value="">请选择</option>
-                    </select>
+                    <div class="radio_container">
+                        <select class="kinds" id="breed">
+                            <option id="breed_null" value="">请选择</option>
+                        </select>
+                    </div>
                     <p style="display: none;" class="null_err" id="breed_null_tip">*犬只品种不能为空</p>
                 </div>
             </div>
@@ -249,12 +258,14 @@
                     <h4>*疫苗名称:</h4>
                 </div>
                 <div class="section">
-                    <select class="kinds" id="vaccine_name">
-                        <option value="">请选择</option>
-                        <option value="荷兰英特威">荷兰英特威</option>
-                        <option value="美国辉瑞">美国辉瑞</option>
-                        <option value="梅里亚">梅里亚</option>
-                    </select>
+                    <div class="radio_container">
+                        <select class="kinds" id="vaccine_name">
+                            <option value="">请选择</option>
+                            <option value="荷兰英特威">荷兰英特威</option>
+                            <option value="美国辉瑞">美国辉瑞</option>
+                            <option value="梅里亚">梅里亚</option>
+                        </select>
+                    </div>
                     <p style="display: none;" class="null_err" id="vaccine_name_null_tip">*疫苗名称不能为空</p>
                 </div>
             </div>
@@ -284,7 +295,7 @@
                     <h4>免疫点名称:</h4>
                 </div>
                 <div class="section">
-                    <input disabled="disabled" type="text" id="organizationName">
+                    <input disabled="disabled" type="text" value="上海顽皮家族" id="organizationName">
                 </div>
             </div>
         </div>
@@ -294,9 +305,11 @@
                     <h4>*兽医:</h4>
                 </div>
                 <div class="section">
-                    <select class="kinds" id="doctor_name">
-                        <option value="" id="doctor_null">请选择</option>
-                    </select>
+                    <div class="radio_container">
+                        <select class="kinds" id="doctor_name">
+                            <option value="" id="doctor_null">请选择</option>
+                        </select>
+                    </div>
                     <p style="display: none;" class="null_err" id="doctor_name_null_tip">*兽医不能为空</p>
                 </div>
             </div>
@@ -313,10 +326,12 @@
                     <h4>产权性质:</h4>
                 </div>
                 <div class="section">
-                    <input type="radio" name="houseProperty" id="owner" value="自由">
-                    <label for="houseProperty">自由</label>
-                    <input type="radio" style="margin-left: 15px" name="houseProperty" id="rent" value="租赁">
-                    <label for="houseProperty">租赁</label>
+                    <div class="radio_container">
+                        <input type="radio" name="houseProperty" id="owner" value="自由">
+                        <label for="houseProperty">自由</label>
+                        <input type="radio" style="margin-left: 15px" name="houseProperty" id="rent" value="租赁">
+                        <label for="houseProperty">租赁</label>
+                    </div>
                     <p style="display:none;" class="null_err" id="houseProperty_null_tip">*产权性质不能为空</p>
                 </div>
 
@@ -360,10 +375,12 @@
                     <h4>是否绝育:</h4>
                 </div>
                 <div class="section">
-                    <input type="radio" name="isSterilization" value="1">
-                    <label for="isSterilization">是</label>
-                    <input type="radio" style="margin-left: 30px" name="isSterilization" value="0">
-                    <label for="isSterilization">否</label>
+                    <div class="radio_container">
+                        <input type="radio" name="isSterilization" value="1">
+                        <label for="isSterilization">是</label>
+                        <input type="radio" style="margin-left: 30px" name="isSterilization" value="0">
+                        <label for="isSterilization">否</label>
+                    </div>
                     <p style="display:none;" class="null_err" id="isSterilization_null_tip">*请选择是否绝育</p>
                 </div>
             </div>

@@ -6,19 +6,16 @@
 
     <div class="title">
         <div class="row">
-            <div class="col-md-6">
-                <div class="input-group">
-                    <div class="input-group-btn">
-                        <select class="dog_number">
-                            <option>虹膜ID</option>
-                            <option>免疫卡号</option>
-                        </select>
-                    </div>
-                    <input type="text" >
-                    <span class="input-group-btn" >
-                        <button class="btn btnBlueE btn-block" type="button"  id="search">搜索</button>
-                    </span>
-                </div>
+            <div class="form-group">
+                <select id="certificateType">
+                    <option value="1"  selected="selected">虹膜ID</option>
+                    <option value="2">免疫卡号</option>
+                </select>
+                <input type="text" id="id_number">
+            </div>
+            <p style="display: none;" class="null_err" id="id_number_format_tip">*证件号格式有误</p>
+            <div class="form-group search">
+                <button class="btn btnBlueE btn-block" id="search">搜索</button>
             </div>
         </div>
     </div>
