@@ -38,8 +38,24 @@ var _ = require('lodash');
         this.postRequst("/dogLicense/add_takeWay", data, success, err);
     };
 
+    /**
+     * 犬主查询
+     * @param data
+     * @param success
+     * @param err
+     */
     DogLicenseClient.prototype.findByOwner = function (data, success, err) {
         this.postRequst("/dogLicense/find_by_owner", data, success, err);
+    };
+
+    /**
+     * 犬只查询
+     * @param data
+     * @param success
+     * @param err
+     */
+    DogLicenseClient.prototype.findByDog = function (data, success, err) {
+        this.postRequst("/dogLicense/find_by_dog", data, success, err);
     };
 
     /**
