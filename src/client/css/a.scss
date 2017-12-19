@@ -484,11 +484,7 @@ input[type='date']::-webkit-inner-spin-button {
 .personal_card>.registration>.row>.col-md-6>.section{
   float: left;
   margin-left: 5px;
-}
-.personal_card>.registration>.row>.col-md-6>.section>.radio_container{
-  width: 265px;
-  height:44px;
-  line-height: 44px;
+  position: relative;
 }
 .personal_card>.registration>.row>.col-md-6>.section>input[type="text"]{
   width: 265px;
@@ -598,17 +594,80 @@ input[type='date']::-webkit-inner-spin-button {
   float: left;
   font-weight: normal;
 }
-.personal_card>.registration>.row>.col-md-6>.section>#reg_addr_ck{
+
+.personal_card>.registration>.row>.col-md-6>.section>.radio_container{
+  width: 265px;
+  height:44px;
+  line-height: 44px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label_container{
+  width: 420px;
+  height:44px;
+  line-height: 44px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label_container>select{
+  width: 90px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label_container>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+  color: #000000;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label_container>input{
+  width: 50px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#houseid_null_tip{
+  position: absolute;
+  top:44px;
+  left: 0;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.address_container{
+  width: 420px;
+  height:44px;
+  line-height: 44px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.address_container>#reg_address{
+  width: 200px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.address_container>#reg_addr_ck{
   float: left;
   margin-left: 15px;
   margin-top: 15px;
   margin-right: 15px;
 }
+.personal_card>.registration>.row>.col-md-6>.section>.address_container>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+  color: #000000;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#reg_address_null_tip{
+  position: absolute;
+  top:44px;
+  left: 0;
+}
+
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
   width:265px;
   height:60px;
   overflow: hidden;
 }
+
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province{
   width: 85px;
   height: 40px;
@@ -1106,7 +1165,7 @@ input[type='date']::-webkit-inner-spin-button {
     margin-bottom: 20px;
 }
 .dogownerlist>.tilte>.row{
-  margin-left:20px;
+
 }
 .dogownerlist>.title>.row>.form-group{
   float: left;
@@ -1233,7 +1292,7 @@ input[type='date']::-webkit-inner-spin-button {
   margin-bottom: 20px;
 }
 .dog_search>.tilte>.row{
-  margin-left:20px;
+
 }
 .dog_search>.title>.row>.form-group{
   float: left;
@@ -1634,12 +1693,6 @@ input[type='date']::-webkit-inner-spin-button {
 .card_info>table>tbody>tr>td>.td-a{
   color:#339afe;
   text-decoration: underline;
-}
-.card_info>#pagenav{
-  //width: 500px;
-  //position: absolute;
-  //margin-left:-250px ;
-  //left:50%;
 }
 
 //个人中心--删除兽医--弹窗
