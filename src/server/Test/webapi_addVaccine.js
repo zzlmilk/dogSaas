@@ -14,7 +14,7 @@ describe('WEB API', function () {
                 dogLicenseId:"5a334661aaa8832f4476ff6b",
                 vaccine:{
                     name:"av",
-                    batchNo:"123",
+                    batchNo:"1234",
                     manufacturer:"manufacturer",
                     veterinarianName:"veterinarianName",
                     organizationName:"organizationName",
@@ -32,7 +32,7 @@ describe('WEB API', function () {
                         throw err;
                     }
 
-                    console.log(res.body)
+                    console.log(res.body.data.dogLicense)
                     res.body.should.have.property('code');
                     res.body.code.should.equal(Const.responsecodeSucceed);
 
