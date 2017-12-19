@@ -495,7 +495,7 @@ var DogLicenseLogic = {
                     certificateCode:certificateCode}]}, function (err, ownerResult) {
 
                     if (err) {
-                        throw (err)
+                        throw err;
                     }
                     else {
                         done(null, ownerResult)
@@ -518,26 +518,28 @@ var DogLicenseLogic = {
                 dogLicenseModel.find().populate("owner residence")
                     .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate":1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err,doglicenseResult) {
                     if (err) {
-                        throw(err);
+                        throw err;
 					} else {
                         res.dogLicenses = doglicenseResult;
                         onSuccess(res);
 					}
                 })
                 }else{
-					dogLicenseModel.find({owner: result}).populate("owner")
-                        .populate({path:"dog residence",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, doglicenseResult) {
-                        if (err) {
-                            throw(err);
 
-                        } else {
+					dogLicenseModel.find({owner: result}).populate("owner residence")
+                        .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).exec(function (err, doglicenseResult) {
+                        if (err) {
+                            throw err;
+						} else {
                             res.dogLicenses = doglicenseResult;
                             res.count=doglicenseResult.length;
 							onSuccess(res);
 						}
 					})
                 }
-			}
+			},function (result,done) {
+
+            },
 		], function (err,result) {
 		})
     },
@@ -565,7 +567,7 @@ var DogLicenseLogic = {
                     });
                     dogLicenseModel.find().populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
-                            throw (err)
+                            throw err;
                         }
                         else {
                             res.dogLicenses = dogLicenseResult //符合条件的集合
@@ -578,7 +580,7 @@ var DogLicenseLogic = {
                     dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": cardNo}]})
                         .populate("owner residence").populate({path:"dog",populate:{path: "vaccine[0]"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
-                            throw (err)
+                            throw err;
                         }
                         else {
                             res.dogLicenses = dogLicenseResult //符合条件的集合
@@ -694,7 +696,7 @@ var DogLicenseLogic = {
                 dogLicenseModel.find({"_id":result}).populate("owner residence")
                     .populate({path:"dog",populate:{path: "vaccine"}}).exec(function (err,res) {
                     if (err) {
-                        throw(err);
+                        throw err;
 
                     } else {
 						onSuccess(res)

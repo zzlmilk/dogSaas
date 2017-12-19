@@ -62,8 +62,7 @@ FindDogLicenseByOwnerHandler.prototype.attach = function(route){
         DogLicenseLogic.find_by_owner(request.body,function(result){
              self.successResponse(response,Const.responsecodeSucceed,{
                  dogLicenses:result.dogLicenses,
-                 count:result.count
-
+                 count:result.count,
              });
 
          },function(err,code){
