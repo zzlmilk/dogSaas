@@ -18,15 +18,15 @@ describe('WEB API', function () {
                                 usage:"警卫",
                                 hairColor:"白色",
                                 bornDate:"2016-08-10",
-                                irisID:"h123456789",
+                                irisID:"z1234",
                                 photoUrl:"123",
-                                vaccine:{
-                                    name:"av",
-                                    batchNo:"123",
-                                    manufacturer:"manufacturer",
-                                    veterinarianName:"veterinarianName",
-                                    organizationName:"organizationName",                                    
-                                }
+                                 vaccine:[{
+                                      name:"",
+                                      batchNo:"123",
+                                      manufacturer:"manufacturer",
+                                      veterinarianName:"veterinarianName",
+                                      organizationName:"organizationName",
+                                 }]
 
                             },                            
                             owner:{

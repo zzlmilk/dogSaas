@@ -763,27 +763,14 @@ var DogLicenseLogic = {
 
 			 //免疫信息
 			 var vaccine = param.dog.vaccine;
-			if(Utils.isEmpty(vaccine.name)){
-                callback(Const.resCodeDogVaccineNoname)
-			 		 return;
-			 }
-			 if(Utils.isEmpty(vaccine.batchNo)){
-                callback(Const.resCodeDogVaccineNobatchNo)
-			 		 return;
-			 }
-			 if(Utils.isEmpty(vaccine.manufacturer)){
-                callback(Const.resCodeDogVaccineNomanufacturer)
-			 		 return;
-			 }
-			 if(Utils.isEmpty(vaccine.veterinarianName)){
-                callback(Const.resCodeDogVaccineNoveterinarianName)
-			 		 return;
-			 }
-			 if(Utils.isEmpty(vaccine.organizationName)){
-                callback(Const.resCodeDogVaccineNoorganizationName)
-			 		 return;
-			 }
 
+        if(!_.isArray(vaccine) ||  vaccine[0] == null){
+
+            callback(Const.resCodeVaccineNotArray);
+
+
+
+        }
 		 var owner = param.owner;
 		 if(Utils.isEmpty(owner.name)){
                 callback(Const.resCodeDogOwnerNoname)
