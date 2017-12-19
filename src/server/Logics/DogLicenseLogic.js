@@ -350,11 +350,11 @@ var DogLicenseLogic = {
 							  					certificateType:ownerParam.certificateType,
 							  					certificateCode:ownerParam.certificateCode,							  					
 							  					location:{
-							  						province:ownerParam.province,
-							  						district:ownerParam.district,
-							  						city:ownerParam.city,
-							  						address:ownerParam.address,
-							  						code:ownerParam.code,
+							  						province:ownerParam.location.province,
+							  						district:ownerParam.location.district,
+							  						city:ownerParam.location.city,
+							  						address:ownerParam.location.address,
+							  						code:ownerParam.location.code,
 							  					},
 							  			//	 dogs:[result.dog],
 
@@ -472,13 +472,15 @@ var DogLicenseLogic = {
         var certificateCode=param.certificateCode;
         var page=param.page||1
 		var res={};
+        var dogLicenseModel = DogLicenseModel.get();
+        var dogModel = DogModel.get();
+        var ownerModel = OwnerModel.get();
         var vaccineModel=VaccineModel.get();
+        var residenceModel=ResidenceModel.get();
 
 
         async.waterfall([
             function (done) {
-
-                var ownerModel = OwnerModel.get();
                 ownerModel.find ({$or:[{name:name},{phone:phone},{certificateType:certificateType,
                     certificateCode:certificateCode}]}, function (err, ownerResult) {
 
@@ -495,11 +497,8 @@ var DogLicenseLogic = {
 
 
             function (result, done) {
-                var dogLicenseModel = DogLicenseModel.get();
-                var dogModel = DogModel.get();
-
-        	if(Utils.isEmpty(name)&&Utils.isEmpty(phone)&&Utils.isEmpty(certificateCode)){
-                dogLicenseModel.find().populate("owner")
+                if(Utils.isEmpty(name)&&Utils.isEmpty(phone)&&Utils.isEmpty(certificateCode)){
+                dogLicenseModel.find().populate("owner residence")
                     .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate":1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err,doglicenseResult) {
                     if (err) {
                         throw(err);
@@ -511,10 +510,8 @@ var DogLicenseLogic = {
                     }
                 })
                 }else{
-
-
                     dogLicenseModel.find({owner: result}).populate("owner")
-                        .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, doglicenseResult) {
+                        .populate({path:"dog residence",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, doglicenseResult) {
                         if (err) {
                             throw(err);
 
@@ -531,14 +528,12 @@ var DogLicenseLogic = {
 
             },
             function (result,done) {//获取count
-                var dogLicenseModel = DogLicenseModel.get();
                 dogLicenseModel.count().exec(function(err,count){
                     if(err){
                         throw err
                     }else{
 
                         res.count=count;
-
                         done(null,res)
                         onSuccess(res);
 
@@ -558,10 +553,14 @@ var DogLicenseLogic = {
         var cardNo=param.cardNo;
         var page=param.page||1;
 		var res={};
+        var dogLicenseModel = DogLicenseModel.get();
+        var dogModel = DogModel.get();
+        var ownerModel = OwnerModel.get();
+        var vaccineModel=VaccineModel.get();
+        var residenceModel=ResidenceModel.get();
 
 		async.waterfall([
 			function (done) {//获取count
-                var dogLicenseModel = DogLicenseModel.get();
                 dogLicenseModel.count().exec(function(err,count){
 						if(err){
 							throw err
@@ -574,9 +573,8 @@ var DogLicenseLogic = {
 			},
 
             function (result,done) {
-                var dogLicenseModel = DogLicenseModel.get();
                 if (Utils.isEmpty(irisID) && Utils.isEmpty(cardNo)) {
-                    dogLicenseModel.find().populate("owner").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
+                    dogLicenseModel.find().populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw (err)
                         }
@@ -590,7 +588,7 @@ var DogLicenseLogic = {
 
                 } else {
                     dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": cardNo}]})
-                        .populate("owner").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
+                        .populate("owner residence").populate({path:"dog",populate:{path: "vaccine[0]"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw (err)
                         }
@@ -632,11 +630,14 @@ var DogLicenseLogic = {
         var dogLicense = param.dogLicense;
         var husbandryNo = param.husbandryNo;
         var dogLicenseModel=DogLicenseModel.get();
+        var ownerModel=OwnerModel.get();
+        var dogModel=DogModel.get();
+        var res={};
         if(Utils.isEmpty(husbandryNo)){
         	onError(null,Const.resCodeDogNoHusbandryNo);
         	return;
 		}
-        async.waterfull([
+        async.waterfall([
             function (done) {//验证条形码有没有被使用过
                 dogLicenseModel.findOne({"husbandryNo":husbandryNo},function(err,dogLicenseResult){
                     if (dogLicenseResult) {
@@ -647,7 +648,7 @@ var DogLicenseLogic = {
                     }
                 })
             },function (result,done) {
-        	var vaccineModel=vaccineModel.get();
+        	var vaccineModel=VaccineModel.get();
                 var vaccine = new vaccineModel({
                     name:vaccineParam.name,
                     batchNo:vaccineParam.batchNo,
@@ -664,20 +665,58 @@ var DogLicenseLogic = {
 					}
 				})
 			},function (result,done) {
+                dogModel.findOne({"_id": dogLicense.dog}, function (err, dogResult) {
+                    if (err) {
+                        throw err;
+                    } else {
+                        var vaccine = dogResult.vaccine;
+                        vaccine.push(result._id);
+                        dogResult.vaccine = vaccine;
+                       
+                        done(null, dogResult)
+                    }
+                })
 
-        	var vaccine=dogLicense.dog.vaccine;
-        	vaccine.push(result);
-        	dogLicense.dog.vaccine=vaccine;
-        	dogLicense.save(function (err, res) {
-					if (err) {
-						throw err
-					}else {
-						done(null, res);
-						onSuccess(res);
-					}
-				})
-			}
-        ])
+            }, function (result, done) {
+                result.save(function (err, dog) {
+                    if (err) {
+                        throw err
+                    }else {
+                        done(null, dog);
+                    }
+                })
+
+            }, function (result, done) {
+              res.dog=result
+			  dogLicense.save(function (err, res) {
+                    if (err) {
+                        throw err
+                    } else {
+                        done(null, res);
+
+                    }
+                })
+
+            },function (result,done) {
+                var dogLicenseModel = DogLicenseModel.get();
+                dogLicenseModel.find({"_id":result}).populate("owner")
+                    .populate({path:"dog",populate:{path: "vaccine"}}).exec(function (err,res) {
+                    if (err) {
+                        throw(err);
+
+                    } else {
+
+                        done(null,res);
+                        onSuccess(res)
+
+                    }
+                })
+
+
+            }
+        ],function (err,result) {
+            
+        })
 	},
 	validatorParam:function(param,callback){
 			//条形码
@@ -771,24 +810,24 @@ var DogLicenseLogic = {
                 callback(Const.resCodeDogOwnerNocertificateCode)
 			 		 return;
 			 }
-		 if(Utils.isEmpty(owner.province)){
+		 if(Utils.isEmpty(owner.location.province)){
 	                callback(Const.resCodeDogOwnerNoLocationProvince)
 				 		 return;
 				 }
-		 if(Utils.isEmpty(owner.district)){
+		 if(Utils.isEmpty(owner.location.district)){
 	                callback(Const.resCodeDogOwnerNoLocationdistrict)
 				 		 return;
 				 }		
-		 if(Utils.isEmpty(owner.city)){
+		 if(Utils.isEmpty(owner.location.city)){
 	                callback(Const.resCodeDogOwnerNoLocationcity)
 				 		 return;
 				 }						 		 
-		 if(Utils.isEmpty(owner.address)){
+		 if(Utils.isEmpty(owner.location.address)){
 	                callback(Const.resCodeDogOwnerNoLocationaddress)
 				 		 return;
 				 }		
 
-		 if(Utils.isEmpty(owner.code)){
+		 if(Utils.isEmpty(owner.location.code)){
 	                callback(Const.resCodeDogOwnerNoLocationdcode)
 				 		 return;
 				 }								 
