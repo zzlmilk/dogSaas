@@ -271,11 +271,9 @@ var DogLicenseLogic = {
 			  	function(result,done){
 			  		//录入免疫信息
 			  			var vaccineModel = VaccineModel.get();
-
-			  			var vaccineList = [];
+					    var vaccineList = [];
 			  		_.forEach(vaccineParam,function(_vaccine){
-
-			  				var vaccine = new vaccineModel({
+						    var vaccine = new vaccineModel({
 			  				name:_vaccine.name,
 			  				batchNo:_vaccine.batchNo,
 			  				manufacturer:_vaccine.manufacturer,
@@ -288,18 +286,12 @@ var DogLicenseLogic = {
 			  			vaccine.save(function(err,vaccineResult){
 			  				
 			  			})
-
-
-			  				vaccineList.push(vaccine)
+						vaccineList.push(vaccine)
 
 			  		})
-
-
-			  			res.vaccines = vaccineList;
+					     res.vaccines = vaccineList;
                          done(null,res)
-
-
-			  	},function (result,done) {
+				},function (result,done) {
 			  		//验证irisID唯一性
 			  		 var dogModel=DogModel.get();
 			  		 var irisID=dogParam.irisID;
@@ -471,8 +463,6 @@ var DogLicenseLogic = {
                               throw(err);
 
                           } else {
-
-                              done(null,dogLicenseResult);
                               onSuccess(dogLicenseResult)
 
                           }
@@ -505,7 +495,7 @@ var DogLicenseLogic = {
                     certificateCode:certificateCode}]}, function (err, ownerResult) {
 
                     if (err) {
-                        throw (err)
+                        throw err;
                     }
                     else {
                         done(null, ownerResult)
@@ -518,58 +508,40 @@ var DogLicenseLogic = {
 
             function (result, done) {
                 if(Utils.isEmpty(name)&&Utils.isEmpty(phone)&&Utils.isEmpty(certificateCode)){
+                    dogLicenseModel.count().exec(function(err,count){
+                        if(err){
+                            throw err
+                        }else{
+							res.count=count;
+						}
+                    })
                 dogLicenseModel.find().populate("owner residence")
                     .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate":1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err,doglicenseResult) {
                     if (err) {
-                        throw(err);
-
-                    } else {
+                        throw err;
+					} else {
                         res.dogLicenses = doglicenseResult;
-
-                        done(null, res);
-
-                    }
+                        onSuccess(res);
+					}
                 })
                 }else{
 
-                    dogLicenseModel.find({owner: result}).populate("owner")
-                        .populate({path:"dog residence",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, doglicenseResult) {
+					dogLicenseModel.find({owner: result}).populate("owner residence")
+                        .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).exec(function (err, doglicenseResult) {
                         if (err) {
-                            throw(err);
-
-                        } else {
+                            throw err;
+						} else {
                             res.dogLicenses = doglicenseResult;
-                         
-
-                            done(null, res);
-
-                        }
-
-                    })
+                            res.count=doglicenseResult.length;
+							onSuccess(res);
+						}
+					})
                 }
-
-
+			},function (result,done) {
 
             },
-            function (result,done) {//获取count
-                dogLicenseModel.count().exec(function(err,count){
-                    if(err){
-                        throw err
-                    }else{
-
-                        res.count=count;
-                        done(null,res)
-                        onSuccess(res);
-
-                    }
-                })
-
-
-            }
-
-        ], function (err,result) {
-
-        })
+		], function (err,result) {
+		})
     },
      //通过虹膜id 和免疫卡号查询狗证信息
     find_by_dog: function (param, onSuccess, onError) {
@@ -584,28 +556,22 @@ var DogLicenseLogic = {
         var residenceModel=ResidenceModel.get();
 
 		async.waterfall([
-			function (done) {//获取count
-                dogLicenseModel.count().exec(function(err,count){
-						if(err){
-							throw err
-						}else{
-
-							res.count=count;
-							done(null,res)
-						}
-                    })
-			},
-
-            function (result,done) {
+			function (done) {
                 if (Utils.isEmpty(irisID) && Utils.isEmpty(cardNo)) {
+                    dogLicenseModel.count().exec(function(err,count){
+                        if(err){
+                            throw err
+                        }else{
+							res.count=count;
+						}
+                    });
                     dogLicenseModel.find().populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
-                            throw (err)
+                            throw err;
                         }
                         else {
                             res.dogLicenses = dogLicenseResult //符合条件的集合
-                            done(null, res)
-                            onSuccess(res)
+							onSuccess(res)
                         }
 
                     })
@@ -614,14 +580,13 @@ var DogLicenseLogic = {
                     dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": cardNo}]})
                         .populate("owner residence").populate({path:"dog",populate:{path: "vaccine[0]"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
-                            throw (err)
+                            throw err;
                         }
                         else {
                             res.dogLicenses = dogLicenseResult //符合条件的集合
-                            res.count = 1;
-                            //done(null, res)
-                            onSuccess(res)
-                            return;
+                            res.count = dogLicenseResult.length;
+							onSuccess(res);
+
                         }
 
                     })
@@ -696,9 +661,9 @@ var DogLicenseLogic = {
                     if (err) {
                         throw err;
                     } else {
-                        var vaccine = dogResult.vaccine;
-                        vaccine.push(result);
-                        dogResult.vaccine = vaccine;
+                        var vaccines = dogResult.vaccine;
+                        vaccines.push(result);
+                        dogResult.vaccine = vaccines;
                         done(null, dogResult)
                     }
                 })
@@ -713,10 +678,10 @@ var DogLicenseLogic = {
                 })
 
             }, function (result, done) {
-
-              res.dog=result;
+        	  res.dog=result;
               dogLicense.vaccineCard.annual.updateDate=Utils.now();
-              dogLicense.vaccineCard.info.annualDate=Utils.annualDate([]);
+              var annualDate=dogLicense.vaccineCard.info.annualDate;
+              dogLicense.vaccineCard.info.annualDate=Utils.annualDate(annualDate);
               dogLicense.save(function (err, res) {
                     if (err) {
                         throw err
@@ -731,12 +696,10 @@ var DogLicenseLogic = {
                 dogLicenseModel.find({"_id":result}).populate("owner residence")
                     .populate({path:"dog",populate:{path: "vaccine"}}).exec(function (err,res) {
                     if (err) {
-                        throw(err);
+                        throw err;
 
                     } else {
-
-                        done(null,res);
-                        onSuccess(res)
+						onSuccess(res)
 
                     }
                 })

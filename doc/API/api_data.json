@@ -87,37 +87,37 @@
             "description": "<p>宠物照片</p>"
           }
         ],
-        "dog_vaccine": [
+        "vaccine": [
           {
-            "group": "dog_vaccine",
+            "group": "vaccine",
             "type": "String",
             "optional": false,
             "field": "name",
             "description": "<p>疫苗名称</p>"
           },
           {
-            "group": "dog_vaccine",
+            "group": "vaccine",
             "type": "String",
             "optional": false,
             "field": "batchNo",
             "description": "<p>批号</p>"
           },
           {
-            "group": "dog_vaccine",
+            "group": "vaccine",
             "type": "String",
             "optional": false,
             "field": "manufacturer",
             "description": "<p>厂商</p>"
           },
           {
-            "group": "dog_vaccine",
+            "group": "vaccine",
             "type": "String",
             "optional": false,
             "field": "veterinarianName",
             "description": "<p>打疫苗的兽医</p>"
           },
           {
-            "group": "dog_vaccine",
+            "group": "vaccine",
             "type": "String",
             "optional": false,
             "field": "organizationName",
@@ -1209,6 +1209,103 @@
     "version": "0.0.0",
     "filename": "src/server/WebAPI/User/SetPasswordHandler.js",
     "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/vaccine/add",
+    "title": "免疫年检",
+    "name": "addVaccine",
+    "group": "Vaccine",
+    "description": "<p>免疫年检api接口</p>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "Sting",
+            "optional": false,
+            "field": "access-key",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "husbandryNo",
+            "description": "<p>畜牧业提供的条形码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dogLicenseId",
+            "description": "<p>狗证ID</p>"
+          }
+        ],
+        "vaccine": [
+          {
+            "group": "vaccine",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>疫苗名称</p>"
+          },
+          {
+            "group": "vaccine",
+            "type": "String",
+            "optional": false,
+            "field": "batchNo",
+            "description": "<p>批号</p>"
+          },
+          {
+            "group": "vaccine",
+            "type": "String",
+            "optional": false,
+            "field": "manufacturer",
+            "description": "<p>厂商</p>"
+          },
+          {
+            "group": "vaccine",
+            "type": "String",
+            "optional": false,
+            "field": "veterinarianName",
+            "description": "<p>打疫苗的兽医</p>"
+          },
+          {
+            "group": "vaccine",
+            "type": "String",
+            "optional": false,
+            "field": "organizationName",
+            "description": "<p>免疫点名称</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Example",
+          "content": "{\n               husbandryNo:global.getRandomStr(),\n               dogLicenseId:\"5a334661aaa8832f4476ff6b\",\n               vaccine:{\n                   name:\"av\",\n                   batchNo:\"1234\",\n                   manufacturer:\"manufacturer\",\n                   veterinarianName:\"veterinarianName\",\n                   organizationName:\"organizationName\",\n               }\n\n};",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[ { _id: '5a334661aaa8832f4476ff6b',\n   owner:\n    { _id: '5a334661aaa8832f4476ff6f',\n      name: 'test_tsY8Q',\n      sex: '1',\n      phone: '15901794453',\n      tel: '345033',\n      certificateType: '1',\n      certificateCode: '31010222222222',\n      __v: 12,\n      dogs: [Array],\n      location: [Object] },\n   dog:\n    { _id: '5a334661aaa8832f4476ff6e',\n      nickname: 'test_FJnXS',\n      sex: '2',\n      breed: 'breed',\n      usage: '警卫',\n      hairColor: '白色',\n      bornDate: '2016-08-10T00:00:00.000Z',\n      photoUrl: '123',\n      irisID: 'c123456789',\n      __v: 22,\n      vaccine: [Array],\n      photos: [] },\n   husbandryNo: 'SIBfz',\n   __v: 1,\n   residence:\n    { _id: '5a334926e2ec023460e09f39',\n      houseProperty: 'ziyou',\n      houseNo: 'zWhZv',\n      address: 'K1T5M',\n      isSterilization: 0,\n      created: '2017-12-15T04:01:42.291Z',\n      __v: 0 },\n   DogCard:\n    { create: '2017-12-15T04:01:42.313Z',\n      message: '成功办理狗证',\n      isCreate: 1,\n      info: [Object],\n      annual: [Object] },\n   vaccineCard:\n    { isCreate: 1,\n      create: '2017-12-15T03:49:53.758Z',\n      annual: [Object],\n      info: [Object] } } ]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/Vaccine/AddVaccineHandler.js",
+    "groupTitle": ""
   },
   {
     "type": "get",

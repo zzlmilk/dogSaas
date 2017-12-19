@@ -35,7 +35,7 @@ describe('WEB API', function () {
                                       organizationName:"organizationName",
                                  },
                                  {
-                                      name:"",
+                                      name:"haha",
                                       batchNo:"123",
                                       manufacturer:"manufacturer",
                                       veterinarianName:"veterinarianName",

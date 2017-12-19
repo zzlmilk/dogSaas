@@ -28,7 +28,7 @@ var AddVaccineHandler = function(){
  */
 
 /**
- * @api {post} /vaccine/add 免疫年检，添加免疫信息
+ * @api {post} /vaccine/add 免疫年检
  * @apiName addVaccine
  * @apiGroup Vaccine
  * @apiDescription 免疫年检api接口
@@ -40,13 +40,13 @@ var AddVaccineHandler = function(){
  {
                 husbandryNo:global.getRandomStr(),
                 dogLicenseId:"5a334661aaa8832f4476ff6b",
-                vaccine:[{
+                vaccine:{
                     name:"av",
                     batchNo:"1234",
                     manufacturer:"manufacturer",
                     veterinarianName:"veterinarianName",
                     organizationName:"organizationName",
-                }]
+                }
 
  };
  * @apiSuccessExample Success-Response:
