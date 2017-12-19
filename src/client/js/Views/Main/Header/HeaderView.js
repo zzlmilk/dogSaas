@@ -35,6 +35,16 @@ HeaderView = Backbone.View.extend({
 
         var self = this;
 
+        $('#news').unbind().on('click', function () {
+
+            var NewsCenterView = require('../NewsCenter/NewsCenterView');
+
+            var view = new NewsCenterView({
+                'el': "#main-content"
+            });
+
+        });
+
         $('#personal_center').unbind().on('click', function () {
 
             var PersonalCenterView = require('../PersonalCenter/PersonalCenterView');
@@ -44,6 +54,7 @@ HeaderView = Backbone.View.extend({
             });
 
         });
+
         $('#user_icon').mouseover(function () {
             $('#quit').show();
 

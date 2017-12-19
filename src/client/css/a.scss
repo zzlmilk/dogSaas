@@ -1,13 +1,24 @@
+html,body{height:100%;}
 .row{
   margin-left: 0px;
   margin-right: 0px;
   margin-bottom: 15px;
 }
-#main-content{
-  padding-left: 0;
-  padding-right: 0;
+#sidebar-content{
+  padding: 0;
+  padding-bottom: 10000px;
+  margin-bottom: -10000px;
+  overflow: hidden;
+  background: #202732;
 }
-html,body{height:100%;}
+#main-content{
+  padding: 0;
+  padding-bottom: 10000px;
+  margin-bottom: -10000px;
+  overflow: hidden;
+  background: #fcfcfc;
+  margin-left: 0px;
+}
 label{
   font-weight: normal;
 }
@@ -99,9 +110,8 @@ label{
 //控制台头部导航个人中心按钮
 #personal_center_view{
   width: 100%;
-  height: auto;
   background: #fcfcfc;
-  padding: 20px;
+  padding: 25px;
 }
 #personal_center_view>.basic_info{
   width: 100%;
@@ -210,6 +220,50 @@ label{
   float:left;
 }
 
+
+//控制台消息中心按钮
+.news_center{
+  width: 100%;
+  padding: 25px;
+  float: left;
+}
+.news_center>.content{
+  width: 100%;
+  height: auto;
+  float: left;
+  background: #ffffff;
+  border: 1px #cccccc solid ;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  margin-bottom: 100px;
+}
+.news_center>.content>.title{
+  margin-left: 15px;
+  margin-bottom: 20px;
+}
+.news_center>.content>.row{
+  margin-left: 30px;
+  margin-right:30px;
+  padding-bottom:15px;
+  border-bottom: 2px #cccccc solid;
+}
+.news_center>.content>.row>.col-md-4>.subtitle{
+  float: left;
+}
+.news_center>.content>.row>.col-md-4>.section{
+  float: left;
+}
+.news_center>.content>.row>.col-md-2>.subtitle{
+  float: left;
+}
+.news_center>.content>.row>.col-md-2>.section{
+  float: left;
+  margin-left: 10px;
+}
+.news_center>.content>.lastrow{
+  border-bottom: none;
+}
+
 //控制台侧边栏
 .sidebar{
   width: 100%;
@@ -315,7 +369,10 @@ label{
   background:#fcfcfc ;
 }
 .personal_card>.title{
-  margin-bottom: 20px;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  float: left;
 }
 .personal_card>.registration{
   width: 100%;
@@ -364,13 +421,13 @@ label{
   margin-left: 5px;
 }
 .personal_card>.registration>.row>.col-md-6>.section>input[type="text"]{
-  width: 230px;
+  width: 265px;
   height:44px;
   border-radius: 4px;
   border: 2px #cccccc solid;
 }
 .personal_card>.registration>.row>.col-md-6>.section>input[type="date"]{
-  width: 230px;
+  width: 265px;
   height:44px;
   border-radius: 4px;
   border: 2px #cccccc solid;
@@ -397,7 +454,7 @@ label{
   float:left;
 }
 .personal_card>.registration>.row>.col-md-6>.section>.kinds{
-    width:230px;
+    width:265px;
     height:44px;
     line-height:44px;
     border: 2px #cccccc solid;
@@ -478,41 +535,41 @@ label{
   margin-right: 15px;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
-  width:280px;
+  width:265px;
   height:60px;
   overflow: hidden;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province{
-  width: 90px;
+  width: 85px;
   height: 40px;
   float: left;
   margin-right: 5px;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province>select{
-  width: 90px;
+  width: 85px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city{
-  width: 90px;
+  width: 85px;
   height: 40px;
   float: left;
   margin-right: 5px;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city>select{
-  width: 90px;
+  width: 85px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county{
-  width: 90px;
+  width: 85px;
   height: 40px;
   float: left;
 }
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county>select{
-  width: 90px;
+  width: 85px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
@@ -621,8 +678,10 @@ label{
   padding: 25px;
 }
 .print_card>.title_nav{
-  margin-top:15px;
   width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  float: left;
 }
 .print_card>.content{
   width: 100%;
@@ -734,7 +793,10 @@ label{
   background:#fcfcfc ;
 }
 .business_card>.title{
-  margin-bottom: 20px;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  float: left;
 }
 .business_card>.registration{
   width: 100%;
@@ -783,13 +845,13 @@ label{
   margin-left: 5px;
 }
 .business_card>.registration>.row>.col-md-6>.section>input[type="text"]{
-  width: 230px;
+  width: 265px;
   height:44px;
   border-radius: 4px;
   border: 2px #cccccc solid;
 }
 .business_card>.registration>.row>.col-md-6>.section>input[type="date"]{
-  width: 230px;
+  width: 265px;
   height:44px;
   border-radius: 4px;
   border: 2px #cccccc solid;
@@ -816,7 +878,7 @@ label{
   float:left;
 }
 .business_card>.registration>.row>.col-md-6>.section>.kinds{
-  width:230px;
+  width:265px;
   height:44px;
   line-height:44px;
   border: 2px #cccccc solid;
@@ -896,41 +958,41 @@ label{
   margin-right: 15px;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
-  width:280px;
+  width:265px;
   height:60px;
   overflow: hidden;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province{
-  width: 90px;
+  width: 85px;
   height: 40px;
   float: left;
   margin-right: 5px;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province>select{
-  width: 90px;
+  width: 85px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city{
-  width: 90px;
+  width: 85px;
   height: 40px;
   float: left;
   margin-right: 5px;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city>select{
-  width: 90px;
+  width: 85px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county{
-  width: 90px;
+  width: 85px;
   height: 40px;
   float: left;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county>select{
-  width: 90px;
+  width: 85px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
@@ -955,7 +1017,7 @@ label{
 }
 .dogownerlist>.title{
     width: 100%;
-    height: 80px;
+    height: 84px;
     float: left;
     border: 1px solid #cccccc;
     background: #FFFFFF;
@@ -968,8 +1030,8 @@ label{
 .dogownerlist>.title>.row>.form-group{
   float: left;
   margin-right: 15px;
-  height: 32px;
-  line-height: 32px;
+  height: 44px;
+  line-height: 44px;
 }
 .dogownerlist>.title>.row>.form-group>label{
   height: 44px;
@@ -987,16 +1049,19 @@ label{
   border: 2px #cccccc solid;
   border-radius:4px;
 }
-.dogownerlist>.title>.row>#search{
-  width:150px;
-  height: 44px;
-  float: left;
-  margin-left: 30px;
+.dogownerlist>.title>.row>.form-group>.btn{
+  width: 150px;
+  height: 40px;
+}
+.dogownerlist>.title>.row>.search{
+  float: right;
+  margin-right: 20px;
 }
 .dogownerlist>.table{
   width:100%;
   border-collapse:collapse;
-  border:1px #4888c6 solid;
+  border:1px #cccccc solid;
+  background: #ffffff;
 }
 .dogownerlist>table tr,td{
   border:1px #4888c6 solid;
@@ -1005,17 +1070,15 @@ label{
   height: 30px;
   text-align: center;
   vertical-align: middle;
-}
-.dogownerlist>.table>tbody>.tr_head{
-  background:#339afe;
-  color: #ffffff;
-}
-.dogownerlist>.table>tbody>.tr_odd{
-  background:#daedff
+  color: #000000;
+  border:1px #cccccc solid;
 }
 .dogownerlist>table>tbody>tr>td>.td-a{
   color:#339afe;
   text-decoration: underline;
+}
+.dogownerlist>.table>tbody>.tr_head{
+  background:#fbfbfb;
 }
 .dogownerlist>#dogowner_nav{
   //width: 500px;
@@ -1087,7 +1150,7 @@ label{
 }
 .dog_search>.title{
   width: 100%;
-  height: 80px;
+  height: 84px;
   float: left;
   border: 1px solid #cccccc;
   background: #FFFFFF;
@@ -1097,11 +1160,21 @@ label{
 .dog_search>.tilte>.row{
   margin-left:20px;
 }
+.dog_search>.title>.row>.col-md-6>.input-group>.input-group-btn>.dog_number{
+  width: 80px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  border-radius:4px 0 0 4px;
+
+}
+.dog_search>.title>.row>.col-md-6>.input-group>span{
+  width: 80px;
+}
 .dog_search>.title>.row>.form-group{
   float: left;
   margin-right: 15px;
-  height: 32px;
-  line-height: 32px;
+  height: 44px;
+  line-height: 44px;
 }
 .dog_search>.title>.row>.form-group>label{
   height: 44px;
@@ -1130,35 +1203,23 @@ label{
 .dog_search>.table{
   width:100%;
   border-collapse:collapse;
-  border:1px #4888c6 solid;
-}
-.dog_search>table th,td{
-
-}
-.dog_search>.table>thead th{
-  text-align:center;
-  background:#339afe;
-  height: 40px;
-  line-height:40px;
-  color:#ffffff;
-}
-.dog_search>.table>tbody>.tr_head{
-  background:#339afe;
-  color: #ffffff;
+  border:1px #cccccc solid;
+  background: #ffffff;
 }
 .dog_search>.table>tbody tr td{
+  color: #000000;
   height: 30px;
   text-align:center;
+  border:1px #cccccc solid;
+
+}
+.dog_search>.table>tbody>.tr_head{
+  background:#fbfbfb;
+  color: #000000;
 }
 .dog_search>.table>tbody>.tr_head>td{
   height: 50px;
   line-height: 50px;
-}
-.dog_search>.table>tbody tr:nth-child(2n+2){
-  background:#daedff;
-}
-.dog_search>.table>tbody tr:nth-child(2n+3){
-  background:#ffffff;
 }
 .dog_search>table>tbody>tr>td>.td-a{
   color:#339afe;
@@ -1332,7 +1393,9 @@ label{
 }
 .immune_list>.top_tip{
   width: 100%;
-  margin-bottom: 20px;
+  height: 40px;
+  margin-bottom: 10px;
+  float: left;
 }
 .immune_list>.title{
   width: 100%;
@@ -1349,8 +1412,8 @@ label{
 .immune_list>.title>.row>.form-group{
   float: left;
   margin-right: 15px;
-  height: 48px;
-  line-height: 48px;
+  height: 44px;
+  line-height: 44px;
 }
 .immune_list>.title>.row>.form-group>label{
   margin-right: 10px;
@@ -1371,30 +1434,29 @@ label{
   width: 150px;
   height: 40px;
 }
+.immune_list>.title>.row>.search{
+  float: right;
+  margin-right: 20px;
+}
 .immune_list>.table{
   width:100%;
   border-collapse:collapse;
-  border:1px #4888c6 solid;
+  border:1px #cccccc solid;
+  background: #ffffff;
 }
-.immune_list>table th,td{
-  border:1px #4888c6 solid;
+.immune_list>.table>tbody>.tr_head{
+  background:#fbfbfb;
+  color: #000000;
 }
-.immune_list>.table>thead th{
-  text-align:center;
-  background:#339afe;
-  height: 40px;
-  line-height:40px;
-  color:#ffffff;
+.immune_list>.table>tbody>.tr_head>td{
+  height: 50px;
+  line-height:50px;
 }
 .immune_list>.table>tbody tr td{
   height: 30px;
   text-align: center;
-}
-.immune_list>.table>tbody tr:nth-child(2n+1){
-  background:#daedff;
-}
-.immune_list>.table>tbody tr:nth-child(2n+2){
-  background:#ffffff;
+  color: #000000;
+  border:1px #cccccc solid;
 }
 .immune_list>table>tbody>tr>td>.td-a{
   color:#339afe;
@@ -1416,8 +1478,10 @@ label{
   position: relative;
 }
 .card_info>.top_tip{
-  margin-bottom: 20px;
   width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  float: left;
 }
 .card_info>.title{
   width: 100%;
@@ -1434,8 +1498,8 @@ label{
 .card_info>.title>.row>.form-group{
   float: left;
   margin-right: 15px;
-  height: 32px;
-  line-height: 32px;
+  height: 44px;
+  line-height: 44px;
 }
 .card_info>.title>.row>.form-group>label{
   margin-right: 10px;
@@ -1456,30 +1520,29 @@ label{
   width: 150px;
   height: 40px;
 }
+.card_info>.title>.row>.search{
+  float: right;
+  margin-right: 20px;
+}
 .card_info>.table{
   width:100%;
   border-collapse:collapse;
-  border:1px #4888c6 solid;
+  border:1px #cccccc solid;
+  background: #ffffff;
 }
-.card_info>table th,td{
-  border:1px #4888c6 solid;
+.card_info>.table>tbody>.tr_head{
+  background:#fbfbfb;
+  color: #000000;
 }
-.card_info>.table>thead th{
-  text-align:center;
-  background:#339afe;
-  height: 40px;
-  line-height:40px;
-  color:#ffffff;
+.card_info>.table>tbody>.tr_head>td{
+  height:50px;
+  line-height:50px;
 }
 .card_info>.table>tbody tr td{
   height: 30px;
   text-align: center;
-}
-.card_info>.table>tbody tr:nth-child(2n+1){
-  background:#daedff;
-}
-.card_info>.table>tbody tr:nth-child(2n+2){
-  background:#ffffff;
+  color: #000000;
+  border:1px #cccccc solid;
 }
 .card_info>table>tbody>tr>td>.td-a{
   color:#339afe;
