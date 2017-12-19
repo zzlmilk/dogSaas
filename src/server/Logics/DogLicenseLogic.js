@@ -181,6 +181,10 @@ var DogLicenseLogic = {
 
 				var dogParam = param.dog
 				var vaccineParam = param.dog.vaccine
+
+
+
+
 				var ownerParam = param.owner
 				var residenceParam = param.residence
 
@@ -266,20 +270,33 @@ var DogLicenseLogic = {
 			  	},
 			  	function(result,done){
 			  		//录入免疫信息
-			  		var vaccineModel = VaccineModel.get();
-			  		var vaccine = new vaccineModel({
-			  				name:vaccineParam.name,
-			  				batchNo:vaccineParam.batchNo,
-			  				manufacturer:vaccineParam.manufacturer,
-			  				veterinarianName:vaccineParam.veterinarianName,
-			  				organizationName:vaccineParam.organizationName,
+			  			var vaccineModel = VaccineModel.get();
+
+			  			var vaccineList = [];
+			  		_.forEach(vaccineParam,function(_vaccine){
+
+			  				var vaccine = new vaccineModel({
+			  				name:_vaccine.name,
+			  				batchNo:_vaccine.batchNo,
+			  				manufacturer:_vaccine.manufacturer,
+			  				veterinarianName:_vaccine.veterinarianName,
+			  				organizationName:_vaccine.organizationName,
 			  				created:Utils.now()
+
+			  			});
+
+			  			vaccine.save(function(err,vaccineResult){
+			  				
+			  			})
+
+
+			  				vaccineList.push(vaccine)
+
 			  		})
 
-			  		vaccine.save(function(err,vaccineResult){
-			  				res.vaccine = vaccineResult;
-                            done(null,res)
-			  		})
+
+			  			res.vaccines = vaccineList;
+                         done(null,res)
 
 
 			  	},function (result,done) {
@@ -306,7 +323,7 @@ var DogLicenseLogic = {
 			  				  bornDate:dogParam.bornDate,
 			  				  photoUrl:dogParam.photoUrl,
 			  				  irisID:dogParam.irisID,
-			  				  vaccine:res.vaccine
+			  				  vaccine:res.vaccines
 			  			})
 
 			  			dog.save(function(err,dogResult){
@@ -465,7 +482,9 @@ var DogLicenseLogic = {
 			  })
 			})
 		},
-	//通过主人姓名，手机号和身份证号查询狗证信息
+
+
+	   //通过主人姓名，手机号和身份证号查询狗证信息
 	    find_by_owner: function (param, onSuccess, onError) {
         var name = param.name;
         var phone=param.phone;
@@ -506,11 +525,13 @@ var DogLicenseLogic = {
 
                     } else {
                         res.dogLicenses = doglicenseResult;
+
                         done(null, res);
 
                     }
                 })
                 }else{
+
                     dogLicenseModel.find({owner: result}).populate("owner")
                         .populate({path:"dog residence",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, doglicenseResult) {
                         if (err) {
@@ -518,6 +539,8 @@ var DogLicenseLogic = {
 
                         } else {
                             res.dogLicenses = doglicenseResult;
+                         
+
                             done(null, res);
 
                         }
@@ -595,8 +618,10 @@ var DogLicenseLogic = {
                         }
                         else {
                             res.dogLicenses = dogLicenseResult //符合条件的集合
-                            done(null, res)
+                            res.count = 1;
+                            //done(null, res)
                             onSuccess(res)
+                            return;
                         }
 
                     })

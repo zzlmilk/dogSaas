@@ -50,10 +50,14 @@ FindDogLicenseByDogHandler.prototype.attach = function(route){
     route.post('/',authenticator,function(request,response){
 
         DogLicenseLogic.find_by_dog(request.body,function(result){
-            self.successResponse(response,Const.responsecodeSucceed,{
-                dogLicenses:result,
-                count:res.count
 
+            //console.log("====",result)
+
+            
+
+            self.successResponse(response,Const.responsecodeSucceed,{
+                dogLicenses:result.dogLicenses,
+                count:result.count
 
             });
 

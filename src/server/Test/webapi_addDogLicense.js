@@ -18,16 +18,30 @@ describe('WEB API', function () {
                                 usage:"警卫",
                                 hairColor:"白色",
                                 bornDate:"2016-08-10",
-                                irisID:"g123",
+                                irisID:global.getRandomStr(),
                                 photoUrl:"123",
-                                 vaccine:[{
+                                vaccine:[{
                                       name:"",
                                       batchNo:"123",
                                       manufacturer:"manufacturer",
                                       veterinarianName:"veterinarianName",
                                       organizationName:"organizationName",
-                                 }]
-
+                                 },
+                                 {
+                                      name:"",
+                                      batchNo:"123",
+                                      manufacturer:"manufacturer",
+                                      veterinarianName:"veterinarianName",
+                                      organizationName:"organizationName",
+                                 },
+                                 {
+                                      name:"",
+                                      batchNo:"123",
+                                      manufacturer:"manufacturer",
+                                      veterinarianName:"veterinarianName",
+                                      organizationName:"organizationName",
+                                 },
+                                 ]
                             },                            
                             owner:{
                                 name: "test_"+global.getRandomStr(),

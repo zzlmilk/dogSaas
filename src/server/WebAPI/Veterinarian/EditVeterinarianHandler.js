@@ -64,6 +64,7 @@ EditVeterinarianHandler.prototype.attach = function(route){
     route.post('/',authenticator,OrganizationMiddleware,function(request,response){
 
 
+
         request.body.organization  = request.organization;
 
     OrganizationLogics.editVeterinarian(request.body,function(result){
