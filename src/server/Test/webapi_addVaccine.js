@@ -11,14 +11,14 @@ describe('WEB API', function () {
         signin(function(token){
             var body = {
                 husbandryNo:global.getRandomStr(),
-                dogLicenseId:"5a334661aaa8832f4476ff6b",
-                vaccine:{
+                dogLicenseId:"5a3891606bafbe3c9c529f5e",
+                vaccine:[{
                     name:"av",
                     batchNo:"1234",
                     manufacturer:"manufacturer",
                     veterinarianName:"veterinarianName",
                     organizationName:"organizationName",
-                }
+                }]
 
             };
 
@@ -32,7 +32,7 @@ describe('WEB API', function () {
                         throw err;
                     }
 
-                    console.log(res.body.data.dogLicense)
+                    console.log(res.body.data.dogLicense[0].dog)
                     res.body.should.have.property('code');
                     res.body.code.should.equal(Const.responsecodeSucceed);
 
