@@ -30,6 +30,17 @@ var BusinessCardView = Backbone.View.extend({
         this.el = options.el;
         // this.render();
         $(this.el).html(template({}));
+        $('.form_date').datetimepicker({
+            language: "zh-CN",
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            pickerPosition: "bottom-right"
+        });
         this.onLoad();
     },
 
@@ -264,11 +275,23 @@ var BusinessCardView = Backbone.View.extend({
                 falg = false;
                 $("#dogowner_name_null_tip").show();
             }
+            //性别
+            var gender = $("input[name='gender']:checked").val();
+            if (gender == undefined) {
+                falg = false;
+                $("#gender_null_tip").show();
+            }
             //犬主手机号码
             var phone = $("#phone").val();
             if (phone == "") {
                 falg = false;
                 $("#phone_null_tip").show();
+            }
+            //犬主座机
+            var tel = $("#tel").val();
+            if (tel == "") {
+                falg = false;
+                $("#tel_null_tip").show();
             }
             //证件类型
             var cardtype = $("input[name='cardtype']:checked").val();
@@ -284,7 +307,7 @@ var BusinessCardView = Backbone.View.extend({
             }
             //所属区县
             var area_county = $('#area_county').val();
-            if (area_county == "") {
+            if (area_county ==-1) {
                 falg = false;
                 $("#area_null_tip").show();
             }
@@ -294,8 +317,19 @@ var BusinessCardView = Backbone.View.extend({
                 falg = false;
                 $("#address_null_tip").show();
             }
-
+            //邮编
+            var postcode = $('#postcode').val();
+            if (postcode == "") {
+                falg = false;
+                $("#postcode_null_tip").show();
+            }
             /******************犬只信息*********************/
+                //犬名
+            var dogname = $('#dogname').val();
+            if (dogname == "") {
+                falg = false;
+                $("#dogname_null_tip").show();
+            }
                 //犬只性别
             var dog_gender = $("input[name='dog_gender']:checked").val();
             if (dog_gender == undefined) {
@@ -313,6 +347,20 @@ var BusinessCardView = Backbone.View.extend({
             if (breed == "") {
                 falg = false;
                 $("#breed_null_tip").show();
+            }
+            //犬只用途
+            var usage = $("input[name='usage']:checked").val();
+            if (usage == undefined) {
+                falg = false;
+                $("#usage_null_tip").show();
+            }
+            //生日
+            var birth_date = $('#birth_date').val();
+            if (birth_date == "") {
+                falg = false;
+                $("#birth_date_null_tip").show();
+            } else {
+                $("#birth_date_null_tip").hide();
             }
             //虹膜id
             var iris = $('#iris').val();

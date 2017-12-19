@@ -4,6 +4,7 @@ var _ = require('lodash');
 var Utils = require('../../../../lib/utils');
 var Const = require('../../../../lib/consts');
 var Config = require('../../../../lib/init');
+var StringBuffer = require('../../../Parts/selectPlugin/StringBuffer.js');
 var DogLicenseModel = require('../../../../Models/DogLicense.js');
 var DogLicenseClient = require('../../../../lib/APIClients/DogLicenseClient');
 
@@ -27,6 +28,15 @@ var DogOwnerView = Backbone.View.extend({
     onLoad: function () {
 
         var self = this;
+        var currentPage = 1;//当前页
+        var totalCount;//总条数
+        var totalPage;//总页数
+        var requestData = {
+            certificateType: "",
+            certificateCode: "",
+            page: currentPage,
+        };
+
 
         function initEvent() {
             //手机号 失去焦点监听
@@ -74,21 +84,21 @@ var DogOwnerView = Backbone.View.extend({
             } else {
                 $("#id_number_format_tip").hide();
             }
-            //手机号格式验证
-            var phone = $("#phone").val().trim();
-            if (phone != "") {
-                if (!phone.match(/^1[3,5,7,8]\d{9}$/)) {
-                    falg = false;
-                    $("#phone_format_tip").show();
-                } else {
-                    $("#phone_format_tip").hide();
-                }
-            } else {
-                $("#phone_format_tip").hide();
-            }
+            // //手机号格式验证
+            // var phone = $("#phone").val().trim();
+            // if (phone != "") {
+            //     if (!phone.match(/^1[3,5,7,8]\d{9}$/)) {
+            //         falg = false;
+            //         $("#phone_format_tip").show();
+            //     } else {
+            //         $("#phone_format_tip").hide();
+            //     }
+            // } else {
+            //     $("#phone_format_tip").hide();
+            // }
             //三个参数不能都为空
-            var dogowner_name = $("#dogowner_name").val().trim();
-            if (dogowner_name == "" && id_number == "" && phone == "") {
+            // var dogowner_name = $("#dogowner_name").val().trim();
+            if (id_number == "") {
                 flag = false;
                 alert("请输入搜索条件！")
             }
@@ -101,20 +111,131 @@ var DogOwnerView = Backbone.View.extend({
             if (!emptyValid()) {
                 return;
             }
-            var owner = {
-                name: $("#dogowner_name").val().trim()
+            var requestData = {
+                certificateType: $("#certificateType").val().trim(),
+                certificateCode: $("#id_number").val().trim(),
+                page: currentPage,
+            };
+            seach(requestData);
+        });
+        $("#pageBegin").unbind().on("click", function () {
+            if (1 == currentPage) {
+                return;
             }
-            // var owner = {
-            //     name: $("#dogowner_name").val().trim(),
-            //     phone: $("#phone").val().trim(),
-            //     certificateType: $("#certificateType").val().trim(),
-            //     certificateCode: $("#id_number").val().trim()
-            // }
-            console.log(owner);
-            DogLicenseClient.findByOwner(owner,
+            var requestData = {
+                certificateType: $("#certificateType").val().trim(),
+                certificateCode: $("#id_number").val().trim(),
+                page: 1,
+            }
+            seach(requestData);
+        });
+        $("#pageEnd").unbind().on("click", function () {
+            if (totalPage == currentPage) {
+                return;
+            }
+            var requestData = {
+                certificateType: $("#certificateType").val().trim(),
+                certificateCode: $("#id_number").val().trim(),
+                page: totalPage,
+            }
+            seach(requestData);
+        });
+        $("#pageUp").unbind().on("click", function () {
+            if (currentPage == 1) {
+                return
+            }
+            var requestData = {
+                certificateType: $("#certificateType").val().trim(),
+                certificateCode: $("#id_number").val().trim(),
+                page: currentPage - 1,
+            }
+            seach(requestData);
+        });
+        $("#pageDown").unbind().on("click", function () {
+            if (currentPage == totalPage) {
+                return
+            }
+            var requestData = {
+                certificateType: $("#certificateType").val().trim(),
+                certificateCode: $("#id_number").val().trim(),
+                page: currentPage + 1,
+            }
+            seach(requestData);
+        });
+
+        seach(requestData);
+
+        function seach(requestData) {
+            currentPage = parseInt(requestData.page);
+            console.log(requestData);
+            DogLicenseClient.findByOwner(requestData,
                 //成功回调
                 function (data) {
                     console.log(data);
+
+                    //总条数
+                    var count = data.count;
+                    totalCount = count;
+                    totalPage = Math.ceil(totalCount / 10);
+                    console.log(totalCount + "条数据;" + totalPage + "页,当前页码" + currentPage);
+                    //添加数据前删除已添加的数据
+                    $(".dogtr").remove();
+                    //先删除已有的
+                    $(".toPage").remove();
+                    var dogLicenses = data.dogLicenses;
+                    if (dogLicenses.length > 0) {
+                        //有数据
+                        $("#dogowner_nav").show();
+                        $("#nodata").hide();
+
+                        var sb = new StringBuffer();
+                        $.each(dogLicenses, function (i, val) {
+                            sb.append("<tr class='dogtr'>" +
+                                "<td align='center' valign='middle'>" + val.owner.name + "</td>" +
+                                "<td align='center' valign='middle'>" + val.owner.certificateCode + "</td>" +
+                                "<td align='center' valign='middle'>" + val.owner.phone + "</td>" +
+                                "<td align='center' valign='middle'>" + val.dog.nickname + "</td>" +
+                                "<td align='center' valign='middle'>" + val.dog.breed + "</td>" +
+                                "<td align='center' valign='middle'>" + val.dog.hairColor + "</td>" +
+                                "<td align='center' valign='middle'>" + val.vaccineCard.info.cardNo + "</td>" +
+                                "<td align='center' valign='middle'>" + val.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
+                                "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">详情</a></td>" +
+                                "</tr>");
+                        });
+                        $("#tbody").after(sb.toString());
+                        $(".td-a").unbind().on("click", function () {
+                            var d = dogLicenses[$(this).attr("value")];
+                            console.log(d);
+                            var InfoPreviewModal = require('../../../Modals/InfoPreview/InfoPreview');
+                            InfoPreviewModal.show(d);
+                        });
+
+                        //循环遍历
+                        var sb = new StringBuffer();
+                        for (var index = 1; index <= totalPage; index++) {
+                            //+(index==currentPage)?'a':''
+                            sb.append("<li><a href='javascript:void(0)' class='toPage' value=" + index + ">" + index + "</a></li>");
+                        }
+                        $("#page").after(sb.toString());
+
+                        $(".toPage").unbind().on("click", function () {
+                            var i = parseInt($(this).attr("value"));
+                            if (i == currentPage) {
+                                return;
+                            }
+                            var requestData = {
+                                certificateType: $("#certificateType").val().trim(),
+                                certificateCode: $("#id_number").val().trim(),
+                                page: i,
+                            }
+                            seach(requestData);
+                        });
+                    } else {
+                        //无数据
+                        $("#dogowner_nav").hide();
+                        $("#nodata").show();
+                    }
+
                 },
                 //失败回调
                 function (errorCode) {
@@ -125,60 +246,8 @@ var DogOwnerView = Backbone.View.extend({
                     }
 
                 });
-
-
-        });
-
-        $(".td-a").unbind().on("click", function () {
-            //赋值
-            var dogLicenseModeldefaults = new DogLicenseModel({
-                husbandryNo: "",
-                dog: {
-                    nickname: "",
-                    sex: "",
-                    breed: "",
-                    usage: "",
-                    hairColor: "",
-                    bornDate: "",
-                    irisID: "",
-                    photoUrl: "",
-                    vaccine: {
-                        name: "",
-                        batchNo: "",
-                        manufacturer: "",
-                        veterinarianName: "",
-                        organizationName: "",
-                    }
-
-                },
-                owner: {
-                    name: "",
-                    sex: "",
-                    tel: "",
-                    phone: "",
-                    certificateType: "",
-                    certificateCode: "",
-                    province: "",
-                    district: "",
-                    city: "",
-                    address: "",
-                    code: "",
-
-                },
-                residence: {
-                    houseNo: "",
-                    houseProperty: "",
-                    address: "",
-                    isSterilization: ""
-                }
-            });
-            var InfoPreviewModal = require('../../../Modals/InfoPreview/InfoPreview');
-            InfoPreviewModal.show(dogLicenseModeldefaults);
-
-        });
-
+        }
     }
-
 });
 
 module.exports = DogOwnerView;

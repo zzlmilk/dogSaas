@@ -8,10 +8,10 @@
         <div class="row">
             <div class="form-group">
                 <select id="certificateType">
-                    <option value="1"  selected="selected">身份证</option>
+                    <option value="1" selected="selected">身份证</option>
                     <option value="2">护照</option>
                 </select>
-                <input type="text" id="id_number">
+                <input type="text" id="id_number" oninput="if(value.length>18)value=value.slice(0,18)">
             </div>
             <p style="display: none;" class="null_err" id="id_number_format_tip">*证件号格式有误</p>
             <div class="form-group search">
@@ -20,13 +20,13 @@
         </div>
     </div>
 
-    <table class="table" >
-        <tbody>
+    <table class="table">
+        <tbody id="tbody">
         <tr class="tr_head">
-            <td class="td"  rowspan="2">犬主姓名</td>
-            <td class="td"  rowspan="2">身份证号</td>
-            <td class="td"  rowspan="2">手机号码</td>
-            <td  colspan="5">犬只信息</td>
+            <td class="td" rowspan="2">犬主姓名</td>
+            <td class="td" rowspan="2">身份证号</td>
+            <td class="td" rowspan="2">手机号码</td>
+            <td colspan="5">犬只信息</td>
             <td class="td" rowspan="2">操作</td>
         </tr>
         <tr class="tr_head">
@@ -36,146 +36,36 @@
             <td>免疫证号</td>
             <td>上次免疫时间</td>
         </tr>
-        <tr class="tr_odd">
-            <td class="td" ></td>
-            <td class="td" ></td>
-            <td class="td" ></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr_odd">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr_odd">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr_odd">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr_odd">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
+
         </tbody>
     </table>
 
-    <div class="row" >
+    <div class="row">
         <div class="col-md-6 col-md-offset-3 text-center">
             <nav aria-label="Page navigation" id="dogowner_nav">
                 <ul class="pagination">
-                    <li><a href="javascript:void(0)">首页</a></li>
-                    <li>
-                        <a href="javascript:void(0)" aria-label="Previous">
+                    <li><a href="javascript:void(0)" id='pageBegin'>首页</a></li>
+                    <li id="page">
+                        <a href="javascript:void(0)" aria-label="Previous" id='pageUp'>
                             <span aria-hidden="true">上一页</span>
                         </a>
                     </li>
-                    <li class="active"><a href="javascript:void(0)">1</a></li>
-                    <li><a href="javascript:void(0)">2</a></li>
-                    <li><a href="javascript:void(0)">3</a></li>
-                    <li><a href="javascript:void(0)">4</a></li>
-                    <li><a href="javascript:void(0)">5</a></li>
+
                     <li>
-                        <a href="javascript:void(0)" aria-label="Next">
+                        <a href="javascript:void(0)" aria-label="Next" id="pageDown">
                             <span aria-hidden="true">下一页</span>
                         </a>
                     </li>
-                    <li><a href="javascript:void(0)">尾页</a></li>
+                    <li><a href="javascript:void(0)" id="pageEnd">尾页</a></li>
                 </ul>
             </nav>
+            <div id="nodata" style="display:none;text-align:center">
+                暂无数据
+            </div>
         </div>
     </div>
 
-    </div>
+</div>
 
 
 </div>

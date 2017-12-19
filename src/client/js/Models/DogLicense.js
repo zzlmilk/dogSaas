@@ -21,13 +21,14 @@ var DogLicenseModel = Backbone.Model.extend({
             bornDate: "",
             irisID: "",
             photoUrl: "",
-            vaccine: {
+            vaccine: [{
                 name: "",
                 batchNo: "",
                 manufacturer: "",
                 veterinarianName: "",
                 organizationName: "",
-            }
+                created: "",
+            }]
 
         },
         //主人
@@ -36,13 +37,15 @@ var DogLicenseModel = Backbone.Model.extend({
             sex: "",
             tel: "",
             phone: "",
-            certificateType: "",
-            certificateCode: "",
-            province: "",
-            district: "",
-            city: "",
-            address: "",
-            code: "",
+            certificateType: "",//证件类型  1身份证 2护照:
+            certificateCode: "",//证件号
+            location:{
+                province: "",
+                district: "",
+                city: "",
+                address: "",
+                code: "",
+            },
 
         },
         //免疫卡

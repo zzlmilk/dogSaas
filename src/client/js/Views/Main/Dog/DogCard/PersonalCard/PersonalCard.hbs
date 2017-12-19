@@ -13,8 +13,7 @@
                     <h4>*条形码:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="barcode" oninput="if(value.length>7)value=value.slice(0,7)"
-                           value="{{dogLicense.husbandryNo}}">
+                    <input type="text" id="barcode" oninput="if(value.length>7)value=value.slice(0,7)">
                     <p style="display: none;" class="null_err" id="barcode_null_tip">*条形码不能为空</p>
                 </div>
             </div>
@@ -295,7 +294,7 @@
                     <h4>免疫点名称:</h4>
                 </div>
                 <div class="section">
-                    <input disabled="disabled" type="text" value="上海顽皮家族" id="organizationName">
+                    <input disabled="disabled" type="text" id="organizationName">
                 </div>
             </div>
         </div>

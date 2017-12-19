@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="subtitle">
-                            <h4>*条形码:{{DogLicenseModel.husbandryNo}}</h4>
+                            <h4>*条形码:<span id="husbandryNo"></span></h4>
                         </div>
                     </div>
 
@@ -25,7 +25,7 @@
                             <h4>*犬主姓名:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.owner.name}}</span>
+                            <span id="ownerName"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -33,7 +33,7 @@
                             <h4>手机号码:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.owner.phone}}</span>
+                            <span id="ownerPhone"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -41,7 +41,7 @@
                             <h4>犬主座机:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.owner.tel}}</span>
+                            <span id="ownerTel"></span>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                             <h4>性别:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.owner.sexText}}</span>
+                            <span id="ownerSex"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -59,7 +59,7 @@
                             <h4>*证件类型:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.owner.certificateTypeText}}</span>
+                            <span id="ownerCertificateType"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -67,7 +67,7 @@
                             <h4>*证件号:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.owner.certificateCode}}</span>
+                            <span id="ownerCertificateCode"></span>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                             <h4>*所属区县:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.owner.provinceText}}{{DogLicenseModel.owner.districtText}}{{DogLicenseModel.owner.cityText}}</span>
+                            <span id="ownerArea"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -85,7 +85,7 @@
                             <h4>*详细地址:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.owner.address}}</span>
+                            <span id="ownerAddr"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -93,7 +93,7 @@
                             <h4>邮编:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.owner.code}}</span>
+                            <span id="ownerCode"></span>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                             <h4>犬名:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.dog.nickname}}</span>
+                            <span id="dogName"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -115,7 +115,7 @@
                             <h4>*性别:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.dog.sexText}}</span>
+                            <span id="dogSex"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -123,7 +123,7 @@
                             <h4>*虹膜id:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.dog.irisID}}</span>
+                            <span id="dogIrisId"></span>
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                             <h4>*毛色:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.dog.hairColor}}</span>
+                            <span id="dogHairColor"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -141,12 +141,12 @@
                             <h4>用途:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.dog.usage}}</span>
+                            <span id="dogUsage"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="subtitle" style="position: relative">
-                            <img id="dog_img" src="{{DogLicenseModel.dog.photoUrl}}"/>
+                            <img id="dogPhotoUrl"/>
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                             <h4>*品种:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.dog.breed}}</span>
+                            <span id="dogBreed"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -164,7 +164,7 @@
                             <h4>出生日期:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.dog.bornDate}}</span>
+                            <span id="dogBornDate"></span>
                         </div>
                     </div>
                 </div>
@@ -174,21 +174,13 @@
                 </div>
                 <table class="immune_table" border="1" bordercolor="black" cellspacing="0" cellpadding="15"
                        style="margin-bottom:20px;">
-                    <tr class="immune_tr" align="center">
+                    <tr class="immune_tr" align="center" id="vaccineTitle">
                         <td class="left_td">疫苗名称</td>
                         <td class="left_td">疫苗批号</td>
                         <td class="middle_td">生产厂商</td>
                         <td class="middle_td">免疫点名称</td>
                         <td class="right_td">操作人</td>
                         <td class="right_td">免疫时间</td>
-                    </tr>
-                    <tr class="immune_tr" align="center">
-                        <td class="left_td">{{DogLicenseModel.dog.vaccine.name}}</td>
-                        <td class="left_td">{{DogLicenseModel.dog.vaccine.batchNo}}</td>
-                        <td class="middle_td">{{DogLicenseModel.dog.vaccine.manufacturer}}</td>
-                        <td class="middle_td">{{DogLicenseModel.dog.vaccine.organizationName}}</td>
-                        <td class="right_td">{{DogLicenseModel.dog.vaccine.veterinarianName}}</td>
-                        <td class="right_td">{{DogLicenseModel.dog.vaccine.date}}</td>
                     </tr>
                 </table>
 
@@ -201,7 +193,7 @@
                             <h4>是否绝育:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.residence.isSterilizationText}}</span>
+                            <span id="residenceIsSterilization"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -209,7 +201,7 @@
                             <h4>产权性质:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.residence.houseProperty}}</span>
+                            <span id="residenceHouseProperty"></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -217,7 +209,7 @@
                             <h4>*房产证号:</h4>
                         </div>
                         <div class="section">
-                            {{DogLicenseModel.residence.houseNo}}
+                            <span id="residenceHouseNo"></span>
                         </div>
                     </div>
                 </div>
@@ -227,7 +219,7 @@
                             <h4>*登记地址:</h4>
                         </div>
                         <div class="section">
-                            <span>{{DogLicenseModel.residence.address}}</span>
+                            <span id="residenceAddress"></span>
                         </div>
                     </div>
                 </div>
@@ -235,11 +227,13 @@
             <div class="modal-footer">
                 <div class="row">
                     <div class="col-md-4 col-md-offset-4">
-                        <button type="button" id="modal-btn-close" style="float: left;" class="btn btn-primary" data-dismiss="modal">重新编辑</button>
-                        <button type="button" id="save_and_ccard" class="btn btn-primary">保存并制卡</button>
+                        <button type="button" id="modal-btn-close" style="float: left;" class="btn btn-primary"
+                                data-dismiss="modal">取消
+                        </button>
+                        <button type="button" id="save_and_ccard" class="btn btn-primary">制卡</button>
                     </div>
                 </div>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+        </div>
+    </div>
 </div><!-- /.modal -->
