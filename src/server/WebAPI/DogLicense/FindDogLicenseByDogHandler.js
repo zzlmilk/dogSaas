@@ -45,16 +45,11 @@ _.extend(FindDogLicenseByDogHandler.prototype,RequestHandlerBase.prototype);
 
 FindDogLicenseByDogHandler.prototype.attach = function(route){
     var self = this;
-    var res={};
+
 
     route.post('/',authenticator,function(request,response){
 
         DogLicenseLogic.find_by_dog(request.body,function(result){
-
-            //console.log("====",result)
-
-            
-
             self.successResponse(response,Const.responsecodeSucceed,{
                 dogLicenses:result.dogLicenses,
                 count:result.count

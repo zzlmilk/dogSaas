@@ -57,14 +57,12 @@ _.extend(FindDogLicenseByOwnerHandler.prototype,RequestHandlerBase.prototype);
 
 FindDogLicenseByOwnerHandler.prototype.attach = function(route){
 	 var self = this;
-	 var res={};
-
-	 route.post('/',authenticator,function(request,response){
+        route.post('/',authenticator,function(request,response){
 
         DogLicenseLogic.find_by_owner(request.body,function(result){
              self.successResponse(response,Const.responsecodeSucceed,{
-                 dogLicenses:result,
-                 count:res.count
+                 dogLicenses:result.dogLicenses,
+                 count:result.count
 
              });
 

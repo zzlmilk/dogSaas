@@ -510,58 +510,38 @@ var DogLicenseLogic = {
 
             function (result, done) {
                 if(Utils.isEmpty(name)&&Utils.isEmpty(phone)&&Utils.isEmpty(certificateCode)){
+                    dogLicenseModel.count().exec(function(err,count){
+                        if(err){
+                            throw err
+                        }else{
+							res.count=count;
+						}
+                    })
                 dogLicenseModel.find().populate("owner residence")
                     .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate":1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err,doglicenseResult) {
                     if (err) {
                         throw(err);
-
-                    } else {
+					} else {
                         res.dogLicenses = doglicenseResult;
-
-                        done(null, res);
-
-                    }
+                        onSuccess(res);
+					}
                 })
                 }else{
-
-                    dogLicenseModel.find({owner: result}).populate("owner")
+					dogLicenseModel.find({owner: result}).populate("owner")
                         .populate({path:"dog residence",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, doglicenseResult) {
                         if (err) {
                             throw(err);
 
                         } else {
                             res.dogLicenses = doglicenseResult;
-                         
-
-                            done(null, res);
-
-                        }
-
-                    })
+                            res.count=doglicenseResult.length;
+							onSuccess(res);
+						}
+					})
                 }
-
-
-
-            },
-            function (result,done) {//获取count
-                dogLicenseModel.count().exec(function(err,count){
-                    if(err){
-                        throw err
-                    }else{
-
-                        res.count=count;
-                        done(null,res)
-                        onSuccess(res);
-
-                    }
-                })
-
-
-            }
-
-        ], function (err,result) {
-
-        })
+			},
+		], function (err,result) {
+		})
     },
      //通过虹膜id 和免疫卡号查询狗证信息
     find_by_dog: function (param, onSuccess, onError) {
@@ -576,20 +556,15 @@ var DogLicenseLogic = {
         var residenceModel=ResidenceModel.get();
 
 		async.waterfall([
-			function (done) {//获取count
-                dogLicenseModel.count().exec(function(err,count){
-						if(err){
-							throw err
-						}else{
-
-							res.count=count;
-							done(null,res)
-						}
-                    })
-			},
-
-            function (result,done) {
+			function (done) {
                 if (Utils.isEmpty(irisID) && Utils.isEmpty(cardNo)) {
+                    dogLicenseModel.count().exec(function(err,count){
+                        if(err){
+                            throw err
+                        }else{
+							res.count=count;
+						}
+                    });
                     dogLicenseModel.find().populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw (err)
@@ -610,10 +585,9 @@ var DogLicenseLogic = {
                         }
                         else {
                             res.dogLicenses = dogLicenseResult //符合条件的集合
-                            res.count = 1;
-                            //done(null, res)
-                            onSuccess(res)
-                            return;
+                            res.count = dogLicenseResult.length;
+							onSuccess(res);
+
                         }
 
                     })
