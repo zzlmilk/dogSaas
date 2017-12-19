@@ -225,9 +225,7 @@ var OrganizationLogics = {
                     }else{
 
                         done(null,veterinarian);
-
-
-                    }
+					}
 
                 })
 
@@ -242,24 +240,16 @@ var OrganizationLogics = {
 
                     if (err) {
                         throw err
+                    }else {
+						done(null, res)
+                        onSuccess(res)
                     }
-
-					done(null, res)
-					onSuccess(res)
-
-                })
-
-            }
-
-        ], function (err, result) { })
-
-
-
-
-    },
+				})
+			}
+		], function (err, result) { })
+	},
 	show: function (param, onSuccess, onError) {
         var veterinarianModel =  VeterinarianModel.get();
-
 		var res = {};
 		async.waterfall([
 			function (done) {
@@ -285,10 +275,7 @@ var OrganizationLogics = {
 		})
 	},
 	validatorParam: function (param, callback) {
-
-
-
-		    var name = param.name,
+			var name = param.name,
 			province = param.province,
 			district = param.district,
 			city = param.city,

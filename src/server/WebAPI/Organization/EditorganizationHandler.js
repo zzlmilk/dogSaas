@@ -19,6 +19,7 @@ var EditOrganizationHandler = function(){
  * @apiName editOrganization
  * @apiGroup Organization
  * @apiDescription 编辑机构信息api接口
+ * @apiHeader  {Sting} access-key token
  * @apiParam {String} name 机构名字
  * @apiParam {String} province 省
  * @apiParam {String} district 区

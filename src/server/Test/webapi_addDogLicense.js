@@ -11,7 +11,6 @@ describe('WEB API', function () {
 	 		 signin(function(token){
 	 		 		var body = {
                             husbandryNo:global.getRandomStr(),
-                            takeWay:1,
                             dog:{
                                 nickname: "test_" + global.getRandomStr(),
                                 sex:"2",
@@ -19,16 +18,30 @@ describe('WEB API', function () {
                                 usage:"警卫",
                                 hairColor:"白色",
                                 bornDate:"2016-08-10",
-                                irisID:"b123456789",
+                                irisID:global.getRandomStr(),
                                 photoUrl:"123",
-                                vaccine:{
-                                    name:"av",
-                                    batchNo:"123",
-                                    manufacturer:"manufacturer",
-                                    veterinarianName:"veterinarianName",
-                                    organizationName:"organizationName",                                    
-                                }
-
+                                vaccine:[{
+                                      name:"",
+                                      batchNo:"123",
+                                      manufacturer:"manufacturer",
+                                      veterinarianName:"veterinarianName",
+                                      organizationName:"organizationName",
+                                 },
+                                 {
+                                      name:"",
+                                      batchNo:"123",
+                                      manufacturer:"manufacturer",
+                                      veterinarianName:"veterinarianName",
+                                      organizationName:"organizationName",
+                                 },
+                                 {
+                                      name:"",
+                                      batchNo:"123",
+                                      manufacturer:"manufacturer",
+                                      veterinarianName:"veterinarianName",
+                                      organizationName:"organizationName",
+                                 },
+                                 ]
                             },                            
                             owner:{
                                 name: "test_"+global.getRandomStr(),
@@ -37,11 +50,13 @@ describe('WEB API', function () {
                                 phone:"15901794453",
                                 certificateType:"1",
                                 certificateCode:"31010222222222",
-                                province:"province",
-                                district:"district",
-                                city:"city",
-                                address:"address",
-                                code:"code",
+                            location: {
+                                  province: "province",
+                                  district: "district",
+                                  city: "city",
+                                  address: "address",
+                                  code: "code"
+                            }
 
                             },                        
                             residence:{
@@ -67,6 +82,7 @@ describe('WEB API', function () {
                         }
 
                         console.log(res.body.data)
+                        // console.log(JSON.parse(res.body.data))
                         res.body.should.have.property('code');
                         res.body.code.should.equal(Const.responsecodeSucceed);
                         

@@ -16,7 +16,6 @@ DogLicenseModel.prototype.init = function(mongoose){
 	this.schema = new mongoose.Schema({			
 
 		husbandryNo:String, //畜牧业提供的条形码
-        takeWay:Number,//1自取 2邮寄
 		dog:{ type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "dogs" },   //狗
 		owner:{ type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "owners" },   //主人
 		vaccine:{ type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "vaccines" },   //免疫卡
@@ -67,6 +66,7 @@ DogLicenseModel.prototype.init = function(mongoose){
 				loopLineType:Number,
 				signOrganization:String, //签发机构
 				signCreate:Date, //初始发证日期
+                takeWay:Number,//1自取 2邮寄
 			},
 			create:Date,//创建时间
 		},

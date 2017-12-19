@@ -23,6 +23,7 @@ var AddOrganizationHandler = function(){
  * @apiName addOrganization
  * @apiGroup Organization
  * @apiDescription 添加机构信息api接口
+ * @apiHeader  {Sting} access-key token
  * @apiParam {String} name 机构名字
  * @apiParam {String} province 省
  * @apiParam {String} district 区

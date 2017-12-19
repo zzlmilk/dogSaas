@@ -35,7 +35,7 @@ var WebAPIMain = {
 					router.use("/organization/edit", require('./Organization/EditOrganizationHandler'));
 					router.use("/organization/show", require('./Organization/ShowOrganizationHandler'));
 					//veterinarian
-                    router.use("/Organization/editVeterinarian", require('./Veterinarian/EditVeterinarianHandler'));
+                    router.use("/organization/editVeterinarian", require('./Veterinarian/EditVeterinarianHandler'));
 
 
 
@@ -43,6 +43,7 @@ var WebAPIMain = {
 					router.use("/dogLicense/add", require('./DogLicense/AddDogLicenseHandler'));
 				    router.use("/dogLicense/find_by_owner", require('./DogLicense/FindDogLicenseByOwnerHandler'));
                     router.use("/dogLicense/find_by_dog", require('./DogLicense/FindDogLicenseByDogHandler'));
+                    router.use("/dogLicense/add_takeWay", require('./DogLicense/EditDogLicenseHandler'));
 
 
 				      //owner
@@ -53,6 +54,9 @@ var WebAPIMain = {
 
                     //ResidenceModel
                     router.use("/residence/edit", require('./Residence/EditResidenceHandler'));
+
+                    //Vaccine
+                    router.use("/vaccine/add", require('./Vaccine/AddVaccineHandler'));
 
 
 

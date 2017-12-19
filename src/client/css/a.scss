@@ -4,17 +4,19 @@ html,body{height:100%;}
   margin-right: 0px;
   margin-bottom: 15px;
 }
+#content-area{
+  margin-bottom: -15px;
+  background: #202732;
+}
 #sidebar-content{
   padding: 0;
-  padding-bottom: 10000px;
-  margin-bottom: -10000px;
+  min-height: calc(100vh - 80px);
   overflow: hidden;
   background: #202732;
 }
 #main-content{
   padding: 0;
-  padding-bottom: 10000px;
-  margin-bottom: -10000px;
+  min-height: calc(100vh - 80px);
   overflow: hidden;
   background: #fcfcfc;
   margin-left: 0px;
@@ -22,6 +24,67 @@ html,body{height:100%;}
 label{
   font-weight: normal;
 }
+input[disabled]:hover{
+  cursor:not-allowed;
+}
+
+
+
+//分页器组件
+.pagination{
+  margin-top: 100px;
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  line-height: 1.42857;
+  text-decoration: none;
+  color: #000000;
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  margin-left: 10px;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+ }
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  margin-right: -2px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.pagination > li > a:hover, .pagination > li > a:focus,
+.pagination > li > span:hover,
+.pagination > li > span:focus {
+  z-index: 2;
+  color: #23527c;
+  background-color: #eeeeee;
+  border-color: #ddd; }
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus,
+.pagination > .active > span,
+.pagination > .active > span:hover,
+.pagination > .active > span:focus {
+  z-index: 3;
+  color: #fff;
+  background-color: #3b4249;
+  border-color: #337ab7;
+  cursor: default; }
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #777777;
+  background-color: #fff;
+  border-color: #ddd;
+  cursor: not-allowed; }
+
 //控制台头部导航
 .personal_header{
   width: 100%;
@@ -51,21 +114,22 @@ label{
   color:#ffffff;
 }
 .personal_header>#personal_info{
-  width: 440px;
+  width: 380px;
   height:80px;
   float: right;
 }
 .personal_header>#personal_info>li{
-  width: 120px;
+  width: 80px;
   height: 80px;
   line-height: 80px;
-  margin-right: 20px;
+  margin-right: 40px;
   float: left;
   color:#ffffff;
 }
 .personal_header>#personal_info>li>a{
-  width: 80px;
+  width: 60px;
   height: 80px;
+  text-align: center;
   display:inline-block;
   line-height: 80px;
   color:#ffffff;
@@ -191,33 +255,25 @@ label{
   line-height: 44px;
 }
 
-#personal_center_view>.basic_info>.row>.col-md-6>.subtitle{
-  float: left;
-  height: 40px;
-  line-height: 40px;
-  margin-left: 45px;
-}
-#personal_center_view>.basic_info>.row>.col-md-6>.subtitle h4{
-  float: left;
-  height: 44px;
-  line-height: 44px;
-  text-align:right;
-}
-#personal_center_view>.basic_info>.row>.col-md-6>.section{
-  float: left;
-  height: 161px;
-  margin-left: 5px;
-  position: relative;
-}
-#personal_center_view>.basic_info>.row>.col-md-6>.section>#license{
-  width: 231px;
-  height: 161px;
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#license{
+  width: 230px;
+  height: 160px;
   float:left;
 }
-#personal_center_view>.basic_info>.row>.col-md-6>.section>#permit{
-  width: 231px;
-  height: 161px;
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#license>img{
+  width: 230px;
+  height: 160px;
+  display: block;
+}
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#permit{
+  width: 230px;
+  height: 160px;
   float:left;
+}
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#permit>img{
+  width: 230px;
+  height: 160px;
+  display: block;
 }
 
 
@@ -245,7 +301,7 @@ label{
   margin-left: 30px;
   margin-right:30px;
   padding-bottom:15px;
-  border-bottom: 2px #cccccc solid;
+  border-bottom: 1px #cccccc solid;
 }
 .news_center>.content>.row>.col-md-4>.subtitle{
   float: left;
@@ -267,7 +323,7 @@ label{
 //控制台侧边栏
 .sidebar{
   width: 100%;
-  min-height:100%;
+  height:100%;
   background:#202732;
 }
 .sidebar>.nav{
@@ -361,6 +417,15 @@ label{
 }
 
 //办理狗证--个人办证
+/*----------用来移除上下小箭头----------*/
+input[type='date']::-webkit-inner-spin-button {
+  display:none;
+}
+
+/*----------用来移除清除按钮----------*/
+//input[type="date"]::-webkit-clear-button{
+//  display:none;
+//}
 .personal_card{
   width: 100%;
   height:auto ;
@@ -419,6 +484,7 @@ label{
 .personal_card>.registration>.row>.col-md-6>.section{
   float: left;
   margin-left: 5px;
+  position: relative;
 }
 .personal_card>.registration>.row>.col-md-6>.section>input[type="text"]{
   width: 265px;
@@ -453,7 +519,7 @@ label{
   border-radius:4px;
   float:left;
 }
-.personal_card>.registration>.row>.col-md-6>.section>.kinds{
+.personal_card>.registration>.row>.col-md-6>.section>.radio_container>.kinds{
     width:265px;
     height:44px;
     line-height:44px;
@@ -528,17 +594,80 @@ label{
   float: left;
   font-weight: normal;
 }
-.personal_card>.registration>.row>.col-md-6>.section>#reg_addr_ck{
+
+.personal_card>.registration>.row>.col-md-6>.section>.radio_container{
+  width: 265px;
+  height:44px;
+  line-height: 44px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label_container{
+  width: 420px;
+  height:44px;
+  line-height: 44px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label_container>select{
+  width: 90px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label_container>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+  color: #000000;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label_container>input{
+  width: 50px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#houseid_null_tip{
+  position: absolute;
+  top:44px;
+  left: 0;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.address_container{
+  width: 420px;
+  height:44px;
+  line-height: 44px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.address_container>#reg_address{
+  width: 200px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.address_container>#reg_addr_ck{
   float: left;
   margin-left: 15px;
   margin-top: 15px;
   margin-right: 15px;
 }
+.personal_card>.registration>.row>.col-md-6>.section>.address_container>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+  color: #000000;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#reg_address_null_tip{
+  position: absolute;
+  top:44px;
+  left: 0;
+}
+
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
   width:265px;
   height:60px;
   overflow: hidden;
 }
+
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province{
   width: 85px;
   height: 40px;
@@ -586,6 +715,9 @@ label{
   float: left;
   width:155px;
   height: 44px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>p{
+  margin-left: 165px;
 }
 .modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.subtitle h4 {
   float: left;
@@ -643,8 +775,18 @@ label{
   margin-left: 15px;
   text-align:right;
 }
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.subtitle>#dog_img{
+  position:absolute;
+  top:0;
+  left:30px;
+  width:160px;
+  height:80px;
+  display:block;
+}
 .modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.section{
   float: left;
+  height: 32px;
+  line-height: 32px;
   margin-left: 5px;
 }
 .modal>.modal-dialog>.modal-content>.modal-body>.top{
@@ -680,13 +822,12 @@ label{
 .print_card>.title_nav{
   width: 100%;
   height: 40px;
-  margin-bottom: 10px;
   float: left;
 }
 .print_card>.content{
   width: 100%;
   float: left;
-  margin-top: 20px;
+  margin-bottom: 20px;
   background: #ffffff;
   border: 1px solid #cccccc;
   padding-top: 15px;
@@ -730,7 +871,6 @@ label{
 .print_card>.content>.row>.col-md-4>.qrcode{
   width: 160px;
   height: 160px;
-  border:1px #cccccc solid;
   float: left;
 }
 .print_card>.content>.row>.col-md-4>.qrcode>img{
@@ -1025,11 +1165,11 @@ label{
     margin-bottom: 20px;
 }
 .dogownerlist>.tilte>.row{
-  margin-left:20px;
+
 }
 .dogownerlist>.title>.row>.form-group{
   float: left;
-  margin-right: 15px;
+  margin-left: 15px;
   height: 44px;
   line-height: 44px;
 }
@@ -1038,13 +1178,13 @@ label{
   line-height: 44px;
 }
 .dogownerlist>.title>.row>.form-group>input{
-  width: 160px;
+  width: 230px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .dogownerlist>.title>.row>.form-group>select{
-  width: 80px;
+  width: 100px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
@@ -1079,12 +1219,6 @@ label{
 }
 .dogownerlist>.table>tbody>.tr_head{
   background:#fbfbfb;
-}
-.dogownerlist>#dogowner_nav{
-  //width: 500px;
-  //position: absolute;
-  //margin-left:-250px ;
-  //left:50%;
 }
 
 //信息查询--犬主信息搜索详情
@@ -1158,21 +1292,11 @@ label{
   margin-bottom: 20px;
 }
 .dog_search>.tilte>.row{
-  margin-left:20px;
-}
-.dog_search>.title>.row>.col-md-6>.input-group>.input-group-btn>.dog_number{
-  width: 80px;
-  height: 44px;
-  border: 2px #cccccc solid;
-  border-radius:4px 0 0 4px;
 
-}
-.dog_search>.title>.row>.col-md-6>.input-group>span{
-  width: 80px;
 }
 .dog_search>.title>.row>.form-group{
   float: left;
-  margin-right: 15px;
+  margin-left: 15px;
   height: 44px;
   line-height: 44px;
 }
@@ -1187,10 +1311,18 @@ label{
   border-radius:4px;
 }
 .dog_search>.title>.row>.form-group>select{
-  width: 80px;
+  width: 100px;
   height: 40px;
-  border:2px #cfcfcf solid;
-  border-radius: 4px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.dog_search>.title>.row>.form-group>.btn{
+  width: 150px;
+  height: 40px;
+}
+.dog_search>.title>.row>.search{
+  float: right;
+  margin-right: 20px;
 }
 .dog_search>.title>.row>#search{
   width: 150px;
@@ -1200,6 +1332,31 @@ label{
   margin-right: 0px;
 
 }
+
+.dog_search>.title>.row>.col-md-6>.input-group>.input-group-btn>.dog_number{
+  width: 80px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px 0 0 4px;
+
+}
+.dog_search>.title>.row>.col-md-6>.input-group>span{
+  width: 80px;
+  height: 40px;
+}
+.dog_search>.title>.row>.col-md-6>.input-group>span>button{
+  width: 80px;
+  height: 40px;
+}
+.dog_search>.title>.row>.col-md-6>.input-group>input{
+  border-radius: none;
+  width:350px;
+  height: 40px;
+  border: 2px #cccccc solid ;
+}
+
+
+
 .dog_search>.table{
   width:100%;
   border-collapse:collapse;
@@ -1225,12 +1382,7 @@ label{
   color:#339afe;
   text-decoration: underline;
 }
-.dog_search>#dogsearch_nav{
-  //width: 500px;
-  //position: absolute;
-  //margin-left:-250px ;
-  //left:50%;
-}
+
 
 //免疫年检
 .immune_content{
@@ -1407,11 +1559,11 @@ label{
   margin-bottom: 20px;
 }
 .immune_list>.title>.row{
-  margin-left:20px;
+
 }
 .immune_list>.title>.row>.form-group{
   float: left;
-  margin-right: 15px;
+  margin-left: 15px;
   height: 44px;
   line-height: 44px;
 }
@@ -1419,13 +1571,13 @@ label{
   margin-right: 10px;
 }
 .immune_list>.title>.row>.form-group>input[type="text"]{
-  width: 160px;
+  width: 230px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
 }
 .immune_list>.title>.row>.form-group>select{
-  width:85px;
+  width:100px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
@@ -1462,12 +1614,6 @@ label{
   color:#339afe;
   text-decoration: underline;
 }
-.immune_list>#pagenav{
-   //width: 500px;
-   //position: absolute;
-   //margin-left:-250px ;
-   //left:50%;
-}
 
 //制卡信息
 .card_info{
@@ -1493,11 +1639,11 @@ label{
   margin-bottom: 20px;
 }
 .card_info>.title>.row{
-  margin-left:20px;
+
 }
 .card_info>.title>.row>.form-group{
   float: left;
-  margin-right: 15px;
+  margin-left: 15px;
   height: 44px;
   line-height: 44px;
 }
@@ -1511,7 +1657,7 @@ label{
   border-radius:4px;
 }
 .card_info>.title>.row>.form-group>select{
-  width:85px;
+  width:100px;
   height: 40px;
   border: 2px #cccccc solid;
   border-radius:4px;
@@ -1547,12 +1693,6 @@ label{
 .card_info>table>tbody>tr>td>.td-a{
   color:#339afe;
   text-decoration: underline;
-}
-.card_info>#pagenav{
-  //width: 500px;
-  //position: absolute;
-  //margin-left:-250px ;
-  //left:50%;
 }
 
 //个人中心--删除兽医--弹窗

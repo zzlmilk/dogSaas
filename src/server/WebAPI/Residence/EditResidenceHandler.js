@@ -30,6 +30,7 @@ var EditResidenceHandler = function(){
  * @apiName editResidence
  * @apiGroup Residence
  * @apiDescription 编辑房产信息api接口
+ * @apiHeader  {Sting} access-key token
  * @apiParam {String} dogLicenseId 狗证ID
  * @apiUse Residence
  * @apiParamExample {json} Request Example
