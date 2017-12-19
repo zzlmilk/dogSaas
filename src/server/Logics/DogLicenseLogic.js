@@ -275,9 +275,10 @@ var DogLicenseLogic = {
 			  				organizationName:vaccineParam.organizationName,
 			  				created:Utils.now()
 			  		})
+
 			  		vaccine.save(function(err,vaccineResult){
 			  				res.vaccine = vaccineResult;
-			  				done(null,res)			  				
+                            done(null,res)
 			  		})
 
 
@@ -632,6 +633,7 @@ var DogLicenseLogic = {
         var dogLicenseModel=DogLicenseModel.get();
         var ownerModel=OwnerModel.get();
         var dogModel=DogModel.get();
+        var residence=ResidenceModel.get();
         var res={};
         if(Utils.isEmpty(husbandryNo)){
         	onError(null,Const.resCodeDogNoHusbandryNo);
@@ -670,9 +672,8 @@ var DogLicenseLogic = {
                         throw err;
                     } else {
                         var vaccine = dogResult.vaccine;
-                        vaccine.push(result._id);
+                        vaccine.push(result);
                         dogResult.vaccine = vaccine;
-                       
                         done(null, dogResult)
                     }
                 })
@@ -687,8 +688,11 @@ var DogLicenseLogic = {
                 })
 
             }, function (result, done) {
-              res.dog=result
-			  dogLicense.save(function (err, res) {
+
+              res.dog=result;
+              dogLicense.vaccineCard.annual.updateDate=Utils.now();
+              dogLicense.vaccineCard.info.annualDate=Utils.annualDate([]);
+              dogLicense.save(function (err, res) {
                     if (err) {
                         throw err
                     } else {
@@ -699,7 +703,7 @@ var DogLicenseLogic = {
 
             },function (result,done) {
                 var dogLicenseModel = DogLicenseModel.get();
-                dogLicenseModel.find({"_id":result}).populate("owner")
+                dogLicenseModel.find({"_id":result}).populate("owner residence")
                     .populate({path:"dog",populate:{path: "vaccine"}}).exec(function (err,res) {
                     if (err) {
                         throw(err);
@@ -711,8 +715,6 @@ var DogLicenseLogic = {
 
                     }
                 })
-
-
             }
         ],function (err,result) {
             

@@ -19,41 +19,90 @@ var AddVaccineHandler = function(){
 
 }
 /**
- * @api {post} /organization/editVeterinarian 添加兽医
- * @apiName editVeterinarian
- * @apiGroup Organization
- * @apiDescription 添加兽医api接口
- * @apiParam {String} name 兽医名字
- * @apiParam {String} code 兽医执照号
+ * @apiDefine Vaccine
+ * @apiParam (vaccine) {String} name 疫苗名称
+ * @apiParam (vaccine) {String} batchNo 批号
+ * @apiParam (vaccine) {String} manufacturer 厂商
+ * @apiParam (vaccine) {String} veterinarianName 打疫苗的兽医
+ * @apiParam (vaccine) {String} organizationName 免疫点名称
+ */
+
+/**
+ * @api {post} /vaccine/add 免疫年检，添加免疫信息
+ * @apiName addVaccine
+ * @apiGroup Vaccine
+ * @apiDescription 免疫年检api接口
  * @apiHeader  {Sting} access-key token
+ * @apiParam {String} husbandryNo 畜牧业提供的条形码
+ * @apiParam {String} dogLicenseId 狗证ID
+ * @apiUse Vaccine
+ * @apiParamExample {json} Request Example
+ {
+                husbandryNo:global.getRandomStr(),
+                dogLicenseId:"5a334661aaa8832f4476ff6b",
+                vaccine:[{
+                    name:"av",
+                    batchNo:"1234",
+                    manufacturer:"manufacturer",
+                    veterinarianName:"veterinarianName",
+                    organizationName:"organizationName",
+                }]
+
+ };
  * @apiSuccessExample Success-Response:
- *{ organization:
-   { _id: '5a2f96c2519dea21549ac69e',
-     name: 'test_u9tAB',
-     tel: '15838365455',
-     businessLicense: '123',
-     animalMedicalLicense: '123',
-     adminUser: '5a0bec3f3bea6821641c8c18',
-     created: '2017-12-12T08:43:46.586Z',
-     __v: 4,
-     veterinarians:
-      [ '5a2f96c2519dea21549ac69c',
-        '5a2f96c2519dea21549ac69d',
-        '5a2f96deaa7920265c341b2b',
-        '5a2f97e6fb50ff1a1409b6bc',
-        '5a2f985be71a801ee0ac2cc2',
-        '5a2f99d0e3b20c25741b6d27' ],
-     checkStatus: { status: 0, time: '2017-12-12T08:43:46.585Z' },
-     contacts: { name: 'admin', phone: '15838365455' },
-     serviceScope: [ '美容' ],
-     location:
-      { province: '上海',
-        district: '浦东新区',
-        city: '航头镇',
-        address: '杭南公路',
-        code: '123456' } } }
+ *  [ { _id: '5a334661aaa8832f4476ff6b',
+    owner:
+     { _id: '5a334661aaa8832f4476ff6f',
+       name: 'test_tsY8Q',
+       sex: '1',
+       phone: '15901794453',
+       tel: '345033',
+       certificateType: '1',
+       certificateCode: '31010222222222',
+       __v: 12,
+       dogs: [Array],
+       location: [Object] },
+    dog:
+     { _id: '5a334661aaa8832f4476ff6e',
+       nickname: 'test_FJnXS',
+       sex: '2',
+       breed: 'breed',
+       usage: '警卫',
+       hairColor: '白色',
+       bornDate: '2016-08-10T00:00:00.000Z',
+       photoUrl: '123',
+       irisID: 'c123456789',
+       __v: 22,
+       vaccine: [Array],
+       photos: [] },
+    husbandryNo: 'SIBfz',
+    __v: 1,
+    residence:
+     { _id: '5a334926e2ec023460e09f39',
+       houseProperty: 'ziyou',
+       houseNo: 'zWhZv',
+       address: 'K1T5M',
+       isSterilization: 0,
+       created: '2017-12-15T04:01:42.291Z',
+       __v: 0 },
+    DogCard:
+     { create: '2017-12-15T04:01:42.313Z',
+       message: '成功办理狗证',
+       isCreate: 1,
+       info: [Object],
+       annual: [Object] },
+    vaccineCard:
+     { isCreate: 1,
+       create: '2017-12-15T03:49:53.758Z',
+       annual: [Object],
+       info: [Object] } } ]
+
+
+
 
  */
+
+
 
 _.extend(AddVaccineHandler.prototype,RequestHandlerBase.prototype);
 

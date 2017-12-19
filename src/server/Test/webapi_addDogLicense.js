@@ -18,7 +18,7 @@ describe('WEB API', function () {
                                 usage:"警卫",
                                 hairColor:"白色",
                                 bornDate:"2016-08-10",
-                                irisID:"z1234",
+                                irisID:"g123",
                                 photoUrl:"123",
                                  vaccine:[{
                                       name:"",
