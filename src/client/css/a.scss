@@ -488,8 +488,6 @@ input[type='date']::-webkit-inner-spin-button {
 .personal_card>.registration>.row>.col-md-6>.section>p{
   font-size: 12px;
 }
-
-
 .personal_card>.registration>.row>.col-md-6>.section>input[type="text"]{
   width: 265px;
   height:44px;
@@ -598,7 +596,6 @@ input[type='date']::-webkit-inner-spin-button {
   float: left;
   font-weight: normal;
 }
-
 .personal_card>.registration>.row>.col-md-6>.section>.radio_container{
   width: 265px;
   height:44px;
@@ -665,7 +662,6 @@ input[type='date']::-webkit-inner-spin-button {
   top:44px;
   left: 0;
 }
-
 .personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
   width:265px;
   height:60px;
@@ -989,6 +985,10 @@ input[type='date']::-webkit-inner-spin-button {
 .business_card>.registration>.row>.col-md-6>.section{
   float: left;
   margin-left: 5px;
+  position: relative;
+}
+.business_card>.registration>.row>.col-md-6>.section>p{
+  font-size: 12px;
 }
 .business_card>.registration>.row>.col-md-6>.section>input[type="text"]{
   width: 265px;
@@ -1023,7 +1023,7 @@ input[type='date']::-webkit-inner-spin-button {
   border-radius:4px;
   float:left;
 }
-.business_card>.registration>.row>.col-md-6>.section>.kinds{
+.business_card>.registration>.row>.col-md-6>.section>.radio_container>.kinds{
   width:265px;
   height:44px;
   line-height:44px;
@@ -1096,12 +1096,73 @@ input[type='date']::-webkit-inner-spin-button {
   line-height: 44px;
   text-align: center;
   float: left;
+  font-weight: normal;
 }
-.business_card>.registration>.row>.col-md-6>.section>#reg_addr_ck{
+.business_card>.registration>.row>.col-md-6>.section>.radio_container{
+  width: 265px;
+  height:44px;
+  line-height: 44px;
+}
+.business_card>.registration>.row>.col-md-6>.section>.label_container{
+  width: 420px;
+  height:44px;
+  line-height: 44px;
+}
+.business_card>.registration>.row>.col-md-6>.section>.label_container>select{
+  width: 90px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.business_card>.registration>.row>.col-md-6>.section>.label_container>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+  color: #000000;
+}
+.business_card>.registration>.row>.col-md-6>.section>.label_container>input{
+  width: 50px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.business_card>.registration>.row>.col-md-6>.section>#houseid_null_tip{
+  position: absolute;
+  top:44px;
+  left: 0;
+}
+.business_card>.registration>.row>.col-md-6>.section>.address_container{
+  width: 420px;
+  height:44px;
+  line-height: 44px;
+}
+.business_card>.registration>.row>.col-md-6>.section>.address_container>#reg_address{
+  width: 200px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.business_card>.registration>.row>.col-md-6>.section>.address_container>#reg_addr_ck{
   float: left;
   margin-left: 15px;
   margin-top: 15px;
   margin-right: 15px;
+}
+.business_card>.registration>.row>.col-md-6>.section>.address_container>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+  color: #000000;
+}
+.business_card>.registration>.row>.col-md-6>.section>#reg_address_null_tip{
+  position: absolute;
+  top:44px;
+  left: 0;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
   width:265px;
@@ -1113,6 +1174,9 @@ input[type='date']::-webkit-inner-spin-button {
   height: 40px;
   float: left;
   margin-right: 5px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>li>span{
+  font-size: 12px;
 }
 .business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province>select{
   width: 85px;
