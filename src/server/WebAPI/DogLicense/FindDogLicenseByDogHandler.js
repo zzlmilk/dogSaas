@@ -22,7 +22,8 @@ var FindDogLicenseByDogHandler = function(){
 	* @apiGroup DogLicense
 	* @apiDescription 查询api接口，获取狗证信息
 	* @apiParam {String} irisID 虹膜ID
-	* @apiParam {String} cardNo 免疫卡号
+	* @apiParam {String} vaccineCardNo 免疫卡号
+	* @apiParam {String} dogCardNo 狗证卡号
 	* @apiParam {String} page 当前页数
 	* @apiHeader  {Sting} access-key token
     * @apiSuccessExample Success-Response:

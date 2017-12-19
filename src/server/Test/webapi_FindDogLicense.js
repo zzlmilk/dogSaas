@@ -16,7 +16,7 @@ describe('WEB API', function () {
                                   //phone:"15901794453",
                                 certificateType:"1",
                                 certificateCode:"31010222222222",
-                                // page:"2"
+                                //page:"3"
                             	
                         };
 
@@ -49,9 +49,11 @@ describe('WEB API', function () {
 
             //参数
             var body = {
-                 irisID:"a123456789",
-                //cardNo:"sYcZ7iFU67",
-               // page :"1"
+                 // irisID:"a123456789",
+                  //vaccineCardNo:"sYcZ7iFU67",
+                  dogCardNo:"wrhy5omgy1"
+
+              //  page :"1"
 
             };
 

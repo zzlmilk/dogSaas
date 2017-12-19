@@ -516,37 +516,43 @@ var DogLicenseLogic = {
 						}
                     })
                 dogLicenseModel.find().populate("owner residence")
-                    .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate":1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err,doglicenseResult) {
+                    .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate":1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err,dogLicenseResult) {
                     if (err) {
                         throw err;
 					} else {
-                        res.dogLicenses = doglicenseResult;
+                        res.dogLicenses = dogLicenseResult;
                         onSuccess(res);
 					}
                 })
                 }else{
+                    dogLicenseModel.find({owner: result}).count().exec(function(err,count){
+                        if(err){
+                            throw err
+                        }else{
+                            res.count=count;
+                        }
+                    });
 
 					dogLicenseModel.find({owner: result}).populate("owner residence")
-                        .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).exec(function (err, doglicenseResult) {
+                        .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw err;
 						} else {
-                            res.dogLicenses = doglicenseResult;
-                            res.count=doglicenseResult.length;
+                            res.dogLicenses = dogLicenseResult;
+
 							onSuccess(res);
 						}
 					})
                 }
-			},function (result,done) {
-
-            },
+			}
 		], function (err,result) {
 		})
     },
      //通过虹膜id 和免疫卡号查询狗证信息
     find_by_dog: function (param, onSuccess, onError) {
         var irisID = param.irisID;
-        var cardNo=param.cardNo;
+        var vaccineCardNo=param.vaccineCardNo;
+        var dogCardNo=param.dogCardNo;
         var page=param.page||1;
 		var res={};
         var dogLicenseModel = DogLicenseModel.get();
@@ -557,7 +563,7 @@ var DogLicenseLogic = {
 
 		async.waterfall([
 			function (done) {
-                if (Utils.isEmpty(irisID) && Utils.isEmpty(cardNo)) {
+                if (Utils.isEmpty(irisID) && Utils.isEmpty(vaccineCardNo)&&Utils.isEmpty(dogCardNo)) {
                     dogLicenseModel.count().exec(function(err,count){
                         if(err){
                             throw err
@@ -577,15 +583,21 @@ var DogLicenseLogic = {
                     })
 
                 } else {
-                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": cardNo}]})
+                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo},{"DogCard.info.cardNo":dogCardNo}]}).count().exec(function(err,count){
+                        if(err){
+                            throw err
+                        }else{
+                            res.count=count;
+                        }
+                    });
+                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo},{"DogCard.info.cardNo":dogCardNo}]})
                         .populate("owner residence").populate({path:"dog",populate:{path: "vaccine[0]"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw err;
                         }
                         else {
                             res.dogLicenses = dogLicenseResult //符合条件的集合
-                            res.count = dogLicenseResult.length;
-							onSuccess(res);
+                            onSuccess(res);
 
                         }
 
