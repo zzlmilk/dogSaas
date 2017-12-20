@@ -229,7 +229,6 @@ input[disabled]:hover{
   height: 44px;
   line-height: 44px;
 }
-
 #personal_center_view>.basic_info>.row>.col-md-3>.subtitle{
   float: left;
   height: 40px;
@@ -253,7 +252,6 @@ input[disabled]:hover{
   height: 44px;
   line-height: 44px;
 }
-
 #personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#license{
   width: 230px;
   height: 160px;
@@ -360,6 +358,10 @@ input[disabled]:hover{
 }
 .current{
   transform: rotate(45deg);
+  -ms-transform:rotate(-45deg);
+  -o-tranform:rotate(-45deg);
+  -webkit-transform:rotate(-45deg);
+  -moz-transform:rotate(-45deg);
 }
 .sidebar>.nav>.nav_li>.nav_a:link{
   color:#ffffff;
@@ -723,7 +725,7 @@ input[type='date']::-webkit-inner-spin-button {
 }
 .modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.subtitle h4 {
   float: left;
-  width:155px;
+  width:165px;
   height: 44px;
   line-height: 44px;
   text-align: right;
@@ -759,7 +761,7 @@ input[type='date']::-webkit-inner-spin-button {
 .modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.section>#modal-btn-close{
   margin-left: 65px;
   background:#ffffff;
-  outline:0;
+  border: 1px #cccccc solid;
 }
 
 //办理狗证--个人办证--弹窗
@@ -777,7 +779,7 @@ input[type='date']::-webkit-inner-spin-button {
   margin-left: 15px;
   text-align:right;
 }
-.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.subtitle>#dog_img{
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.subtitle>#dogPhotoUrl{
   position:absolute;
   top:0;
   left:30px;
@@ -1402,7 +1404,6 @@ input[type='date']::-webkit-inner-spin-button {
   margin-right: 0px;
 
 }
-
 .dog_search>.title>.row>.col-md-6>.input-group>.input-group-btn>.dog_number{
   width: 80px;
   height: 40px;
@@ -1424,9 +1425,6 @@ input[type='date']::-webkit-inner-spin-button {
   height: 40px;
   border: 2px #cccccc solid ;
 }
-
-
-
 .dog_search>.table{
   width:100%;
   border-collapse:collapse;
