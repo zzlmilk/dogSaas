@@ -39,7 +39,7 @@ var SidebarView = Backbone.View.extend({
 
         $(".nav>li>a").each(function(){
             $(this).click(function(){
-                $(this).next("ul").toggle().closest("li").siblings("li").children("ul").hide();
+                $(this).siblings("ul").slideDown().parents("li").siblings("li").children("ul").slideUp();
                 $(this).children("span").toggleClass("current");
                 $(this).parent("li").siblings("li").children("a").children("span").removeClass("current");
 
