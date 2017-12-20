@@ -555,7 +555,14 @@ input[type='date']::-webkit-inner-spin-button {
 
 }
 .personal_card>.registration>.row>.col-md-6>#imgs{
+  width: 280px;
+  height: 210px;
   float: left;
+}
+.personal_card>.registration>.row>.col-md-6>#imgs>img{
+  width: 280px;
+  height: 210px;
+  display: block;
 }
 .personal_card>.registration>.row>.col-md-6>#collectimg{
   position: relative;
@@ -1682,7 +1689,9 @@ input[type='date']::-webkit-inner-spin-button {
   color:#339afe;
   text-decoration: underline;
 }
-
+.immune_list>table>tbody>.dogtr>td{
+  border:1px #cccccc solid;
+}
 //制卡信息
 .card_info{
   width: 100%;
