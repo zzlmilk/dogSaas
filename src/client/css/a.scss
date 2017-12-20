@@ -358,6 +358,10 @@ input[disabled]:hover{
 }
 .current{
   transform: rotate(45deg);
+  -ms-transform:rotate(-45deg);
+  -o-tranform:rotate(-45deg);
+  -webkit-transform:rotate(-45deg);
+  -moz-transform:rotate(-45deg);
 }
 .sidebar>.nav>.nav_li>.nav_a:link{
   color:#ffffff;
