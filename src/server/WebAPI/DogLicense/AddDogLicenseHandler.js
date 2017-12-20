@@ -78,13 +78,13 @@ var AddDogLicenseHandler = function(){
             bornDate:"2016-08-10",
             irisID:"a12345678",
             photoUrl:"123",
-            vaccine:{
+            vaccine:[{
                 name:"av",
                 batchNo:"123",
                 manufacturer:"manufacturer",
                 veterinarianName:"veterinarianName",
                 organizationName:"organizationName",
-            }
+            }]
 
         },
         owner:{
@@ -94,11 +94,13 @@ var AddDogLicenseHandler = function(){
             phone:"15901794453",
             certificateType:"1",
             certificateCode:"31010211111111",
+        location：{
             province:"province",
             district:"district",
             city:"city",
             address:"address",
             code:"code",
+            }
 
         },
         residence:{

@@ -170,7 +170,7 @@ var OrganizationLogics = {
 
 	editVeterinarian: function (param, onSuccess, onError) {
 
-		var organization=param.organization
+		var organization=param.organization;
 
 
         var name = param.name;
@@ -239,7 +239,7 @@ var OrganizationLogics = {
                 organization.save(function (err, res) {
 
                     if (err) {
-                        throw err
+                        throw err;
                     }else {
 						onSuccess(res)
                     }
