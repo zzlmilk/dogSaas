@@ -7,17 +7,18 @@ var Const = require('../lib/consts');
 
 describe('WEB API', function () {
 
-    it('should be Edit Residence', function (done) {
+    it('should be add successful', function (done) {
         signin(function(token){
             var body = {
-                husbandryNo:global.getRandomStr(),
-                    dogLicenseId:"5a3346aba1584b20b4e72e31",
+                    husbandryNo:global.getRandomStr(),
+                    dogLicenseId:"5a3a113141c6b55510d78bb3",
                     vaccine:{
-                        name:"av",
+                        name:"haha",
                         batchNo:"1234",
                         manufacturer:"manufacturer",
                         veterinarianName:"veterinarianName",
                         organizationName:"organizationName",
+
                 }
 
             };
@@ -32,7 +33,7 @@ describe('WEB API', function () {
                         throw err;
                     }
 
-                    console.log(res.body.data)
+                    console.log(res.body.data.dogLicense[0].dog);
                     res.body.should.have.property('code');
                     res.body.code.should.equal(Const.responsecodeSucceed);
 

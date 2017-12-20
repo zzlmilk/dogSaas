@@ -25,22 +25,9 @@ describe('WEB API', function () {
                                       batchNo:"123",
                                       manufacturer:"manufacturer",
                                       veterinarianName:"veterinarianName",
-                                      organizationName:"organizationName",
-                                 },
-                                 {
-                                      name:"",
-                                      batchNo:"123",
-                                      manufacturer:"manufacturer",
-                                      veterinarianName:"veterinarianName",
-                                      organizationName:"organizationName",
-                                 },
-                                 {
-                                      name:"haha",
-                                      batchNo:"123",
-                                      manufacturer:"manufacturer",
-                                      veterinarianName:"veterinarianName",
-                                      organizationName:"organizationName",
-                                 },
+                                      organizationName:"organizationName"
+                                 }
+
                                  ]
                             },                            
                             owner:{

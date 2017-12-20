@@ -18,7 +18,8 @@ VaccineModel.prototype.init = function (mongoose) {
 			manufacturer:String, //厂商			
 			veterinarianName:String,//打疫苗的兽医
 			organizationName:String, //免疫点名称
-			created:Date, //创建时间		
+			created:Date, //创建时间
+            husbandryNo:String, //年检时畜牧业提供的条形码
 			
 	});
 

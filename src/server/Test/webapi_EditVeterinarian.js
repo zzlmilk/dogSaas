@@ -11,11 +11,9 @@ describe('WEB API', function () {
         signin(function (token) {
             var body = {
                 name: "李四",
-<<<<<<< HEAD
-                code: "11901211122"
-=======
-                code: "219012111111111"
->>>>>>> e943f77c7ca54bf87f357905230b309d2fd4d2bf
+
+                code: "21901211111111101"
+
             };
 
             request(app)

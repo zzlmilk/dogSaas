@@ -279,11 +279,11 @@ var DogLicenseLogic = {
 			  				manufacturer:_vaccine.manufacturer,
 			  				veterinarianName:_vaccine.veterinarianName,
 			  				organizationName:_vaccine.organizationName,
-			  				created:Utils.now()
+			  				created:Utils.now(),
+			  				husbandryNo:param.husbandryNo
 
 			  			});
-
-			  			vaccine.save(function(err,vaccineResult){
+						vaccine.save(function(err,vaccineResult){
 			  				
 			  			})
 						vaccineList.push(vaccine)
@@ -631,8 +631,8 @@ var DogLicenseLogic = {
 	editVaccine:function (param,onSuccess,onError) {//免疫年检，更新免疫信息
         var vaccineParam = param.vaccine;
         var dogLicense = param.dogLicense;
-        var husbandryNo = param.husbandryNo;
-        var dogLicenseModel=DogLicenseModel.get();
+        var husbandryNo=param.husbandryNo;
+		var dogLicenseModel=DogLicenseModel.get();
         var ownerModel=OwnerModel.get();
         var dogModel=DogModel.get();
         var residence=ResidenceModel.get();
@@ -645,11 +645,10 @@ var DogLicenseLogic = {
             function (done) {//验证条形码有没有被使用过
                 dogLicenseModel.findOne({"husbandryNo":husbandryNo},function(err,dogLicenseResult){
                     if (dogLicenseResult) {
-						onError(null, Const.resCodeDogWorngHusbandryNo);
-                    }else{
-                        dogLicense.husbandryNo = husbandryNo;
-                        done(null,res)
-                    }
+						   onError(null, Const.resCodeDogWorngHusbandryNo);
+					}else{
+                    	done(null,res);
+					}
                 })
             },function (result,done) {
         	var vaccineModel=VaccineModel.get();
@@ -659,7 +658,8 @@ var DogLicenseLogic = {
                     manufacturer:vaccineParam.manufacturer,
                     veterinarianName:vaccineParam.veterinarianName,
                     organizationName:vaccineParam.organizationName,
-                    created:Utils.now()
+                    created:Utils.now(),
+                    husbandryNo:husbandryNo
                 });
                 vaccine.save(function (err, vaccine) {
                     if (err) {
