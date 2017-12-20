@@ -204,10 +204,10 @@ var DogView = Backbone.View.extend({
                         $("#tbody").after(sb.toString());
 
                         $(".td-a").unbind().on("click", function () {
-                            var d = dogLicenses[$(this).attr("value")];
-                            console.log(d);
+                            var dogLicense=dogLicenses[$(this).attr("value")];
+                            dogLicense.infoPreviewType = Const.infoPreviewType.ToCardInfo;
                             var InfoPreviewModal = require('../../../Modals/InfoPreview/InfoPreview');
-                            InfoPreviewModal.show(d);
+                            InfoPreviewModal.show(dogLicense);
                         });
 
                         //循环遍历

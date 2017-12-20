@@ -5,7 +5,7 @@
 var $ = require('jquery');
 var _ = require('lodash');
 // var validator = require('validator');
-
+var Backbone = require('backbone');
 var request = require('supertest');
 var DogLicenseClient = require('../../../lib/APIClients/DogLicenseClient');
 var StringBuffer = require('../../Parts/selectPlugin/StringBuffer.js');
@@ -28,12 +28,8 @@ var InfoPreview = {
 
     show: function (dogLicenseModel) {
         var self = this;
-        $('body').append(template({
-            // DogLicenseModel: self.DogLicenseModel
-        }));
+        $('body').append(template({}));
         self.DogLicenseModel = dogLicenseModel;
-        console.log("弹窗预览");
-        console.log(self.DogLicenseModel);
         setValue();
 
         function setValue() {
@@ -42,7 +38,7 @@ var InfoPreview = {
             $("#ownerPhone").html(self.DogLicenseModel.owner.phone);
             $("#ownerTel").html(self.DogLicenseModel.owner.tel);
             $("#ownerSex").html(self.DogLicenseModel.owner.sex == 1 ? "男" : "女");
-            $("#ownerCertificateType").html(self.DogLicenseModel.owner.certificateType) == 1 ? "身份证" : "护照";
+            $("#ownerCertificateType").html(self.DogLicenseModel.owner.certificateType == 1 ? "身份证" : "护照");
             $("#ownerCertificateCode").html(self.DogLicenseModel.owner.certificateCode);
             $.each(CityJson,
                 function (i, val) {
@@ -60,7 +56,7 @@ var InfoPreview = {
             $("#dogHairColor").html(self.DogLicenseModel.dog.hairColor);
             $("#dogUsage").html(self.DogLicenseModel.dog.usage);
             $("#dogBreed").html(self.DogLicenseModel.dog.breed);
-            $("#dogBornDate").html(self.DogLicenseModel.dog.bornDate.substring(0,10));
+            $("#dogBornDate").html(self.DogLicenseModel.dog.bornDate.substring(0, 10));
             $("#dogPhotoUrl").attr("src", self.DogLicenseModel.dog.photoUrl);
             //免疫（循环打印）
             var sb = new StringBuffer();
@@ -71,7 +67,7 @@ var InfoPreview = {
                     "<td class='middle_td'>" + val.manufacturer + "</td>" +
                     "<td class='middle_td'>" + val.organizationName + "</td>" +
                     "<td class='right_td'>" + val.veterinarianName + "</td>" +
-                    "<td class='right_td'>" + val.created.substring(0,10) + "</td>" +
+                    "<td class='right_td'>" + val.created.substring(0, 10) + "</td>" +
                     "</tr>");
             });
             $("#vaccineTitle").after(sb.toString());
@@ -93,9 +89,15 @@ var InfoPreview = {
             }
         }
 
-
+        $('#modal-profile').modal({backdrop: 'static', keyboard: false});
         $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
+            var type = self.DogLicenseModel.infoPreviewType
+            if (type == Const.infoPreviewType.AddVaccine) {
+                //如果有新的条形码就是新增免疫
+                Backbone.trigger(Const.infoPreviewAddVaccineCanel, null);
+            }
+            console.log("页面关闭了-*-----");
         });
 
         $('#modal-profile').on('show.bs.modal', function (e) {
@@ -109,81 +111,143 @@ var InfoPreview = {
         //制卡
         $('#save_and_ccard').unbind().on('click', function () {
             console.log(self.DogLicenseModel);
-            if(self.DogLicenseModel.DogCard){
+            var type = self.DogLicenseModel.infoPreviewType
+            if (type == Const.infoPreviewType.AddVaccine) {
+                //如果有新的条形码就是新增免疫
+                addVaccine();
+            } else if (type == Const.infoPreviewType.ToCardInfo) {
                 //信息查询 直接跳转到制卡页
                 self.hide();
-                var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
-                var view = new CardInfoView({
-                    'el': "#main-content",
-                    "dogLicense": self.DogLicenseModel
-                });
-            }else if (self.DogLicenseModel.id) {
+                toCardInfo();
+            } else if (type == Const.infoPreviewType.PerfectResidence) {
                 //完善房产信息
-                var residence = {
-                    houseNo: self.DogLicenseModel.residence.houseNo,
-                    houseProperty: self.DogLicenseModel.residence.houseProperty,
-                    address: self.DogLicenseModel.residence.address,
-                    isSterilization: self.DogLicenseModel.residence.isSterilization,
-                };
-                var houseInfo = {
-                    dogLicenseId: self.DogLicenseModel.id,
-                    residence: residence
-                }
-                console.log("完善房产信息");
-                console.log(houseInfo);
-
-                DogLicenseClient.editResidence(
-                    //房产信息
-                    houseInfo,
-                    //成功回调
-                    function (data) {
-                        console.log("完善房产信息成功");
-                        console.log(data);
-                        self.hide();
-                        var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
-                        var view = new CardInfoView({
-                            'el': "#main-content",
-                            "dogLicense": data.dogLicense
-                        });
-
-                    },
-                    //失败回调
-                    function (errorCode) {
-                        console.log("办理狗证信息失败");
-                        console.log(errorCode);
-                        if (Const.ErrorCodes[errorCode]) {
-                            var message = Const.ErrorCodes[errorCode];
-                            alert(message)
-                        }
-
-                    });
-            } else {
-                DogLicenseClient.add(
-                    //狗证信息
-                    self.DogLicenseModel,
-                    //成功回调
-                    function (data) {
-                        console.log(data.dogLicense[0]);
-                        self.hide();
-                        var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
-                        var view = new CardInfoView({
-                            'el': "#main-content",
-                            "dogLicense": data.dogLicense[0]
-                        });
-
-                    },
-                    //失败回调
-                    function (errorCode) {
-                        console.log(errorCode);
-                        if (Const.ErrorCodes[errorCode]) {
-                            var message = Const.ErrorCodes[errorCode]
-                            alert(message)
-                        }
-
-                    });
+                perfectResidence();
+            } else if (type == Const.infoPreviewType.AddDogLicense) {
+                //添加狗证
+                addDogLicense();
             }
-
         });
+
+
+        //新增免疫
+        function addVaccine() {
+            console.log("新增免疫");
+            var vac = self.DogLicenseModel.dog.vaccine;
+            var size = vac.length;
+            //免疫信息
+            var vaccines = {
+                husbandryNo: self.DogLicenseModel.husbandryNo,
+                dogLicenseId: self.DogLicenseModel._id,
+                vaccine: vac[size - 1],
+            };
+            console.log(vaccines);
+
+            DogLicenseClient.addVaccine(
+                //狗证信息
+                vaccines,
+                //成功回调
+                function (data) {
+                    console.log(data.dogLicense[0]);
+                    self.hide();
+                    var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
+                    var view = new CardInfoView({
+                        'el': "#main-content",
+                        "dogLicense": data.dogLicense[0]
+                    });
+
+                },
+                //失败回调
+                function (errorCode) {
+                    console.log(errorCode);
+                    if (Const.ErrorCodes[errorCode]) {
+                        var message = Const.ErrorCodes[errorCode]
+                        alert(message)
+                    }
+
+                });
+
+        }
+
+        //信息查询 跳转到制卡页
+        function toCardInfo() {
+            console.log("跳转到制卡页");
+            var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
+            var view = new CardInfoView({
+                'el': "#main-content",
+                "dogLicense": self.DogLicenseModel
+            });
+        }
+
+        //完善房产信息
+        function perfectResidence() {
+            console.log("完善房产信息");
+            var residence = {
+                houseNo: self.DogLicenseModel.residence.houseNo,
+                houseProperty: self.DogLicenseModel.residence.houseProperty,
+                address: self.DogLicenseModel.residence.address,
+                isSterilization: self.DogLicenseModel.residence.isSterilization,
+            };
+            var houseInfo = {
+                dogLicenseId: self.DogLicenseModel._id,
+                residence: residence
+            }
+            console.log(houseInfo);
+
+            DogLicenseClient.editResidence(
+                //房产信息
+                houseInfo,
+                //成功回调
+                function (data) {
+                    console.log("完善房产信息成功");
+                    console.log(data);
+                    self.hide();
+                    var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
+                    var view = new CardInfoView({
+                        'el': "#main-content",
+                        "dogLicense": data.dogLicense
+                    });
+
+                },
+                //失败回调
+                function (errorCode) {
+                    console.log("办理狗证信息失败");
+                    console.log(errorCode);
+                    if (Const.ErrorCodes[errorCode]) {
+                        var message = Const.ErrorCodes[errorCode];
+                        alert(message)
+                    }
+
+                });
+        }
+
+        //办理狗证
+        function addDogLicense() {
+            console.log("办理狗证");
+            DogLicenseClient.add(
+                //狗证信息
+                self.DogLicenseModel,
+                //成功回调
+                function (data) {
+                    console.log(data.dogLicense[0]);
+                    self.hide();
+                    var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
+                    var view = new CardInfoView({
+                        'el': "#main-content",
+                        "dogLicense": data.dogLicense[0]
+                    });
+
+                },
+                //失败回调
+                function (errorCode) {
+                    console.log(errorCode);
+                    if (Const.ErrorCodes[errorCode]) {
+                        var message = Const.ErrorCodes[errorCode]
+                        alert(message)
+                    }
+
+                });
+
+        }
 
     },
 

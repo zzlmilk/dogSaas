@@ -10,43 +10,40 @@ var template = require('./PreviewDog.hbs');
 // var loginUserManager = require('../../../lib/loginUserManager');
 
 var PreviewDog = {
-    show: function(title, text, onRetry) {
-    
+    show: function (title, text, onRetry) {
+
         var self = this;
-        
+
         $('body').append(template({
             title: title,
             text: text
         }));
-        $('#modal-profile').on('hidden.bs.modal', function(e) {
+        $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
-            
+
         })
 
         $('#modal-profile').on('show.bs.modal', function (e) {
-            
+
 
         })
-        
+
         $('#modal-profile').modal('show');
-        $('#modal-btn-close').unbind().on('click', function() {
+        $('#modal-btn-close').unbind().on('click', function () {
             self.hide();
         });
     },
-    hide: function(onFinish) {
-        $('#modal-profile').on('hidden.bs.modal', function(e) {
+    hide: function (onFinish) {
+        $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
             if (!_.isUndefined(onFinish)) {
                 onFinish();
             }
         })
-        
+
         $('#modal-profile').modal('hide');
     },
 
 
-
-    
-    
 }
 module.exports = PreviewDog;

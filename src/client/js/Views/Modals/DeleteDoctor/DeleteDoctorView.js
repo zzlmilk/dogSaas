@@ -18,18 +18,16 @@ var template = require('./DeleteDoctor.hbs');
 var DeleteDoctor = {
     show: function (id) {
 
-        var ids=id;
+        var ids = id;
         var self = this;
 
-        $('body').append(template({
-
-        }));
+        $('body').append(template({}));
         $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
 
         })
 
-        $('#modal-profile').on('show.bs.modal', function (e) {  
+        $('#modal-profile').on('show.bs.modal', function (e) {
 
         })
 
@@ -39,7 +37,7 @@ var DeleteDoctor = {
             console.log(ids);
             self.hide();
         });
-         $('#modal-btn-close').unbind().on('click', function () {
+        $('#modal-btn-close').unbind().on('click', function () {
             self.hide();
         });
 

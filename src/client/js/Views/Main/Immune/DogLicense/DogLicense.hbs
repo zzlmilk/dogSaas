@@ -7,161 +7,55 @@
     <div class="title">
         <div class="row">
             <div class="form-group">
-                <select>
-                    <option>虹膜ID</option>
-                    <option>狗证卡号</option>
+                <select id="where">
+                    <option value="1" selected="selected">虹膜ID</option>
+                    <option value="2">狗证卡号</option>
                 </select>
-                <input type="text"  id="immune_number" >
+                <input type="text" id="whereValue">
+                <span style="display: none;" class="null_err" id="where_null_tip">*请输入搜索内容</span>
             </div>
-            <span style="display: none;" class="null_err" id="where_null_tip">*请输入搜索内容</span>
             <div class="form-group search">
                 <button class="btn btnBlueE btn-block" id="search">搜索</button>
             </div>
         </div>
     </div>
 
-    <table class="table" >
-        <tbody>
-            <tr class="tr_head">
-                <td>虹膜ID</td>
-                <td>狗证卡号</td>
-                <td>身份证号(护照)</td>
-                <td>犬名</td>
-                <td>品种</td>
-                <td>免疫时间</td>
-                <td>下次免疫时间</td>
-                <td>操作</td>
-            </tr>
-            <tr class="tr">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-            </tr>
-            <tr class="tr">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-            </tr>
-            <tr class="tr">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-            </tr>
-            <tr class="tr">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-            </tr>
-            <tr class="tr">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-            </tr>
-            <tr class="tr">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-            </tr>
-            <tr class="tr">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-            </tr>
-            <tr class="tr">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-            </tr>
-            <tr class="tr">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-            </tr>
-            <tr class="tr">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a class="td-a" href="javascript:void(0)">年审</a></td>
-            </tr>
+    <table class="table">
+        <tbody id="tbody">
+        <tr class="tr_head">
+            <td>虹膜ID</td>
+            <td>狗证卡号</td>
+            <td>身份证号(护照)</td>
+            <td>犬名</td>
+            <td>品种</td>
+            <td>免疫时间</td>
+            <td>操作</td>
+        </tr>
         </tbody>
     </table>
 
-
     <div class="row">
         <div class="col-md-6 col-md-offset-3 text-center">
-            <nav aria-label="Page navigation" id="pagenav">
+            <nav aria-label="Page navigation" id="dogowner_nav">
                 <ul class="pagination">
-                    <li><a href="javascript:void(0)">首页</a></li>
-                    <li>
-                        <a href="javascript:void(0)" aria-label="Previous">
+                    <li><a href="javascript:void(0)" id='pageBegin'>首页</a></li>
+                    <li id="page">
+                        <a href="javascript:void(0)" aria-label="Previous" id='pageUp'>
                             <span aria-hidden="true">上一页</span>
                         </a>
                     </li>
-                    <li class="active"><a href="javascript:void(0)">1</a></li>
-                    <li ><a href="javascript:void(0)">2</a></li>
-                    <li ><a href="javascript:void(0)">3</a></li>
-                    <li ><a href="javascript:void(0)">4</a></li>
-                    <li ><a href="javascript:void(0)">5</a></li>
+
                     <li>
-                        <a href="javascript:void(0)" aria-label="Next">
+                        <a href="javascript:void(0)" aria-label="Next" id="pageDown">
                             <span aria-hidden="true">下一页</span>
                         </a>
                     </li>
-                    <li><a href="javascript:void(0)">尾页</a></li>
+                    <li><a href="javascript:void(0)" id="pageEnd">尾页</a></li>
                 </ul>
             </nav>
+            <div id="nodata" style="display:none;text-align:center">
+                暂无数据
+            </div>
         </div>
     </div>
-
-
-
 </div>

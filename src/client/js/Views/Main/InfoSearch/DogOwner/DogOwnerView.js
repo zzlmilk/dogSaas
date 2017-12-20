@@ -111,6 +111,7 @@ var DogOwnerView = Backbone.View.extend({
             if (!emptyValid()) {
                 return;
             }
+            currentPage=1;
             var requestData = {
                 certificateType: $("#certificateType").val().trim(),
                 certificateCode: $("#id_number").val().trim(),
@@ -183,31 +184,61 @@ var DogOwnerView = Backbone.View.extend({
                     //先删除已有的
                     $(".toPage").remove();
                     var dogLicenses = data.dogLicenses;
-                    if (dogLicenses.length > 0) {
+                    var size = dogLicenses.length;
+                    if (size > 0) {
                         //有数据
                         $("#dogowner_nav").show();
                         $("#nodata").hide();
-
                         var sb = new StringBuffer();
-                        $.each(dogLicenses, function (i, val) {
-                            sb.append("<tr class='dogtr'>" +
-                                "<td align='center' valign='middle'>" + val.owner.name + "</td>" +
-                                "<td align='center' valign='middle'>" + val.owner.certificateCode + "</td>" +
-                                "<td align='center' valign='middle'>" + val.owner.phone + "</td>" +
-                                "<td align='center' valign='middle'>" + val.dog.nickname + "</td>" +
-                                "<td align='center' valign='middle'>" + val.dog.breed + "</td>" +
-                                "<td align='center' valign='middle'>" + val.dog.hairColor + "</td>" +
-                                "<td align='center' valign='middle'>" + val.vaccineCard.info.cardNo + "</td>" +
-                                "<td align='center' valign='middle'>" + val.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
-                                "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">详情</a></td>" +
+
+                        var whwere = $("#id_number").val().trim();
+                        if(whwere==""){
+                            //无条件不需要合并信息
+                            $.each(dogLicenses, function (i, val) {
+                                sb.append("<tr class='dogtr' rowspan='"+size+"'>" +
+                                    "<td align='center' valign='middle'>" + val.owner.name + "</td>" +
+                                    "<td align='center' valign='middle'>" + val.owner.certificateCode + "</td>" +
+                                    "<td align='center' valign='middle'>" + val.owner.phone + "</td>" +
+                                    "<td align='center' valign='middle'>" + val.dog.nickname + "</td>" +
+                                    "<td align='center' valign='middle'>" + val.dog.breed + "</td>" +
+                                    "<td align='center' valign='middle'>" + val.dog.hairColor + "</td>" +
+                                    "<td align='center' valign='middle'>" + val.vaccineCard.info.cardNo + "</td>" +
+                                    "<td align='center' valign='middle'>" + val.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
+                                    "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">详情</a></td>" +
+                                    "</tr>");
+                            });
+                        }else{
+                            //有条件搜索 需要合并
+                            var d1 = dogLicenses[0];
+                            sb.append("<tr class='dogtr' >" +
+                                "<td align='center' valign='middle' rowspan='" + size + "'>" + d1.owner.name + "</td>" +
+                                "<td align='center' valign='middle' rowspan='" + size + "'>" + d1.owner.certificateCode + "</td>" +
+                                "<td align='center' valign='middle' rowspan='" + size + "'>" + d1.owner.phone + "</td>" +
+                                "<td align='center' valign='middle'>" + d1.dog.nickname + "</td>" +
+                                "<td align='center' valign='middle'>" + d1.dog.breed + "</td>" +
+                                "<td align='center' valign='middle'>" + d1.dog.hairColor + "</td>" +
+                                "<td align='center' valign='middle'>" + d1.vaccineCard.info.cardNo + "</td>" +
+                                "<td align='center' valign='middle'>" + d1.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
+                                "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + 0 + ">详情</a></td>" +
                                 "</tr>");
-                        });
+                            for (var i = 1; i < size; i++) {
+                                var d = dogLicenses[i];
+                                sb.append("<tr class='dogtr'>" +
+                                    "<td align='center' valign='middle'>" + d.dog.nickname + "</td>" +
+                                    "<td align='center' valign='middle'>" + d.dog.breed + "</td>" +
+                                    "<td align='center' valign='middle'>" + d.dog.hairColor + "</td>" +
+                                    "<td align='center' valign='middle'>" + d.vaccineCard.info.cardNo + "</td>" +
+                                    "<td align='center' valign='middle'>" + d.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
+                                    "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">详情</a></td>" +
+                                    "</tr>");
+                            }
+                        }
                         $("#tbody").after(sb.toString());
                         $(".td-a").unbind().on("click", function () {
-                            var d = dogLicenses[$(this).attr("value")];
-                            console.log(d);
+                            var dogLicense = dogLicenses[$(this).attr("value")];
+                            dogLicense.infoPreviewType = Const.infoPreviewType.ToCardInfo;
                             var InfoPreviewModal = require('../../../Modals/InfoPreview/InfoPreview');
-                            InfoPreviewModal.show(d);
+                            InfoPreviewModal.show(dogLicense);
                         });
 
                         //循环遍历

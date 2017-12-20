@@ -7,25 +7,18 @@ var Config = require('../../../../lib/init');
 var DogLicenseClient = require('../../../../lib/APIClients/DogLicenseClient');
 var StringBuffer = require('../../../Parts/selectPlugin/StringBuffer.js');
 // load template
- var template = require('./ImmuneList.hbs');
-
-
-
+var template = require('./ImmuneList.hbs');
 
 var ImmuneListView = Backbone.View.extend({
 
-
-    el : null,
-    initialize: function(options) {
+    el: null,
+    initialize: function (options) {
         this.el = options.el;
         this.render();
     },
 
-    render: function() {
-        $(this.el).html(template({
-
-        }));
-
+    render: function () {
+        $(this.el).html(template({}));
 
 
         this.onLoad();
@@ -33,7 +26,8 @@ var ImmuneListView = Backbone.View.extend({
         return this;
 
     },
-    onLoad: function(){
+
+    onLoad: function () {
 
         var self = this;
         var currentPage = 1;//当前页
@@ -48,7 +42,7 @@ var ImmuneListView = Backbone.View.extend({
             };
         } else {
             requestData = {
-                cardNo: $("#whereValue").val().trim(),
+                vaccineCardNo: $("#whereValue").val().trim(),
                 page: currentPage
             };
         }
@@ -80,7 +74,7 @@ var ImmuneListView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    cardNo: $("#whereValue").val().trim(),
+                    vaccineCardNo: $("#whereValue").val().trim(),
                     page: 1
                 };
             }
@@ -99,7 +93,7 @@ var ImmuneListView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    cardNo: $("#whereValue").val().trim(),
+                    vaccineCardNo: $("#whereValue").val().trim(),
                     page: 1
                 };
             }
@@ -118,7 +112,7 @@ var ImmuneListView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    cardNo: $("#whereValue").val().trim(),
+                    vaccineCardNo: $("#whereValue").val().trim(),
                     page: totalPage
                 };
             }
@@ -138,7 +132,7 @@ var ImmuneListView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    cardNo: $("#whereValue").val().trim(),
+                    vaccineCardNo: $("#whereValue").val().trim(),
                     page: currentPage - 1
                 };
             }
@@ -157,7 +151,7 @@ var ImmuneListView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    cardNo: $("#whereValue").val().trim(),
+                    vaccineCardNo: $("#whereValue").val().trim(),
                     page: currentPage + 1
                 };
             }
@@ -210,9 +204,11 @@ var ImmuneListView = Backbone.View.extend({
                             // var InfoPreviewModal = require('../../../Modals/InfoPreview/InfoPreview');
                             // InfoPreviewModal.show(d);
                             var ImmuneDetailView = require('../ImmuneDetail/ImmuneDetailView.js');
-                                var view = new ImmuneDetailView({
-                                    'el': "#main-content"
-                                });
+                            var dogLicense=dogLicenses[$(this).attr("value")];
+                            var view = new ImmuneDetailView({
+                                'el': "#main-content",
+                                'dogLicense': dogLicense
+                            });
                         });
 
                         //循环遍历
@@ -238,7 +234,7 @@ var ImmuneListView = Backbone.View.extend({
                                 };
                             } else {
                                 requestData = {
-                                    cardNo: $("#whereValue").val().trim(),
+                                    vaccineCardNo: $("#whereValue").val().trim(),
                                     page: i
                                 };
                             }

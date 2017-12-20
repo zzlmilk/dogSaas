@@ -148,7 +148,7 @@ var CardInfoView = Backbone.View.extend({
         $("#vaccineCardHairColor").html(self.dogLicense.vaccineCard.info.hairColor);
         //免疫时间 （循环）
         $.each(self.dogLicense.vaccineCard.info.annualDate, function (i, val) {
-            $("#vaccineCardAnnualDate").append("<span>" + val + "</span>");
+            $("#vaccineCardAnnualDate").append("<span>" + val + "&nbsp; </span>");
         });
         $("#vaccineCardIrisID").html(self.dogLicense.vaccineCard.info.irisID);
 

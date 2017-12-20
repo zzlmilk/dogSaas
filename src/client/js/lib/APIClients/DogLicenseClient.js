@@ -69,9 +69,18 @@ var _ = require('lodash');
      * @param success
      * @param err
      */
-
     DogLicenseClient.prototype.editResidence = function (data, success, err) {
         this.postRequst("/residence/edit", data, success, err);
+    };
+
+    /**
+     * 新增免疫信息
+     * @param data
+     * @param success
+     * @param err
+     */
+    DogLicenseClient.prototype.addVaccine = function (data, success, err) {
+        this.postRequst("/vaccine/add", data, success, err);
     };
 
     // returns instance
