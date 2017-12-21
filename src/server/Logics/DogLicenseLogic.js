@@ -551,9 +551,8 @@ var DogLicenseLogic = {
      //通过虹膜id 和免疫卡号查询狗证信息
     find_by_dog: function (param, onSuccess, onError) {
         var irisID = param.irisID;
-        var vaccineCardNo=param.vaccineCardNo;
-        var dogCardNo=param.dogCardNo;
-        var page=param.page||1;
+		var vaccineCardNo=param.vaccineCardNo;
+		var page=param.page||1;
 		var res={};
         var dogLicenseModel = DogLicenseModel.get();
         var dogModel = DogModel.get();
@@ -563,7 +562,7 @@ var DogLicenseLogic = {
 
 		async.waterfall([
 			function (done) {
-                if (Utils.isEmpty(irisID) && Utils.isEmpty(vaccineCardNo)&&Utils.isEmpty(dogCardNo)) {
+                if (Utils.isEmpty(irisID) && Utils.isEmpty(vaccineCardNo)) {
                     dogLicenseModel.count().exec(function(err,count){
                         if(err){
                             throw err
@@ -583,20 +582,20 @@ var DogLicenseLogic = {
                     })
 
                 } else {
-                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo},{"DogCard.info.cardNo":dogCardNo}]}).count().exec(function(err,count){
+                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo}]}).count().exec(function(err,count){
                         if(err){
                             throw err
                         }else{
                             res.count=count;
-                        }
+						}
                     });
-                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo},{"DogCard.info.cardNo":dogCardNo}]})
-                        .populate("owner residence").populate({path:"dog",populate:{path: "vaccine[0]"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
+                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo}]})
+                        .populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw err;
                         }
                         else {
-                            res.dogLicenses = dogLicenseResult //符合条件的集合
+							res.dogLicenses = dogLicenseResult //符合条件的集合
                             onSuccess(res);
 
                         }
