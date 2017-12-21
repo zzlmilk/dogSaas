@@ -1,5 +1,4 @@
-<div>
-    <div id="signheader-content"></div>
+ <div id="signheader-content"></div>
 
     <div class="wrapper">
 
@@ -59,11 +58,11 @@
                         —
                     </div>
                     <div class="phone_number">
-                        <input required="" errmsg="" value="" id="tel" type="number"
+                        <input required="" errmsg="" value="" id="tel" type="text" style=" padding: 5px 0;height:40px;line-height: 20px"
                                oninput="if(value.length>7)value=value.slice(0,7)" class="form-control"
                                placeholder="座机">
                     </div>
-                    <p class="detail_address" style="display: none;color:#ff0000" class="null_err"
+                    <p class="detail_address" style="font-size:12px ; display: none;color:#ff0000" class="null_err"
                        id="tel_null_tip">*座机不能为空</p>
                 </div>
             </div>
@@ -120,7 +119,7 @@
                     </div>
 
                 </div>
-                <p class="section null_err" style="display: none;" id="server_null_tip">*服务范围不能为空</p>
+                <p class="section null_err" style="display: none;margin-left: 170px" id="server_null_tip">*服务范围不能为空</p>
             </div>
 
             <div class="row">
@@ -165,7 +164,7 @@
                     <h4>*联系人电话：</h4>
                 </div>
                 <div class="section">
-                    <input required="" errmsg="" value="" id="contacts_phone" type="number" maxlength="11"
+                    <input required="" errmsg="" value="" id="contacts_phone" type="text" maxlength="11"
                            oninput="if(value.length>11)value=value.slice(0,11)" class="form-control"
                            placeholder="联系人电话">
                     <p style="display: none;" class="null_err" id="contacts_phone_null_tip">*联系人电话不能为空</p>
@@ -190,4 +189,3 @@
     </div>
 </div>
 
-</div>

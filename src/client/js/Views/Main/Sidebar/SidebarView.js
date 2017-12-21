@@ -48,7 +48,9 @@ var SidebarView = Backbone.View.extend({
 
                 $(".second_nav>li>a").each(function(){
                     $(this).click(function(){
+                        console.log(this);
                         $(this).removeClass("unactived").addClass("active").parent("li").siblings("li").children("a").removeClass("active").addClass("unactived");
+
                     })
                 })
             })

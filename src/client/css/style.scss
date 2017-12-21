@@ -414,9 +414,18 @@ ul li{
 .wrapper > .org_companyInfo > .row >.section>input{
     height: 40px;
 }
+.wrapper > .org_companyInfo > .row >.section>input[type="text"]{
+    padding: 5px 0;
+    height: 40px;
+    line-height: 30px;
+}
+.wrapper > .org_companyInfo > .row >p{
+    font-size: 12px;
+}
 
 .wrapper > .org_companyInfo > .row >.section>p{
-    height: 10px;
+    font-size: 12px;
+
 }
 
 .wrapper > .org_companyInfo > .row >.section>.chose_phone>select{
@@ -528,7 +537,9 @@ ul li{
     height:60px;
     overflow: hidden;
 }
-
+.wrapper > .org_companyInfo > .row >.section>#orga_area>.org_address>li>span{
+    font-size: 12px;
+}
 .wrapper > .org_companyInfo > .row >.section>#orga_area>.org_address>.province{
     width: 90px;
     height: 40px;
