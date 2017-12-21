@@ -86,7 +86,6 @@ var PersonalCardView = Backbone.View.extend({
                     d1[i].disabled = true;
                 }
 
-
             }
 
             //添加监听事件
@@ -328,57 +327,24 @@ var PersonalCardView = Backbone.View.extend({
                 }
 
                 //赋值
-                var dogLicenseModeldefaults = new DogLicenseModel();
+                // var dogLicenseModeldefaults = new DogLicenseModel();
 
+                var dogLicense = self.dogLicense;
                 if (self.dogLicense != null) {
-                    console.log("完善房产");
-                    var dogLicenses = {
-                        id: self.dogLicense._id,
-                        husbandryNo: $('#barcode').val(),
-                        dog: {
-                            nickname: $('#dogname').val(),
-                            sex: $("input[name='dog_gender']:checked").val(),
-                            breed: $('#breed').find("option:selected").text(),
-                            usage: $("input[name='usage']:checked").val(),
-                            hairColor: $('#dog_color').find("option:selected").text(),
-                            bornDate: $('#birth_date').val(),
-                            irisID: $('#iris').val(),
-                            photoUrl: $("#imgs img").attr("src"),
-                            vaccine: [{
-                                name: $('#vaccine_name').find("option:selected").text(),
-                                batchNo: $('#vaccine_batch').val(),
-                                manufacturer: $('#manuf').val(),
-                                veterinarianName: $('#doctor_name').find("option:selected").text(),
-                                organizationName: $('#organizationName').val(),
-                                created: new Date().toLocaleDateString()
-                            }]
-                        },
-                        owner: {
-                            name: $('#dogowner_name').val(),
-                            sex: $("input[name='gender']:checked").val(),
-                            tel: $('#tel').val(),
-                            phone: $('#phone').val(),
-                            certificateType: $('#cardtype').val(),
-                            certificateCode: $('#id_number').val(),
-                            location: {
-                                province: $('#province').val(),
-                                district: $('#citys').val(),
-                                city: $('#county').val(),
-                                address: $('#address').val(),
-                                code: $('#postcode').val(),
-                            }
-                        },
-                        residence: {
-                            houseNo: houseId,
+                    console.log("完善房产111");
+
+                    var residence= {
+                        houseNo: houseId,
                             houseProperty: $("input[name='houseProperty']:checked").val(),
                             address: $('#reg_address').val(),
                             isSterilization: sterilization,
-                        },
                     };
-                    dogLicenseModeldefaults = $.parseJSON(JSON.stringify(dogLicenses));
+                    dogLicense.residence=residence;
+                    dogLicense.infoPreviewType = Const.infoPreviewType.PerfectResidence;
+                    // dogLicenseModeldefaults = $.parseJSON(JSON.stringify(dogLicenses));
                 } else {
                     console.log("办理狗证");
-                    var dogLicenses = {
+                    var dogL = {
                         husbandryNo: $('#barcode').val(),
                         dog: {
                             nickname: $('#dogname').val(),
@@ -395,7 +361,7 @@ var PersonalCardView = Backbone.View.extend({
                                 manufacturer: $('#manuf').val(),
                                 veterinarianName: $('#doctor_name').val(),
                                 organizationName: $('#organizationName').val(),
-                                created: new Date().toLocaleDateString()
+                                created: new Date().toLocaleDateString().split("/").join("-")
                             }]
                         },
                         owner: {
@@ -420,11 +386,12 @@ var PersonalCardView = Backbone.View.extend({
                             isSterilization: sterilization,
                         },
                     };
-                    dogLicenseModeldefaults = $.parseJSON(JSON.stringify(dogLicenses));
+                    dogLicense = $.parseJSON(JSON.stringify(dogL));
+                    dogLicense.infoPreviewType = Const.infoPreviewType.AddDogLicense;
                 }
-                console.log(dogLicenseModeldefaults);
+                console.log(dogLicense);
                 var InfoPreviewModal = require('../../../../Modals/InfoPreview/InfoPreview');
-                InfoPreviewModal.show(dogLicenseModeldefaults);
+                InfoPreviewModal.show(dogLicense);
             });
 
 
@@ -960,8 +927,7 @@ var PersonalCardView = Backbone.View.extend({
         },
 
 
-    })
-;
+    });
 
 module.exports = PersonalCardView;
 

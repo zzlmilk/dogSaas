@@ -433,10 +433,12 @@ var AddOrganizationView = Backbone.View.extend({
             },
             function (errorCode) {
                 //错误回调
-                alert(errorCode)
+                if (Const.ErrorCodes[errorCode]) {
+                    var message = Const.ErrorCodes[errorCode];
+                    alert(message);
+                }
             })
     }
-
 });
 
 
