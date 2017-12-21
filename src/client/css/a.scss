@@ -1252,6 +1252,12 @@ input[type='date']::-webkit-inner-spin-button {
   height: 44px;
   line-height: 44px;
 }
+.dogownerlist>.title>.row>span{
+  height:44px ;
+  line-height: 44px;
+  font-size: 12px;
+  display:inline-block;
+}
 .dogownerlist>.title>.row>.form-group>label{
   height: 44px;
   line-height: 44px;
@@ -1378,6 +1384,12 @@ input[type='date']::-webkit-inner-spin-button {
   margin-left: 15px;
   height: 44px;
   line-height: 44px;
+}
+.dog_search>.title>.row>.form-group>span{
+  height: 44px;
+  line-height: 44px;
+  font-size:12px ;
+  display:inline-block;
 }
 .dog_search>.title>.row>.form-group>label{
   height: 44px;
@@ -1641,6 +1653,12 @@ input[type='date']::-webkit-inner-spin-button {
   margin-left: 15px;
   height: 44px;
   line-height: 44px;
+}
+.immune_list>.title>.row>.form-group>span{
+  height: 44px;
+  line-height: 44px;
+  font-size: 12px;
+  display: inline-block;
 }
 .immune_list>.title>.row>.form-group>label{
   margin-right: 10px;
