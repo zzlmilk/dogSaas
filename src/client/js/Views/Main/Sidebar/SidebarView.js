@@ -38,7 +38,8 @@ var SidebarView = Backbone.View.extend({
         //左侧导航二级菜单展开
 
         $(".nav>li>a").each(function(){
-            $(this).click(function(){
+            $(this).unbind().on('click', function(event){
+                event.stopPropagation();
                 $(this).siblings("ul").slideToggle().parents("li").siblings("li").children("ul").slideUp();
                 $(this).children("span").toggleClass("current");
                 $(this).parent("li").siblings("li").children("a").children("span").removeClass("current");
@@ -47,7 +48,8 @@ var SidebarView = Backbone.View.extend({
                 $(this).next("ul").children("li").eq(0).children("a").removeClass("unactived").addClass("active").parent("li").siblings("li").children("a").removeClass("active").addClass("unactived");
 
                 $(".second_nav>li>a").each(function(){
-                    $(this).click(function(){
+                    $(this).unbind().on('click',function(event){
+                        event.stopPropagation();
                         $(this).removeClass("unactived").addClass("active").parent("li").siblings("li").children("a").removeClass("active").addClass("unactived");
                     })
                 })
