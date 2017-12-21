@@ -230,6 +230,7 @@ var ImmuneDetailView = Backbone.View.extend({
         //犬主座机
         $("#tel").val(self.dogLicense.owner.tel);
         //证件号
+        $('#cardtype').val(self.dogLicense.owner.certificateType);
         $('#id_number').val(self.dogLicense.owner.certificateCode);
         //所属省份
 
