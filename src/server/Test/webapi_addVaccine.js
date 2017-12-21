@@ -33,7 +33,7 @@ describe('WEB API', function () {
                         throw err;
                     }
 
-                    console.log(res.body.data.dogLicense[0].dog);
+                    console.log(res.body.data);
                     res.body.should.have.property('code');
                     res.body.code.should.equal(Const.responsecodeSucceed);
 

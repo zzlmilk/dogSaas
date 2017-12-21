@@ -12,7 +12,7 @@ describe('WEB API', function () {
             var body = {
                 name: "李四",
 
-                code: "21901211111111101"
+                code: "21901211111111105"
 
             };
 

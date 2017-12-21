@@ -49,11 +49,9 @@ describe('WEB API', function () {
 
             //参数
             var body = {
-                 irisID:"b123456789",
-                  //vaccineCardNo:"sYcZ7iFU67",
-                  //dogCardNo:"wrhy5omgy1"
-
-              //  page :"1"
+                  // irisID:"izrA7",
+                   vaccineCardNo:"HinWqBbgz9",
+                   page :"1"
 
             };
 

@@ -336,13 +336,6 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "dogCardNo",
-            "description": "<p>狗证卡号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
             "field": "page",
             "description": "<p>当前页数</p>"
           }
