@@ -131,6 +131,8 @@ var SidebarView = Backbone.View.extend({
         //年检-->狗证年检
         $('#btn_dogcard').unbind().on('click', function (event) {
             event.stopPropagation();
+            return;
+
             var DogLicenseView = require('../Immune/DogLicense/DogLicenseView');
             var view = new DogLicenseView({
                 'el': "#main-content"

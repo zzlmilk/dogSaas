@@ -46,7 +46,7 @@ var DogView = Backbone.View.extend({
             };
         } else {
             requestData = {
-                cardNo: $("#whereValue").val().trim(),
+                vaccineCardNo: $("#whereValue").val().trim(),
                 page: currentPage
             };
         }
@@ -78,7 +78,7 @@ var DogView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    cardNo: $("#whereValue").val().trim(),
+                    vaccineCardNo: $("#whereValue").val().trim(),
                     page: 1
                 };
             }
@@ -97,7 +97,7 @@ var DogView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    cardNo: $("#whereValue").val().trim(),
+                    vaccineCardNo: $("#whereValue").val().trim(),
                     page: 1
                 };
             }
@@ -116,7 +116,7 @@ var DogView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    cardNo: $("#whereValue").val().trim(),
+                    vaccineCardNo: $("#whereValue").val().trim(),
                     page: totalPage
                 };
             }
@@ -136,7 +136,7 @@ var DogView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    cardNo: $("#whereValue").val().trim(),
+                    vaccineCardNo: $("#whereValue").val().trim(),
                     page: currentPage - 1
                 };
             }
@@ -155,7 +155,7 @@ var DogView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    cardNo: $("#whereValue").val().trim(),
+                    vaccineCardNo: $("#whereValue").val().trim(),
                     page: currentPage + 1
                 };
             }
@@ -233,7 +233,7 @@ var DogView = Backbone.View.extend({
                                 };
                             } else {
                                 requestData = {
-                                    cardNo: $("#whereValue").val().trim(),
+                                    vaccineCardNo: $("#whereValue").val().trim(),
                                     page: i
                                 };
                             }

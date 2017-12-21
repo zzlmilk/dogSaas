@@ -143,6 +143,7 @@ var DogLicenseModel = Backbone.Model.extend({
                 loopLineType: "",
                 signOrganization: "", //签发机构
                 signCreate: "", //初始发证日期
+                takeWay:"",//1自取 2邮寄
             },
             create: "",//创建时间
         },

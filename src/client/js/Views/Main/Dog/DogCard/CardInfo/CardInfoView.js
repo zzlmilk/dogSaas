@@ -167,11 +167,28 @@ var CardInfoView = Backbone.View.extend({
         $("#dogCardBreed").html(self.dogLicense.DogCard.info.breed);
         $("#dogCardHairColor").html(self.dogLicense.DogCard.info.hairColor);
 
-        $("#dogCardSignDate").html(self.dogLicense.DogCard.info.signCreate);
+        $("#dogCardSignDate").html(self.dogLicense.DogCard.info.signCreate.substring(0, 10));
         $("#dogCardIrisID").html(self.dogLicense.DogCard.info.irisID);
 
         $("#dogCardSignOrganization").html(self.dogLicense.DogCard.info.signOrganization);
         $("#dogCardCreate").html(self.dogLicense.DogCard.create.substring(0, 10));
+
+        //取证发送
+        var takeWay = self.dogLicense.DogCard.info.takeWay;
+        if (takeWay != undefined) {
+            //回填 并禁用
+            if (takeWay == 1) {
+                $("#wayTake").attr("checked", true);
+                $("#wayTake").prop('checked', true);
+            } else {
+                $("#wayMailing").attr("checked", true);
+                $("#wayMailing").prop('checked', true);
+            }
+            $('#dogcard_save').attr("disabled", true);
+            $('#dogcard_save').prop("disabled", true);
+            $("input[name='way']").attr("disabled", true);
+            $("input[name='way']").prop("disabled", true);
+        }
     }
 });
 

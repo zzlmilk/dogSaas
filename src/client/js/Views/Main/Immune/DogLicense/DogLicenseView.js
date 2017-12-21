@@ -180,9 +180,10 @@ var DogLicenseView = Backbone.View.extend({
                         $("#nodata").hide();
                         var sb = new StringBuffer();
                         $.each(dogLicenses, function (i, val) {
+                            var carNo = val.DogCard.info.cardNo == undefined ? "" : val.DogCard.info.cardNo;
                             sb.append("<tr class='dogtr'>" +
                                 "<td align='center' valign='middle'>" + val.vaccineCard.info.irisID + "</td>" +
-                                "<td align='center' valign='middle'>" + val.vaccineCard.info.cardNo + "</td>" +
+                                "<td align='center' valign='middle'>" + carNo + "</td>" +
                                 "<td align='center' valign='middle'>" + val.owner.certificateCode + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.nickname + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.breed + "</td>" +
@@ -198,7 +199,7 @@ var DogLicenseView = Backbone.View.extend({
                             // var InfoPreviewModal = require('../../../Modals/InfoPreview/InfoPreview');
                             // InfoPreviewModal.show(d);
                             var ImmuneDetailView = require('../ImmuneDetail/ImmuneDetailView.js');
-                            var dogLicense=dogLicenses[$(this).attr("value")];
+                            var dogLicense = dogLicenses[$(this).attr("value")];
                             var view = new ImmuneDetailView({
                                 'el': "#main-content",
                                 'dogLicense': dogLicense
