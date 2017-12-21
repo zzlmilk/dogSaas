@@ -63,7 +63,10 @@ var PersonalCenterView = Backbone.View.extend({
                 ,
                 //失败回调
                 function (errorCode) {
-                    alert(errorCode);
+                    if (Const.ErrorCodes[errorCode]) {
+                        var message = Const.ErrorCodes[errorCode];
+                        alert(message);
+                    }
 
                 }
             );

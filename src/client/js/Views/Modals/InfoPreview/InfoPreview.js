@@ -214,7 +214,7 @@ var InfoPreview = {
                     console.log(errorCode);
                     if (Const.ErrorCodes[errorCode]) {
                         var message = Const.ErrorCodes[errorCode];
-                        alert(message)
+                        alert(message);
                     }
 
                 });
