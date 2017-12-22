@@ -42,7 +42,4 @@ var RegSuccessView = Backbone.View.extend({
 });
 
 module.exports =RegSuccessView;
-/**
- * Created by json on 2017/11/13.
- */
 

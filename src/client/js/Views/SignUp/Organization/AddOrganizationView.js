@@ -58,10 +58,13 @@ var AddOrganizationView = Backbone.View.extend({
                 if (status == 0) {
                     var templateStatus = require('./WaitReview.hbs');
 
-
                     $(Config.defaultContaier).html(templateStatus({
                         organization: self.organization
                     }));
+                    $("#WaitReview_button").unbind().on('click', function (e) {
+
+                        Utils.goPage("main")
+                    })
 
                 }
                 else if (status == -1) {
@@ -72,6 +75,12 @@ var AddOrganizationView = Backbone.View.extend({
                     $(Config.defaultContaier).html(templateStatus({
                         //organization:organization.attributes
                     }));
+
+                    //WaitReview_button
+                    $("#WaitReview_button").unbind().on('click', function (e) {
+
+                        Utils.goPage("main")
+                    })
 
                 } else if (status == 1) {
                     // var templateStatus = require('./ReviewFailed.hbs');
@@ -381,9 +390,13 @@ var AddOrganizationView = Backbone.View.extend({
                 name: obj.name,
                 code: obj.code
             };
+
+            console.log(veter);
             self.veterinarys.push(veter);
             var sb = new StringBuffer();
+            console.log(sb);
             sb.append("<tr><td class=\"name\">" + veter.name + "</td> <td class=\"number\">" + veter.code + "</td></tr>");
+            console.log(sb);
             $("#doctor_table").show();
             $("#doctor_null_tip").hide();
             $("#doctor_table").after(sb.toString());
@@ -429,6 +442,10 @@ var AddOrganizationView = Backbone.View.extend({
                 $(Config.defaultContaier).html(templateStatus({
                     //organization:organization.attributes
                 }));
+                $("#WaitReview_button").unbind().on('click', function (e) {
+
+                    Utils.goPage("main")
+                })
                 // Utils.goPage("organization");
             },
             function (errorCode) {

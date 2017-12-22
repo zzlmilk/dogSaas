@@ -1,9 +1,6 @@
 /**
  * Created by json on 2017/11/13.
  */
-/**
-
- */
 var Backbone = require('backbone');
 var _ = require('lodash');
 
