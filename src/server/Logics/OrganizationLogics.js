@@ -169,13 +169,14 @@ var OrganizationLogics = {
 	},
 
 	editVeterinarian: function (param, onSuccess, onError) {
-
 		var organization=param.organization;
-
-
-        var name = param.name;
+		console.log(organization)
+		var name = param.name;
 		var code = param.code;
-
+       if(Utils.isEmpty(organization)){
+       	onError(null,Const.resCodeAddVerterinarionNoOrganization);
+       	return
+	   }
         if (Utils.isEmpty(name)) {
             onError(null,
                 Const.resCodeVerterinarianNoName
