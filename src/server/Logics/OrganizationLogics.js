@@ -169,13 +169,14 @@ var OrganizationLogics = {
 	},
 
 	editVeterinarian: function (param, onSuccess, onError) {
-
 		var organization=param.organization;
-
-
-        var name = param.name;
+		//console.log(organization)
+		var name = param.name;
 		var code = param.code;
-
+       if(Utils.isEmpty(organization)){
+       	onError(null,Const.resCodeAddVerterinarionNoOrganization);
+       	return
+	   }
         if (Utils.isEmpty(name)) {
             onError(null,
                 Const.resCodeVerterinarianNoName
@@ -249,10 +250,11 @@ var OrganizationLogics = {
 	},
 	show: function (param, onSuccess, onError) {
         var veterinarianModel =  VeterinarianModel.get();
+        var organization=param.organization;
 		var res = {};
 		async.waterfall([
 			function (done) {
-				OrganizationModel.get().findOne().populate({path:'adminUser',token:param.user.token}).populate("veterinarians").exec(function(err,organization){
+				OrganizationModel.get().findOne({"_id":organization._id}).populate({path:'adminUser',token:param.user.token}).populate("veterinarians").exec(function(err,organization){
 					if (err) {
 						throw  err;
 					}

@@ -1,214 +1,407 @@
-
-<div id="personal_center_view">
-
-    <div class="basic_info">
-        <div class="title">
-            <h3>基本信息</h3>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="subtitle">
-                    <h4>状态：</h4>
-                </div>
-                <div class="section">
-                    <span></span>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="subtitle" style="float: left">
-                    <h4>账号：</h4>
-                </div>
-                <div class="section" style="float: left">
-                    <span></span>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="subtitle" style="float: left">
-                    <h4>密码：</h4>
-                </div>
-                <div class="section" style="float: left">
-                    <a href="#changepassword" id="change_password" style="color:#3399ff">修改密码</a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="subtitle" style="float: left">
-                    <h4>注册时间：</h4>
-                </div>
-                <div class="section" style="float: left">
-                    <span></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="subtitle" style="float: left">
-                    <h4>负责人：</h4>
-                </div>
-                <div class="section" style="float: left">
-                    <span></span>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="subtitle" style="float: left">
-                    <h4>负责人电话：</h4>
-                </div>
-                <div class="section" style="float: left">
-                    <span></span>
-                </div>
-            </div>
-        </div>
-
+<div class="personal_card">
+    <div class="title">
+        <h3>办理狗证/个人办证</h3>
     </div>
-    <div class="basic_info" >
+
+    <div class="registration" id="dogLicense_barcode_div">
         <div class="title">
-            <h3>机构信息</h3>
+            <h4>个人办证</h4>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>免疫点名称：</h4>
+                    <h4>*条形码:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <input type="text" id="barcode" oninput="if(value.length>7)value=value.slice(0,7)">
+                    <p style="display: none;" class="null_err" id="barcode_null_tip">*条形码不能为空</p>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="subtitle">
-                    <h4>地址：</h4>
-                </div>
-                <div class="section">
-                    <span></span>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="subtitle">
-                    <h4>座机：</h4>
-                </div>
-                <div class="section">
-                    <span></span>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="subtitle">
-                    <h4>服务范围：</h4>
-                </div>
-                <div class="section">
-                    <span></span>
-                </div>
-            </div>
+        </div>
+    </div>
+
+    <div class="registration" id="dogLicense_owner_div">
+        <div class="title">
+            <h4>犬主登记</h4>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>营业执照：</h4>
+                    <h4>*犬主姓名:</h4>
                 </div>
                 <div class="section">
-                    <!--<div id="license">-->
-                        <!--<img  src="img/license.png" />-->
-                    <!--</div>-->
+                    <input type="text" id="dogowner_name">
+                    <p style="display: none;" class="null_err" id="dogowner_name_null_tip">*请输入犬主姓名</p>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>动物诊疗许可证：</h4>
+                    <h4>性别:</h4>
                 </div>
                 <div class="section">
-                    <!--<div id="permit">-->
-                        <!--<img src="img/peimit.png" />-->
-                    <!--</div>-->
-                </div>
-            </div>
-        </div>
-        <div class="row" style="height:180px;">
-            <div class="col-md-3">
-                <div class="subtitle">
-                    <div id="license">
-                        <img  src="img/license.png" />
+                    <div class="radio_container" >
+                        <input type="radio" name="gender" id="gender_man" value="1" text="男">
+                        <label for="gender">男</label>
+                        <input type="radio" style="margin-left: 30px" name="gender" id="gender_woman" value="2" text="女">
+                        <label for="gender">女</label>
                     </div>
-                </div>
-                <div class="section">
+                    <p style="display: none;" class="null_err" id="gender_null_tip">*性别不能为空</p>
                 </div>
             </div>
-            <div class="col-md-3">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <div class="subtitle">
-                    <div id="permit">
-                        <img src="img/peimit.png" />
+                    <h4>*手机号码:</h4>
+                </div>
+                <div class="section">
+                    <input type="text" id="phone" oninput="if(value.length>11)value=value.slice(0,11)">
+                    <p style="display: none;" class="null_err" id="phone_null_tip">*手机号码不能为空</p>
+                    <p style="display: none;" class="null_err" id="phone_format_tip">*手机号码格式有误</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>犬主座机:</h4>
+                </div>
+                <div class="section">
+                    <select>
+                        <option id="area_code">021</option>
+                    </select>
+                    <div class="connect">--</div>
+                    <input type="text" id="tel" oninput="if(value.length>10)value=value.slice(0,10)">
+                    <br/>
+                    <p style="display: none;" class="null_err" id="tel_null_tip">*座机不能为空</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="subtitle">
+                    <h4>邮编:</h4>
+                </div>
+                <div class="section">
+                    <input type="text" id="postcode" oninput="if(value.length>6)value=value.slice(0,6)">
+                    <p style="display: none;" class="null_err" id="postcode_null_tip">*邮编不能为空</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*证件类型:</h4>
+                </div>
+                <div class="section">
+                    <select id="cardtype">
+                        <option value="1" selected="selected">身份证</option>
+                        <option value="2">护照</option>
+                    </select>
+                    <div class="connect">--</div>
+                    <input type="text" id="id_number" oninput="if(value.length>18)value=value.slice(0,18)">
+                    <p style="display: none;" class="null_err" id="id_number_null_tip">*证件号不能为空</p>
+                    <p style="display: none;" class="null_err" id="id_number_format_tip">*证件号格式有误</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*所属区县:</h4>
+                </div>
+                <div class="section">
+                    <div id="orga_area"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*详细地址:</h4>
+                </div>
+                <div class="section">
+                    <input type="text" id="address">
+                    <p style="display: none;" class="null_err" id="address_null_tip">*详细地址不能为空</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="registration" id="dogLicense_dog_div">
+        <div class="title">
+            <h4>犬只登记</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*犬名:</h4>
+                </div>
+                <div class="section">
+                    <input type="text" id="dogname">
+                    <p style="display: none;" class="null_err" id="dogname_null_tip">*犬名不能为空</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*性别:</h4>
+                </div>
+                <div class="section">
+                    <div class="radio_container">
+                        <input type="radio" name="dog_gender" id="doggender_male" value="1">
+                        <label for="dog_gender">雄</label>
+                        <input type="radio" style="margin-left: 30px" name="dog_gender" id="doggender_female" value="2">
+                        <label for="dog_gender">雌</label>
                     </div>
-                </div>
-                <div class="section">
+                    <p style="display: none;" class="null_err" id="dog_gender_null_tip">*犬只性别不能为空</p>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="basic_info">
-        <div class="title">
-            <h3>硬件信息</h3>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>设备ID：</h4>
+                    <h4>*毛色:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <div class="radio_container">
+                        <select class="kinds" id="dog_color">
+                            <option value="">请选择</option>
+                            <option value="白色">白色</option>
+                            <option value="黑色">黑色</option>
+                            <option value="褐色">褐色</option>
+                            <option value="青色">青色</option>
+                            <option value="黑褐色">黑褐色</option>
+                            <option value="铁灰色">铁灰色</option>
+                            <option value="灰褐色">灰褐色</option>
+                            <option value="黄褐色">黄褐色</option>
+                            <option value="灰白色">灰白色</option>
+                            <option value="黑白色">黑白色</option>
+                            <option value="黄红色">黄红色</option>
+                            <option value="淡红色">淡红色</option>
+                        </select>
+                    </div>
+                    <p style="display: none;" class="null_err" id="dog_color_null_tip">*犬只颜色不能为空</p>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>硬件版本：</h4>
+                    <h4>用途:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <div class="radio_container">
+                        <input type="radio" name="usage" id="watch" value="观赏">
+                        <label for="usage">观赏</label>
+                        <input type="radio" name="usage" style="margin-left:15px;" id="police" value="警卫">
+                        <label for="usage">警卫</label>
+                    </div>
+                    <p style="display: none;" class="null_err" id="usage_null_tip">*犬只用途不能为空</p>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="basic_info">
-        <div class="title">
-            <h3>
-                <span>兽医信息</span>
-                <button class="btn btnBlueE btn-block" id="btn_account">添加兽医</button>
-            </h3>
-
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>姓名：</h4>
+                    <h4>*品种:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <div class="radio_container">
+                        <select class="kinds" id="breed">
+                            <option id="breed_null" value="">请选择</option>
+                        </select>
+                    </div>
+                    <p style="display: none;" class="null_err" id="breed_null_tip">*犬只品种不能为空</p>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>身份证号：</h4>
+                    <h4>出生日期:</h4>
                 </div>
-                <div class="section">
-                    <span></span>
+                <div class="section" style="width:265px ;height:44px;position: relative ">
+                    <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd"
+                         data-link-field="birth_date" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="16" type="text" value="" readonly id="birth_date">
+                        <!--<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>-->
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    <p style="display:none; position: absolute;top:44px;left: 0px;z-index: 99" class="null_err"
+                       id="birth_date_null_tip">*出生日期不能为空</p>
                 </div>
             </div>
-            <div class="col-md-3">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>职业兽医师资格证编号：</h4>
+                    <h4>*虹膜id:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <input type="text" id="iris" maxlength="15">
+                    <a id="recollect_iris" href="javascript:void(0)">重新采集虹膜</a>
+                    <p style="display:none;clear: left" class="null_err" id="iris_null_tip">*虹膜ID不能为空</p>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4></h4>
+                </div>
+                <div class="section" id="imgs">
+                </div>
+                <p style="display:none;clear:left;font-size: 12px; padding-left:100px;" class="null_err" id="imgs_null_tip">*图片不能为空</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="registration" id="dogLicense_vaccine_div">
+        <div class="title">
+            <h4>疫苗登记</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*疫苗名称:</h4>
+                </div>
+                <div class="section">
+                    <div class="radio_container">
+                        <select class="kinds" id="vaccine_name">
+                            <option value="">请选择</option>
+                            <option value="荷兰英特威">荷兰英特威</option>
+                            <option value="美国辉瑞">美国辉瑞</option>
+                            <option value="梅里亚">梅里亚</option>
+                        </select>
+                    </div>
+                    <p style="display: none;" class="null_err" id="vaccine_name_null_tip">*疫苗名称不能为空</p>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>
-                        <a href="javascript:void (0)" class="delete" style="color:red;">删除</a>
-                    </h4>
+                    <h4>*疫苗批号:</h4>
                 </div>
                 <div class="section">
-                    <span></span>
+                    <input type="text" id="vaccine_batch">
+                    <p style="display: none;" class="null_err" id="vaccine_batch_null_tip">*疫苗批号不能为空</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*生产厂商:</h4>
+                </div>
+                <div class="section">
+                    <input type="text" id="manuf">
+                    <p style="display: none;" class="null_err" id="manuf_null_tip">*生产厂商不能为空</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>免疫点名称:</h4>
+                </div>
+                <div class="section">
+                    <input disabled="disabled" type="text" id="organizationName">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*兽医:</h4>
+                </div>
+                <div class="section">
+                    <div class="radio_container">
+                        <select class="kinds" id="doctor_name">
+                            <option value="" id="doctor_null">请选择</option>
+                        </select>
+                    </div>
+                    <p style="display: none;" class="null_err" id="doctor_name_null_tip">*兽医不能为空</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="change_password_view"></div>
+    <div class="registration">
+        <div class="title">
+            <h4>房产登记<span class="small_title">(如需办理养犬登记请填写如下内容)</span></h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>产权性质:</h4>
+                </div>
+                <div class="section">
+                    <div class="radio_container">
+                        <input type="radio" name="houseProperty" id="owner" value="自由">
+                        <label for="houseProperty">自由</label>
+                        <input type="radio" style="margin-left: 15px" name="houseProperty" id="rent" value="租赁">
+                        <label for="houseProperty">租赁</label>
+                    </div>
+                    <p style="display:none;" class="null_err" id="houseProperty_null_tip">*产权性质不能为空</p>
+                </div>
 
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>房产证号:</h4>
+                </div>
+                <div class="section">
+                    <div class="label_container">
+                        <select id="house_area">
+                            <option value="">请选择</option>
+                            <option value="黄">黄</option>
+                            <option value="徐">徐</option>
+                            <option value="长">长</option>
+                            <option value="静">静</option>
+                            <option value="普">普</option>
+                            <option value="虹">虹</option>
+                            <option value="杨">杨</option>
+                            <option value="闵">闵</option>
+                            <option value="宝">宝</option>
+                            <option value="嘉">嘉</option>
+                            <option value="浦">浦</option>
+                            <option value="金">金</option>
+                            <option value="松">松</option>
+                            <option value="青">青</option>
+                            <option value="奉">奉</option>
+                        </select>
+                        <label class="label">年份</label>
+                        <input name="year" type="text" style="width: 50px;float: left" id="house_year"/>
+                        <label class="label" for="name">第</label>
+                        <input type="text" style="width: 50px;float: left" id="house_number"/>
+                        <label class="label">号</label>
+                    </div>
+                    <p style="display:none;" class="null_err" id="houseid_null_tip">*房产证号不能为空</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>是否绝育:</h4>
+                </div>
+                <div class="section">
+                    <div class="radio_container">
+                        <input type="radio" name="isSterilization" value="1">
+                        <label for="isSterilization">是</label>
+                        <input type="radio" style="margin-left: 30px" name="isSterilization" value="0">
+                        <label for="isSterilization">否</label>
+                    </div>
+                    <p style="display:none;" class="null_err" id="isSterilization_null_tip">*请选择是否绝育</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>登记地址:</h4>
+                </div>
+                <div class="section">
+                    <div class="address_container">
+                        <input type="text" style="float: left" id="reg_address">
+                        <input type="checkbox" id="reg_addr_ck">
+                        <label for="">与犬主地址相同</label>
+                    </div>
+                    <p style="display: none;" class="null_err" id="reg_address_null_tip">*登记地址不能为空</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="post_info">
+        <button class="btn btnBlueE btn-block" id="post_info">提交</button>
+    </div>
 </div>

@@ -8,7 +8,6 @@ var authenticator = require("../middleware/auth");
 
 var OrganizationLogics = require("../../Logics/OrganizationLogics");
 var OrganizationMiddleware = require("../middleware/organizationMiddleware");
-
 var VeterinarianModel = require('../../Models/Veterinarian');
 
 
@@ -62,12 +61,8 @@ EditVeterinarianHandler.prototype.attach = function(route){
     var self = this;
 
     route.post('/',authenticator,OrganizationMiddleware,function(request,response){
-
-
-
         request.body.organization  = request.organization;
-
-    OrganizationLogics.editVeterinarian(request.body,function(result){
+        OrganizationLogics.editVeterinarian(request.body,function(result){
             self.successResponse(response,Const.responsecodeSucceed,{
               organization:result
             });

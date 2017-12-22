@@ -103,6 +103,7 @@
     Const.resCodeHaveResidenceParam = 2000040
     Const.resCodeDogLicenseNoTakeway=2000041;
     Const.resCodeVaccineNotArray=2000042;
+    Const.resCodeAddVerterinarionNoOrganization=2000043;
 
 
 

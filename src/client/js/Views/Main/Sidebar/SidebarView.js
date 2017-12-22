@@ -63,7 +63,8 @@ var SidebarView = Backbone.View.extend({
 
 
         //办理狗证
-        $('#btn_dogCard').unbind().on('click', function () {
+        $('#btn_dogCard').unbind().on('click', function (event) {
+            event.stopPropagation();
             var PersonalCardView = require('../Dog/DogCard/PersonalCard/PersonalCardView');
             var view = new PersonalCardView({
                 'el': "#main-content"
@@ -130,9 +131,8 @@ var SidebarView = Backbone.View.extend({
         });
         //年检-->狗证年检
         $('#btn_dogcard').unbind().on('click', function (event) {
+            console.log("狗证年检");
             event.stopPropagation();
-            return;
-
             var DogLicenseView = require('../Immune/DogLicense/DogLicenseView');
             var view = new DogLicenseView({
                 'el': "#main-content"
@@ -141,10 +141,9 @@ var SidebarView = Backbone.View.extend({
         });
 
         //制卡信息
-        $('#btn_cardInfo').unbind().on('click', function () {
-
+        $('#btn_cardInfo').unbind().on('click', function (event) {
+            event.stopPropagation();
             var CardInfoView = require('../CardInfo/CardInfoView');
-
             var view = new CardInfoView({
                 'el': "#main-content"
             });

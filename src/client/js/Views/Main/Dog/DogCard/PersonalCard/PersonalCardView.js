@@ -11,6 +11,7 @@ var Config = require('../../../../../lib/init');
 var DogLicenseModel = require('../../../../../Models/DogLicense.js');
 // load template
 var template = require('./PersonalCard.hbs');
+
 var SelectPluginView = require("../../../../Parts/selectPlugin/SelectPluginView");
 var UploadView = require("../../../../Parts/Upload/UploadView");
 var UserClient = require("../../../../../lib/APIClients/UserClient.js");
