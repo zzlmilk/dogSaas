@@ -6,6 +6,7 @@ var _ = require('lodash');
 var Const = require("../../lib/consts");
 var authenticator = require("../middleware/auth");
 var OrganizationLogics = require("../../Logics/OrganizationLogics");
+var OrganizationMiddleware = require("../middleware/organizationMiddleware");
 
 
 
@@ -55,8 +56,8 @@ _.extend(ShowOrganizationHandler.prototype, RequestHandlerBase.prototype);
 
 ShowOrganizationHandler.prototype.attach = function (route) {
 	var self = this;
-
-	route.get('/', authenticator, function (request, response) {
+	route.get('/', authenticator,OrganizationMiddleware,function (request, response) {
+        request.body.organization  = request.organization;
 		OrganizationLogics.show(request, function (result) {
 			self.successResponse(response, Const.responsecodeSucceed, {
 				organization: result.organization
