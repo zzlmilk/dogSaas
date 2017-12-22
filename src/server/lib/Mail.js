@@ -34,7 +34,7 @@ var Mail = {
 					    }	
 					    else{
 
-					    	var url = "http://localhost:7070/#veriftemail?key="+code
+					    	var url = "http://www.halokit.cn:7171/#veriftemail?key="+code
 
 
 					    	var data = {title: '可点',

@@ -12,11 +12,6 @@ var Organization = require('./Models/organization');
 
 
 
-
-
-
-
-
 var Routing = function(){
 
 		 var AppRouter = Backbone.Router.extend({
