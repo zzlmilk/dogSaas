@@ -16,7 +16,7 @@ var SelectPluginView = require("../../../../Parts/selectPlugin/SelectPluginView"
 var UploadView = require("../../../../Parts/Upload/UploadView");
 var UserClient = require("../../../../../lib/APIClients/UserClient.js");
 var CityJson = require('../../../../Parts/selectPlugin/CityJson.js');//地区数据 回填
-var DogBreed = require('./DogBreed.js');//宠物品种
+var DogBreed = require('../PersonalCard/DogBreed.js');//宠物品种
 var StringBuffer = require('../../../../Parts/selectPlugin/StringBuffer.js');
 var OrganizationClient = require('../../../../../lib/APIClients/OrganizationClient');
 

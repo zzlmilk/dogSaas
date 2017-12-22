@@ -38,33 +38,8 @@ var DogCardView = Backbone.View.extend({
 
         var self = this;
 
+    },
 
-
-        // var PersonalCardView = require('./PersonalCard/PersonalCardView.js');
-        // var view = new PersonalCardView({
-        //     'el': ".manage_content"
-        // });
-
-        //个人办证
-        // $('#btn_person').unbind().on('click', function () {
-        //     var PersonalCardView = require('./PersonalCard/PersonalCardView.js');
-        //     var view = new PersonalCardView({
-        //         'el': ".manage_content"
-        //     });
-        //
-        // });
-        //企业办证
-        // $('#btn_business').unbind().on('click', function () {
-        //     var BusinessCardView = require('./BusinessCard/BusinessCardView.js');
-        //     var view = new BusinessCardView({
-        //         'el': ".manage_content"
-        //     });
-        //
-        // });
-
-
-    }
-    ,
     createCard:function (dogLicense) {
         console.log("--")
         console.log(dogLicense)
