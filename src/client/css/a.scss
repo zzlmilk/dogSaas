@@ -88,90 +88,162 @@ input[type="text"]{
   cursor: not-allowed; }
 
 //控制台头部导航
-.personal_header{
-  width: 100%;
-  height: 80px;
-  line-height:80px;
+#header-nav{
+  min-height: 80px;
   background:#3399ff;
+  margin-bottom:0px;
+  border:none;
+  border-radius: 0px;
 }
-.personal_header>.logo{
-  width: 180px;
-  height: 80px;
-  display: block;
+#header-nav>.container-fluid>#example-navbar-collapse>ul{
+  margin-left: 20px;
+  width: 365px;
+  height:80px;
+}
+#header-nav>.container-fluid>#example-navbar-collapse>ul>li{
   float: left;
-  margin-left:80px ;
+  margin-right:40px ;
 }
-.personal_header>.logo>img{
-  width: 180px;
-  height: 80px;
-  display: block;
-}
-.personal_header>#title{
-  width:200px;
-  height:80px;
-  line-height:80px;
-  float:left;
-  margin-left:10px;
-  font-size:20px;
-  color:#ffffff;
-}
-.personal_header>#personal_info{
-  width: 380px;
-  height:80px;
-  float: right;
-}
-.personal_header>#personal_info>li{
-  width: 80px;
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li > a{
+  width:60px;
   height: 80px;
   line-height: 80px;
-  margin-right: 40px;
-  float: left;
-  color:#ffffff;
-}
-.personal_header>#personal_info>li>a{
-  width: 60px;
-  height: 80px;
   text-align: center;
-  display:inline-block;
-  line-height: 80px;
+  padding: 0px;
+  border-bottom: none;
+  float: left;
   color:#ffffff;
-  float:left;
 }
-.personal_header>#personal_info>li>i{
-  width: 20px;
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li > a:hover{
+  border-bottom: none;
+  color:#ffffff;
+}
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li >i{
   height: 80px;
-  display: inline-block;
   line-height: 80px;
-  float:left;
+  width: 20px;
+  text-align: center;
+  color: #ffffff;
+  float: left;
 }
-.personal_header>#personal_info>li>#user_icon{
+
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li>#user_icon{
   margin-right: 0px;
   position:relative;
 }
-.personal_header>#personal_info>li>#user_icon>ul{
+
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li>#user_icon>ul{
   width:140px;
   height:40px;
   left:-60px;
-  top:60px;
+  top:50px;
   position:absolute;
   z-index:99;
   display: none;
 }
-.personal_header>#personal_info>li>#user_icon>ul>li{
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li>#user_icon>ul>li{
   width:140px;
-  height:40px;
+  height:35px;
   float:left;
 }
-.personal_header>#personal_info>li>#user_icon>ul>li>a{
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li>#user_icon>ul>li>a{
   width: 140px;
-  height: 40px;
+  height: 35px;
   float: left;
-  line-height: 40px;
+  line-height: 35px;
   text-align: center;
   text-decoration: none;
   background: #3399ff;
   color:#ffffff;
+  border: 1px solid #ffffff;
 }
+
+
+
+//.personal_header{
+//  width: 100%;
+//  height: 80px;
+//  line-height:80px;
+//  background:#3399ff;
+//}
+//.personal_header>.logo{
+//  width: 180px;
+//  height: 80px;
+//  display: block;
+//  float: left;
+//  margin-left:80px ;
+//}
+//.personal_header>.logo>img{
+//  width: 180px;
+//  height: 80px;
+//  display: block;
+//}
+//.personal_header>#title{
+//  width:200px;
+//  height:80px;
+//  line-height:80px;
+//  float:left;
+//  margin-left:10px;
+//  font-size:20px;
+//  color:#ffffff;
+//}
+//.personal_header>#personal_info{
+//  width: 380px;
+//  height:80px;
+//  float: right;
+//}
+//.personal_header>#personal_info>li{
+//  width: 80px;
+//  height: 80px;
+//  line-height: 80px;
+//  margin-right: 40px;
+//  float: left;
+//  color:#ffffff;
+//}
+//.personal_header>#personal_info>li>a{
+//  width: 60px;
+//  height: 80px;
+//  text-align: center;
+//  display:inline-block;
+//  line-height: 80px;
+//  color:#ffffff;
+//  float:left;
+//}
+//.personal_header>#personal_info>li>i{
+//  width: 20px;
+//  height: 80px;
+//  display: inline-block;
+//  line-height: 80px;
+//  float:left;
+//}
+//.personal_header>#personal_info>li>#user_icon{
+//  margin-right: 0px;
+//  position:relative;
+//}
+//.personal_header>#personal_info>li>#user_icon>ul{
+//  width:140px;
+//  height:40px;
+//  left:-60px;
+//  top:60px;
+//  position:absolute;
+//  z-index:99;
+//  display: none;
+//}
+//.personal_header>#personal_info>li>#user_icon>ul>li{
+//  width:140px;
+//  height:40px;
+//  float:left;
+//}
+//.personal_header>#personal_info>li>#user_icon>ul>li>a{
+//  width: 140px;
+//  height: 40px;
+//  float: left;
+//  line-height: 40px;
+//  text-align: center;
+//  text-decoration: none;
+//  background: #3399ff;
+//  color:#ffffff;
+//}
 
 //控制台头部导航个人中心按钮
 #personal_center_view{
@@ -1758,14 +1830,12 @@ input[type='date']::-webkit-inner-spin-button {
   width: 160px;
   height: 40px;
   //border: 2px #cccccc solid;
-  float: left;
   border-radius:4px;
 }
 .card_info>.title>.row>.form-group>select{
   width:100px;
   height: 40px;
   border: 2px #cccccc solid;
-  float: left;
   border-radius:4px;
 }
 .card_info>.title>.row>.form-group>.btn{
