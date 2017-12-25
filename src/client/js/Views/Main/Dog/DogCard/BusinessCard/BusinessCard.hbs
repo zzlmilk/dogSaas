@@ -13,7 +13,7 @@
                     <h4>*条形码:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="barcode" oninput="if(value.length>7)value=value.slice(0,7)"
+                    <input class="form-control" type="text" id="barcode" oninput="if(value.length>7)value=value.slice(0,7)"
                            value="{{dogLicense.husbandryNo}}">
                     <p style="display: none;" class="null_err" id="barcode_null_tip">*条形码不能为空</p>
                 </div>
@@ -31,7 +31,7 @@
                     <h4>*犬主姓名:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="dogowner_name">
+                    <input class="form-control" type="text" id="dogowner_name">
                     <p style="display: none;" class="null_err" id="dogowner_name_null_tip">*请输入犬主姓名</p>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     <h4>*手机号码:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="phone" oninput="if(value.length>11)value=value.slice(0,11)">
+                    <input class="form-control" type="text" id="phone" oninput="if(value.length>11)value=value.slice(0,11)">
                     <p style="display: none;" class="null_err" id="phone_null_tip">*手机号码不能为空</p>
                     <p style="display: none;" class="null_err" id="phone_format_tip">*手机号码格式有误</p>
                 </div>
@@ -70,8 +70,7 @@
                         <option id="area_code">021</option>
                     </select>
                     <div class="connect">--</div>
-                    <input type="text" id="tel" oninput="if(value.length>10)value=value.slice(0,10)">
-                    <br/>
+                    <input class="form-control" type="text" id="tel" oninput="if(value.length>10)value=value.slice(0,10)">
                     <p style="display: none;" class="null_err" id="tel_null_tip">*座机不能为空</p>
                 </div>
             </div>
@@ -83,7 +82,7 @@
                     <h4>邮编:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="postcode" oninput="if(value.length>6)value=value.slice(0,6)">
+                    <input class="form-control" type="text" id="postcode" oninput="if(value.length>6)value=value.slice(0,6)">
                     <p style="display: none;" class="null_err" id="postcode_null_tip">*邮编不能为空</p>
                 </div>
             </div>
@@ -97,7 +96,7 @@
                         <option value="2">护照</option>
                     </select>
                     <div class="connect">--</div>
-                    <input type="text" id="id_number" oninput="if(value.length>18)value=value.slice(0,18)">
+                    <input class="form-control" type="text" id="id_number" oninput="if(value.length>18)value=value.slice(0,18)">
                     <p style="display: none;" class="null_err" id="id_number_null_tip">*证件号不能为空</p>
                     <p style="display: none;" class="null_err" id="id_number_format_tip">*证件号格式有误</p>
                 </div>
@@ -117,7 +116,7 @@
                     <h4>*详细地址:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="address">
+                    <input class="form-control" type="text" id="address">
                     <p style="display: none;" class="null_err" id="address_null_tip">*详细地址不能为空</p>
                 </div>
             </div>
@@ -128,7 +127,7 @@
                     <h4>*公司名称:</h4>
                 </div>
                 <div class="section">
-                    <input  type="text" id="companyname" oninput="if(value.length>6)value=value.slice(0,6)">
+                    <input class="form-control"  type="text" id="companyname" oninput="if(value.length>6)value=value.slice(0,6)">
                     <p style="display: none;" class="null_err" id="companyname_null_tip">*公司名称不能为空</p>
                 </div>
             </div>
@@ -137,7 +136,7 @@
                     <h4>邮箱:</h4>
                 </div>
                 <div class="section">
-                    <input  type="text" id="email" oninput="if(value.length>6)value=value.slice(0,6)">
+                    <input class="form-control" type="text" id="email" oninput="if(value.length>6)value=value.slice(0,6)">
                     <p style="display: none;" class="null_err" id="email_null_tip">*邮箱不能为空</p>
                 </div>
             </div>
@@ -154,7 +153,7 @@
                     <h4>*犬名:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="dogname">
+                    <input class="form-control" type="text" id="dogname">
                     <p style="display: none;" class="null_err" id="dogname_null_tip">*犬名不能为空</p>
                 </div>
             </div>
@@ -250,7 +249,7 @@
                     <h4>*虹膜id:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="iris" maxlength="15">
+                    <input class="form-control" type="text" id="iris" maxlength="15">
                     <a id="recollect_iris" href="javascript:void(0)">重新采集虹膜</a>
                     <p style="display:none;clear: left" class="null_err" id="iris_null_tip">*虹膜ID不能为空</p>
                 </div>
@@ -293,7 +292,7 @@
                     <h4>*疫苗批号:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="vaccine_batch">
+                    <input class="form-control" type="text" id="vaccine_batch">
                     <p style="display: none;" class="null_err" id="vaccine_batch_null_tip">*疫苗批号不能为空</p>
                 </div>
 
@@ -305,7 +304,7 @@
                     <h4>*生产厂商:</h4>
                 </div>
                 <div class="section">
-                    <input type="text" id="manuf">
+                    <input class="form-control" type="text" id="manuf">
                     <p style="display: none;" class="null_err" id="manuf_null_tip">*生产厂商不能为空</p>
                 </div>
             </div>
@@ -314,7 +313,7 @@
                     <h4>免疫点名称:</h4>
                 </div>
                 <div class="section">
-                    <input disabled="disabled" type="text" value="上海顽皮家族" id="organizationName">
+                    <input class="form-control" disabled="disabled" type="text"  id="organizationName">
                 </div>
             </div>
         </div>
@@ -380,9 +379,9 @@
                             <option value="奉">奉</option>
                         </select>
                         <label class="label">年份</label>
-                        <input name="year" type="text" style="width: 50px;float: left" id="house_year"/>
+                        <input class="form-control" name="year" type="text" style="width: 50px;float: left" id="house_year"/>
                         <label class="label" for="name">第</label>
-                        <input type="text" style="width: 50px;float: left" id="house_number"/>
+                        <input class="form-control" type="text" style="width: 50px;float: left" id="house_number"/>
                         <label class="label">号</label>
                     </div>
                     <p style="display:none;" class="null_err" id="houseid_null_tip">*房产证号不能为空</p>
@@ -411,7 +410,7 @@
                 </div>
                 <div class="section">
                     <div class="address_container">
-                        <input type="text" style="float: left" id="reg_address">
+                        <input class="form-control" type="text" style="float: left" id="reg_address">
                         <input type="checkbox" id="reg_addr_ck">
                         <label for="">与犬主地址相同</label>
                     </div>

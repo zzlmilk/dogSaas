@@ -28,6 +28,9 @@ input[disabled]:hover{
   cursor:not-allowed;
 }
 
+input[type="text"]{
+  padding: 3px 5px;
+}
 
 //分页器组件
 .pagination{
@@ -494,7 +497,7 @@ input[type='date']::-webkit-inner-spin-button {
   width: 265px;
   height:44px;
   border-radius: 4px;
-  border: 2px #cccccc solid;
+  //border: 2px #cccccc solid;
 }
 .personal_card>.registration>.row>.col-md-6>.section>input[type="date"]{
   width: 265px;
@@ -632,7 +635,7 @@ input[type='date']::-webkit-inner-spin-button {
 .personal_card>.registration>.row>.col-md-6>.section>.label_container>input{
   width: 50px;
   height:44px;
-  border: 2px #cccccc solid;
+  //border: 2px #cccccc solid;
   border-radius:4px;
   float:left;
 }
@@ -649,7 +652,7 @@ input[type='date']::-webkit-inner-spin-button {
 .personal_card>.registration>.row>.col-md-6>.section>.address_container>#reg_address{
   width: 200px;
   height:44px;
-  border: 2px #cccccc solid;
+  //border: 2px #cccccc solid;
   border-radius:4px;
   float:left;
 }
@@ -744,7 +747,7 @@ input[type='date']::-webkit-inner-spin-button {
 .modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.section>input{
   width: 300px;
   height: 44px;
-  border: 2px #cccccc solid;
+  //border: 2px #cccccc solid;
   border-radius:4px;
 }
 .modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.subtitle h4 {
@@ -1003,7 +1006,7 @@ input[type='date']::-webkit-inner-spin-button {
   width: 265px;
   height:44px;
   border-radius: 4px;
-  border: 2px #cccccc solid;
+  //border: 2px #cccccc solid;
 }
 .business_card>.registration>.row>.col-md-6>.section>input[type="date"]{
   width: 265px;
@@ -1265,13 +1268,15 @@ input[type='date']::-webkit-inner-spin-button {
 .dogownerlist>.title>.row>.form-group>input{
   width: 230px;
   height: 40px;
-  border: 2px #cccccc solid;
+  //border: 2px #cccccc solid;
+  float: left;
   border-radius:4px;
 }
 .dogownerlist>.title>.row>.form-group>select{
   width: 100px;
   height: 40px;
   border: 2px #cccccc solid;
+  float: left;
   border-radius:4px;
 }
 .dogownerlist>.title>.row>.form-group>.btn{
@@ -1398,13 +1403,15 @@ input[type='date']::-webkit-inner-spin-button {
 .dog_search>.title>.row>.form-group>input{
   width: 230px;
   height: 40px;
-  border: 2px #cccccc solid;
+  //border: 2px #cccccc solid;
   border-radius:4px;
+  float:left;
 }
 .dog_search>.title>.row>.form-group>select{
   width: 100px;
   height: 40px;
   border: 2px #cccccc solid;
+  float: left;
   border-radius:4px;
 }
 .dog_search>.title>.row>.form-group>.btn{
@@ -1666,13 +1673,15 @@ input[type='date']::-webkit-inner-spin-button {
 .immune_list>.title>.row>.form-group>input[type="text"]{
   width: 230px;
   height: 40px;
-  border: 2px #cccccc solid;
+  //border: 2px #cccccc solid;
+  float: left;
   border-radius:4px;
 }
 .immune_list>.title>.row>.form-group>select{
   width:100px;
   height: 40px;
   border: 2px #cccccc solid;
+  float: left;
   border-radius:4px;
 }
 .immune_list>.title>.row>.form-group>.btn{
@@ -1748,13 +1757,15 @@ input[type='date']::-webkit-inner-spin-button {
 .card_info>.title>.row>.form-group>input[type="text"]{
   width: 160px;
   height: 40px;
-  border: 2px #cccccc solid;
+  //border: 2px #cccccc solid;
+  float: left;
   border-radius:4px;
 }
 .card_info>.title>.row>.form-group>select{
   width:100px;
   height: 40px;
   border: 2px #cccccc solid;
+  float: left;
   border-radius:4px;
 }
 .card_info>.title>.row>.form-group>.btn{
