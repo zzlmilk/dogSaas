@@ -32,7 +32,7 @@ var WebAPIMain = {
 					
 					//AOrganizationHandler
 					router.use("/organization/add", require('./Organization/AddOrganizationHandler'));
-					router.use("/organization/edit", require('./Organization/EditOrganizationHandler'));
+					router.use("/organization/edit", require('./Organization/EditorganizationHandler'));
 					router.use("/organization/show", require('./Organization/ShowOrganizationHandler'));
 					//veterinarian
                     router.use("/organization/editVeterinarian", require('./Veterinarian/EditVeterinarianHandler'));

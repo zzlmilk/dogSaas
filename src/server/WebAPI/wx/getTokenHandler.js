@@ -4,7 +4,8 @@ var router = express.Router();
 var RequestHandlerBase = require('../RequestHandlerBase');
 var Const = require("../../lib/consts");
 var authenticator = require("../middleware/auth");
-var WxUserModel=require('../Models/WxUser')
+
+var WxUserModel=require('../../Models/WxUser')
 
 var Conf = require("../../lib/init");
 
