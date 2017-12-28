@@ -32,7 +32,7 @@ var WebAPIMain = {
 					
 					//AOrganizationHandler
 					router.use("/organization/add", require('./Organization/AddOrganizationHandler'));
-					router.use("/organization/edit", require('./Organization/EditOrganizationHandler'));
+					router.use("/organization/edit", require('./Organization/EditorganizationHandler'));
 					router.use("/organization/show", require('./Organization/ShowOrganizationHandler'));
 					//veterinarian
                     router.use("/organization/editVeterinarian", require('./Veterinarian/EditVeterinarianHandler'));
@@ -58,6 +58,9 @@ var WebAPIMain = {
                     //Vaccine
                     router.use("/vaccine/add", require('./Vaccine/AddVaccineHandler'));
 
+                    //wx
+                    router.use("/wx/add_user", require('./wx/AddWxUserHandler'));
+                    router.use("/wx/token" ,require('./wx/getTokenHandler'));
 
 
 

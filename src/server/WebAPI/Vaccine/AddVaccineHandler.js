@@ -32,7 +32,7 @@ var AddVaccineHandler = function(){
  * @apiName addVaccine
  * @apiGroup Vaccine
  * @apiDescription 免疫年检api接口
- * @apiHeader  {Sting} access-key token
+ * @apiHeader  {Sting} access-token token
  * @apiParam {String} husbandryNo 畜牧业提供的条形码
  * @apiParam {String} dogLicenseId 狗证ID
  * @apiUse Vaccine

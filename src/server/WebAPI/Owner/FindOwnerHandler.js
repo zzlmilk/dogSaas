@@ -24,7 +24,7 @@ var FindOwnerHandler = function(){
 	* @apiDescription 查询api接口，获取犬主信息
 	* @apiParam   {String} certificateType 证件类型
 	* @apiParam    {String} certificateCode 证件号
-	* @apiHeader  {Sting} access-key token
+	* @apiHeader  {Sting} access-token token
     * @apiSuccessExample Success-Response:
 { owner:
    { _id: '5a24f583bf77595ff08bf876',

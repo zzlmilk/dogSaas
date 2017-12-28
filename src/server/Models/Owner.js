@@ -12,6 +12,7 @@ const Const = require("../lib/consts");
 var OwnerModel  = function(){};
 
 
+
 //选在owner里面找手机号的对象
 //找到对象的_id ，去dogLicense 去匹配owner对象
 

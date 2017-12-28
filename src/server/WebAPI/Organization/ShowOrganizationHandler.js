@@ -19,7 +19,7 @@ var ShowOrganizationHandler = function () {
  * @api {get} /organization/show 获取机构信息
  * @apiName showOrganization
  * @apiGroup Organization
- * @apiHeader  {Sting} access-key token
+ * @apiHeader  {Sting} access-token token
  * @apiSuccessExample Success_Response:
   { organization:
    { _id: '5a1d138dfac88f58a0a4330b',
