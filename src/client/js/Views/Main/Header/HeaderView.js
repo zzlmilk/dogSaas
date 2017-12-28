@@ -66,7 +66,6 @@ HeaderView = Backbone.View.extend({
 
 
 
-
     }
 
 });
