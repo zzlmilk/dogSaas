@@ -24,7 +24,7 @@ var FindDogLicenseByDogHandler = function(){
 	* @apiParam {String} irisID 虹膜ID
 	* @apiParam {String} vaccineCardNo 免疫卡号
 	* @apiParam {String} page 当前页数
-	* @apiHeader  {Sting} access-key token
+	* @apiHeader  {Sting} access-token token
     * @apiSuccessExample Success-Response:
 { dogLicenses:
    { _id: '5a26561758875261c0a5da71',

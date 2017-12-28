@@ -13,7 +13,7 @@ define({ "api": [
             "group": "Header",
             "type": "Sting",
             "optional": false,
-            "field": "access-key",
+            "field": "access-token",
             "description": "<p>token</p>"
           }
         ]
@@ -269,7 +269,7 @@ define({ "api": [
             "group": "Header",
             "type": "Sting",
             "optional": false,
-            "field": "access-key",
+            "field": "access-token",
             "description": "<p>token</p>"
           }
         ]
@@ -349,7 +349,7 @@ define({ "api": [
             "group": "Header",
             "type": "Sting",
             "optional": false,
-            "field": "access-key",
+            "field": "access-token",
             "description": "<p>token</p>"
           }
         ]
@@ -423,7 +423,7 @@ define({ "api": [
             "group": "Header",
             "type": "Sting",
             "optional": false,
-            "field": "access-key",
+            "field": "access-token",
             "description": "<p>token</p>"
           }
         ]
@@ -569,7 +569,7 @@ define({ "api": [
             "group": "Header",
             "type": "Sting",
             "optional": false,
-            "field": "access-key",
+            "field": "access-token",
             "description": "<p>token</p>"
           }
         ]
@@ -714,7 +714,7 @@ define({ "api": [
             "group": "Header",
             "type": "Sting",
             "optional": false,
-            "field": "access-key",
+            "field": "access-token",
             "description": "<p>token</p>"
           }
         ]
@@ -856,7 +856,7 @@ define({ "api": [
             "group": "Header",
             "type": "Sting",
             "optional": false,
-            "field": "access-key",
+            "field": "access-token",
             "description": "<p>token</p>"
           }
         ]
@@ -888,7 +888,7 @@ define({ "api": [
             "group": "Header",
             "type": "Sting",
             "optional": false,
-            "field": "access-key",
+            "field": "access-token",
             "description": "<p>token</p>"
           }
         ]
@@ -941,7 +941,7 @@ define({ "api": [
             "group": "Header",
             "type": "Sting",
             "optional": false,
-            "field": "access-key",
+            "field": "access-token",
             "description": "<p>token</p>"
           }
         ]
@@ -974,7 +974,7 @@ define({ "api": [
             "group": "Header",
             "type": "Sting",
             "optional": false,
-            "field": "access-key",
+            "field": "access-token",
             "description": "<p>token</p>"
           }
         ]
@@ -1224,7 +1224,7 @@ define({ "api": [
             "group": "Header",
             "type": "Sting",
             "optional": false,
-            "field": "access-key",
+            "field": "access-token",
             "description": "<p>token</p>"
           }
         ]
@@ -1326,6 +1326,119 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "src/server/WebAPI/TestHandler.js",
     "groupTitle": "WebAPI"
+  },
+  {
+    "type": "post",
+    "url": "/wx/add_user",
+    "title": "添加微信用户",
+    "name": "addWxUser",
+    "group": "Wx",
+    "description": "<p>添加微信用户，获取狗证api接口</p>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "Sting",
+            "optional": false,
+            "field": "access-token",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "openId",
+            "description": "<p>用户标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "nickname",
+            "description": "<p>昵称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "photo",
+            "description": "<p>头像</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "sex",
+            "description": "<p>性别</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "dogLicenses",
+            "description": "<p>dogLicenseId ,数组</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request Example",
+          "content": "{\n    var body = {\n       openId:\"3PY4C\",\n       nickname:\"haha\",\n       photo:\"photo\",\n       sex: \"1\",\n       dogLicenses: [\"5a3b820cd2e31d6cd89ef0e1\",\n                     \"5a41b487f1ca611808e8517b\"]\n   };\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{ wxUser:\n  { _id: '5a436fd9ae59a06160bce70d',\n    openId: '3PY4C',\n    nickname: 'haha',\n    photo: 'photo',\n    sex: '1',\n    created: '2017-12-27T10:03:05.589Z',\n    __v: 3,\n    dogLicenses: [ [Object], [Object], [Object] ] } }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/wx/AddWxUserHandler.js",
+    "groupTitle": "Wx"
+  },
+  {
+    "type": "GET",
+    "url": "/wx/token",
+    "title": "获取wx token",
+    "name": "getToken",
+    "group": "Wx",
+    "description": "<p>获取access_token</p>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "Sting",
+            "optional": false,
+            "field": "access-token",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " { code: 1,\n  data:\n   { info:\n      { statusCode: 200,\n        body: '{\"access_token\":\"5_1j8677zGLYmtW7fqW6ZC2RKxslGmVaFBnRz9rT4cntP51_TEOqrEJ_8FW3pbOwEcloUVYdkkDmyeEQ7S3zrNWE-_OZ3ii2qr\ncuVHnlZ9tNvyLWbblbHR6riWxEFBQi1fJhlxwPhxJRj-87RPIRUhAHAZIL\",\"expires_in\":7200}',\n        headers: [Object],\n        request: [Object] } } }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/wx/getTokenHandler.js",
+    "groupTitle": "Wx"
   },
   {
     "type": "GET",

@@ -104,6 +104,11 @@
     Const.resCodeDogLicenseNoTakeway=2000041;
     Const.resCodeVaccineNotArray=2000042;
     Const.resCodeAddVerterinarionNoOrganization=2000043;
+    Const.resCodeAddWxUserNoOpenId=2000044;
+    Const.resCodeAddWxUserNoNickname=2000045;
+    Const.resCodeAddWxUserNoPhoto=2000046;
+    Const.resCodeAddWxUserNoSex=2000047;
+    Const.resCodeAddWxUserDogLicenseNotArry=2000048;
 
 
 
@@ -118,7 +123,9 @@
 
 
      
-
+      Const.grant_type="client_credential";
+      Const.appid="wxeb1f9b8b9c147e83";
+      Const.secret="7fa185f001fc0c286f8da3dce48b8d63";
       Const.credentialsMinLength = 6;
 
      Const.dogLicensesListLimit = 10;

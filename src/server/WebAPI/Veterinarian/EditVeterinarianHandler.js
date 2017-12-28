@@ -24,7 +24,7 @@ var EditVeterinarianHandler = function(){
  * @apiDescription 添加兽医api接口
  * @apiParam {String} name 兽医名字
  * @apiParam {String} code 兽医执照号
- * @apiHeader  {Sting} access-key token
+ * @apiHeader  {Sting} access-token token
  * @apiSuccessExample Success-Response:
  *{ organization:
    { _id: '5a2f96c2519dea21549ac69e',

@@ -26,7 +26,7 @@ var FindDogLicenseByOwnerHandler = function(){
 	* @apiParam   {String} certificateType 证件类型
 	* @apiParam    {String} certificateCode 证件号
 	* @apiParam {String} page 当前页数
-	* @apiHeader  {Sting} access-key token
+	* @apiHeader  {Sting} access-token token
     * @apiSuccessExample Success-Response:
 { dogLicenses:
    [ { _id: '5a1f603923027209fcffa10d',

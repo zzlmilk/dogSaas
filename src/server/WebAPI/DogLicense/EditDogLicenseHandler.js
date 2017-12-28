@@ -23,7 +23,7 @@ var EditDogLicenseHandler = function(){
  * @apiName addTakeWay
  * @apiGroup DogLicense
  * @apiDescription 添加取证方式api接口
- * @apiHeader  {Sting} access-key token
+ * @apiHeader  {Sting} access-token token
  * @apiParam {String} dogLicenseId 狗证ID
  * @apiParam {Number}  takeWay  1自取 2邮寄
  * @apiSuccessExample Success-Response:
