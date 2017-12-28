@@ -32,6 +32,8 @@ var PersonalCardView = Backbone.View.extend({
     },
     render: function () {
         $(self.el).html(template({}));
+
+
         //区域选择
         new SelectPluginView({
             el: "#orga_area"
