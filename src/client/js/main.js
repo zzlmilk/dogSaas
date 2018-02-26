@@ -18,7 +18,7 @@ Backbone.$ = $;
 var Routing = require('./routing');
 
 $(function () {
-	 
+
 	  Backbone.history.start();
 })
 
