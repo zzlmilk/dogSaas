@@ -128,6 +128,7 @@
       Const.credentialsMinLength = 6;
 
      Const.dogLicensesListLimit = 10;
+     Const.reserveUserListLimit=10;
 
      // Exports ----------------------------------------------
     module["exports"] = Const;

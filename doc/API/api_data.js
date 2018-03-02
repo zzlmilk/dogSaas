@@ -961,7 +961,7 @@ define({ "api": [
     "groupTitle": ""
   },
   {
-    "type": "GET",
+    "type": "POST",
     "url": "/reserve/find",
     "title": "预约查询",
     "name": "findReserveUser",
@@ -976,6 +976,13 @@ define({ "api": [
             "optional": false,
             "field": "code",
             "description": "<p>6位的凭证</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "page",
+            "description": "<p>页数</p>"
           }
         ]
       }
@@ -997,7 +1004,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{ reserveUser:\n      [ [Object],\n        [Object],\n        [Object] ] } }",
+          "content": "{ reserveUser:\n      [ [Object],\n        [Object],\n        [Object] ]\n        count:7\n       }",
           "type": "json"
         }
       ]
