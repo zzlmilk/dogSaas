@@ -51,6 +51,9 @@ var CardInfoView = Backbone.View.extend({
         var createCode = self.dogLicense.DogCard.isCreate;
         var dogCardInfo = $("#dogcard_info");
         var dogCardNo = $("#dogcard_no");
+
+        new QRCode(document.getElementById("qrcode"), self.dogLicense._id);
+
         //判断是否可以制狗证
         if (createCode == 0) {
             //不可以办理狗证
@@ -138,6 +141,8 @@ var CardInfoView = Backbone.View.extend({
     //设置免疫卡数据
     setImmuneValue: function () {
         console.log("设置免疫卡数据");
+
+
         $("#vaccineCardName").html(self.dogLicense.vaccineCard.info.name);
         $("#vaccineCardNo").html(self.dogLicense.vaccineCard.info.cardNo);
 

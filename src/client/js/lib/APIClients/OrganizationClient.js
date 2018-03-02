@@ -29,6 +29,7 @@ var _ = require('lodash');
      * @param err
      */
     OrganizationClient.prototype.show = function (success, err) {
+        console.log("------------------");
         this.getRequst("/organization/show", success, err);
     }
 

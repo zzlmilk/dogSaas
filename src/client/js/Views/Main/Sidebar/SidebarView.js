@@ -150,6 +150,16 @@ var SidebarView = Backbone.View.extend({
 
         });
 
+        //预约查询
+        $('#btn_reservation').unbind().on('click', function (event) {
+            event.stopPropagation();
+            var ReservationView = require('../Reservation/ReservationView');
+            var view = new ReservationView({
+                'el': "#main-content"
+            });
+
+        });
+
 
 
 

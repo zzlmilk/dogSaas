@@ -55,13 +55,15 @@ HeaderView = Backbone.View.extend({
 
         });
 
-        $('#user_icon').hover(function () {
+
+        $('#user_icon').mouseover(function () {
             $('#quit').slideDown();
 
-        },function(){
-            $('#quit').slideUp();
         });
+        $('#quit').mouseout(function () {
+            $(this).slideUp(2000);
 
+        });
 
 
 
