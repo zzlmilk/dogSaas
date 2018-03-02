@@ -124,10 +124,7 @@
 
 
 
-     
-      Const.grant_type="client_credential";
-      Const.appid="wxeb1f9b8b9c147e83";
-      Const.secret="7fa185f001fc0c286f8da3dce48b8d63";
+
       Const.credentialsMinLength = 6;
 
      Const.dogLicensesListLimit = 10;
