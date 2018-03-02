@@ -11,13 +11,13 @@ describe('WEB', function () {
     it('should be show organization sucessful', function (done) {
         signin(function (token) {
             request(app)
-                .get('/dogsystem/v1//wx/token')
+                .get('/dogsystem/v1/wx/get_accessToken')
                 .set('Access-Token', token)
                 .end(function (err, res) {
                     if (err) {
                         throw err;
                     }
-                     console.log(res.body)
+                     console.log(res.body);
                      res.body.should.have.property('code');
                      res.body.code.should.equal(Const.responsecodeSucceed);
                      done();

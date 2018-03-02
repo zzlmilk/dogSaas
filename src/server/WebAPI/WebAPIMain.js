@@ -59,8 +59,12 @@ var WebAPIMain = {
                     router.use("/vaccine/add", require('./Vaccine/AddVaccineHandler'));
 
                     //wx
-                    router.use("/wx/add_user", require('./wx/AddWxUserHandler'));
-                    router.use("/wx/token" ,require('./wx/getTokenHandler'));
+                     router.use("/reserve/addDogLicense", require('./Wx/ReserveAddDogLicenseHandler'));
+                     router.use("/reserve/find", require('./Wx/FindReserveUserHandler'));
+
+                     router.use("/wx/get_accessToken", require('./Wx/AccessTokenHandler'));
+
+
 
 
 

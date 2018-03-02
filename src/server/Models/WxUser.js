@@ -15,14 +15,21 @@ var WxUserModel = function(){
 WxUserModel.prototype.init = function(mongoose){
     this.schema = new mongoose.Schema({
         openId:String ,//用户标识
-        nickname:String,
-        photo:String,
-        sex:String,
+        nickName:String,
+        gender:String,
+        language:String,
+        city:String,
+        province:String,
+        country:String,
+        avatarUrl:String,
+        unionId:String,
+        token:String,
+        watermark: {
+            timestamp: String,
+            appid: String
+        },
         dogLicenses:[{type: mongoose.Schema.Types.ObjectId, ref: Config.dbCollectionPrefix + "dogLicenses" }], //dogLicenseID
-        created:Date,
-        access_token:String
-
-
+        created:Date
     });
 
     this.model = mongoose.model(Config.dbCollectionPrefix + "wxUsers", this.schema);

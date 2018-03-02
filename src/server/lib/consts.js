@@ -109,6 +109,8 @@
     Const.resCodeAddWxUserNoPhoto=2000046;
     Const.resCodeAddWxUserNoSex=2000047;
     Const.resCodeAddWxUserDogLicenseNotArry=2000048;
+    //wx
+    Const.resCodeWxReserveNoCode=2000049;
 
 
 
