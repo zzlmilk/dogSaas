@@ -11,6 +11,22 @@ var FindReserveUserHandler = function(){
 
 
 };
+/*
+/**
+	* @api {GET} /reserve/find 预约查询
+	* @apiName findReserveUser
+	* @apiGroup Reserve
+	* @apiDescription 查询预约用户
+	* @apiParam {String} code  6位的凭证
+	* @apiHeader  {Sting} access-token token
+    * @apiSuccessExample Success-Response:
+{ reserveUser:
+      [ [Object],
+        [Object],
+        [Object] ] } }
+
+
+ */
 
 
 

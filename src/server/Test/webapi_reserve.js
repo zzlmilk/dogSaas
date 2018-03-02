@@ -13,8 +13,8 @@ describe('WEB', function () {
         }
         signin(function (token) {
             request(app)
-                .get('/dogsystem/v1/reserve/addDogLicense')
-                .query(body)
+                .post('/dogsystem/v1/reserve/addDogLicense')
+                .send(body)
                 .set('Access-Token', token)
                 .end(function (err, res) {
                     if (err) {
