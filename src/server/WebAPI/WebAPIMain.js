@@ -13,11 +13,10 @@ var WebAPIMain = {
 					app.use('/',express.static(__dirname + '/../../../public'));
 
 
-					
-
 					//测试
 					router.use("/test", require('./TestHandler'));
 
+					
 					//Verification Email
 					router.use("/send/email",  require('./Email/SendEmailHandler'));
 					router.use("/vaild/email", require('./Email/VaildEmailHandler'));
