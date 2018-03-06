@@ -8,7 +8,8 @@ var _ = require('lodash');
 
 var Utils = require('../../../../../lib/utils');
 var Const = require('../../../../../lib/consts');
-var Config = require('../../../../../lib/init');
+// var Config = require('../../../../../lib/init');
+var Config = require('../../../../../../../server/lib/init');
 var CityJson = require('../../../../Parts/selectPlugin/CityJson.js');
 var DogLicenseClient = require('../../../../../lib/APIClients/DogLicenseClient');
 
@@ -22,6 +23,8 @@ var CardInfoView = Backbone.View.extend({
     initialize: function (options) {
         self = this;
         self.el = options.el;
+        console.log(options.dogLicense)
+        console.log("------------------")
 
         $.each(CityJson,
             function (i, val) {
@@ -52,8 +55,22 @@ var CardInfoView = Backbone.View.extend({
         var dogCardInfo = $("#dogcard_info");
         var dogCardNo = $("#dogcard_no");
 
-        new QRCode(document.getElementById("qrcode"), self.dogLicense._id);
+        // new QRCode(document.getElementById("qrcode"), self.dogLicense._id);
 
+        // console.log(self.qrCodeUrl)
+        // if(self.qrCodeUrl){
+        //     console.log("-------------------------有二维码")
+        //     console.log(self.qrCodeUrl)
+        //     // $('#qrcode').attr('src', self.qrCodeUrl);
+        //     // $("#qrcode").attr("src","image/1/gif");
+        //     // document.getElementById('qrcode').src=self.qrCodeUrl;
+        //
+        // }
+        setTimeout(function () {
+          var qrCodeUrl=  Config.hostName+":"+Config.port+"/img/"+self.dogLicense._id+".png"
+            console.log(qrCodeUrl)
+            $('#qrcode').attr('src', qrCodeUrl);
+        },300)
         //判断是否可以制狗证
         if (createCode == 0) {
             //不可以办理狗证

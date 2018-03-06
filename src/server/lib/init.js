@@ -6,7 +6,8 @@
     Config.port = 7171;
     Config.urlPrefix = '/dogSystem';
     Config.databaseUrl = "mongodb://localhost/dogsaas";
-    Config.hostName="www.halokit.cn"
+    // Config.hostName="www.halokit.cn"
+    Config.hostName="http://localhost"
 
     Config.dbCollectionPrefix = "";
 
