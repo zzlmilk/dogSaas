@@ -22,7 +22,7 @@ var Routing = function(){
             "file": "FileRoute",
             "reset": "resetRoute",
             "signup": "signupRoute",//登陆路由
-            "nav": "navRoute",//首页导航路由
+            "home": "homeRoute",//首页导航路由
             "setpassword": "setpasswordRoute",//设置密码
             "resetpassword": "resetpasswordRoute",//重置密码
             "changepassword": "changepasswordRoute",//个人中心修改密码
@@ -30,7 +30,7 @@ var Routing = function(){
             "printcard": "printcardRoute",//控制台打印磁卡
             "button": "buttonRoute",
             "androidDownload": "androidDownloadRoute",
-            "*actions": "defaultRoute"
+            "*actions": "defaultRoute",
 
         }
 
@@ -39,12 +39,14 @@ var Routing = function(){
     // Initiate the router
     var appRouter = new AppRouter;
 
-    //初识页
+    //初始页
     appRouter.on('route:defaultRoute', function (actions) {
 
-
         Utils.goPage('start');
+
     });
+
+
 
     //测试
     appRouter.on('route:testRoute', function (actions) {
@@ -71,10 +73,11 @@ var Routing = function(){
 
     });
 
-    appRouter.on('route:navRoute', function (actions) {
+    //首页
+    appRouter.on('route:homeRoute', function (actions) {
 
-        var NavView = require('./Views/Nav/NavView.js');
-        var view = new NavView();
+        var HomePageView = require('./Views/HomePage/HomePageView.js');
+        var view = new HomePageView();
 
     });
 
