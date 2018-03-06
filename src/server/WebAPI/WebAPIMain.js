@@ -13,6 +13,8 @@ var WebAPIMain = {
 					app.use('/',express.static(__dirname + '/../../../public'));
 
 
+					
+
 					//测试
 					router.use("/test", require('./TestHandler'));
 

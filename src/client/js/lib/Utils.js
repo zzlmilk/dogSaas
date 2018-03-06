@@ -13,7 +13,8 @@
     Utils.prototype.escapeHtml = escapeHtml;
     Utils.prototype.linkify = linkify;
     Utils.prototype.getURLQuery = getURLQuery;
-    Utils.prototype.l10n = localize; //语言包
+    
+    // Utils.prototype.l10n = localize; //语言包
 
     Utils.prototype.getActionsParams = getActionsParams;
 
@@ -265,11 +266,11 @@
 
     }
     
-    function localize(text){
+    // function localize(text){
 	    
-	    return text;
+	   //  return text;
 	    
-    }
+    // }
 
 
     // Exports ----------------------------------------------

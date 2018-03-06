@@ -39,8 +39,7 @@ OwnerModel.prototype.init = function(mongoose){
 			
 			
 
-			
-
+		
 		    
 	});
 

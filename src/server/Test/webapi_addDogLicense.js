@@ -67,7 +67,7 @@ describe('WEB API', function () {
                         if (err) {
                             throw err;
                         }
-
+                        
                         console.log(res.body.data)
                         // console.log(JSON.parse(res.body.data))
                         res.body.should.have.property('code');

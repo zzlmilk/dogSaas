@@ -3,6 +3,9 @@ var gulp = require('gulp');
 var apidoc = require('gulp-apidoc'),
 	 plumber = require('gulp-plumber');
 
+  var uglify = require('gulp-uglify');
+
+
 
 var sourceCSS = 'src/client/css/',
 	 destCSS = 'public/css/',
@@ -15,6 +18,10 @@ var sourceCSS = 'src/client/css/',
    watchify = require('watchify'),
     gutil = require('gulp-util'),
    sourceFile = './src/client/js/main.js';
+
+
+
+
 
 
 
@@ -103,6 +110,14 @@ gulp.task('build-apidoc', function(done){
 
 });
 
+
+
+//压缩js
+gulp.task('minifyJs', function(){
+    return gulp.src('public/js/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest(destFolder));
+});
 
 
 gulp.task('default',function(){

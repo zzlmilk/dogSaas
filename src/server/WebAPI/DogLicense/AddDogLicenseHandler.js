@@ -129,7 +129,7 @@ _.extend(AddDogLicenseHandler.prototype,RequestHandlerBase.prototype);
 
 AddDogLicenseHandler.prototype.attach = function(route){
 	 var self = this;
-
+   
 	 route.post('/',authenticator,OrganizationMiddleware,function(request,response){
             request.body.user = request.user
             request.body.organization = request.organization
