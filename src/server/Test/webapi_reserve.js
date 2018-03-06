@@ -34,13 +34,14 @@ describe('WEB', function () {
     });
     it('should be show reserveUser', function (done) {   //显示所有预约用户
         var body={
-            code:""
+            code:"",
+            page:"1"
         }
 
         signin(function (token) {
             request(app)
-                .get('/dogsystem/v1/reserve/find')
-                .query(body)
+                .post('/dogsystem/v1/reserve/find')
+                .send(body)
                 .set('Access-Token', token)
                 .end(function (err, res) {
                     if (err) {
@@ -60,12 +61,13 @@ describe('WEB', function () {
     });
     it('should be find reserveUser', function (done) {     //查询预约用户
         var body={
-            code:"942992"
+            code:"942992",
+            page:"1"
         }
         signin(function (token) {
             request(app)
-                .get('/dogsystem/v1/reserve/find')
-                .query(body)
+                .post('/dogsystem/v1/reserve/find')
+                .send(body)
                 .set('Access-Token', token)
                 .end(function (err, res) {
                     if (err) {

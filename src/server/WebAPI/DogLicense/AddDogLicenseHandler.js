@@ -135,7 +135,7 @@ AddDogLicenseHandler.prototype.attach = function(route){
             request.body.organization = request.organization
             DogLicenseLogic.add(request.body,function(result){
                      self.successResponse(response,Const.responsecodeSucceed,{
-                       //  qrCode:result.qrCode,
+                         qrCodeUrl: 'public/img/'+result.dogLicense._id+'.png',
                          dogLicense:result.dogLicense
 
                     });

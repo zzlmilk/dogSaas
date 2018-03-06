@@ -16,167 +16,42 @@
         </div>
     </div>
 
-    <table class="table" >
-        <tbody>
+    <table class="table">
+        <tbody id="tbody">
         <tr class="tr_head">
-            <td>虹膜ID</td>
-            <td>条形码编号</td>
-            <td>免疫卡号</td>
-            <td>犬主</td>
+            <td>预约码</td>
+            <td>主人姓名</td>
             <td>主人手机号</td>
+            <td>犬名</td>
             <td>品种</td>
-            <td>取卡方式</td>
-            <td>办卡时间</td>
-            <td>业务类型</td>
+            <td>毛色</td>
             <td>操作</td>
         </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
-        <tr class="tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a class="td-a" href="javascript:void(0)">详情</a></td>
-        </tr>
         </tbody>
-        </tr>
     </table>
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3 text-center">
-            <nav aria-label="Page navigation" id="pagenav">
+            <nav aria-label="Page navigation" id="dogowner_nav">
                 <ul class="pagination">
-                    <li><a href="javascript:void(0)">首页</a></li>
-                    <li>
-                        <a href="javascript:void(0)" aria-label="Previous">
+                    <li><a href="javascript:void(0)" id='pageBegin'>首页</a></li>
+                    <li id="page">
+                        <a href="javascript:void(0)" aria-label="Previous" id='pageUp'>
                             <span aria-hidden="true">上一页</span>
                         </a>
                     </li>
-                    <li class="active"><a href="javascript:void(0)">1</a></li>
-                    <li ><a href="javascript:void(0)">2</a></li>
-                    <li ><a href="javascript:void(0)">3</a></li>
-                    <li ><a href="javascript:void(0)">4</a></li>
-                    <li ><a href="javascript:void(0)">5</a></li>
+
                     <li>
-                        <a href="javascript:void(0)" aria-label="Next">
+                        <a href="javascript:void(0)" aria-label="Next" id="pageDown">
                             <span aria-hidden="true">下一页</span>
                         </a>
                     </li>
-                    <li><a href="javascript:void(0)">尾页</a></li>
+                    <li><a href="javascript:void(0)" id="pageEnd">尾页</a></li>
                 </ul>
             </nav>
+            <div id="nodata" style="display:none;text-align:center">
+                暂无数据
+            </div>
         </div>
     </div>
 

@@ -13,17 +13,20 @@ var FindReserveUserHandler = function(){
 };
 /*
 /**
-	* @api {GET} /reserve/find 预约查询
+	* @api {POST} /reserve/find 预约查询
 	* @apiName findReserveUser
 	* @apiGroup Reserve
 	* @apiDescription 查询预约用户
 	* @apiParam {String} code  6位的凭证
+    * @apiParam {String} page  页数
 	* @apiHeader  {Sting} access-token token
     * @apiSuccessExample Success-Response:
 { reserveUser:
       [ [Object],
         [Object],
-        [Object] ] } }
+        [Object] ]
+        count:7
+       }
 
 
  */
@@ -36,29 +39,42 @@ _.extend(FindReserveUserHandler.prototype,RequestHandlerBase.prototype);
 FindReserveUserHandler.prototype.attach = function(route){
     var self = this;
 
-    route.get('/',authenticator,function(request,response){
-        var code=request.query.code;
+    route.post('/',authenticator,function(request,response){
+        var code=request.body.code;
+        var page=request.body.page;
+        var res={};
         var reserveUserModel=ReserveUserModel.get();
-        if(Utils.isEmpty(code)){
-            reserveUserModel.find({},function (err,result) {
-                if(err){
-                    self.errorResponse(response,Const.httpCodeServerError);
-                }else{
-                    self.successResponse(response,Const.responsecodeSucceed,
-                        {reserveUser:result});
-                }
-            })
-        }else {
-            reserveUserModel.findOne({code: code}, function (err, result) {
-                if (err) {
-                    self.errorResponse(response, Const.httpCodeServerError);
+                if (Utils.isEmpty(code)) {
+                    reserveUserModel.count().exec(function(err,count){
+                        if(err){
+                            throw err
+                        }else{
+                           res.count=count;
+                        }
+                    });
+                    reserveUserModel.find().skip(Utils.skip(page)).limit(Const.reserveUserListLimit).exec(function (err, reserveUserResult) {
+                        if (err) {
+                            throw err;
+                        }
+                        else {
+                            self.successResponse(response,Const.responsecodeSucceed, {
+                                   reserveUser:reserveUserResult,
+                                   count:res.count
+                                });
+                            }
+                        })
                 } else {
-                    self.successResponse(response, Const.responsecodeSucceed,
-                        {reserveUser: result});
+                    reserveUserModel.find({code:code},function (err, reserveUserResult) {
+                        if (err) {
+                            throw err;
+                        }
+                        else {
+                            self.successResponse(response,Const.responsecodeSucceed,
+                                {reserveUser:reserveUserResult});
+                            }
+                    })
                 }
-            })
-        }
-    })
+        })
 };
 
 

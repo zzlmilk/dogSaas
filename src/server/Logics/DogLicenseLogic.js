@@ -490,7 +490,7 @@ var DogLicenseLogic = {
                               path: "pages/index/index",
                               width: 430
                           })
-                      }).pipe(fs.createWriteStream("./index.png"));
+                      }).pipe(fs.createWriteStream('../../../public/img/' + res.dogLicense._id + '.png'));
                            onSuccess(res);
                        }
 			  	],function(err,result){
