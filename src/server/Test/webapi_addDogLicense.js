@@ -10,6 +10,7 @@ describe('WEB API', function () {
 	 it('should be add dog sucessful', function (done) {
 	 		 signin(function(token){
 	 		 		var body = {
+	 		 		        code:"262119",
                             husbandryNo:global.getRandomStr(),
                             dog:{
                                 nickname: "test_" + global.getRandomStr(),
