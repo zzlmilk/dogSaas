@@ -8,8 +8,7 @@ var _ = require('lodash');
 
 var Utils = require('../../../../../lib/utils');
 var Const = require('../../../../../lib/consts');
-// var Config = require('../../../../../lib/init');
-var Config = require('../../../../../../../server/lib/init');
+var Config = require('../../../../../lib/init');
 var CityJson = require('../../../../Parts/selectPlugin/CityJson.js');
 var DogLicenseClient = require('../../../../../lib/APIClients/DogLicenseClient');
 
@@ -67,7 +66,7 @@ var CardInfoView = Backbone.View.extend({
         //
         // }
         setTimeout(function () {
-          var qrCodeUrl=  Config.hostName+":"+Config.port+"/img/"+self.dogLicense._id+".png"
+          var qrCodeUrl= Config.hostName+"/image/"+self.dogLicense._id+".png"
             console.log(qrCodeUrl)
             $('#qrcode').attr('src', qrCodeUrl);
         },300)

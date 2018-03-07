@@ -488,7 +488,7 @@ var DogLicenseLogic = {
                           body: JSON.stringify({
                               scene: res.dogLicense._id,
                               path: "pages/index/index",
-                              width: 430
+                              width: 280
                           })
                       }).pipe(fs.createWriteStream('../../image/' + res.dogLicense._id + '.png'));
                            onSuccess(res);
