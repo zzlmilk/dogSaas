@@ -64,13 +64,21 @@ FindReserveUserHandler.prototype.attach = function(route){
                             }
                         })
                 } else {
+                    reserveUserModel.find({code: code}).count().exec(function(err,count){
+                        if(err){
+                            throw err
+                        }else{
+                            res.count=count;
+                        }
+                    });
                     reserveUserModel.find({code:code},function (err, reserveUserResult) {
                         if (err) {
                             throw err;
                         }
                         else {
                             self.successResponse(response,Const.responsecodeSucceed,
-                                {reserveUser:reserveUserResult});
+                                {reserveUser:reserveUserResult,
+                                count:res.count});
                             }
                     })
                 }
