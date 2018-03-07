@@ -36,14 +36,14 @@ var ImmuneDetailView = Backbone.View.extend({
         OrganizationClient.show(
             //获取成功
             function (data) {
-                console.log("------------------");
+                console.log("------------------i");
                 console.log(data);
 
             },
             //获取失败
             function (errorCode) {
                 //错误回调
-                console.log("cw-------------");
+                console.log("cw-------------i");
                 var sb = new StringBuffer();
                 var doctor = errorCode.organization.veterinarians;
                 $.each(doctor, function (i, val) {

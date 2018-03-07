@@ -409,14 +409,14 @@ var DogView = Backbone.View.extend({
         OrganizationClient.show(
             //获取成功
             function (data) {
-                console.log("------------------");
+                console.log("------------------d");
                 console.log(data);
 
             },
             //获取失败
             function (errorCode) {
                 //错误回调
-                console.log("cw-------------");
+                console.log("cw-------------d");
                 var sb = new StringBuffer();
                 var doctor = errorCode.organization.veterinarians;
                 $.each(doctor, function (i, val) {
