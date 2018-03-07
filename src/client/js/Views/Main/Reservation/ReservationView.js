@@ -35,7 +35,8 @@ var ReservationView = Backbone.View.extend({
         var totalCount;//总条数
         var totalPage;//总页数
         var requestData = {
-            code:""
+            code:"",
+            page:currentPage
         };
         seach(requestData);
 
@@ -47,8 +48,49 @@ var ReservationView = Backbone.View.extend({
             }
             currentPage=1;
             var requestData = {
-                code: $("#immune_number").val().trim()
+                code: $("#immune_number").val().trim(),
+                page:currentPage
             };
+            seach(requestData);
+        });
+        $("#pageBegin").unbind().on("click", function () {
+            if (1 == currentPage) {
+                return;
+            }
+            var requestData = {
+                code: $("#immune_number").val().trim(),
+                page: 1,
+            }
+            seach(requestData);
+        });
+        $("#pageEnd").unbind().on("click", function () {
+            if (totalPage == currentPage) {
+                return;
+            }
+            var requestData = {
+                code: $("#immune_number").val().trim(),
+                page: totalPage,
+            }
+            seach(requestData);
+        });
+        $("#pageUp").unbind().on("click", function () {
+            if (currentPage == 1) {
+                return
+            }
+            var requestData = {
+                code: $("#immune_number").val().trim(),
+                page: currentPage - 1,
+            }
+            seach(requestData);
+        });
+        $("#pageDown").unbind().on("click", function () {
+            if (currentPage == totalPage) {
+                return
+            }
+            var requestData = {
+                code: $("#immune_number").val().trim(),
+                page: currentPage + 1,
+            }
             seach(requestData);
         });
 
@@ -59,9 +101,9 @@ var ReservationView = Backbone.View.extend({
                 //成功回调
                 function (data) {
                     console.log(data);
-
                     //总条数
                     var count = data.count;
+                    console.log(count)
                     totalCount = count;
                     totalPage = Math.ceil(totalCount / 10);
                     console.log(totalCount + "条数据;" + totalPage + "页,当前页码" + currentPage);
@@ -120,8 +162,7 @@ var ReservationView = Backbone.View.extend({
                                 return;
                             }
                             var requestData = {
-                                certificateType: $("#certificateType").val().trim(),
-                                certificateCode: $("#id_number").val().trim(),
+                                code: $("#immune_number").val().trim(),
                                 page: i,
                             }
                             seach(requestData);
