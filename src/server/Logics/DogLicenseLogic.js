@@ -506,7 +506,7 @@ var DogLicenseLogic = {
                           url:'https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token='+result.access_token,
                           body: JSON.stringify({
                               scene: res.dogLicense._id,
-                              path: "pages/my/my",
+                              page: "pages/my/my",
                               width: 280
                           })
                       }).pipe(fs.createWriteStream('../../image/'+res.dogLicense._id+'.png'));

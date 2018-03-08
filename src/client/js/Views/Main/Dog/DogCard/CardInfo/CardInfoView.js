@@ -69,7 +69,7 @@ var CardInfoView = Backbone.View.extend({
           var qrCodeUrl= Config.hostName+"/image/"+self.dogLicense._id+".png"
             console.log(qrCodeUrl)
             $('#qrcode').attr('src', qrCodeUrl);
-        },300)
+        },500)
         //判断是否可以制狗证
         if (createCode == 0) {
             //不可以办理狗证
