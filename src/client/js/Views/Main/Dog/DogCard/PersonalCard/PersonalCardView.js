@@ -354,6 +354,7 @@ var PersonalCardView = Backbone.View.extend({
             } else {
                 console.log("办理狗证");
                 var dogL = {
+                    code:self.dogLicense.code,
                     husbandryNo: $('#barcode').val(),
                     dog: {
                         nickname: $('#dogname').val(),
@@ -398,6 +399,7 @@ var PersonalCardView = Backbone.View.extend({
                 dogLicense = $.parseJSON(JSON.stringify(dogL));
                 dogLicense.infoPreviewType = Const.infoPreviewType.AddDogLicense;
             }
+            console.log("-------------you code --------------")
             console.log(dogLicense);
             var InfoPreviewModal = require('../../../../Modals/InfoPreview/InfoPreview');
             InfoPreviewModal.show(dogLicense);

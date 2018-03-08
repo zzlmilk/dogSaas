@@ -129,7 +129,7 @@ var ReservationView = Backbone.View.extend({
                                 "<td align='center' valign='middle'>" + val.dog.hairColor + "</td>" +
                                 // "<td align='center' valign='middle'>" + val.vaccineCard.info.cardNo + "</td>" +
                                 // "<td align='center' valign='middle'>" + val.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
-                                "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">办卡</a></td>" +
+                                "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">办证</a></td>" +
                                 "</tr>");
                         });
 
