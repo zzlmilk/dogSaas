@@ -35,6 +35,15 @@ var HomePageView = Backbone.View.extend({
             'el': "#header-content"
         });
 
+        var HomeMainView = require('../HomeMain/HomeMainView.js');
+        var view = new HomeMainView({
+            'el': "#main-content"
+        });
+
+        var FooterView = require('../Footer/FooterView.js');
+        var view = new FooterView({
+            'el': "#footer-content"
+        });
     }
 
 });

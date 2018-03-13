@@ -6,9 +6,9 @@ var Const = require('../../lib/consts');
 var Config = require('../../lib/init');
 
 // load template
-var template = require('./Footer.hbs');
+var template = require('./HomeMain.hbs');
 
-var FooterView = Backbone.View.extend({
+var HomeMainView = Backbone.View.extend({
 
     initialize: function(options) {
         this.render();
@@ -28,20 +28,10 @@ var FooterView = Backbone.View.extend({
 
     onLoad: function(){
 
-        $(".lang").click(function(){
-            $(".lang_en").show();
-        });
-        $(".lang_en").mouseover(function(){
-            $(".lang_en").show();
-        });
-        $(".lang_en").mouseout(function(){
-            $(".lang_en").hide();
-        });
-
 
 
     }
 
 });
 
-module.exports = FooterView;
+module.exports = HomeMainView;

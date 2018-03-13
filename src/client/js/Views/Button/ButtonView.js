@@ -10,8 +10,6 @@ var template = require('./Button.hbs');
 
 var ButtonView = Backbone.View.extend({
 
-
-
     initialize: function(options) {
         this.render();
     },
@@ -22,9 +20,7 @@ var ButtonView = Backbone.View.extend({
 
         }));
 
-
         this.onLoad();
-
 
         return this;
 
@@ -32,12 +28,10 @@ var ButtonView = Backbone.View.extend({
 
     onLoad: function(){
 
-        var self = this;
-
 
 
     }
 
-})
+});
 
 module.exports = ButtonView;
