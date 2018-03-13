@@ -45,14 +45,14 @@ FindReserveUserHandler.prototype.attach = function(route){
         var res={};
         var reserveUserModel=ReserveUserModel.get();
                 if (Utils.isEmpty(code)) {
-                    reserveUserModel.count().exec(function(err,count){
+                    reserveUserModel.count({type:"1"}).exec(function(err,count){
                         if(err){
                             throw err
                         }else{
                            res.count=count;
                         }
                     });
-                    reserveUserModel.find().skip(Utils.skip(page)).limit(Const.reserveUserListLimit).exec(function (err, reserveUserResult) {
+                    reserveUserModel.find({type:"1"}).sort({"created":-1}).skip(Utils.skip(page)).limit(Const.reserveUserListLimit).exec(function (err, reserveUserResult) {
                         if (err) {
                             throw err;
                         }
@@ -64,13 +64,21 @@ FindReserveUserHandler.prototype.attach = function(route){
                             }
                         })
                 } else {
-                    reserveUserModel.find({code:code},function (err, reserveUserResult) {
+                    reserveUserModel.find({code: code,type:"1"}).count().exec(function(err,count){
+                        if(err){
+                            throw err
+                        }else{
+                            res.count=count;
+                        }
+                    });
+                    reserveUserModel.find({code:code,type:"1"},function (err, reserveUserResult) {
                         if (err) {
                             throw err;
                         }
                         else {
                             self.successResponse(response,Const.responsecodeSucceed,
-                                {reserveUser:reserveUserResult});
+                                {reserveUser:reserveUserResult,
+                                count:res.count});
                             }
                     })
                 }

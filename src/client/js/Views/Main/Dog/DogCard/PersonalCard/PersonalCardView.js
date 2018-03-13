@@ -25,6 +25,7 @@ var PersonalCardView = Backbone.View.extend({
     self: null,
     dogLicense: null,
     initialize: function (options) {
+        console.log("personal--------------------------------------------------------------init")
         self = this;
         self.el = options.el;
         self.dogLicense = options.dogLicense;
@@ -71,25 +72,29 @@ var PersonalCardView = Backbone.View.extend({
         if (self.dogLicense != null) {
             //数据回填
             this.setValue();
-            this.setHouseEvent();
-            //禁用输入 选择
-            var d1 = $('#dogLicense_barcode_div *');
-            for (i = 0; i < d1.length; i++) {
-                d1[i].disabled = true;
-            }
-            var d1 = $('#dogLicense_owner_div *');
-            for (i = 0; i < d1.length; i++) {
-                d1[i].disabled = true;
-            }
-            var d1 = $('#dogLicense_dog_div *');
-            for (i = 0; i < d1.length; i++) {
-                d1[i].disabled = true;
-            }
-            var d1 = $('#dogLicense_vaccine_div *');
-            for (i = 0; i < d1.length; i++) {
-                d1[i].disabled = true;
-            }
 
+            //如果没有有预约码 就禁用输入
+            if (!self.dogLicense.code) {
+                console.log("禁用输入")
+                this.setHouseEvent();
+                //禁用输入 选择
+                var d1 = $('#dogLicense_barcode_div *');
+                for (i = 0; i < d1.length; i++) {
+                    d1[i].disabled = true;
+                }
+                var d1 = $('#dogLicense_owner_div *');
+                for (i = 0; i < d1.length; i++) {
+                    d1[i].disabled = true;
+                }
+                var d1 = $('#dogLicense_dog_div *');
+                for (i = 0; i < d1.length; i++) {
+                    d1[i].disabled = true;
+                }
+                var d1 = $('#dogLicense_vaccine_div *');
+                for (i = 0; i < d1.length; i++) {
+                    d1[i].disabled = true;
+                }
+            }
         }
 
         //添加监听事件
@@ -307,7 +312,7 @@ var PersonalCardView = Backbone.View.extend({
 
         $('#post_info').unbind().on('click', function () {
             //完善房产信息
-            if (self.dogLicense != null) {
+            if (self.dogLicense != null && !self.dogLicense.code) {
                 //验证房产信息
                 if (!emptyHouseValid()) {
                     return;
@@ -334,7 +339,7 @@ var PersonalCardView = Backbone.View.extend({
             // var dogLicenseModeldefaults = new DogLicenseModel();
 
             var dogLicense = self.dogLicense;
-            if (self.dogLicense != null) {
+            if (self.dogLicense&&!self.dogLicense.code) {
                 console.log("完善房产111");
 
                 var residence = {
@@ -349,6 +354,7 @@ var PersonalCardView = Backbone.View.extend({
             } else {
                 console.log("办理狗证");
                 var dogL = {
+                    code:self.dogLicense.code,
                     husbandryNo: $('#barcode').val(),
                     dog: {
                         nickname: $('#dogname').val(),
@@ -393,11 +399,11 @@ var PersonalCardView = Backbone.View.extend({
                 dogLicense = $.parseJSON(JSON.stringify(dogL));
                 dogLicense.infoPreviewType = Const.infoPreviewType.AddDogLicense;
             }
+            console.log("-------------you code --------------")
             console.log(dogLicense);
             var InfoPreviewModal = require('../../../../Modals/InfoPreview/InfoPreview');
             InfoPreviewModal.show(dogLicense);
         });
-
 
         //图片上传成功后的通知
         Backbone.on(Const.NotificationUploadImageDone, function (obj) {
@@ -411,14 +417,14 @@ var PersonalCardView = Backbone.View.extend({
         OrganizationClient.show(
             //获取成功
             function (data) {
-                console.log("------------------");
                 console.log(data);
-
+                console.log("------------------组织成功");
             },
             //获取失败
             function (errorCode) {
                 //错误回调
-                console.log("cw-------------");
+                console.log(errorCode)
+                console.log("cw-------------组织失败");
                 var sb = new StringBuffer();
                 var doctor = errorCode.organization.veterinarians;
                 $.each(doctor, function (i, val) {
@@ -434,6 +440,7 @@ var PersonalCardView = Backbone.View.extend({
 
     //初始化事件
     initEvent: function () {
+        console.log("初始化事件------------")
         //条形码 失去焦点监听
         $("#barcode").blur(function () {
             var barcode = $('#barcode').val().trim();
@@ -777,6 +784,7 @@ var PersonalCardView = Backbone.View.extend({
 
     //设置默认值
     setValue: function () {
+        console.log("设置默认值------------")
         //条形码
         $('#barcode').val(self.dogLicense.husbandryNo);
         //犬主姓名
@@ -844,18 +852,25 @@ var PersonalCardView = Backbone.View.extend({
         //品种
         $('#breed').val(self.dogLicense.dog.breed);
 
-        //狗的图片
-        $(".uploadWrap").hide();
-        $("#imgs").append(" <img src=" + self.dogLicense.dog.photoUrl + " >");
+        //狗的图片  如果是预约数据回填 不必隐藏上传控件
+        if (!self.dogLicense.code) {
+            $(".uploadWrap").hide();
+            $("#imgs").append(" <img src=" + self.dogLicense.dog.photoUrl + " >");
+        }
 
 
         //生日
         $('#birth_date').val(self.dogLicense.dog.bornDate.substring(0, 10));
 
         //虹膜id
-        $('#iris').val(self.dogLicense.vaccineCard.info.irisID);
+        if (self.dogLicense.vaccineCard) {
+            $('#iris').val(self.dogLicense.vaccineCard.info.irisID);
+        }
 
         /********************疫苗登记******************/
+        if (!self.dogLicense.dog.vaccine) {
+            return
+        }
         var vaccine = self.dogLicense.dog.vaccine[0];
         //疫苗名称
         $('#vaccine_name').val(vaccine.name);
@@ -871,6 +886,7 @@ var PersonalCardView = Backbone.View.extend({
     },
 
     setHouseEvent: function () {
+        console.log("设置房产信息------------")
         /******************房产信息******************/
         //产权性质 焦点监听
         $("input[name='houseProperty']").click(function () {

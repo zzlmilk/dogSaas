@@ -11,6 +11,8 @@ var WebAPIMain = {
 					var self = this;
 					app.use(bodyParser.json());
 					app.use('/',express.static(__dirname + '/../../../public'));
+					app.use('/image',express.static(__dirname + '/../../../image'));
+
 
 
 					//测试

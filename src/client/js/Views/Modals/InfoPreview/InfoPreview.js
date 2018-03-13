@@ -228,12 +228,15 @@ var InfoPreview = {
                 self.DogLicenseModel,
                 //成功回调
                 function (data) {
-                    console.log(data.dogLicense[0]);
+                    // console.log("添加成功------- ------")
+                    // console.log(data)
+                    // console.log(data.dogLicense[0]);
                     self.hide();
                     var CardInfoView = require('../../Main/Dog/DogCard/CardInfo/CardInfoView.js');
                     var view = new CardInfoView({
                         'el': "#main-content",
-                        "dogLicense": data.dogLicense[0]
+                        "dogLicense": data.dogLicense,
+                        "qrCodeUrl":data.qrCodeUrl
                     });
 
                 },

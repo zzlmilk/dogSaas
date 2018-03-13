@@ -9,6 +9,7 @@ var DogLicenseModel = require('../Models/DogLicense');
 var DogModel = require('../Models/Dog');
 var VaccineModel = require('../Models/Vaccine');
 var OwnerModel = require('../Models/Owner');
+var ReserveUserModel=require('../Models/ReserveUser');
 var Conf = require("../lib/init");
 var fs=require("fs")
 
@@ -191,6 +192,7 @@ var DogLicenseLogic = {
 
 				var dogLicenseModel = DogLicenseModel.get();
 				var dogLicense = new dogLicenseModel({})
+				var code=param.code;
 
 				
 				
@@ -199,7 +201,24 @@ var DogLicenseLogic = {
 
 
 			  async.waterfall([
-			  	function(done){
+			  	function (done) {
+			  		if(Utils.isEmpty(code)){
+			  			done(null,res);
+                    }else{
+                        var reserveUserModel=ReserveUserModel.get();
+                        reserveUserModel.findOne({code:code},function (err,result) {
+                            result.type=-1;
+                            result.save(function (err,result) {
+                            	if(err){
+                            		throw err;
+								}
+								done(null,result)
+
+							})
+                        })
+                    }
+				},
+			  	function(result,done){
 			  		//验证条形码没有被使用
 			  		dogLicenseModel.findOne({"husbandryNo":param.husbandryNo},function(err,dogLicenseResult){
 			  				if (dogLicenseResult) {
@@ -487,10 +506,10 @@ var DogLicenseLogic = {
                           url:'https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token='+result.access_token,
                           body: JSON.stringify({
                               scene: res.dogLicense._id,
-                              path: "pages/index/index",
-                              width: 430
+                              page: "pages/my/my",
+                              width: 280
                           })
-                      }).pipe(fs.createWriteStream('../../public/img/' + res.dogLicense._id + '.png'));
+                      }).pipe(fs.createWriteStream('../../image/'+res.dogLicense._id+'.png'));
                            onSuccess(res);
                        }
 			  	],function(err,result){
@@ -541,7 +560,7 @@ var DogLicenseLogic = {
 						}
                     })
                 dogLicenseModel.find().populate("owner residence")
-                    .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate":1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err,dogLicenseResult) {
+                    .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCard.annual.updateDate": -1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err,dogLicenseResult) {
                     if (err) {
                         throw err;
 					} else {
@@ -559,7 +578,7 @@ var DogLicenseLogic = {
                     });
 
 					dogLicenseModel.find({owner: result}).populate("owner residence")
-                        .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
+                        .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCard.annual.updateDate": -1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw err;
 						} else {
@@ -595,7 +614,7 @@ var DogLicenseLogic = {
 							res.count=count;
 						}
                     });
-                    dogLicenseModel.find().populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
+                    dogLicenseModel.find().populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCard.annual.updateDate": -1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw err;
                         }
@@ -615,7 +634,7 @@ var DogLicenseLogic = {
 						}
                     });
                     dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo}]})
-                        .populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
+                        .populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCard.annual.updateDate": -1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw err;
                         }
