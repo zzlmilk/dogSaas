@@ -1,0 +1,239 @@
+<div class="modal fade" id="modal-profile">
+    <div class="modal-dialog" style="width:1000px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">快速登记</h4>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>*条形码:<span id="husbandryNo"></span></h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-body">
+
+                <div class="title">
+                    <h4>犬主登记</h4>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>*犬主姓名:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="ownerName"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>手机号码:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="ownerPhone"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>犬主座机:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="ownerTel"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>性别:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="ownerSex"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>*证件类型:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="ownerCertificateType"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>*证件号:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="ownerCertificateCode"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>*所属区县:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="ownerArea"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>*详细地址:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="ownerAddr"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>邮编:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="ownerCode"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="title top">
+                    <h4>犬只登记</h4>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>犬名:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="dogName"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>*性别:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="dogSex"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>*虹膜id:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="dogIrisId"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>*毛色:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="dogHairColor"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>用途:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="dogUsage"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle" style="position: relative">
+                            <img id="dogPhotoUrl"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>*品种:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="dogBreed"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>出生日期:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="dogBornDate"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="title top">
+                    <h4>免疫登记</h4>
+                </div>
+                <table class="immune_table" border="1" bordercolor="black" cellspacing="0" cellpadding="15"
+                       style="margin-bottom:20px;">
+                    <tr class="immune_tr" align="center" id="vaccineTitle">
+                        <td class="left_td">疫苗名称</td>
+                        <td class="left_td">疫苗批号</td>
+                        <td class="middle_td">生产厂商</td>
+                        <td class="middle_td">免疫点名称</td>
+                        <td class="right_td">操作人</td>
+                        <td class="right_td">免疫时间</td>
+                    </tr>
+                </table>
+
+                <div class="title top">
+                    <h4>户籍登记<span class="huji">(如需办理养犬登记证请填写如下内容)</span></h4>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>是否绝育:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="residenceIsSterilization"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>产权性质:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="residenceHouseProperty"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>*房产证号:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="residenceHouseNo"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="subtitle">
+                            <h4>*登记地址:</h4>
+                        </div>
+                        <div class="section">
+                            <span id="residenceAddress"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <button type="button" id="modal-btn-close" style="float: left;" class="btn btn-primary"
+                                data-dismiss="modal">取消
+                        </button>
+                        <button type="button" id="save_and_ccard" class="btn btn-primary">制卡</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /.modal -->

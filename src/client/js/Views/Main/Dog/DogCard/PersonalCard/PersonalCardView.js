@@ -12,7 +12,6 @@ var DogLicenseModel = require('../../../../../Models/DogLicense.js');
 // load template
 var template = require('./PersonalCard.hbs');
 
-var SelectPluginView = require("../../../../Parts/selectPlugin/SelectPluginView");
 var UploadView = require("../../../../Parts/Upload/UploadView");
 var UserClient = require("../../../../../lib/APIClients/UserClient.js");
 var CityJson = require('../../../../Parts/selectPlugin/CityJson.js');//地区数据 回填
@@ -35,10 +34,6 @@ var PersonalCardView = Backbone.View.extend({
         $(self.el).html(template({}));
 
 
-        //区域选择
-        new SelectPluginView({
-            el: "#orga_area"
-        });
         //上传图片控件
         new UploadView({
             el: "#imgs"
@@ -52,7 +47,7 @@ var PersonalCardView = Backbone.View.extend({
         $("#breed_null").after(sb.toString());
 
         $('.form_date').datetimepicker({
-            language: "zh-CN",
+            language: "en",
             weekStart: 1,
             todayBtn: 1,
             autoclose: 1,
@@ -106,12 +101,7 @@ var PersonalCardView = Backbone.View.extend({
          */
         var emptyValid = function () {
             falg = true;
-            //条形码
-            var barcode = $('#barcode').val();
-            if (barcode == "") {
-                falg = false;
-                $("#barcode_null_tip").show();
-            }
+
             //犬主姓名
             var dogowner_name = $('#dogowner_name').val();
             if (dogowner_name == "") {
@@ -236,32 +226,6 @@ var PersonalCardView = Backbone.View.extend({
                 $("#iris_null_tip").show();
             }
 
-            /********************疫苗登记******************/
-                //疫苗名称
-            var vaccine_name = $('#vaccine_name').val();
-            if (vaccine_name == "") {
-                falg = false;
-                $("#vaccine_name_null_tip").show();
-            }
-            //疫苗批号
-            var vaccine_batch = $('#vaccine_batch').val();
-            if (vaccine_batch == "") {
-                falg = false;
-                $("#vaccine_batch_null_tip").show();
-            }
-            //生产厂商
-            var manuf = $('#manuf').val();
-            if (manuf == "") {
-                falg = false;
-                $("#manuf_null_tip").show();
-            }
-            //兽医
-            var doctor_name = $('#doctor_name').val();
-            if (doctor_name == "") {
-                falg = false;
-                $("#doctor_name_null_tip").show();
-            }
-
             return falg;
         };
         /**
@@ -326,14 +290,6 @@ var PersonalCardView = Backbone.View.extend({
 
             //是否绝育
             var sterilization = $("input[name='isSterilization']:checked").val();
-            //房产证号
-            var house_area = $('#house_area').val().trim();
-            var house_year = $('#house_year').val().trim();
-            var house_number = $('#house_number').val().trim();
-            var houseId = "";
-            if (house_area != "" && house_year != "" && house_number != "") {
-                houseId = house_area + house_year + "年第" + house_number + "号"
-            }
 
             //赋值
             // var dogLicenseModeldefaults = new DogLicenseModel();
@@ -343,7 +299,7 @@ var PersonalCardView = Backbone.View.extend({
                 console.log("完善房产111");
 
                 var residence = {
-                    houseNo: houseId,
+                    houseNo: "1",
                     houseProperty: $("input[name='houseProperty']:checked").val(),
                     address: $('#reg_address').val(),
                     isSterilization: sterilization,
@@ -355,7 +311,7 @@ var PersonalCardView = Backbone.View.extend({
                 console.log("办理狗证");
                 var dogL = {
                     code:self.dogLicense.code,
-                    husbandryNo: $('#barcode').val(),
+                    husbandryNo: Math.floor( ( Math.random() * 999999) + 100000 ),//6位随机数
                     dog: {
                         nickname: $('#dogname').val(),
                         sex: $("input[name='dog_gender']:checked").val(),
@@ -366,11 +322,11 @@ var PersonalCardView = Backbone.View.extend({
                         irisID: $('#iris').val(),
                         photoUrl: $("#imgs img").attr("src"),
                         vaccine: [{
-                            name: $('#vaccine_name').val(),
-                            batchNo: $('#vaccine_batch').val(),
-                            manufacturer: $('#manuf').val(),
-                            veterinarianName: $('#doctor_name').val(),
-                            organizationName: $('#organizationName').val(),
+                            name: "1",//疫苗名称
+                            batchNo: "1",//疫苗批号
+                            manufacturer: "1",
+                            veterinarianName: "1",
+                            organizationName: "1",
                             created: new Date().toLocaleDateString().split("/").join("-")
                         }]
                     },
@@ -382,17 +338,17 @@ var PersonalCardView = Backbone.View.extend({
                         certificateType: $('#cardtype').val(),
                         certificateCode: $('#id_number').val(),
                         location: {
-                            province: $('#province').val(),
-                            district: $('#citys').val(),
-                            city: $('#county').val(),
+                            province: "310000",//默认上海
+                            district: "310100",
+                            city: "310104",
                             address: $('#address').val(),
                             code: $('#postcode').val(),
                         }
                     },
                     residence: {
-                        houseNo: houseId,
-                        houseProperty: $("input[name='houseProperty']:checked").val(),
-                        address: $('#reg_address').val(),
+                        houseNo: "1",
+                        houseProperty: "1",
+                        address:"1",
                         isSterilization: sterilization,
                     },
                 };
@@ -440,17 +396,6 @@ var PersonalCardView = Backbone.View.extend({
 
     //初始化事件
     initEvent: function () {
-        console.log("初始化事件------------")
-        //条形码 失去焦点监听
-        $("#barcode").blur(function () {
-            var barcode = $('#barcode').val().trim();
-            if (barcode == "") {
-                $("#barcode_null_tip").show();
-            } else {
-                $("#barcode_null_tip").hide();
-            }
-        });
-
         /**************************犬主登记****************************/
         //犬主姓名 失去焦点监听
         $("#dogowner_name").blur(function () {
@@ -658,25 +603,10 @@ var PersonalCardView = Backbone.View.extend({
         });
 
         /***********************疫苗登记***********************/
-        //疫苗名称 失去焦点监听
-        $("#vaccine_name").change(function () {
-            var vaccine_name = $('#vaccine_name').val().trim();
-            if (vaccine_name == "") {
-                $("#vaccine_name_null_tip").show();
-            } else {
-                $("#vaccine_name_null_tip").hide();
-            }
-        });
+
 
         //疫苗批号 失去焦点监听
-        $("#vaccine_batch").blur(function () {
-            var vaccine_batch = $('#vaccine_batch').val().trim();
-            if (vaccine_batch == "") {
-                $("#vaccine_batch_null_tip").show();
-            } else {
-                $("#vaccine_batch_null_tip").hide();
-            }
-        });
+
 
         //生产厂商 失去焦点监听
         $("#manuf").blur(function () {
@@ -785,8 +715,7 @@ var PersonalCardView = Backbone.View.extend({
     //设置默认值
     setValue: function () {
         console.log("设置默认值------------")
-        //条形码
-        $('#barcode').val(self.dogLicense.husbandryNo);
+
         //犬主姓名
         $('#dogowner_name').val(self.dogLicense.owner.name);
         //性别
@@ -867,68 +796,11 @@ var PersonalCardView = Backbone.View.extend({
             $('#iris').val(self.dogLicense.vaccineCard.info.irisID);
         }
 
-        /********************疫苗登记******************/
-        if (!self.dogLicense.dog.vaccine) {
-            return
-        }
-        var vaccine = self.dogLicense.dog.vaccine[0];
-        //疫苗名称
-        $('#vaccine_name').val(vaccine.name);
 
-        //疫苗批号
-        $('#vaccine_batch').val(vaccine.batchNo);
-
-        //生产厂商
-        $('#manuf').val(vaccine.manufacturer);
-
-        //兽医
-        $('#doctor_name').val(vaccine.veterinarianName);
     },
 
     setHouseEvent: function () {
-        console.log("设置房产信息------------")
-        /******************房产信息******************/
-        //产权性质 焦点监听
-        $("input[name='houseProperty']").click(function () {
-            var houseProperty = $("input[name='houseProperty']:checked").val();
-            if (houseProperty == undefined) {
-                $("#houseProperty_null_tip").show();
-            } else {
-                $("#houseProperty_null_tip").hide();
-            }
-        });
 
-        //房产证号
-        $("#house_area").change(function () {
-            var house_area = $('#house_area').val().trim();
-            var house_year = $('#house_year').val().trim();
-            var house_number = $('#house_number').val().trim();
-            if (house_area == "" || house_year == "" || house_number == "") {
-                $("#houseid_null_tip").show();
-            } else {
-                $("#houseid_null_tip").hide();
-            }
-        });
-        $("#house_year").blur(function () {
-            var house_area = $('#house_area').val().trim();
-            var house_year = $('#house_year').val().trim();
-            var house_number = $('#house_number').val().trim();
-            if (house_area == "" || house_year == "" || house_number == "") {
-                $("#houseid_null_tip").show();
-            } else {
-                $("#houseid_null_tip").hide();
-            }
-        });
-        $("#house_number").blur(function () {
-            var house_area = $('#house_area').val().trim();
-            var house_year = $('#house_year').val().trim();
-            var house_number = $('#house_number').val().trim();
-            if (house_area == "" || house_year == "" || house_number == "") {
-                $("#houseid_null_tip").show();
-            } else {
-                $("#houseid_null_tip").hide();
-            }
-        });
 
         //是否绝育
         $("input[name='isSterilization']").click(function () {
@@ -937,15 +809,6 @@ var PersonalCardView = Backbone.View.extend({
                 $("#isSterilization_null_tip").show();
             } else {
                 $("#isSterilization_null_tip").hide();
-            }
-        });
-
-        $("#reg_address").blur(function () {
-            var reg_address = $('#reg_address').val().trim();
-            if (reg_address == "") {
-                $("#reg_address_null_tip").show();
-            } else {
-                $("#reg_address_null_tip").hide();
             }
         });
 

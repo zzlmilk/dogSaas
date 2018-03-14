@@ -1,0 +1,306 @@
+<div class="print_card">
+
+    <div class="title_nav">
+        <h3>办理狗证/个人办证/打印磁卡</h3>
+    </div>
+
+    <div class="content">
+        <div class="title">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="subtitle">
+                        <h3>电子卡</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="subtitle">
+                        <h3>微信二维码</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card_front">
+                    <img src="img/card_front.png"/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card_behind">
+                    <img src="img/card_behind.png"/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="qrcode" >
+
+                    <img id="qrcode"  />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--免疫卡信息-->
+    <div class="content">
+        <div class="title">
+            <h3>免疫卡信息</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*养犬人姓名:</h4>
+                </div>
+                <div class="section">
+                    <span id="vaccineCardName"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>免疫证号:</h4>
+                </div>
+                <div class="section">
+                    <span id="vaccineCardNo"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>住址:</h4>
+                </div>
+                <div class="section">
+                    <span id="vaccineCardAddr"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>所属区县:</h4>
+                </div>
+                <div class="section">
+                    <span id="vaccineCardDistrict"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>犬品种:</h4>
+                </div>
+                <div class="section">
+                    <span id="vaccineCardBreed"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>毛色:</h4>
+                </div>
+                <div class="section">
+                    <span id="vaccineCardHairColor"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>免疫时间:</h4>
+                </div>
+                <div class="section" id="vaccineCardAnnualDate">
+                    <!--循环-->
+                    <span></span>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>虹膜标志:</h4>
+                </div>
+                <div class="section">
+                    <span id="vaccineCardIrisID"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4></h4>
+                </div>
+                <div class="section">
+                    <img src="img/iris.png"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>签发单位：</h4>
+                </div>
+                <div class="section">
+                    <span id="vaccineCardSignOrganization"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>初识发证日期：</h4>
+                </div>
+                <div class="section">
+                    <span id="vaccineCardCreateDate"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btnBlueE btn-block infoBtn" id="immune_print">打印磁卡</button>
+            </div>
+        </div>
+    </div>
+
+    <!--狗证信息 有-->
+    <div class="content" id="dogcard_info">
+        <div class="title">
+            <h3>狗证信息</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>养犬人姓名:</h4>
+                </div>
+                <div class="section">
+                    <span id="dogCardName"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>登记证号:</h4>
+                </div>
+                <div class="section">
+                    <span id="dogCardNo"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>住址:</h4>
+                </div>
+                <div class="section">
+                    <span id="dogCardAddr"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>所属区县:</h4>
+                </div>
+                <div class="section">
+                    <span id="dogCardDistrict"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>犬品种:</h4>
+                </div>
+                <div class="section">
+                    <span id="dogCardBreed"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>毛色:</h4>
+                </div>
+                <div class="section">
+                    <span id="dogCardHairColor"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>年审时间:</h4>
+                </div>
+                <div class="section">
+                    <span id="dogCardSignDate"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>虹膜标志:</h4>
+                </div>
+                <div class="section">
+                    <span id="dogCardIrisID"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <div class="codetip">
+                        <span>环线内</span>
+                        <span>已绝育</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <img src="img/iris.png"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>签发单位:</h4>
+                </div>
+                <div class="section">
+                    <span id="dogCardSignOrganization"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>初识发证日期:</h4>
+                </div>
+                <div class="section">
+                    <span id="dogCardCreate"></span>
+                </div>
+            </div>
+        </div>
+        <div class="title">
+            <h3>操作：取证方式</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="take">
+                    <input type="radio" name="way" value="1" id="wayTake"/>
+                    <label>自取</label>
+                </div>
+                <div id="mailing">
+                    <input type="radio" name="way" value="2" id="wayMailing"/>
+                    <label>邮寄房产证地址</label>
+                </div>
+                <p style="display:none;clear:left; padding-left:100px;" class="null_err" id="way_null_tip">*取证方式不能为空</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btnBlueE btn-block infoBtn" id="dogcard_save">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <!--完善房产-->
+    <div class="content" id="dogcard_no">
+        <div class="title">
+            <h3>狗证信息</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4" style="margin-top: 150px;margin-bottom: 150px;">
+                <button class="btn btnBlueE btn-block infoBtn" id="dogcard_to_house">未填写户籍信息，去填写</button>
+            </div>
+        </div>
+    </div>
+
+</div>
