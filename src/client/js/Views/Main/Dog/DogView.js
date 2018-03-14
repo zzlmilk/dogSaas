@@ -49,7 +49,7 @@ var DogView = Backbone.View.extend({
         $("#breed_null").after(sb.toString());
 
         $('.form_date').datetimepicker({
-            language: "zh-CN",
+            language: "en",
             weekStart: 1,
             todayBtn: 1,
             autoclose: 1,
