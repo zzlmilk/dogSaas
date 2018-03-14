@@ -11,7 +11,7 @@ describe('WEB API', function () {
         signin(function(token){
             var body = {
                     husbandryNo:global.getRandomStr(),
-                    dogLicenseId:"5a3a113141c6b55510d78bb3",
+                    dogLicenseId:"5aa8d8c751a59f633c1d048a",
                     vaccine:{
                         name:"haha",
                         batchNo:"1234",
@@ -47,6 +47,33 @@ describe('WEB API', function () {
 
 
     });
+    it('should be annual dogCard successful', function (done) {
+        signin(function (token) {
+            var body = {
+                dogLicenseId: "5aa8d8c751a59f633c1d048a"
+            };
+
+            request(app)
+                .post('/dogsystem/v1/dogCard/annual')
+                .set('Access-Token', token)
+                .send(body)
+                .end(function (err, res) {
+
+                    if (err) {
+                        throw err;
+                    }
+
+                    console.log(res.body.data);
+                    res.body.should.have.property('code');
+                    res.body.code.should.equal(Const.responsecodeSucceed);
+
+                    done();
+
+                });
 
 
-});
+        })
+    })
+
+
+    });

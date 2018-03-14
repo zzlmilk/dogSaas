@@ -41,6 +41,8 @@ var AddDogLicenseHandler = function(){
  * @apiParam (owner) {String} sex 性别   1男 2女
  * @apiParam (owner) {String} tel 座机
  * @apiParam (owner) {String} phone 手机号码
+ * @apiParam (owner) {String} phone2 备用手机号
+ * @apiParam (owner) {String} email 邮箱
  * @apiParam (owner) {String} certificateType 证件类型  1身份证 2护照
  * @apiParam (owner) {String} certificateCode 证件号
  * @apiParam (owner) {String} province 省
@@ -93,6 +95,8 @@ var AddDogLicenseHandler = function(){
             sex:"1",
             tel:"345033",
             phone:"15901794453",
+            phone2:"18375326913",
+            email:"2420933734@qq.com"
             certificateType:"1",
             certificateCode:"31010211111111",
         location：{

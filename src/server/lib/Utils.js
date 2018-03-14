@@ -20,6 +20,7 @@ var Const = require("../lib/consts");
 
      Utils.prototype.dogCardNo = dogCardNo;
      Utils.prototype.annualDate = annualDate;
+     Utils.prototype.annualDate1=annualDate1;
 
 
      Utils.prototype.pickUser = pickUser;
@@ -37,7 +38,7 @@ var Const = require("../lib/consts");
 
             return;
         }else{
-          
+
           var m = moment().month() //Accepts numbers from 0 to 11
           var y =moment().year().toString()
 
@@ -49,6 +50,21 @@ var Const = require("../lib/consts");
 
         return annualDate
           
+        }
+
+    }
+    function annualDate1(annualDate){
+        if(!_.isArray(annualDate)){
+
+            return;
+        }else{
+            var d =moment().date();
+            var m = moment().month();//Accepts numbers from 0 to 11
+            var y =moment().year().toString();
+            var string = y+"-"+(m+1)+"-"+d;
+            annualDate.push(string)
+            return annualDate
+
         }
 
     }

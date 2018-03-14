@@ -134,10 +134,10 @@ var DogLicenseLogic = {
 											  		breed:res.dog.breed,
 											  		hairColor:res.dog.hairColor,
 											  		loopLineType:1, //默认写死
-											        annualDate:Utils.annualDate([]),
-											  		signOrganization:res.organization.name +"公安",
+											        annualDate:Utils.annualDate1([]),
+											  		signOrganization:res.organization.name,
 											  		signCreate:Utils.now(),
-											  		vaccineCreate:Utils.now(),
+											  		vaccineCreate:Utils.now()
 
 												 }
 
@@ -335,7 +335,8 @@ var DogLicenseLogic = {
 			  				  bornDate:dogParam.bornDate,
 			  				  photoUrl:dogParam.photoUrl,
 			  				  irisID:dogParam.irisID,
-			  				  vaccine:res.vaccines
+							  vaccine:res.vaccines
+
 			  			})
 
 			  			dog.save(function(err,dogResult){
@@ -376,6 +377,8 @@ var DogLicenseLogic = {
 							  					name:ownerParam.name,
 							  					sex:ownerParam.sex,
 							  					phone:ownerParam.phone,
+										        phone2:ownerParam.phone2,
+										        email:ownerParam.email,
 							  					tel:ownerParam.tel,							  					
 							  					certificateType:ownerParam.certificateType,
 							  					certificateCode:ownerParam.certificateCode,							  					
@@ -393,7 +396,7 @@ var DogLicenseLogic = {
 							  		owner.save(function(err,ownerResult){							  			
 							  			if (err) { throw err; return;}
 							  				dogLicense.owner = ownerResult._id;
-							  				res.owner = ownerResult
+							  				res.owner = ownerResult;
 							  				done(null,dogLicense)
 							  		})
 
@@ -426,7 +429,7 @@ var DogLicenseLogic = {
 												  		annualDate:Utils.annualDate([]),
 												  		signOrganization:res.organization.name,
 												  		signCreate:Utils.now(),
-												  		vaccineCreate:Utils.now(),
+												  		vaccineCreate:Utils.now()
 
 												  	}
 
@@ -451,8 +454,8 @@ var DogLicenseLogic = {
 											  		breed:res.dog.breed,
 											  		hairColor:res.dog.hairColor,
 											  		loopLineType:1, //默认写死
-											  		annualDate:Utils.annualDate([]),
-											  		signOrganization:res.organization.name +"公安",
+											  		annualDate:Utils.annualDate1([]),
+											  		signOrganization:res.organization.name,
 											  		signCreate:Utils.now(),
 											  		vaccineCreate:Utils.now(),
 
@@ -596,6 +599,7 @@ var DogLicenseLogic = {
     find_by_dog: function (param, onSuccess, onError) {
         var irisID = param.irisID;
 		var vaccineCardNo=param.vaccineCardNo;
+		var dogCardNo=param.dogCardNo;
 		var page=param.page||1;
 		var res={};
         var dogLicenseModel = DogLicenseModel.get();
@@ -606,7 +610,7 @@ var DogLicenseLogic = {
 
 		async.waterfall([
 			function (done) {
-                if (Utils.isEmpty(irisID) && Utils.isEmpty(vaccineCardNo)) {
+                if (Utils.isEmpty(irisID) && Utils.isEmpty(vaccineCardNo)&&Utils.isEmpty(dogCardNo)) {
                     dogLicenseModel.count().exec(function(err,count){
                         if(err){
                             throw err
@@ -626,14 +630,14 @@ var DogLicenseLogic = {
                     })
 
                 } else {
-                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo}]}).count().exec(function(err,count){
+                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo},{"DogCard.info.cardNo":dogCardNo}]}).count().exec(function(err,count){
                         if(err){
                             throw err
                         }else{
                             res.count=count;
 						}
                     });
-                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo}]})
+                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo},{"DogCard.info.cardNo":dogCardNo}]})
                         .populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCard.annual.updateDate": -1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw err;
@@ -671,6 +675,7 @@ var DogLicenseLogic = {
 			}
 		})
 	},
+
 	editVaccine:function (param,onSuccess,onError) {//免疫年检，更新免疫信息
         var vaccineParam = param.vaccine;
         var dogLicense = param.dogLicense;
@@ -763,6 +768,38 @@ var DogLicenseLogic = {
             
         })
 	},
+    editDogCard:function (param,onSuccess,onError) {//免疫年检，更新免疫信息
+		var dogLicense = param.dogLicense;
+		async.waterfall([
+			  function (done) {
+			    dogLicense.DogCard.annual.updateDate=Utils.now();
+                var annualDate=dogLicense.DogCard.info.annualDate;
+                dogLicense.DogCard.info.annualDate=Utils.annualDate1(annualDate);
+                dogLicense.save(function (err, res) {
+                    if (err) {
+                        throw err
+                    } else {
+                        done(null, res);
+
+                    }
+                })
+
+            },function (result,done) {
+                var dogLicenseModel = DogLicenseModel.get();
+                dogLicenseModel.findOne({"_id":result},function (err,res) {
+                    if (err) {
+                        throw err;
+
+                    } else {
+                        onSuccess(res)
+
+                    }
+                })
+            }
+        ],function (err,result) {
+
+        })
+    },
 	validatorParam:function(param,callback){
 			//条形码
 			if(Utils.isEmpty(param.husbandryNo)){
