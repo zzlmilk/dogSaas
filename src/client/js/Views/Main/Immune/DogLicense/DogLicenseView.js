@@ -187,7 +187,6 @@ var DogLicenseView = Backbone.View.extend({
                                 "<td align='center' valign='middle'>" + val.owner.certificateCode + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.nickname + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.breed + "</td>" +
-                                "<td align='center' valign='middle'>" + val.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
                                 "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">年审</a></td>" +
                                 "</tr>");
                         });
@@ -198,12 +197,39 @@ var DogLicenseView = Backbone.View.extend({
                             // console.log(d);
                             // var InfoPreviewModal = require('../../../Modals/InfoPreview/InfoPreview');
                             // InfoPreviewModal.show(d);
-                            var ImmuneDetailView = require('../ImmuneDetail/ImmuneDetailView.js');
+                            //年检
+                            // var ImmuneDetailView = require('../ImmuneDetail/ImmuneDetailView.js');
+                            // var dogLicense = dogLicenses[$(this).attr("value")];
+                            // var view = new ImmuneDetailView({
+                            //     'el': "#main-content",
+                            //     'dogLicense': dogLicense
+                            // });
                             var dogLicense = dogLicenses[$(this).attr("value")];
-                            var view = new ImmuneDetailView({
-                                'el': "#main-content",
-                                'dogLicense': dogLicense
-                            });
+                            var id=dogLicense._id
+                            DogLicenseClient.annual({
+                                    dogLicenseId:id
+                                },
+                                //成功回调
+                                function (data) {
+                                    console.log("年审成功");
+                                    console.log(data);
+                                    //跳转到制卡
+                                    var CardInfoView = require('../../Dog/DogCard/CardInfo/CardInfoView.js');
+                                    var view = new CardInfoView({
+                                        'el': "#main-content",
+                                        "dogLicense": data.dogLicense
+                                    });
+
+                                },
+                                //失败回调
+                                function (errorCode) {
+                                    console.log(errorCode);
+                                    if (Const.ErrorCodes[errorCode]) {
+                                        var message = Const.ErrorCodes[errorCode]
+                                        alert(message)
+                                    }
+
+                                });
                         });
 
                         //循环遍历

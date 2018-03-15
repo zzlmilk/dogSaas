@@ -83,6 +83,16 @@ var _ = require('lodash');
         this.postRequst("/vaccine/add", data, success, err);
     };
 
+    /**
+     * 狗证年审
+     * @param data
+     * @param success
+     * @param err
+     */
+    DogLicenseClient.prototype.annual = function (data, success, err) {
+        this.postRequst("/dogCard/annual", data, success, err);
+    };
+
     // returns instance
     module["exports"] = new DogLicenseClient();
 

@@ -202,8 +202,7 @@ var DogOwnerView = Backbone.View.extend({
                                     "<td align='center' valign='middle'>" + val.dog.nickname + "</td>" +
                                     "<td align='center' valign='middle'>" + val.dog.breed + "</td>" +
                                     "<td align='center' valign='middle'>" + val.dog.hairColor + "</td>" +
-                                    "<td align='center' valign='middle'>" + val.vaccineCard.info.cardNo + "</td>" +
-                                    "<td align='center' valign='middle'>" + val.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
+                                    "<td align='center' valign='middle'>" + val.DogCard.info.cardNo + "</td>" +
                                     "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">详情</a></td>" +
                                     "</tr>");
                             });

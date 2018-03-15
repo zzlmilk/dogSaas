@@ -59,17 +59,6 @@ var SidebarView = Backbone.View.extend({
 
 
 
-
-
-
-        //办理狗证
-        $('#btn_dogCard').unbind().on('click', function (event) {
-            event.stopPropagation();
-            var PersonalCardView = require('../Dog/DogCard/PersonalCard/PersonalCardView');
-            var view = new PersonalCardView({
-                'el': "#main-content"
-            });
-        });
         //办理狗证-->个人办证
         $('#btn_persons').unbind().on('click', function (event) {
             event.stopPropagation();
@@ -79,14 +68,7 @@ var SidebarView = Backbone.View.extend({
             });
 
         });
-        //办理狗证-->企业办证
-        $('#btn_businesss').unbind().on('click', function (event) {
-            event.stopPropagation();
-            var BusinessCardView = require('../Dog/DogCard/BusinessCard/BusinessCardView');
-            var view = new BusinessCardView({
-                'el': "#main-content"
-            });
-        });
+
 
         //信息查询
         $('#btn_infoSearch').unbind().on('click', function (event) {
@@ -116,29 +98,29 @@ var SidebarView = Backbone.View.extend({
         //年检
         $('#btn_immune').unbind().on('click', function (event) {
             event.stopPropagation();
-            var ImmuneListView = require('../Immune/ImmuneList/ImmuneListView');
+            var ImmuneListView = require('../Immune/DogLicense/DogLicenseView');
             var view = new ImmuneListView({
                 'el': "#main-content"
             });
         });
-        //年检-->免疫年检
-        $('#btn_check').unbind().on('click', function (event) {
-            event.stopPropagation();
-            var ImmuneListView = require('../Immune/ImmuneList/ImmuneListView');
-            var view = new ImmuneListView({
-                'el': "#main-content"
-            });
-        });
-        //年检-->狗证年检
-        $('#btn_dogcard').unbind().on('click', function (event) {
-            console.log("狗证年检");
-            event.stopPropagation();
-            var DogLicenseView = require('../Immune/DogLicense/DogLicenseView');
-            var view = new DogLicenseView({
-                'el': "#main-content"
-            });
-
-        });
+        // //年检-->免疫年检
+        // $('#btn_check').unbind().on('click', function (event) {
+        //     event.stopPropagation();
+        //     var ImmuneListView = require('../Immune/ImmuneList/ImmuneListView');
+        //     var view = new ImmuneListView({
+        //         'el': "#main-content"
+        //     });
+        // });
+        // //年检-->狗证年检
+        // $('#btn_dogcard').unbind().on('click', function (event) {
+        //     console.log("狗证年检");
+        //     event.stopPropagation();
+        //     var DogLicenseView = require('../Immune/DogLicense/DogLicenseView');
+        //     var view = new DogLicenseView({
+        //         'el': "#main-content"
+        //     });
+        //
+        // });
 
         //制卡信息
         $('#btn_cardInfo').unbind().on('click', function (event) {
