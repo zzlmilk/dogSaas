@@ -1,24 +1,23 @@
 var Backbone = require('backbone');
 var _ = require('lodash');
 
-var Utils = require('../../lib/utils');
-var Const = require('../../lib/consts');
-var Config = require('../../lib/init');
+var Utils = require('../../../lib/utils');
+var Const = require('../../../lib/consts');
+var Config = require('../../../lib/init');
 
 // load template
 var template = require('./Footer.hbs');
 
 var FooterView = Backbone.View.extend({
-
-    initialize: function(options) {
+    el: null,
+    initialize: function (options) {
+        this.el = options.el;
         this.render();
     },
 
-    render: function() {
+    render: function () {
 
-        $(Config.defaultContaier).html(template({
-
-        }));
+        $(this.el).html(template());
 
         this.onLoad();
 

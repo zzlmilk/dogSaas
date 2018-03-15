@@ -31,17 +31,17 @@ var HomePageView = Backbone.View.extend({
         var self = this;
 
         var NavView = require('../Nav/NavView.js');
-        var view = new NavView({
+        var NavView = new NavView({
             'el': "#header-content"
         });
 
         var HomeMainView = require('../HomeMain/HomeMainView.js');
-        var view = new HomeMainView({
+        var HomeMainView = new HomeMainView({
             'el': "#main-content"
         });
 
         var FooterView = require('../Footer/FooterView.js');
-        var view = new FooterView({
+        var FooterView = new FooterView({
             'el': "#footer-content"
         });
     }
