@@ -36,6 +36,8 @@ var InfoPreview = {
             $("#husbandryNo").html(self.DogLicenseModel.husbandryNo);
             $("#ownerName").html(self.DogLicenseModel.owner.name);
             $("#ownerPhone").html(self.DogLicenseModel.owner.phone);
+            $("#ownerPhone2").html(self.DogLicenseModel.owner.phone2);
+            $("#email").html(self.DogLicenseModel.owner.email);
             $("#ownerTel").html(self.DogLicenseModel.owner.tel);
             $("#ownerSex").html(self.DogLicenseModel.owner.sex == 1 ? "男" : "女");
             $("#ownerCertificateType").html(self.DogLicenseModel.owner.certificateType == 1 ? "身份证" : "护照");
@@ -223,6 +225,7 @@ var InfoPreview = {
         //办理狗证
         function addDogLicense() {
             console.log("办理狗证");
+            console.log(self.DogLicenseModel);
             DogLicenseClient.add(
                 //狗证信息
                 self.DogLicenseModel,

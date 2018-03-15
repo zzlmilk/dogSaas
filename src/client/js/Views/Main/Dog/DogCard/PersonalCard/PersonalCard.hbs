@@ -1,6 +1,6 @@
 <div class="personal_card">
     <div class="title">
-        <h3>办理狗证/个人办证</h3>
+        <h3>办理狗证</h3>
     </div>
 
     <div class="registration" id="dogLicense_owner_div">
@@ -9,12 +9,23 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="subtitle">
-                    <h4>*犬主姓名:</h4>
+                <div class="col-md-3">
+                    <div class="subtitle">
+                        <h4>*犬主姓:</h4>
+                    </div>
+                    <div class="section">
+                        <input class="form-control" type="text" id="dogowner_name1">
+                        <p style="display: none;" class="null_err" id="dogowner_name1_null_tip">*请输入犬主姓</p>
+                    </div>
                 </div>
-                <div class="section">
-                    <input class="form-control" type="text" id="dogowner_name">
-                    <p style="display: none;" class="null_err" id="dogowner_name_null_tip">*请输入犬主姓名</p>
+                <div class="col-md-3">
+                    <div class="subtitle">
+                        <h4>*犬主名:</h4>
+                    </div>
+                    <div class="section">
+                        <input class="form-control" type="text" id="dogowner_name2">
+                        <p style="display: none;" class="null_err" id="dogowner_name2_null_tip">*请输入犬主名</p>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -39,10 +50,8 @@
                     <h4>*手机号码:</h4>
                 </div>
                 <div class="section">
-                    <input class="form-control" type="text" id="phone"
-                           oninput="if(value.length>11)value=value.slice(0,11)">
+                    <input class="form-control" type="text" id="phone" >
                     <p style="display: none;" class="null_err" id="phone_null_tip">*手机号码不能为空</p>
-                    <p style="display: none;" class="null_err" id="phone_format_tip">*手机号码格式有误</p>
                 </div>
             </div>
             <div class="col-md-6">
@@ -50,12 +59,7 @@
                     <h4>犬主座机:</h4>
                 </div>
                 <div class="section">
-                    <select>
-                        <option id="area_code">021</option>
-                    </select>
-                    <div class="connect">--</div>
-                    <input class="form-control" type="text" id="tel"
-                           oninput="if(value.length>10)value=value.slice(0,10)">
+                    <input class="form-control" type="text" id="tel" >
                     <p style="display: none;" class="null_err" id="tel_null_tip">*座机不能为空</p>
                 </div>
             </div>
@@ -82,22 +86,13 @@
                         <option value="2">护照</option>
                     </select>
                     <div class="connect">--</div>
-                    <input class="form-control" type="text" id="id_number"
-                           oninput="if(value.length>18)value=value.slice(0,18)">
+                    <input class="form-control" type="text" id="id_number" >
                     <p style="display: none;" class="null_err" id="id_number_null_tip">*证件号不能为空</p>
-                    <p style="display: none;" class="null_err" id="id_number_format_tip">*证件号格式有误</p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <div class="subtitle">
-                    <h4>*所属区县:</h4>
-                </div>
-                <div class="section">
-                    <div id="orga_area"></div>
-                </div>
-            </div>
+
             <div class="col-md-6">
                 <div class="subtitle">
                     <h4>*详细地址:</h4>
@@ -106,6 +101,31 @@
                     <input class="form-control" type="text" id="address">
                     <p style="display: none;" class="null_err" id="address_null_tip">*详细地址不能为空</p>
                 </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*邮箱:</h4>
+                </div>
+                <div class="section">
+                    <input class="form-control" type="text" id="email">
+                    <p style="display: none;" class="null_err" id="email_null_tip">*邮箱不能为空</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="subtitle">
+                    <h4>*手机号码2:</h4>
+                </div>
+                <div class="section">
+                    <input class="form-control" type="text" id="phone2" >
+                    <p style="display: none;" class="null_err" id="phone2_null_tip">*手机号码2不能为空</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+
             </div>
         </div>
 

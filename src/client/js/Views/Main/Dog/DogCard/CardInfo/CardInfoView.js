@@ -50,132 +50,18 @@ var CardInfoView = Backbone.View.extend({
 
     onLoad: function () {
 
-        var createCode = self.dogLicense.DogCard.isCreate;
-        var dogCardInfo = $("#dogcard_info");
-        var dogCardNo = $("#dogcard_no");
-
-        // new QRCode(document.getElementById("qrcode"), self.dogLicense._id);
-
-        // console.log(self.qrCodeUrl)
-        // if(self.qrCodeUrl){
-        //     console.log("-------------------------有二维码")
-        //     console.log(self.qrCodeUrl)
-        //     // $('#qrcode').attr('src', self.qrCodeUrl);
-        //     // $("#qrcode").attr("src","image/1/gif");
-        //     // document.getElementById('qrcode').src=self.qrCodeUrl;
-        //
-        // }
-        setTimeout(function () {
-          var qrCodeUrl= Config.hostName+"/image/"+self.dogLicense._id+".png"
-            console.log(qrCodeUrl)
-            $('#qrcode').attr('src', qrCodeUrl);
-        },500)
-        //判断是否可以制狗证
-        if (createCode == 0) {
-            //不可以办理狗证
-            dogCardInfo.hide();
-            dogCardNo.show();
-        } else if (createCode == 1) {
-            //可以办理狗证
-            dogCardInfo.show();
-            dogCardNo.hide();
-            self.setDogCardValue();
-        }
-
-        self.setImmuneValue();
-
-        /****************免疫卡**********************/
-        //打印免疫卡
-        $('#immune_print').unbind().on('click', function () {
-            alert("打印免疫卡");
-        });
-
-        //免疫卡年审
-        $('#immune_check').unbind().on('click', function () {
-            alert("免疫卡年审");
-        });
+       self.setDogCardValue();
 
         /****************狗证**********************/
         //狗证取件方式
-        $('#dogcard_save').unbind().on('click', function () {
-            //取件方式
-            var way = $("input[name='way']:checked").val();
-            if (way == undefined) {
-                $("#way_null_tip").show();
-                return;
-            } else {
-                $("#way_null_tip").hide();
-            }
-            var wayIndex = 1;
-            if (way == "") {
-
-            }
-
-            var takeWay = {
-                dogLicenseId: self.dogLicense._id,
-                takeWay: way
-            }
-            DogLicenseClient.takeWay(
-                takeWay,
-                //成功回调
-                function (data) {
-                    $('#dogcard_save').attr("disabled", true);
-                    $('#dogcard_save').prop("disabled", true);
-                    $("input[name='way']").attr("disabled", true);
-                    $("input[name='way']").prop("disabled", true);
-                    alert("提交成功");
-                },
-                //失败回调
-                function (errorCode) {
-                    console.log(errorCode);
-                    if (Const.ErrorCodes[errorCode]) {
-                        var message = Const.ErrorCodes[errorCode]
-                        alert(message)
-                    }
-
-                });
+        $('#dogcard_print').unbind().on('click', function () {
+            alert("打印狗证磁卡");
         });
 
-        //狗证年审
-        $('#dogcard_check').unbind().on('click', function () {
-            alert("狗证年审");
-        });
 
-        /******************无房产信息*********************/
-        //完善房产信息
-        $('#dogcard_to_house').unbind().on('click', function () {
-            //查询数据 并回填 不可编辑状态  房产信息必填
-            var PersonalCardView = require('../PersonalCard/PersonalCardView');
-            new PersonalCardView({
-                'el': "#main-content",
-                "dogLicense": self.dogLicense
-            });
-        });
 
     },
 
-    //设置免疫卡数据
-    setImmuneValue: function () {
-        console.log("设置免疫卡数据");
-
-
-        $("#vaccineCardName").html(self.dogLicense.vaccineCard.info.name);
-        $("#vaccineCardNo").html(self.dogLicense.vaccineCard.info.cardNo);
-
-        $("#vaccineCardAddr").html(self.dogLicense.vaccineCard.info.addresses);
-        $("#vaccineCardDistrict").html(self.dogLicense.vaccineCard.info.district);
-
-        $("#vaccineCardBreed").html(self.dogLicense.vaccineCard.info.breed);
-        $("#vaccineCardHairColor").html(self.dogLicense.vaccineCard.info.hairColor);
-        //免疫时间 （循环）
-        $.each(self.dogLicense.vaccineCard.info.annualDate, function (i, val) {
-            $("#vaccineCardAnnualDate").append("<span>" + val + "&nbsp; </span>");
-        });
-        $("#vaccineCardIrisID").html(self.dogLicense.vaccineCard.info.irisID);
-
-        $("#vaccineCardSignOrganization").html(self.dogLicense.vaccineCard.info.signOrganization);
-        $("#vaccineCardCreateDate").html(self.dogLicense.vaccineCard.info.vaccineCreate.substring(0, 10));
-    },
     //设置狗证数据
     setDogCardValue: function () {
         console.log("设置狗证数据------");
@@ -188,7 +74,12 @@ var CardInfoView = Backbone.View.extend({
         $("#dogCardBreed").html(self.dogLicense.DogCard.info.breed);
         $("#dogCardHairColor").html(self.dogLicense.DogCard.info.hairColor);
 
-        $("#dogCardSignDate").html(self.dogLicense.DogCard.info.signCreate.substring(0, 10));
+        var date=""
+        var annualDate=self.dogLicense.DogCard.info.annualDate
+        for(var i in annualDate){
+            date +=annualDate[i]+" "
+        }
+        $("#dogCardSignDate").html(date);
         $("#dogCardIrisID").html(self.dogLicense.DogCard.info.irisID);
 
         $("#dogCardSignOrganization").html(self.dogLicense.DogCard.info.signOrganization);

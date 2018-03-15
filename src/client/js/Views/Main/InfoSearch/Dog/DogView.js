@@ -46,7 +46,7 @@ var DogView = Backbone.View.extend({
             };
         } else {
             requestData = {
-                vaccineCardNo: $("#whereValue").val().trim(),
+                dogCardNo: $("#whereValue").val().trim(),
                 page: currentPage
             };
         }
@@ -78,7 +78,7 @@ var DogView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    vaccineCardNo: $("#whereValue").val().trim(),
+                    dogCardNo: $("#whereValue").val().trim(),
                     page: 1
                 };
             }
@@ -97,7 +97,7 @@ var DogView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    vaccineCardNo: $("#whereValue").val().trim(),
+                    dogCardNo: $("#whereValue").val().trim(),
                     page: 1
                 };
             }
@@ -116,7 +116,7 @@ var DogView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    vaccineCardNo: $("#whereValue").val().trim(),
+                    dogCardNo: $("#whereValue").val().trim(),
                     page: totalPage
                 };
             }
@@ -136,7 +136,7 @@ var DogView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    vaccineCardNo: $("#whereValue").val().trim(),
+                    dogCardNo: $("#whereValue").val().trim(),
                     page: currentPage - 1
                 };
             }
@@ -155,7 +155,7 @@ var DogView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    vaccineCardNo: $("#whereValue").val().trim(),
+                    dogCardNo: $("#whereValue").val().trim(),
                     page: currentPage + 1
                 };
             }
@@ -191,13 +191,12 @@ var DogView = Backbone.View.extend({
                         var sb = new StringBuffer();
                         $.each(dogLicenses, function (i, val) {
                             sb.append("<tr class='dogtr'>" +
-                                "<td align='center' valign='middle'>" + val.vaccineCard.info.irisID + "</td>" +
-                                "<td align='center' valign='middle'>" + val.vaccineCard.info.cardNo + "</td>" +
+                                "<td align='center' valign='middle'>" + val.dog.irisID + "</td>" +
+                                "<td align='center' valign='middle'>" + val.DogCard.info.cardNo + "</td>" +
                                 "<td align='center' valign='middle'>" + val.owner.phone + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.nickname + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.breed + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.hairColor + "</td>" +
-                                "<td align='center' valign='middle'>" + val.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
                                 "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">详情</a></td>" +
                                 "</tr>");
                         });
@@ -233,7 +232,7 @@ var DogView = Backbone.View.extend({
                                 };
                             } else {
                                 requestData = {
-                                    vaccineCardNo: $("#whereValue").val().trim(),
+                                    dogCardNo: $("#whereValue").val().trim(),
                                     page: i
                                 };
                             }

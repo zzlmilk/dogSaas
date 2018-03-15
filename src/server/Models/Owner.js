@@ -21,6 +21,8 @@ OwnerModel.prototype.init = function(mongoose){
 			name: String, //主人名字		
 			sex:String, //性别   1男 2女
 			phone:String,
+		    phone2:String,//备用电话
+		    email:String,//邮箱
 			tel:String,
 			//证件
 			certificateType:String,//证件类型  1身份证 2护照:{			

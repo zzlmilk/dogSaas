@@ -10,8 +10,7 @@ describe('WEB API', function () {
 	 it('should be add dog sucessful', function (done) {
 	 		 signin(function(token){
 	 		 		var body = {
-	 		 		        code:"262119",
-                            husbandryNo:global.getRandomStr(),
+	 		 		        husbandryNo:global.getRandomStr(),
                             dog:{
                                 nickname: "test_" + global.getRandomStr(),
                                 sex:"2",
@@ -36,6 +35,8 @@ describe('WEB API', function () {
                                 sex:"1",
                                 tel:"345033",
                                 phone:"15901794453",
+                                phone2:"18375326911",
+                                email:"2420933732@qq.com",
                                 certificateType:"1",
                                 certificateCode:"31010222222222",
                             location: {
