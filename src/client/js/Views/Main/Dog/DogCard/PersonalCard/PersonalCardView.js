@@ -248,7 +248,7 @@ var PersonalCardView = Backbone.View.extend({
                 residence: {
                     houseNo: "1",
                     houseProperty: "1",
-                    address: "1",
+                    address: new Date().getTime(),
                     isSterilization: sterilization,
                 },
             };
