@@ -21,17 +21,7 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="subtitle">
-                    <h4>联系地址：</h4>
-                </div>
-                <!-- 提示错误需要在 section 上加 .error 并添加 div.tree_tip-->
-                <div class="section">
-                    <div id="orga_area">
-                    </div>
 
-                </div>
-            </div>
 
             <div class="row">
                 <div class="subtitle">
@@ -49,17 +39,9 @@
                     <h4>座机：</h4>
                 </div>
                 <div class="section">
-                    <div class="chose_phone">
-                        <select>
-                            <option>021</option>
-                        </select>
-                    </div>
-                    <div class="connet">
-                        —
-                    </div>
                     <div class="phone_number">
                         <input required="" errmsg="" value="" id="tel" type="text" style=" padding: 5px 0;height:40px;line-height: 20px"
-                               oninput="if(value.length>7)value=value.slice(0,7)" class="form-control"
+                               class="form-control"
                                placeholder="座机">
                     </div>
                     <p class="detail_address" style="font-size:12px ; display: none;color:#ff0000" class="null_err"
@@ -150,12 +132,22 @@
 
             <div class="row">
                 <div class="subtitle">
-                    <h4>*联系人：</h4>
+                    <h4>*First Name：</h4>
                 </div>
                 <div class="section">
-                    <input required="" errmsg="" value="" id="contacts" type="text" class="form-control"
-                           placeholder="联系人">
-                    <p style="display: none;" class="null_err" id="contacts_null_tip">*联系人不能为空</p>
+                    <input required="" errmsg="" value="" id="contacts1" type="text" class="form-control"
+                           placeholder="联系人姓">
+                    <p style="display: none;" class="null_err" id="contacts1_null_tip">*联系人姓不能为空</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="subtitle">
+                    <h4>*Last Name：</h4>
+                </div>
+                <div class="section">
+                    <input required="" errmsg="" value="" id="contacts2" type="text" class="form-control"
+                           placeholder="联系人名">
+                    <p style="display: none;" class="null_err" id="contacts2_null_tip">*联系人名不能为空</p>
                 </div>
             </div>
 
@@ -164,11 +156,9 @@
                     <h4>*联系人电话：</h4>
                 </div>
                 <div class="section">
-                    <input required="" errmsg="" value="" id="contacts_phone" type="text" maxlength="11"
-                           oninput="if(value.length>11)value=value.slice(0,11)" class="form-control"
+                    <input required="" errmsg="" value="" id="contacts_phone" type="text" class="form-control"
                            placeholder="联系人电话">
                     <p style="display: none;" class="null_err" id="contacts_phone_null_tip">*联系人电话不能为空</p>
-                    <p style="display: none;" class="null_err" id="contacts_phone_format_tip">*联系人电话格式有误</p>
                 </div>
             </div>
 

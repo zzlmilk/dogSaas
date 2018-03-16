@@ -12,7 +12,6 @@ var DogLicenseModel = require('../../../Models/DogLicense.js');
 // load template
 var template = require('./DogList.hbs');
 
-var SelectPluginView = require("../../Parts/selectPlugin/SelectPluginView");
 var UploadView = require("../../Parts/Upload/UploadView");
 var UserClient = require("../../../lib/APIClients/UserClient.js");
 var CityJson = require('../../Parts/selectPlugin/CityJson.js');//地区数据 回填
@@ -25,6 +24,7 @@ var DogView = Backbone.View.extend({
     self: null,
     dogLicense: null,
     initialize: function (options) {
+        console.log("personal--------------------------------------------------------------init")
         self = this;
         self.el = options.el;
         self.dogLicense = options.dogLicense;
@@ -32,10 +32,8 @@ var DogView = Backbone.View.extend({
     },
     render: function () {
         $(self.el).html(template({}));
-        //区域选择
-        new SelectPluginView({
-            el: "#orga_area"
-        });
+
+
         //上传图片控件
         new UploadView({
             el: "#imgs"
@@ -49,7 +47,7 @@ var DogView = Backbone.View.extend({
         $("#breed_null").after(sb.toString());
 
         $('.form_date').datetimepicker({
-            language: "en",
+            language: "zh-CN",
             weekStart: 1,
             todayBtn: 1,
             autoclose: 1,
@@ -65,29 +63,10 @@ var DogView = Backbone.View.extend({
 
     onLoad: function () {
 
-        //如果狗证信息不为空 完善房产信息
+        //如果狗证信息不为空
         if (self.dogLicense != null) {
             //数据回填
             this.setValue();
-            this.setHouseEvent();
-            //禁用输入 选择
-            var d1 = $('#dogLicense_barcode_div *');
-            for (i = 0; i < d1.length; i++) {
-                d1[i].disabled = true;
-            }
-            var d1 = $('#dogLicense_owner_div *');
-            for (i = 0; i < d1.length; i++) {
-                d1[i].disabled = true;
-            }
-            var d1 = $('#dogLicense_dog_div *');
-            for (i = 0; i < d1.length; i++) {
-                d1[i].disabled = true;
-            }
-            var d1 = $('#dogLicense_vaccine_div *');
-            for (i = 0; i < d1.length; i++) {
-                d1[i].disabled = true;
-            }
-
         }
 
         //添加监听事件
@@ -99,17 +78,17 @@ var DogView = Backbone.View.extend({
          */
         var emptyValid = function () {
             falg = true;
-            //条形码
-            var barcode = $('#barcode').val();
-            if (barcode == "") {
-                falg = false;
-                $("#barcode_null_tip").show();
-            }
+
             //犬主姓名
-            var dogowner_name = $('#dogowner_name').val();
-            if (dogowner_name == "") {
+            var dogowner_name1 = $('#dogowner_name1').val();
+            if (dogowner_name1 == "") {
                 falg = false;
-                $("#dogowner_name_null_tip").show();
+                $("#dogowner_name1_null_tip").show();
+            }
+            var dogowner_name2 = $('#dogowner_name2').val();
+            if (dogowner_name2 == "") {
+                falg = false;
+                $("#dogowner_name2_null_tip").show();
             }
             //性别
             var gender = $("input[name='gender']:checked").val();
@@ -122,12 +101,9 @@ var DogView = Backbone.View.extend({
             if (phone == "") {
                 falg = false;
                 $("#phone_null_tip").show();
-            } else {
-                if (!phone.match(/^1[3,5,7,8]\d{9}$/)) {
-                    falg = false;
-                    $("#phone_format_tip").show();
-                }
             }
+
+
             //犬主座机
             var tel = $("#tel").val();
             if (tel == "") {
@@ -139,30 +115,8 @@ var DogView = Backbone.View.extend({
             if (id_number == "") {
                 falg = false;
                 $("#id_number_null_tip").show();
-            } else {
-                if (!id_number.match(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/)) {
-                    falg = false;
-                    $("#id_number_format_tip").show();
-                }
             }
-            //所属省份
-            var province = $('#province').val().trim();
-            if (province == -1) {
-                falg = false;
-                $("#province_null_tip").show();
-            }
-            //所属城市
-            var citys = $('#citys').val().trim();
-            if (citys == -1) {
-                falg = false;
-                $("#citys_null_tip").show();
-            }
-            //所属区/县
-            var county = $('#county').val().trim();
-            if (county == -1) {
-                falg = false;
-                $("#county_null_tip").show();
-            }
+
             //详细地址
             var address = $('#address').val();
             if (address == "") {
@@ -228,174 +182,84 @@ var DogView = Backbone.View.extend({
                 falg = false;
                 $("#iris_null_tip").show();
             }
-
-            /********************疫苗登记******************/
-                //疫苗名称
-            var vaccine_name = $('#vaccine_name').val();
-            if (vaccine_name == "") {
-                falg = false;
-                $("#vaccine_name_null_tip").show();
-            }
-            //疫苗批号
-            var vaccine_batch = $('#vaccine_batch').val();
-            if (vaccine_batch == "") {
-                falg = false;
-                $("#vaccine_batch_null_tip").show();
-            }
-            //生产厂商
-            var manuf = $('#manuf').val();
-            if (manuf == "") {
-                falg = false;
-                $("#manuf_null_tip").show();
-            }
-            //兽医
-            var doctor_name = $('#doctor_name').val();
-            if (doctor_name == "") {
-                falg = false;
-                $("#doctor_name_null_tip").show();
-            }
-
-            return falg;
-        };
-        /**
-         * 非空房产信息验证
-         * @returns {boolean}
-         */
-        var emptyHouseValid = function () {
-            falg = true;
-
-            //产权性质
-            var houseProperty = $("input[name='houseProperty']:checked").val();
-            if (houseProperty == undefined) {
-                falg = false;
-                $("#houseProperty_null_tip").show();
-            }
-
-            //房产证号
-            var house_area = $("#house_area").val();
-            if (house_area == "") {
-                falg = false;
-                $("#houseid_null_tip").show();
-            }
-            var house_year = $("#house_year").val();
-            if (house_year == "") {
-                falg = false;
-                $("#houseid_null_tip").show();
-            }
-            var house_number = $("#house_number").val();
-            if (house_number == "") {
-                falg = false;
-                $("#houseid_null_tip").show();
-            }
-
             //是否绝育
             var isSterilization = $("input[name='isSterilization']:checked").val();
             if (isSterilization == undefined) {
                 falg = false;
                 $("#isSterilization_null_tip").show();
             }
-            //登记地址
-            var reg_address = $("#reg_address").val();
-            if (reg_address == "") {
-                falg = false;
-                $("#reg_address_null_tip").show();
-            }
+
             return falg;
         };
 
+
         $('#post_info').unbind().on('click', function () {
-            //完善房产信息
-            if (self.dogLicense != null) {
-                //验证房产信息
-                if (!emptyHouseValid()) {
-                    return;
-                }
-            } else {
-                //验证非空
-                if (!emptyValid()) {
-                    return;
-                }
+
+            //验证非空
+            if (!emptyValid()) {
+                return;
             }
 
             //是否绝育
             var sterilization = $("input[name='isSterilization']:checked").val();
-            //房产证号
-            var house_area = $('#house_area').val().trim();
-            var house_year = $('#house_year').val().trim();
-            var house_number = $('#house_number').val().trim();
-            var houseId = "";
-            if (house_area != "" && house_year != "" && house_number != "") {
-                houseId = house_area + house_year + "年第" + house_number + "号"
+
+            var code = ""
+            if (self.dogLicense && self.dogLicense.code) {
+                code = self.dogLicense.code
             }
-
-            //赋值
-            // var dogLicenseModeldefaults = new DogLicenseModel();
-
-            var dogLicense = self.dogLicense;
-            if (self.dogLicense != null) {
-                console.log("完善房产111");
-
-                var residence = {
-                    houseNo: houseId,
-                    houseProperty: $("input[name='houseProperty']:checked").val(),
-                    address: $('#reg_address').val(),
+            var dogL = {
+                code: code,
+                husbandryNo: Math.floor((Math.random() * 999999) + 100000),//6位随机数
+                dog: {
+                    nickname: $('#dogname').val(),
+                    sex: $("input[name='dog_gender']:checked").val(),
+                    breed: $('#breed').val(),
+                    usage: $("input[name='usage']:checked").val(),
+                    hairColor: $('#dog_color').val(),
+                    bornDate: $('#birth_date').val(),
+                    irisID: $('#iris').val(),
+                    photoUrl: $("#imgs img").attr("src"),
+                    vaccine: [{
+                        name: "1",//疫苗名称
+                        batchNo: "1",//疫苗批号
+                        manufacturer: "1",
+                        veterinarianName: "1",
+                        organizationName: "1",
+                        created: new Date().toLocaleDateString().split("/").join("-")
+                    }]
+                },
+                owner: {
+                    name: $('#dogowner_name1').val() + $('#dogowner_name2').val(),
+                    sex: $("input[name='gender']:checked").val(),
+                    tel: $('#tel').val(),
+                    phone: $('#phone').val(),
+                    phone2: $('#phone2').val(),
+                    email: $('#email').val(),
+                    certificateType: $('#cardtype').val(),
+                    certificateCode: $('#id_number').val(),
+                    location: {
+                        province: "310000",//默认上海
+                        district: "310100",
+                        city: "310104",
+                        address: $('#address').val(),
+                        code: $('#postcode').val(),
+                    }
+                },
+                residence: {
+                    houseNo: "1",
+                    houseProperty: "1",
+                    address: new Date().getTime(),//获取时间戳
                     isSterilization: sterilization,
-                };
-                dogLicense.residence = residence;
-                dogLicense.infoPreviewType = Const.infoPreviewType.PerfectResidence;
-                // dogLicenseModeldefaults = $.parseJSON(JSON.stringify(dogLicenses));
-            } else {
-                console.log("办理狗证");
-                var dogL = {
-                    husbandryNo: $('#barcode').val(),
-                    dog: {
-                        nickname: $('#dogname').val(),
-                        sex: $("input[name='dog_gender']:checked").val(),
-                        breed: $('#breed').val(),
-                        usage: $("input[name='usage']:checked").val(),
-                        hairColor: $('#dog_color').val(),
-                        bornDate: $('#birth_date').val(),
-                        irisID: $('#iris').val(),
-                        photoUrl: $("#imgs img").attr("src"),
-                        vaccine: [{
-                            name: $('#vaccine_name').val(),
-                            batchNo: $('#vaccine_batch').val(),
-                            manufacturer: $('#manuf').val(),
-                            veterinarianName: $('#doctor_name').val(),
-                            organizationName: $('#organizationName').val(),
-                            created: new Date().toLocaleDateString().split("/").join("-")
-                        }]
-                    },
-                    owner: {
-                        name: $('#dogowner_name').val(),
-                        sex: $("input[name='gender']:checked").val(),
-                        tel: $('#tel').val(),
-                        phone: $('#phone').val(),
-                        certificateType: $('#cardtype').val(),
-                        certificateCode: $('#id_number').val(),
-                        location: {
-                            province: $('#province').val(),
-                            district: $('#citys').val(),
-                            city: $('#county').val(),
-                            address: $('#address').val(),
-                            code: $('#postcode').val(),
-                        }
-                    },
-                    residence: {
-                        houseNo: houseId,
-                        houseProperty: $("input[name='houseProperty']:checked").val(),
-                        address: $('#reg_address').val(),
-                        isSterilization: sterilization,
-                    },
-                };
-                dogLicense = $.parseJSON(JSON.stringify(dogL));
-                dogLicense.infoPreviewType = Const.infoPreviewType.AddDogLicense;
-            }
+                },
+            };
+
+            dogLicense = $.parseJSON(JSON.stringify(dogL));
+            dogLicense.infoPreviewType = Const.infoPreviewType.AddDogLicense;
+
             console.log(dogLicense);
             var InfoPreviewModal = require('../../Modals/InfoPreview/InfoPreview');
             InfoPreviewModal.show(dogLicense);
         });
-
 
         //图片上传成功后的通知
         Backbone.on(Const.NotificationUploadImageDone, function (obj) {
@@ -409,14 +273,14 @@ var DogView = Backbone.View.extend({
         OrganizationClient.show(
             //获取成功
             function (data) {
-                console.log("------------------d");
                 console.log(data);
-
+                console.log("------------------组织成功");
             },
             //获取失败
             function (errorCode) {
                 //错误回调
-                console.log("cw-------------d");
+                console.log(errorCode)
+                console.log("cw-------------组织失败");
                 var sb = new StringBuffer();
                 var doctor = errorCode.organization.veterinarians;
                 $.each(doctor, function (i, val) {
@@ -432,24 +296,22 @@ var DogView = Backbone.View.extend({
 
     //初始化事件
     initEvent: function () {
-        //条形码 失去焦点监听
-        $("#barcode").blur(function () {
-            var barcode = $('#barcode').val().trim();
-            if (barcode == "") {
-                $("#barcode_null_tip").show();
-            } else {
-                $("#barcode_null_tip").hide();
-            }
-        });
-
         /**************************犬主登记****************************/
         //犬主姓名 失去焦点监听
-        $("#dogowner_name").blur(function () {
-            var dogowner_name = $('#dogowner_name').val().trim();
-            if (dogowner_name == "") {
-                $("#dogowner_name_null_tip").show();
+        $("#dogowner_name1").blur(function () {
+            var dogowner_name1 = $('#dogowner_name1').val().trim();
+            if (dogowner_name1 == "") {
+                $("#dogowner_name1_null_tip").show();
             } else {
-                $("#dogowner_name_null_tip").hide();
+                $("#dogowner_name1_null_tip").hide();
+            }
+        });
+        $("#dogowner_name2").blur(function () {
+            var dogowner_name2 = $('#dogowner_name2').val().trim();
+            if (dogowner_name2 == "") {
+                $("#dogowner_name2_null_tip").show();
+            } else {
+                $("#dogowner_name2_null_tip").hide();
             }
         });
 
@@ -524,33 +386,6 @@ var DogView = Backbone.View.extend({
             }
         });
 
-        //省 内容变化监听
-        $("#province").change(function () {
-            var province = $('#province').val().trim();
-            if (province == -1) {
-                $("#province_null_tip").show();
-            } else {
-                $("#province_null_tip").hide();
-            }
-        });
-        //所属区县 内容变化监听
-        $("#citys").change(function () {
-            var citys = $('#citys').val().trim();
-            if (citys == -1) {
-                $("#citys_null_tip").show();
-            } else {
-                $("#citys_null_tip").hide();
-            }
-        });
-        //城市 内容变化监听
-        $("#county").change(function () {
-            var county = $('#county').val().trim();
-            if (county == -1) {
-                $("#county_null_tip").show();
-            } else {
-                $("#county_null_tip").hide();
-            }
-        });
 
         //详细地址 失去焦点监听
         $("#address").blur(function () {
@@ -627,6 +462,15 @@ var DogView = Backbone.View.extend({
                 $("#breed_null_tip").hide();
             }
         });
+        //是否绝育
+        $("input[name='isSterilization']").click(function () {
+            var isSterilization = $("input[name='isSterilization']:checked").val();
+            if (isSterilization == undefined) {
+                $("#isSterilization_null_tip").show();
+            } else {
+                $("#isSterilization_null_tip").hide();
+            }
+        });
 
         //出生日期 内容变化监听
         $("#birth_date").change(function () {
@@ -645,60 +489,6 @@ var DogView = Backbone.View.extend({
                 $("#iris_null_tip").show();
             } else {
                 $("#iris_null_tip").hide();
-            }
-        });
-
-        /***********************疫苗登记***********************/
-        //疫苗名称 失去焦点监听
-        $("#vaccine_name").change(function () {
-            var vaccine_name = $('#vaccine_name').val().trim();
-            if (vaccine_name == "") {
-                $("#vaccine_name_null_tip").show();
-            } else {
-                $("#vaccine_name_null_tip").hide();
-            }
-        });
-
-        //疫苗批号 失去焦点监听
-        $("#vaccine_batch").blur(function () {
-            var vaccine_batch = $('#vaccine_batch').val().trim();
-            if (vaccine_batch == "") {
-                $("#vaccine_batch_null_tip").show();
-            } else {
-                $("#vaccine_batch_null_tip").hide();
-            }
-        });
-
-        //生产厂商 失去焦点监听
-        $("#manuf").blur(function () {
-            var manuf = $('#manuf').val().trim();
-            if (manuf == "") {
-                $("#manuf_null_tip").show();
-            } else {
-                $("#manuf_null_tip").hide();
-            }
-        });
-
-        //兽医 内容变化监听
-        $("#doctor_name").change(function () {
-            var doctor_name = $('#doctor_name').val().trim();
-            if (doctor_name == "") {
-                $("#doctor_name_null_tip").show();
-            } else {
-                $("#doctor_name_null_tip").hide();
-            }
-        });
-
-        //地址相同监听事件
-        $("#reg_addr_ck").change(function () {
-            if ($('#reg_addr_ck').is(':checked')) {
-                //赋值  不可修改
-                $("#reg_address").attr("disabled", true)
-                $("#reg_address").val($('#address').val().trim());
-                $("#reg_address_null_tip").hide();
-            } else {
-                //可修改
-                $("#reg_address").attr("disabled", false)
             }
         });
 
@@ -775,8 +565,8 @@ var DogView = Backbone.View.extend({
 
     //设置默认值
     setValue: function () {
-        //条形码
-        $('#barcode').val(self.dogLicense.husbandryNo);
+        console.log("设置默认值------------")
+
         //犬主姓名
         $('#dogowner_name').val(self.dogLicense.owner.name);
         //性别
@@ -789,34 +579,21 @@ var DogView = Backbone.View.extend({
         }
         //犬主手机号码
         $("#phone").val(self.dogLicense.owner.phone);
+        $("#phone2").val(self.dogLicense.owner.phone2);
         //犬主座机
         $("#tel").val(self.dogLicense.owner.tel);
         //证件号
         $('#cardtype').val(self.dogLicense.owner.certificateType);
         $('#id_number').val(self.dogLicense.owner.certificateCode);
 
-        //所属省份
-        $.each(CityJson,
-            function (i, val) {
-                if (val.item_code == self.dogLicense.owner.location.province) {
-                    $("#province").val(val.item_code);
-                    $("#province").change();
-                }
 
-                if (val.item_code == self.dogLicense.owner.location.district) {
-                    $("#citys").val(val.item_code);
-                    $("#citys").change();
-                }
-
-                if (val.item_code == self.dogLicense.owner.location.city) {
-                    $("#county").val(val.item_code);
-                }
-            });
         //详细地址
         $('#address').val(self.dogLicense.owner.location.address);
 
         //邮编
         $('#postcode').val(self.dogLicense.owner.location.code);
+
+        $('#email').val(self.dogLicense.owner.email);
 
         /******************犬只信息*********************/
         //犬名
@@ -828,6 +605,14 @@ var DogView = Backbone.View.extend({
         } else {
             $("#doggender_female").attr("checked", true);
             $("#doggender_female").prop('checked', true);
+        }
+        //犬只绝育
+        if (self.dogLicense.residence.isSterilization == 1) {
+            $("#isSterilization1").attr("checked", true);
+            $("#isSterilization1").prop('checked', true);
+        } else {
+            $("#isSterilization0").attr("checked", true);
+            $("#isSterilization0").prop('checked', true);
         }
         //毛色
         $('#dog_color').val(self.dogLicense.dog.hairColor);
@@ -842,96 +627,23 @@ var DogView = Backbone.View.extend({
         //品种
         $('#breed').val(self.dogLicense.dog.breed);
 
-        //狗的图片
-        $(".uploadWrap").hide();
-        $("#imgs").append(" <img src=" + self.dogLicense.dog.photoUrl + " >");
+        //狗的图片  如果是预约数据回填 不必隐藏上传控件
+        if (!self.dogLicense.code) {
+            $(".uploadWrap").hide();
+            $("#imgs").append(" <img src=" + self.dogLicense.dog.photoUrl + " >");
+        }
 
 
         //生日
         $('#birth_date').val(self.dogLicense.dog.bornDate.substring(0, 10));
 
         //虹膜id
-        $('#iris').val(self.dogLicense.vaccineCard.info.irisID);
+        if (self.dogLicense.vaccineCard) {
+            $('#iris').val(self.dogLicense.vaccineCard.info.irisID);
+        }
 
-        /********************疫苗登记******************/
-        var vaccine = self.dogLicense.dog.vaccine[0];
-        //疫苗名称
-        $('#vaccine_name').val(vaccine.name);
 
-        //疫苗批号
-        $('#vaccine_batch').val(vaccine.batchNo);
-
-        //生产厂商
-        $('#manuf').val(vaccine.manufacturer);
-
-        //兽医
-        $('#doctor_name').val(vaccine.veterinarianName);
     },
-
-    setHouseEvent: function () {
-        /******************房产信息******************/
-        //产权性质 焦点监听
-        $("input[name='houseProperty']").click(function () {
-            var houseProperty = $("input[name='houseProperty']:checked").val();
-            if (houseProperty == undefined) {
-                $("#houseProperty_null_tip").show();
-            } else {
-                $("#houseProperty_null_tip").hide();
-            }
-        });
-
-        //房产证号
-        $("#house_area").change(function () {
-            var house_area = $('#house_area').val().trim();
-            var house_year = $('#house_year').val().trim();
-            var house_number = $('#house_number').val().trim();
-            if (house_area == "" || house_year == "" || house_number == "") {
-                $("#houseid_null_tip").show();
-            } else {
-                $("#houseid_null_tip").hide();
-            }
-        });
-        $("#house_year").blur(function () {
-            var house_area = $('#house_area').val().trim();
-            var house_year = $('#house_year').val().trim();
-            var house_number = $('#house_number').val().trim();
-            if (house_area == "" || house_year == "" || house_number == "") {
-                $("#houseid_null_tip").show();
-            } else {
-                $("#houseid_null_tip").hide();
-            }
-        });
-        $("#house_number").blur(function () {
-            var house_area = $('#house_area').val().trim();
-            var house_year = $('#house_year').val().trim();
-            var house_number = $('#house_number').val().trim();
-            if (house_area == "" || house_year == "" || house_number == "") {
-                $("#houseid_null_tip").show();
-            } else {
-                $("#houseid_null_tip").hide();
-            }
-        });
-
-        //是否绝育
-        $("input[name='isSterilization']").click(function () {
-            var isSterilization = $("input[name='isSterilization']:checked").val();
-            if (isSterilization == undefined) {
-                $("#isSterilization_null_tip").show();
-            } else {
-                $("#isSterilization_null_tip").hide();
-            }
-        });
-
-        $("#reg_address").blur(function () {
-            var reg_address = $('#reg_address').val().trim();
-            if (reg_address == "") {
-                $("#reg_address_null_tip").show();
-            } else {
-                $("#reg_address_null_tip").hide();
-            }
-        });
-
-    }
 
 
 });

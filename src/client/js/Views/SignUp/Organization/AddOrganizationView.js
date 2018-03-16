@@ -13,7 +13,6 @@ var templateAdd = require('./AddOrganization.hbs');
 
 
 var OrganizationClient = require('../../../lib/APIClients/OrganizationClient');
-var SelectPluginView = require("../../Parts/selectPlugin/SelectPluginView");
 
 var OrganizationModel = require('../../../Models/organization');
 var User = require('../../../Models/user');
@@ -118,9 +117,7 @@ var AddOrganizationView = Backbone.View.extend({
         new SignFooterView({
             'el': "#signfooter-content"
         });
-        new SelectPluginView({
-            el: "#orga_area"
-        })
+
 
         /**
          * 为各个元素添加监听事件
@@ -207,12 +204,20 @@ var AddOrganizationView = Backbone.View.extend({
                 }
             });
             //联系人: 失去焦点监听
-            $("#contacts").blur(function () {
-                var contacts = $('#contacts').val().trim();
-                if (contacts == "") {
-                    $("#contacts_null_tip").show();
+            $("#contacts1").blur(function () {
+                var contacts1 = $('#contacts1').val().trim();
+                if (contacts1 == "") {
+                    $("#contacts1_null_tip").show();
                 } else {
-                    $("#contacts_null_tip").hide();
+                    $("#contacts1_null_tip").hide();
+                }
+            });//联系人: 失去焦点监听
+            $("#contacts2").blur(function () {
+                var contacts2 = $('#contacts2').val().trim();
+                if (contacts2 == "") {
+                    $("#contacts2_null_tip").show();
+                } else {
+                    $("#contacts2_null_tip").hide();
                 }
             });
             //联系人电话: 失去焦点监听
@@ -226,11 +231,6 @@ var AddOrganizationView = Backbone.View.extend({
                     $("#contacts_phone_null_tip").hide();
                 }
 
-                if (!contacts_phone.match(/^1[3,5,7,8]\d{9}$/)) {
-                    $("#contacts_phone_format_tip").show();
-                } else {
-                    $("#contacts_phone_format_tip").hide();
-                }
             });
         }
 
@@ -249,24 +249,7 @@ var AddOrganizationView = Backbone.View.extend({
                 falg = false;
                 $("#name_null_tip").show();
             }
-            //所属省份
-            var province = $('#province').val().trim();
-            if (province == -1) {
-                falg = false;
-                $("#province_null_tip").show();
-            }
-            //所属城市
-            var citys = $('#citys').val().trim();
-            if (citys == -1) {
-                falg = false;
-                $("#citys_null_tip").show();
-            }
-            //所属区/县
-            var county = $('#county').val().trim();
-            if (county == -1) {
-                falg = false;
-                $("#county_null_tip").show();
-            }
+
 
             //联系地址
             var address = $('#address').val();
@@ -322,21 +305,21 @@ var AddOrganizationView = Backbone.View.extend({
                 $("#doctor_null_tip").show();
             }
             //联系人
-            var contacts = $('#contacts').val();
-            if (contacts == "") {
+            var contacts1 = $('#contacts1').val();
+            if (contacts1 == "") {
                 falg = false;
-                $("#contacts_null_tip").show();
+                $("#contacts1_null_tip").show();
+            }
+            var contacts2 = $('#contacts2').val();
+            if (contacts2 == "") {
+                falg = false;
+                $("#contacts2_null_tip").show();
             }
             //联系人电话
             var contacts_phone = $('#contacts_phone').val();
             if (contacts_phone == "") {
                 falg = false;
                 $("#contacts_phone_null_tip").show();
-            } else {
-                if (!contacts_phone.match(/^1[3,5,7,8]\d{9}$/)) {
-                    falg = false;
-                    $("#contacts_phone_format_tip").show();
-                }
             }
             return falg;
         }
@@ -412,9 +395,9 @@ var AddOrganizationView = Backbone.View.extend({
         });
         var organization = {
             name: $('#name').val().trim(),
-            province: $('#province').val().trim(),
-            city: $('#citys').val().trim(),
-            district: $('#county').val().trim(),
+            province: "310000",
+            city: "310100",
+            district: "310101",
             address: $('#address').val().trim(),
             code: "xxxxxx",
             tel: $('#tel').val().trim(),
@@ -422,7 +405,7 @@ var AddOrganizationView = Backbone.View.extend({
             animalMedicalLicense: $("#animalMedicalLicense img").attr("src"),
             serviceScope: server_value,
             veterinarians: veterinarians,
-            contacts_name: $('#contacts').val().trim(),
+            contacts_name: $('#contacts1').val().trim()+$('#contacts2').val().trim(),
             contacts_phone: $('#contacts_phone').val().trim()
         };
 

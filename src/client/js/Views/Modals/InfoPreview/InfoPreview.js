@@ -37,7 +37,9 @@ var InfoPreview = {
             $("#ownerName").html(self.DogLicenseModel.owner.name);
             $("#ownerPhone").html(self.DogLicenseModel.owner.phone);
             $("#ownerPhone2").html(self.DogLicenseModel.owner.phone2);
-            $("#email").html(self.DogLicenseModel.owner.email);
+
+            console.log(self.DogLicenseModel.owner.email)
+            $("#ownerEmail").html(self.DogLicenseModel.owner.email);
             $("#ownerTel").html(self.DogLicenseModel.owner.tel);
             $("#ownerSex").html(self.DogLicenseModel.owner.sex == 1 ? "男" : "女");
             $("#ownerCertificateType").html(self.DogLicenseModel.owner.certificateType == 1 ? "身份证" : "护照");
