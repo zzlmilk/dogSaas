@@ -28,16 +28,14 @@ var HomePageView = Backbone.View.extend({
 
         var self = this;
 
+        //头部导航条
         var NavView = require('./Nav/NavView.js');
         new NavView({
             'el': "#header-content"
         });
 
-        var HomeMainView = require('./HomeMain/HomeMainView.js');
-        new HomeMainView({
-            'el': "#home-main"
-        });
 
+        //底部栏
         var FooterView = require('./Footer/FooterView.js');
         new FooterView({
             'el': "#footer-content"

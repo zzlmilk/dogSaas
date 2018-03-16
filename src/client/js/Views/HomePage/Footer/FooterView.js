@@ -27,6 +27,16 @@ var FooterView = Backbone.View.extend({
 
     onLoad: function(){
 
+
+        //微信二维码
+        $("#weixin").mouseover(function(){
+            $("#qrcode").show();
+        });
+        $("#weixin").mouseout(function(){
+            $("#qrcode").hide();
+        });
+
+        //语言切换
         $(".lang").click(function(){
             $(".lang_en").show();
         });
