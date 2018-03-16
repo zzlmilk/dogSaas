@@ -156,6 +156,13 @@ html, body {
   background: #2e3b46;
   height: 150px;
 }
+@media (max-width: 480px) {
+  //.tab_box {
+  //  width: 100%;
+  //  background: red;
+  //  height: 150px;
+
+}
 
 .tab_box > div {
   width: 100%;
