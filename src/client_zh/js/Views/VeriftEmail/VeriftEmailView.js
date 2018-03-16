@@ -49,18 +49,96 @@ var VeriftEmailView = Backbone.View.extend({
     onLoad: function () {
 
         var self = this;
-
-        $("#veriftEmailBtn").unbind().on('click', function (e) {
+        //失去焦点监听
+        $("input[name =password]").blur(function () {
             var password = $("input[name =password]").val();
-            var repassword = $("input[name =repassword]").val();
-
-            if (password == "" || password != repassword || password.length < 6) {
-                alert("密码格式错误")
+            if (password == "") {
+                $("#password_null_tip").show();
             } else {
-                self.submitPassword(password);
+                $("#password_null_tip").hide();
+                if (password.length < 6) {
+                    $("#password_length_tip").show();
+                } else {
+                    $("#password_length_tip").hide();
+                }
             }
         });
+        $("input[name =repassword]").blur(function () {
+            var password = $("input[name =password]").val();
+            var repassword = $("input[name =repassword]").val();
+            if (repassword == "") {
+                $("#repassword_null_tip").show();
+            } else {
+                $("#repassword_null_tip").hide();
+                if (repassword.length < 6) {
+                    $("#repassword_length_tip").show();
+                } else {
+                    $("#repassword_length_tip").hide();
+                    if (password != repassword) {
+                        $("#repassword_diff_tip").show();
+                    } else {
+                        $("#repassword_diff_tip").hide();
+                    }
+                }
+            }
+        });
+        /**
+         * 非空验证
+         * @returns {boolean}
+         */
+        var emptyValid = function () {
+            falg = true;
 
+            var password = $("input[name =password]").val();
+            if (password == "") {
+                falg = false;
+                $("#password_null_tip").show();
+            } else {
+                $("#password_null_tip").hide();
+                if (password.length < 6) {
+                    falg = false;
+                    $("#password_length_tip").show();
+                } else {
+                    $("#password_length_tip").hide();
+                }
+            }
+
+            var repassword = $("input[name =repassword]").val();
+            if (repassword == "") {
+                falg = false;
+                $("#repassword_null_tip").show();
+            } else {
+                $("#repassword_null_tip").hide();
+                if (repassword.length < 6) {
+                    falg = false;
+                    $("#repassword_length_tip").show();
+                } else {
+                    $("#repassword_length_tip").hide();
+                }
+            }
+
+            if (repassword != "" && repassword.length >= 6 && password != repassword) {
+                falg = false;
+                $("#repassword_diff_tip").show();
+            } else {
+                $("#repassword_diff_tip").hide();
+
+            }
+
+            return falg;
+        };
+
+        $("#veriftEmailBtn").unbind().on('click', function (e) {
+
+            //非空验证
+            //验证非空
+            if (!emptyValid()) {
+                return;
+            }
+            var password = $("input[name =password]").val();
+            self.submitPassword(password);
+
+        });
 
     },
     vaildCode: function (callback) {
@@ -112,8 +190,6 @@ var VeriftEmailView = Backbone.View.extend({
                 message = Const.ErrorCodes[errorCode]
 
             alert(message)
-
-
         })
 
     }

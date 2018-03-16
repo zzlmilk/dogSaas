@@ -9,13 +9,16 @@ var _ = require('lodash');
     var RegisterClinet = function(){};
     
     _.extend(RegisterClinet.prototype,APIClientBase.prototype);
-    
-    RegisterClinet.prototype.send = function(data,success,err){
 
-    	
-        
+    //注册
+    RegisterClinet.prototype.send = function(data,success,err){
         this.postRequst("/user/register",data,success,err);
-     	
+    }
+
+    //重置密码
+    RegisterClinet.prototype.resetPassword = function(data,success,err){
+        this.postRequst("/user/set_password",data,success,err);
+
     }
         
     // returns instance
