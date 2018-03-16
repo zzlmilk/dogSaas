@@ -353,8 +353,12 @@ var PersonalCardView = Backbone.View.extend({
                 // dogLicenseModeldefaults = $.parseJSON(JSON.stringify(dogLicenses));
             } else {
                 console.log("办理狗证");
+                var code=""
+                if(self.dogLicense&&self.dogLicense.code){
+                    code=self.dogLicense.code
+                }
                 var dogL = {
-                    code:self.dogLicense.code,
+                    code:code,
                     husbandryNo: $('#barcode').val(),
                     dog: {
                         nickname: $('#dogname').val(),
