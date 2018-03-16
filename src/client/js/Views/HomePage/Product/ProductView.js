@@ -27,7 +27,15 @@ var ProductView = Backbone.View.extend({
 
     onLoad: function(){
 
-
+        //产品优势
+        $(".tips").each(function(){
+            $(this).mouseover(function () {
+                $(this).stop().animate({top:"0px"},"slow");
+            });
+            $(this).mouseout(function () {
+                $(this).stop().animate({top:"300px"});
+            });
+        });
 
 
 
