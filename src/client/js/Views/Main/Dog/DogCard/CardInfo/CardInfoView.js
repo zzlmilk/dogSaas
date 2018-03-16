@@ -83,7 +83,10 @@ var CardInfoView = Backbone.View.extend({
         $("#dogCardIrisID").html(self.dogLicense.DogCard.info.irisID);
 
         $("#dogCardSignOrganization").html(self.dogLicense.DogCard.info.signOrganization);
-        $("#dogCardCreate").html(self.dogLicense.DogCard.create.substring(0, 10));
+        if(self.dogLicense.DogCard&&self.dogLicense.DogCard.create){
+            $("#dogCardCreate").html(self.dogLicense.DogCard.create.substring(0, 10));
+        }
+
 
         //取证发送
         var takeWay = self.dogLicense.DogCard.info.takeWay;

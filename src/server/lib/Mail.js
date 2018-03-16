@@ -33,8 +33,13 @@ var Mail = {
 					      
 					    }	
 					    else{
+					    	if(useType==1) {
 
-					    	var url = "http://www.halokit.cn:7171/#veriftemail?key="+code
+                                var url = "http://www.halokit.cn:7171/#veriftemail?key=" + code;
+                            }if(useType==2){
+
+					    		var url ="http://www.halokit.cn:7171/#resetpassword?key="+code;
+							}
 
 
 					    	var data = {title: '可点',

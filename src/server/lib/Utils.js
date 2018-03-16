@@ -70,11 +70,11 @@ var Const = require("../lib/consts");
     }
 
     function dogCardNo(){
-        return randomString(10)
+        return randomCode(10)
     }
 
      function vaccineCardNo(){
-           return randomString(10)
+           return randomCode(10)
 
      }
 
