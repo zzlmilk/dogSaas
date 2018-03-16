@@ -68,7 +68,7 @@ var WebAPIMain = {
                      router.use("/wx/get_accessToken", require('./Wx/AccessTokenHandler'));
 
                      //dogCard
-				     router.use("/dogCard/annual",require('./DogLicense/EditDogCardHandler'))
+				     router.use("/dogCard/annual",require('./DogLicense/EditDogCardHandler'));
 
 
 
