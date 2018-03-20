@@ -2,7 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background-color: #e8e9e8;
+  //background-color: #e8e9e8;
 }
 
 .container {
@@ -512,38 +512,38 @@ html, body {
 }
 
 //产品及服务--虹膜banner
-#iris {
+#iris_banner {
   width: 100%;
   padding: 80px 0;
   margin: 0;
   background: #2a2a2c;
 }
 
-#iris > .container {
+#iris_banner > .container {
 
   padding: 0;
   margin: 0 auto;
 
 }
 
-#iris > .container > .row {
+#iris_banner > .container > .row {
   margin-right: 15px;
   margin-left: 15px;
 }
 
-#iris > .container > .row > .col-md-4 > h3 {
+#iris_banner> .container > .row > .col-md-4 > h3 {
   padding-top: 50px;
   padding-bottom: 10px;
   color: #fff;
   font-size: 34px;
 }
 
-#iris > .container > .row > .col-md-4 > p {
+#iris_banner > .container > .row > .col-md-4 > p {
   font-size: 14px;
   color: #fff;
 }
 
-#iris > .container > .row > .col-md-7 > img {
+#iris_banner > .container > .row > .col-md-7 > img {
   width: 100%;
   max-height: 350px;
   display: block;

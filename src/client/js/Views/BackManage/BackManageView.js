@@ -42,7 +42,7 @@ var MainView = Backbone.View.extend({
         var self = this;
 
 
-        var HeaderView = require('./User/Header/HeaderView.js');
+        var HeaderView = require('./Main/Header/HeaderView.js');
         var view = new HeaderView({
             'el': "#header-content"
         });

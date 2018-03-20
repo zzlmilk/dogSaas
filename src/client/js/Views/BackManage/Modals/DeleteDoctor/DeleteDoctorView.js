@@ -8,12 +8,12 @@ var $ = require('jquery');
 var _ = require('lodash');
 // var validator = require('validator');
 
-var Const = require('../../../lib/consts.js');
+var Const = require('../../../../lib/consts.js');
 
-var Utils = require('../../../lib/utils.js');
+var Utils = require('../../../../lib/utils.js');
 var template = require('./DeleteDoctor.hbs');
-// var UpdateProfileClient = require('../../../lib/APIClients/UpdateProfileClient');
-// var loginUserManager = require('../../../lib/loginUserManager');
+// var UpdateProfileClient = require('../../../../lib/APIClients/UpdateProfileClient');
+// var loginUserManager = require('../../../../lib/loginUserManager');
 
 var DeleteDoctor = {
     show: function (id) {

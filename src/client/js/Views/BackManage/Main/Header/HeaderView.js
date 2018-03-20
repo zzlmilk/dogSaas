@@ -39,7 +39,7 @@ HeaderView = Backbone.View.extend({
 
         $('#personal_center').unbind().on('click', function () {
 
-            var PersonalCenterView = require('../PersonalCenter/PersonalCenterView');
+            var PersonalCenterView = require('../../User/PersonalCenter/PersonalCenterView');
 
             var view = new PersonalCenterView({
                 'el': "#main-content"
