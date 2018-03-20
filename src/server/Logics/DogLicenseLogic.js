@@ -601,6 +601,7 @@ var DogLicenseLogic = {
 		var vaccineCardNo=param.vaccineCardNo;
 		var dogCardNo=param.dogCardNo;
 		var page=param.page||1;
+		var sql={};
 		var res={};
         var dogLicenseModel = DogLicenseModel.get();
         var dogModel = DogModel.get();
@@ -623,27 +624,36 @@ var DogLicenseLogic = {
                             throw err;
                         }
                         else {
-                            res.dogLicenses = dogLicenseResult //符合条件的集合
+                            res.dogLicenses = dogLicenseResult; //符合条件的集合
 							onSuccess(res)
                         }
 
                     })
 
                 } else {
-                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo},{"DogCard.info.cardNo":dogCardNo}]}).count().exec(function(err,count){
+                    if (irisID != undefined) {
+                        sql = {"vaccineCard.info.irisID": irisID};
+                    }
+                    if (vaccineCardNo != undefined) {
+                        sql = {"vaccineCard.info.cardNo": vaccineCardNo};
+                    }
+                    if (dogCardNo != undefined) {
+                        sql = {"DogCard.info.cardNo": dogCardNo}
+                    }
+                    dogLicenseModel.find(sql).count().exec(function(err,count){
                         if(err){
                             throw err
                         }else{
                             res.count=count;
 						}
                     });
-                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo},{"DogCard.info.cardNo":dogCardNo}]})
+                    dogLicenseModel.find(sql)
                         .populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCard.annual.updateDate": -1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw err;
                         }
                         else {
-							res.dogLicenses = dogLicenseResult //符合条件的集合
+							res.dogLicenses = dogLicenseResult ;//符合条件的集合
                             onSuccess(res);
 
                         }
@@ -658,8 +668,8 @@ var DogLicenseLogic = {
     },
     add_takeWay:function(param, onSuccess, onError) {//添加取证方式
 
-        var dogLicense=param.dogLicense
-		var takeWay=param.takeWay
+        var dogLicense=param.dogLicense;
+		var takeWay=param.takeWay;
 		if(Utils.isEmpty(takeWay)){
 				onError(null,Const.resCodeDogLicenseNoTakeway);
            return;

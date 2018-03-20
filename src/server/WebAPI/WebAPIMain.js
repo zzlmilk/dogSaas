@@ -31,6 +31,8 @@ var WebAPIMain = {
 										
 					//set password
 					router.use("/user/set_password",require('./User/SetPasswordHandler'));
+					router.use("/user/change_password",require('./User/ChangePasswordHandler'));
+
 
 					
 					//AOrganizationHandler
