@@ -27,6 +27,14 @@ var TechView = Backbone.View.extend({
 
     onLoad: function(){
 
+        //核心技术
+        $(function(){
+            $('.demo1').Tabs();
+            $('.tab_menu>li:eq(0)').children("div").addClass("arrow");
+            $('.tab_menu>li').mouseover(function(){
+                $(this).children("div").addClass("arrow").parent("li").siblings("li").children("div").removeClass("arrow");
+            })
+        });
 
 
 

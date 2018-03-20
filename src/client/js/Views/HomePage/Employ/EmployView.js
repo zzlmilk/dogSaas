@@ -28,6 +28,21 @@ var EmployView = Backbone.View.extend({
     onLoad: function(){
 
 
+        $(document).ready(function(){
+            $(".col-md-12").hide();
+            $(".job").each(function(){
+                $(this).click(function(){
+                    $(this).parent(".row").children(".col-md-12").slideToggle();
+                    $(this).parent(".row").siblings(".row").children(".col-md-12").slideUp();
+                    $(this).children("i").toggleClass("u-arrow-up");
+                    $(this).parent(".row").siblings(".row").children(".job").children("i").removeClass("u-arrow-up");
+                    return false;
+                });
+            })
+
+        });
+
+
 
 
 

@@ -5,7 +5,7 @@
          APIEndpoint : '/dogsystem/v1',
          SpikaBaseURL : '/dogsystem',
          defaultContaier : 'body', // write JQuery style selector
-         hostName:'http://localhost:7171',
+         hostName:'http://www.halokit.cn:7171',
         
 
         port:7070,

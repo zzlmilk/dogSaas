@@ -1315,6 +1315,70 @@
   },
   {
     "type": "post",
+    "url": "/user/change_password",
+    "title": "修改密码",
+    "name": "changePassword",
+    "group": "User",
+    "description": "<p>修改密码api接口</p>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "Sting",
+            "optional": false,
+            "field": "access-token",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "oldPassword",
+            "description": "<p>原密码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "newPassword",
+            "description": "<p>新密码</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " { token: 'q6QKHgEK7fk2981KPhRps8rT',\nuser:\n { _id: '5a1cf5857651f434a8eeb4ba',\n   email: '2420933732@qq.com',\n   logionProcess: 0 } }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/server/WebAPI/User/ChangePasswordHandler.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
     "url": "/user/login",
     "title": "用户登录",
     "name": "login",
