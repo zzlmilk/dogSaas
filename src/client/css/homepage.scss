@@ -938,32 +938,88 @@ html, body {
 }
 
 //招聘
-#employ_list{
+#employ_list {
   margin: 50px auto;
   padding: 0;
+  margin-bottom: 150px;
 }
-#employ_list>#first{
+
+#employ_list > #first {
   background: #5d5d5d;
-  height:80px;
+  height: 80px;
   border-radius: 4px 4px 0 0;
 }
 
-#employ_list>#first>.col-md-3{
-  height:80px;
+#employ_list > #first > .col-md-3 {
+  height: 80px;
   line-height: 80px;
   text-align: center;
   color: #fff;
   font-size: 22px;
 }
-#employ_list>.row{
+
+#employ_list > .row {
   background: #fff;
   margin: 0;
   padding: 0;
+
 }
-#employ_list>.row>.col-md-3{
-  height:60px;
+
+#employ_list > .row > .col-md-3 {
+  height: 60px;
   line-height: 60px;
   text-align: center;
   color: #000;
   font-size: 14px;
+  position: relative;
+}
+
+#employ_list > .row > .col-md-3 > .u-arrow {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  transform: rotate(135deg);
+  position: absolute;
+  top: 27px;
+  right: 80px;
+}
+
+#employ_list > .row > .col-md-3 > .u-arrow-up {
+  transform: rotate(-45deg);
+}
+
+#employ_list > .row >.job:hover{
+  cursor:pointer;
+}
+
+#employ_list > .row > .col-md-3 > a {
+  padding: 5px;
+  text-decoration: none;
+  border: 1px solid #979797;
+  border-radius: 4px;
+}
+
+#employ_list > .row > .col-md-3 > a:hover {
+  border: 1px solid #3399ff;
+  background: #3399ff;
+  color: #fff;
+}
+
+#employ_list > .row > .col-md-12 {
+  width: 100%;
+  background: #f2f2f2;
+  padding:50px 100px;
+}
+#employ_list > .row > .col-md-12>h4{
+  font-size:14px;
+  color:#878787;
+}
+#employ_list > .row > .col-md-12>p{
+  font-size:12px;
+  color:#909090;
+}
+#employ_list > .row > .col-md-12>.last{
+  margin-bottom: 30px;
 }
