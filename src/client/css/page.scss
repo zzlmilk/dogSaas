@@ -619,7 +619,7 @@ input[type='date']::-webkit-inner-spin-button {
 
 .personal_card > .registration > .row > .col-md-6 > .subtitle h4 {
   float: left;
-  width: 80px;
+  width: 140px;
   height: 44px;
   line-height: 44px;
   margin-left: 15px;
@@ -642,6 +642,13 @@ input[type='date']::-webkit-inner-spin-button {
 
 .personal_card > .registration > .row > .col-md-6 > .section > p {
   font-size: 12px;
+}
+
+.personal_card > .registration > .row > .col-md-6 > .section>#id_number{
+  width: 155px;
+}
+.personal_card > .registration > .row > .col-md-6 > .section>#iris{
+  width: 175px;
 }
 
 .personal_card > .registration > .row > .col-md-6 > .section > input[type="text"] {
