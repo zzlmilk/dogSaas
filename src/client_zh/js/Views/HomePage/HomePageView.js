@@ -10,15 +10,13 @@ var template = require('./HomePage.hbs');
 
 var HomePageView = Backbone.View.extend({
 
-    initialize: function(options) {
+    initialize: function (options) {
         this.render();
     },
 
-    render: function() {
+    render: function () {
 
-        $(Config.defaultContaier).html(template({
-
-        }));
+        $(Config.defaultContaier).html(template({}));
 
         this.onLoad();
 
@@ -26,22 +24,20 @@ var HomePageView = Backbone.View.extend({
 
     },
 
-    onLoad: function(){
+    onLoad: function () {
 
         var self = this;
 
-        var NavView = require('../Nav/NavView.js');
-        var NavView = new NavView({
+        //头部导航条
+        var NavView = require('./Nav/NavView.js');
+        new NavView({
             'el': "#header-content"
         });
 
-        var HomeMainView = require('../HomeMain/HomeMainView.js');
-        var HomeMainView = new HomeMainView({
-            'el': "#main-content"
-        });
 
-        var FooterView = require('../Footer/FooterView.js');
-        var FooterView = new FooterView({
+        //底部栏
+        var FooterView = require('./Footer/FooterView.js');
+        new FooterView({
             'el': "#footer-content"
         });
     }
