@@ -237,11 +237,10 @@ var InfoPreview = {
                     // console.log(data)
                     // console.log(data.dogLicense[0]);
                     self.hide();
-                    var CardInfoView = require('../../Main/Manage/CardInfo/CardInfoView.js');
+                    var CardInfoView = require('../../Main/Manage/DogCardInfo/CardInfoView');
                     var view = new CardInfoView({
                         'el': "#main-content",
                         "dogLicense": data.dogLicense,
-                        "qrCodeUrl": data.qrCodeUrl
                     });
 
                 },

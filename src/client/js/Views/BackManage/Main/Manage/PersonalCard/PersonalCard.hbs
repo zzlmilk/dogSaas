@@ -5,27 +5,27 @@
 
     <div class="registration" id="dogLicense_owner_div">
         <div class="title">
-            <h4>犬主登记</h4>
+            <h4>Owner Register</h4>
         </div>
         <!--1-->
         <div class="row">
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*犬主姓:</h4>
+                    <h4>*First Name:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="dogowner_name1">
-                    <p style="display: none;" class="null_err" id="dogowner_name1_null_tip">*请输入犬主姓</p>
+                    <p style="display: none;" class="null_err" id="dogowner_name1_null_tip">*What's your first name</p>
                 </div>
 
             </div>
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*犬主名:</h4>
+                    <h4>*Last Name:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="dogowner_name2">
-                    <p style="display: none;" class="null_err" id="dogowner_name2_null_tip">*请输入犬主名</p>
+                    <p style="display: none;" class="null_err" id="dogowner_name2_null_tip">*What's your last name</p>
                 </div>
 
 
@@ -35,16 +35,16 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*手机号码:</h4>
+                    <h4>*Mobile Number:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="phone">
-                    <p style="display: none;" class="null_err" id="phone_null_tip">*手机号码不能为空</p>
+                    <p style="display: none;" class="null_err" id="phone_null_tip">*Please enter a mobile number</p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*手机号码2:</h4>
+                    <h4>*Mobile Number2:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="phone2">
@@ -58,17 +58,17 @@
 
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>性别:</h4>
+                    <h4>Gender:</h4>
                 </div>
                 <div class="section">
                     <div class="radio_container">
-                        <input type="radio" name="gender" id="gender_man" value="1" text="男">
-                        <label for="gender">男</label>
+                        <input type="radio" name="gender" id="gender_man" value="1" text="Male">
+                        <label for="gender">Male</label>
                         <input type="radio" style="margin-left: 30px" name="gender" id="gender_woman" value="2"
-                               text="女">
-                        <label for="gender">女</label>
+                               text="Female">
+                        <label for="gender">Female</label>
                     </div>
-                    <p style="display: none;" class="null_err" id="gender_null_tip">*性别不能为空</p>
+                    <p style="display: none;" class="null_err" id="gender_null_tip">*Please choose your gender</p>
                 </div>
 
 
@@ -76,11 +76,11 @@
 
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>犬主座机:</h4>
+                    <h4>Telephone Number:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="tel">
-                    <p style="display: none;" class="null_err" id="tel_null_tip">*座机不能为空</p>
+                    <p style="display: none;" class="null_err" id="tel_null_tip">*Please enter a telephone number</p>
                 </div>
             </div>
 
@@ -91,28 +91,28 @@
 
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>邮编:</h4>
+                    <h4>Post Code/Zip Code:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="postcode"
                            oninput="if(value.length>6)value=value.slice(0,6)">
-                    <p style="display: none;" class="null_err" id="postcode_null_tip">*邮编不能为空</p>
+                    <p style="display: none;" class="null_err" id="postcode_null_tip">*Please enter an email</p>
                 </div>
 
 
             </div>
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*证件类型:</h4>
+                    <h4>*Type of Credentials:</h4>
                 </div>
                 <div class="section">
                     <select id="cardtype">
-                        <option value="1" selected="selected">身份证</option>
-                        <option value="2">护照</option>
+                        <option value="1" selected="selected">I.D</option>
+                        <option value="2">Passport</option>
                     </select>
                     <div class="connect">--</div>
                     <input class="form-control" type="text" id="id_number">
-                    <p style="display: none;" class="null_err" id="id_number_null_tip">*证件号不能为空</p>
+                    <p style="display: none;" class="null_err" id="id_number_null_tip">*Please enter  ID number</p>
                 </div>
             </div>
 
@@ -121,7 +121,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*邮箱:</h4>
+                    <h4>*Email:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="email">
@@ -131,11 +131,11 @@
 
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*详细地址:</h4>
+                    <h4>*Address:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="address">
-                    <p style="display: none;" class="null_err" id="address_null_tip">*详细地址不能为空</p>
+                    <p style="display: none;" class="null_err" id="address_null_tip">*Please enter address</p>
                 </div>
             </div>
         </div>
@@ -144,31 +144,31 @@
 
     <div class="registration" id="dogLicense_dog_div">
         <div class="title">
-            <h4>犬只登记</h4>
+            <h4>Dog Register</h4>
         </div>
         <!--1-->
         <div class="row">
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*犬名:</h4>
+                    <h4>*Dog's Name:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="dogname">
-                    <p style="display: none;" class="null_err" id="dogname_null_tip">*犬名不能为空</p>
+                    <p style="display: none;" class="null_err" id="dogname_null_tip">*What's your dog name</p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*性别:</h4>
+                    <h4>*Sex:</h4>
                 </div>
                 <div class="section">
                     <div class="radio_container">
                         <input type="radio" name="dog_gender" id="doggender_male" value="1">
-                        <label for="dog_gender">雄</label>
+                        <label for="dog_gender">Female</label>
                         <input type="radio" style="margin-left: 30px" name="dog_gender" id="doggender_female" value="2">
-                        <label for="dog_gender">雌</label>
+                        <label for="dog_gender">Male</label>
                     </div>
-                    <p style="display: none;" class="null_err" id="dog_gender_null_tip">*犬只性别不能为空</p>
+                    <p style="display: none;" class="null_err" id="dog_gender_null_tip">*Please choose your dog‘s sex</p>
                 </div>
             </div>
         </div>
@@ -219,7 +219,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*品种:</h4>
+                    <h4>*Breeds:</h4>
                 </div>
                 <div class="section">
                     <div class="radio_container">
@@ -227,13 +227,13 @@
                             <option id="breed_null" value="">请选择</option>
                         </select>
                     </div>
-                    <p style="display: none;" class="null_err" id="breed_null_tip">*犬只品种不能为空</p>
+                    <p style="display: none;" class="null_err" id="breed_null_tip">*Please choose your dog‘s breed</p>
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>是否绝育:</h4>
+                    <h4>Sterilization:</h4>
                 </div>
                 <div class="section">
                     <div class="radio_container">
@@ -252,7 +252,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>出生日期:</h4>
+                    <h4>Date of Birth:</h4>
                 </div>
                 <div class="section" style="width:265px ;height:44px;position: relative ">
                     <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd"
@@ -262,17 +262,17 @@
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                     </div>
                     <p style="display:none; position: absolute;top:44px;left: 0px;z-index: 99" class="null_err"
-                       id="birth_date_null_tip">*出生日期不能为空</p>
+                       id="birth_date_null_tip">*Please choose your dog‘s date of birth</p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*虹膜id:</h4>
+                    <h4>*Iris ID:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="iris" maxlength="15">
                     <a id="recollect_iris" href="javascript:void(0)">重新采集虹膜</a>
-                    <p style="display:none;clear: left" class="null_err" id="iris_null_tip">*虹膜ID不能为空</p>
+                    <p style="display:none;clear: left" class="null_err" id="iris_null_tip">*You can't leave this empty</p>
                 </div>
 
             </div>
@@ -290,7 +290,7 @@
                 <div class="section" id="imgs">
                 </div>
                 <p style="display:none;clear:left;font-size: 12px; padding-left:100px;" class="null_err"
-                   id="imgs_null_tip">*图片不能为空</p>
+                   id="imgs_null_tip">*Please upload a photo</p>
             </div>
         </div>
     </div>
