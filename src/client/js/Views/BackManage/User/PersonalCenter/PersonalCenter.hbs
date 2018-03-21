@@ -2,7 +2,7 @@
 
     <div class="basic_info">
         <div class="title">
-            <h3>基本信息</h3>
+            <h3>Basic Info</h3>
         </div>
         <div class="row">
             <div class="col-md-3">
@@ -15,7 +15,7 @@
             </div>
             <div class="col-md-3">
                 <div class="subtitle" style="float: left">
-                    <h4>账号：</h4>
+                    <h4>Account：</h4>
                 </div>
                 <div class="section" style="float: left">
                     <span>{{organization.adminUser.email}}</span>
@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-3">
                 <div class="subtitle" style="float: left">
-                    <h4>密码：</h4>
+                    <h4>Password：</h4>
                 </div>
                 <div class="section" style="float: left">
                     <a href="#changepassword" id="change_password" style="color:#3399ff">修改密码</a>
@@ -31,7 +31,7 @@
             </div>
             <div class="col-md-3">
                 <div class="subtitle" style="float: left">
-                    <h4>注册时间：</h4>
+                    <h4>Registration Date：</h4>
                 </div>
                 <div class="section" style="float: left">
                     <span><span>{{organization.adminUser.created}}</span></span>
@@ -41,7 +41,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="subtitle" style="float: left">
-                    <h4>负责人：</h4>
+                    <h4>Director：</h4>
                 </div>
                 <div class="section" style="float: left">
                     <span><span>{{organization.contacts.name}}</span></span>
@@ -49,7 +49,7 @@
             </div>
             <div class="col-md-3">
                 <div class="subtitle" style="float: left">
-                    <h4>负责人电话：</h4>
+                    <h4>Mobile Number：</h4>
                 </div>
                 <div class="section" style="float: left">
                     <span><span>{{organization.contacts.phone}}</span></span>
@@ -65,7 +65,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="subtitle">
-                    <h4>免疫点名称：</h4>
+                    <h4>Quarantine Station：</h4>
                 </div>
                 <div class="section">
                     <span><span>{{organization.name}}</span></span>
@@ -73,7 +73,7 @@
             </div>
             <div class="col-md-3">
                 <div class="subtitle">
-                    <h4>地址：</h4>
+                    <h4>Address：</h4>
                 </div>
                 <div class="section">
                     <span><span>{{organization.location.address}}</span></span>
@@ -81,7 +81,7 @@
             </div>
             <div class="col-md-3">
                 <div class="subtitle">
-                    <h4>座机：</h4>
+                    <h4>Telephone Number：</h4>
                 </div>
                 <div class="section">
                     <span><span>{{organization.tel}}</span></span>
@@ -99,7 +99,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="subtitle">
-                    <h4>营业执照：</h4>
+                    <h4>Business license：</h4>
                 </div>
                 <div class="section">
                     <!--<div id="license">-->
@@ -109,7 +109,7 @@
             </div>
             <div class="col-md-3">
                 <div class="subtitle">
-                    <h4>动物诊疗许可证：</h4>
+                    <h4>Veterinary Hospital Permits：</h4>
                 </div>
                 <div class="section">
                     <!--<div id="permit">-->
@@ -141,12 +141,12 @@
     </div>
     <div class="basic_info">
         <div class="title">
-            <h3>硬件信息</h3>
+            <h3>Hardware Info</h3>
         </div>
         <div class="row">
             <div class="col-md-3">
                 <div class="subtitle">
-                    <h4>设备ID：</h4>
+                    <h4>Device ID：</h4>
                 </div>
                 <div class="section">
                     <span><span>a23492312g</span></span>
@@ -154,7 +154,7 @@
             </div>
             <div class="col-md-3">
                 <div class="subtitle">
-                    <h4>硬件版本：</h4>
+                    <h4>Hardware Vision：</h4>
                 </div>
                 <div class="section">
                     <span><span>V1.0.1</span></span>
@@ -165,8 +165,8 @@
     <div class="basic_info">
         <div class="title">
             <h3>
-                <span>兽医信息</span>
-                <button class="btn btnBlueE btn-block" id="btn_account">添加兽医</button>
+                <span>Veterinarian Info</span>
+                <button class="btn btnBlueE btn-block" id="btn_account">Add Accredited Veterinarian</button>
             </h3>
 
         </div>
@@ -186,7 +186,7 @@
 
                 <div class="col-md-4">
                     <div class="subtitle">
-                        <h4>资格证编号：</h4>
+                        <h4>Accredited Certificate NO：</h4>
                     </div>
                     <div class="section">
                         <span>{{this.code}}</span>

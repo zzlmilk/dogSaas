@@ -41,8 +41,8 @@ var InfoPreview = {
             console.log(self.DogLicenseModel.owner.email)
             $("#ownerEmail").html(self.DogLicenseModel.owner.email);
             $("#ownerTel").html(self.DogLicenseModel.owner.tel);
-            $("#ownerSex").html(self.DogLicenseModel.owner.sex == 1 ? "男" : "女");
-            $("#ownerCertificateType").html(self.DogLicenseModel.owner.certificateType == 1 ? "身份证" : "护照");
+            $("#ownerSex").html(self.DogLicenseModel.owner.sex == 1 ? "Male" : "Female");
+            $("#ownerCertificateType").html(self.DogLicenseModel.owner.certificateType == 1 ? "I.D" : "Passport");
             $("#ownerCertificateCode").html(self.DogLicenseModel.owner.certificateCode);
             $.each(CityJson,
                 function (i, val) {
@@ -55,7 +55,7 @@ var InfoPreview = {
             $("#ownerCode").html(self.DogLicenseModel.owner.location.code);
 
             $("#dogName").html(self.DogLicenseModel.dog.nickname);
-            $("#dogSex").html(self.DogLicenseModel.dog.sex == 1 ? "雄" : "雌");
+            $("#dogSex").html(self.DogLicenseModel.dog.sex == 1 ? "Male" : "Female");
             $("#dogIrisId").html(self.DogLicenseModel.dog.irisID);
             $("#dogHairColor").html(self.DogLicenseModel.dog.hairColor);
             $("#dogUsage").html(self.DogLicenseModel.dog.usage);
