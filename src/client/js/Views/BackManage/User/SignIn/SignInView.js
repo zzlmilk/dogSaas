@@ -114,6 +114,13 @@ var SignInView = BaseView.extend({
                 alert(message)
             })
         });
+
+        $('#forgetPwd').unbind().on('click', function () {
+            var ResetView = require('../Reset/ResetView.js');
+            new ResetView({
+                container: '#start-view-content'
+            });
+        });
     },
 
     //初始化事件

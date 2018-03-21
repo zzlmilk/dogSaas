@@ -74,30 +74,7 @@ var DogOwnerView = Backbone.View.extend({
             var flag = true;
             //身份证格式验证
             var id_number = $("#id_number").val().trim();
-            if (id_number != "") {
-                if (!id_number.match(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/)) {
-                    falg = false;
-                    $("#id_number_format_tip").show();
-                } else {
-                    $("#id_number_format_tip").hide();
-                }
-            } else {
-                $("#id_number_format_tip").hide();
-            }
-            // //手机号格式验证
-            // var phone = $("#phone").val().trim();
-            // if (phone != "") {
-            //     if (!phone.match(/^1[3,5,7,8]\d{9}$/)) {
-            //         falg = false;
-            //         $("#phone_format_tip").show();
-            //     } else {
-            //         $("#phone_format_tip").hide();
-            //     }
-            // } else {
-            //     $("#phone_format_tip").hide();
-            // }
-            //三个参数不能都为空
-            // var dogowner_name = $("#dogowner_name").val().trim();
+
             if (id_number == "") {
                 flag = false;
                 alert("请输入搜索条件！")
@@ -217,7 +194,6 @@ var DogOwnerView = Backbone.View.extend({
                                 "<td align='center' valign='middle'>" + d1.dog.breed + "</td>" +
                                 "<td align='center' valign='middle'>" + d1.dog.hairColor + "</td>" +
                                 "<td align='center' valign='middle'>" + d1.vaccineCard.info.cardNo + "</td>" +
-                                "<td align='center' valign='middle'>" + d1.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
                                 "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + 0 + ">详情</a></td>" +
                                 "</tr>");
                             for (var i = 1; i < size; i++) {
