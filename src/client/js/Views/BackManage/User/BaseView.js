@@ -1,7 +1,7 @@
 var Backbone = require('backbone');
 var _ = require('lodash');
-var Const = require('../../../../lib/consts');
-var Utils = require('../../../../lib/utils');
+var Const = require('../../../lib/consts');
+var Utils = require('../../../lib/utils');
 
 (function(global) {
     "use strict;"

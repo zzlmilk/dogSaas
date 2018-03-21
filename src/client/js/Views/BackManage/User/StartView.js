@@ -1,9 +1,9 @@
 var Backbone = require('backbone');
 var _ = require('lodash');
 
-var Utils = require('../../../../lib/utils');
-var Const = require('../../../../lib/consts');
-var Config = require('../../../../lib/init');
+var Utils = require('../../../lib/utils');
+var Const = require('../../../lib/consts');
+var Config = require('../../../lib/init');
 
 // load template
 var template = require('./Start.hbs');
@@ -27,19 +27,19 @@ var StartView = Backbone.View.extend({
 
 
 
-        var SignInView = require('../SignIn/SignInView.js');
+        var SignInView = require('./SignIn/SignInView.js');
         var view = new SignInView({
             container: '#start-view-content'
         });
 
 
 
-        var SignHeaderView = require('../Header/HeaderView.js');
+        var SignHeaderView = require('./Header/HeaderView.js');
         var view = new SignHeaderView({
             'el': "#signheader-content"
         });
 
-        var SignFooterView = require('../Footer/FooterView.js');
+        var SignFooterView = require('./Footer/FooterView.js');
         var view = new SignFooterView({
             'el': "#signfooter-content"
         });

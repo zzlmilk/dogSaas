@@ -4,14 +4,14 @@
         <h4>{{l10n "Sign in"}}</h4>
         <div class="form-group">
             <label class="sr-only" for="username">登录</label>
-            <input class="form-control" id="username" autofocus="autofocus" type="email" name="username" placeholder="请输入邮箱">
-            <span style="display: none">邮箱输入错误</span>
-            <span class="username  help-block" style="display: none;">aaaa</span>
+            <input class="form-control" id="email" autofocus="autofocus" type="email" name="email" placeholder="请输入邮箱">
+            <p style="display: none;" class="null_err" id="email_null_tip">*请输入邮箱</p>
         </div>
         <div class="form-group">
             <label class="sr-only" for="password">Email address</label>
             <input class="form-control" id="password" type="password" name="password" placeholder="密码">
-            <span style="display: none">密码输入错误</span>
+
+            <p style="display: none;" class="null_err" id="password_null_tip">*请输入密码</p>
         </div>
     </div>
     <div class="il_btn clearfix">

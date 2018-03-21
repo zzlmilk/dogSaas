@@ -3,12 +3,12 @@ var template = require('./Reset.hbs');
 var _ = require('lodash');
 //var validator = require('validator');
 
-var Utils = require('../../../../../lib/utils');
-var Const = require('../../../../../lib/consts');
-var Config = require('../../../../../lib/init');
+var Utils = require('../../../../lib/utils');
+var Const = require('../../../../lib/consts');
+var Config = require('../../../../lib/init');
 
 var BaseView = require('../BaseView');
-var SendEmailClient = require('../../../../../lib/APIClients/SendEmailClient');
+var SendEmailClient = require('../../../../lib/APIClients/SendEmailClient');
 
 
 var ResetView = Backbone.View.extend({
@@ -24,12 +24,12 @@ var ResetView = Backbone.View.extend({
         }));
 
 
-        var SignHeaderView = require('../../Header/HeaderView.js');
+        var SignHeaderView = require('../Header/HeaderView.js');
         var view = new SignHeaderView({
             'el': "#signheader-content"
         });
 
-        var SignFooterView = require('../../Footer/FooterView.js');
+        var SignFooterView = require('../Footer/FooterView.js');
         var view = new SignFooterView({
             'el': "#signfooter-content"
         });
