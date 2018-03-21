@@ -123,7 +123,7 @@ var AddOrganizationView = Backbone.View.extend({
          * 为各个元素添加监听事件
          */
         function initEvent() {
-            //免疫点名称 失去焦点监听
+            //Quarantine Station 失去焦点监听
             $("#name").blur(function () {
                 var name = $('#name').val().trim();
                 if (name == "") {
@@ -243,7 +243,7 @@ var AddOrganizationView = Backbone.View.extend({
          */
         var emptyValid = function () {
             falg = true;
-            //免疫点名称
+            //Quarantine Station
             var name = $('#name').val();
             if (name == "") {
                 falg = false;
@@ -274,7 +274,7 @@ var AddOrganizationView = Backbone.View.extend({
                 falg = false;
                 $("#tel_null_tip").show();
             }
-            //营业执照
+            //Business license
             var businessLicense = $("#businessLicense img").attr("src");
             if (businessLicense == undefined) {
                 falg = false;
