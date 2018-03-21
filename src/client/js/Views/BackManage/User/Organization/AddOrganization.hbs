@@ -6,18 +6,18 @@
 
             <div class="row">
 
-                <p style="font-size:20px" class="text-center">完成以下信息并提交即可完成注册</p>
+                <p style="font-size:20px" class="text-center">Fill out this form to register</p>
 
             </div>
 
             <div class="row">
                 <div class="subtitle">
-                    <h4>*免疫点名称：</h4>
+                    <h4>*Quarantine Station：</h4>
                 </div>
                 <div class="section">
                     <input required="" errmsg="请填写公司名称" id="name" type="text"
-                           class="form-control" placeholder="免疫点名称">
-                    <p style="display: none;" class="null_err" id="name_null_tip">*名称不能为空</p>
+                           class="form-control" placeholder="Quarantine Station">
+                    <p style="display: none;" class="null_err" id="name_null_tip">*you can't leave this empty</p>
                 </div>
             </div>
 
@@ -25,65 +25,65 @@
 
             <div class="row">
                 <div class="subtitle">
-                    <h4>详细地址：</h4>
+                    <h4>Address：</h4>
                 </div>
                 <div class="section">
                     <input required="" errmsg="请填写联系地址"
-                           id="address" type="text" class="form-control" placeholder="详细地址">
-                    <p style="display: none;" class="null_err" id="address_null_tip">*地址不能为空</p>
+                           id="address" type="text" class="form-control" placeholder="Address">
+                    <p style="display: none;" class="null_err" id="address_null_tip">*you can't leave this empty</p>
                 </div>
             </div>
 
             <div class="row">
                 <div class="subtitle">
-                    <h4>座机：</h4>
+                    <h4>Telephone Number：</h4>
                 </div>
                 <div class="section">
                     <div class="phone_number">
                         <input required="" errmsg="" value="" id="tel" type="text" style=" padding: 5px 0;height:40px;line-height: 20px"
                                class="form-control"
-                               placeholder="座机">
+                               placeholder="Telephone Number">
                     </div>
                     <p class="detail_address" style="font-size:12px ; display: none;color:#ff0000" class="null_err"
-                       id="tel_null_tip">*座机不能为空</p>
+                       id="tel_null_tip">*you can't leave this empty</p>
                 </div>
             </div>
 
             <div class="row">
                 <div class="subtitle">
-                    <h4>营业执照：</h4>
+                    <h4>Business license：</h4>
                     <p>* 彩色无水印 <br>
-                        * png 或者 jpg 格式 <br>
-                        * 2M 以内
+                        * Available :jpg <br>
+                        * less than 2M
                     </p>
                 </div>
                 <div class="section" id="businessLicense">
                     <!-- <div id="businessLicense" class="uploadWrap img-lg">
-                        <p>上传图片</p>
+                        <p>Upload Photo</p>
                          <input id="businessLicensePic" name="userfile" type="file" style="display: none;">
                     </div> -->
                 </div>
                 <p class="section null_err" style="display: none;width: 200px;float: left;margin-left: 170px;"
-                   id="businessLicense_null_tip">*营业执照不能为空</p>
+                   id="businessLicense_null_tip">*you can't leave this empty</p>
             </div>
 
             <div class="row">
                 <div class="subtitle">
-                    <h4>*动物诊疗许可证：</h4>
+                    <h4>*Veterinary Hospital Permits：</h4>
                     <p>* 彩色无水印 <br>
-                        * png 或者 jpg 格式 <br>
-                        * 2M 以内
+                        * Available :jpg  <br>
+                        * less than 2M
                     </p>
                 </div>
                 <div class="section" id="animalMedicalLicense">
                     <!-- <div id="" class="uploadWrap img-lg">
-                        <p>上传图片</p>
+                        <p>Upload Photo</p>
                          <input id="businessLicensePic1" name="userfile" type="file" style="display: none;">
                     </div>
                 </div> -->
                 </div>
                 <p class="section null_err" style="display: none;width: 200px;float: left;margin-left: 170px;"
-                   id="animalMedicalLicense_null_tip">*许可证不能为空</p>
+                   id="animalMedicalLicense_null_tip">*you can't leave this empty</p>
             </div>
 
             <div class="row">
@@ -101,17 +101,17 @@
                     </div>
 
                 </div>
-                <p class="section null_err" style="display: none;margin-left: 170px" id="server_null_tip">*服务范围不能为空</p>
+                <p class="section null_err" style="display: none;margin-left: 170px" id="server_null_tip">*you can't leave this empty</p>
             </div>
 
             <div class="row">
                 <div class="subtitle">
-                    <h4>*添加兽医：</h4>
+                    <h4>*Add Accredited Veterinarian：</h4>
                 </div>
                 <div class="section">
                     <input required="" errmsg="" value="添加" id="doctor" type="button" class="form-control"/>
                     <span class="add_doctor">至少添加一位兽医</span>
-                    <p style="display: none;" class="null_err" id="doctor_null_tip">*兽医姓名不能为空</p>
+                    <p style="display: none;" class="null_err" id="doctor_null_tip">*you can't leave this empty</p>
                 </div>
             </div>
 
@@ -123,7 +123,7 @@
                         <tbody>
                         <tr style="background:#cccccc;display: none" id="doctor_table">
                             <td class="name">姓名</td>
-                            <td class="number">职业兽医资格证编号</td>
+                            <td class="number">Accredited Certificate NO</td>
                         </tr>
                         </tbody>
                     </table>
@@ -136,8 +136,8 @@
                 </div>
                 <div class="section">
                     <input required="" errmsg="" value="" id="contacts1" type="text" class="form-control"
-                           placeholder="联系人姓">
-                    <p style="display: none;" class="null_err" id="contacts1_null_tip">*联系人姓不能为空</p>
+                           placeholder="ContactLast Name">
+                    <p style="display: none;" class="null_err" id="contacts1_null_tip">*you can't leave this empty</p>
                 </div>
             </div>
             <div class="row">
@@ -146,25 +146,25 @@
                 </div>
                 <div class="section">
                     <input required="" errmsg="" value="" id="contacts2" type="text" class="form-control"
-                           placeholder="联系人名">
-                    <p style="display: none;" class="null_err" id="contacts2_null_tip">*联系人名不能为空</p>
+                           placeholder="ContactFirst Name">
+                    <p style="display: none;" class="null_err" id="contacts2_null_tip">*you can't leave this empty</p>
                 </div>
             </div>
 
             <div class="row">
                 <div class="subtitle">
-                    <h4>*联系人电话：</h4>
+                    <h4>*Mobile Number：</h4>
                 </div>
                 <div class="section">
                     <input required="" errmsg="" value="" id="contacts_phone" type="text" class="form-control"
-                           placeholder="联系人电话">
-                    <p style="display: none;" class="null_err" id="contacts_phone_null_tip">*联系人电话不能为空</p>
+                           placeholder="Mobile Number">
+                    <p style="display: none;" class="null_err" id="contacts_phone_null_tip">*you can't leave this empty</p>
                 </div>
             </div>
 
             <div class="row">
                 <!--<button class="btn btnNone">返回上一步</button>-->
-                <button id="addOrganizationBtn" class="btn btnBlueE btn-block">提交</button>
+                <button id="addOrganizationBtn" class="btn btnBlueE btn-block">Submit</button>
             </div>
 
         </div>
