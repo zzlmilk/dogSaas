@@ -8,8 +8,7 @@ var Const = require('../../../../lib/consts');
 var Config = require('../../../../lib/init');
 
 
-
-var BaseView = require('../Start/BaseView');
+var BaseView = require('../BaseView');
 
 var SignInClient = require('../../../../lib/APIClients/SignInClient');
 
@@ -21,22 +20,22 @@ var template = require('./SignIn.hbs');
 
 var SignInView = BaseView.extend({
 
-	el:null,
-	container:null,
-    initialize: function(options) {
-        
-   
+    el: null,
+    container: null,
+    initialize: function (options) {
+
+
         this.container = options.container;
         this.render();
     },
 
-    home:function(){
-    		alert("ok")
+    home: function () {
+        alert("ok")
     },
 
 
-    render: function() {
-        
+    render: function () {
+
         $(this.container).html(template);
 
         this.onLoad();
@@ -45,109 +44,100 @@ var SignInView = BaseView.extend({
 
     },
 
-    onLoad: function(){
+    onLoad: function () {
 
         var self = this;
+        //添加监听事件
+        this.initEvent();
+        /**
+         * 非空验证
+         * @returns {boolean}
+         */
+        var emptyValid = function () {
+            falg = true;
+            var email = $('input[name="email"]').val();
+            if (email == "") {
+                falg = false;
+                $("#email_null_tip").show();
+            }else{
+                $("#email_null_tip").hide();
+            }
+            var password = $('input[name="password"]').val();
 
+            if (password == "") {
+                falg = false;
+                $("#password_null_tip").show();
+            }else{
+                $("#password_null_tip").hide();
+            }
+            return falg;
+        };
 
-
-
-        $('#form-signin input').bind().on('keyup',function(e){
+        $('#form-signin input').bind().on('keyup', function (e) {
 
             if (e.keyCode == 13) {
-                
+
                 $('#form-signin #btn-signin').click();
-                
+
             }
 
         });
-        
-		$('#login_form #loginBtn').unbind().on('click',function(){
-					
-         		var username = $('input[name="username"]').val();
-         		var password = $('input[name="password"]').val();
 
-         		
-				
-				if (username =="" ||password =="") {
-		 			// $(".help-block").show();
-		 			// $(".help-block").text("密码为空");
+        $('#login_form #loginBtn').unbind().on('click', function () {
+            //验证非空
+            if (!emptyValid()) {
+                return;
+            }
+            var email = $('input[name="email"]').val();
+            var password = $('input[name="password"]').val();
 
 
-				}
-				else{
+            SignInClient.send({
+                email: email,
+                password: password
 
-				SignInClient.send({                    
-                    email:username,
-                    password:password
-                                        
-                },function(data){
+            }, function (data) {
 
-                	loginUserManager.setToken(data.token);  
-				     //存入本地缓存 
-				     var user = UserModel.modelByResult(data.user) 		
-				     loginUserManager.setLoginUserID(user.get("id"))
-				   	 user.save();
+                loginUserManager.setToken(data.token);
+                //存入本地缓存
+                var user = UserModel.modelByResult(data.user)
+                loginUserManager.setLoginUserID(user.get("id"))
+                user.save();
 
+                Utils.goPage("organization");
 
+            }, function (errorCode) {
+                console.log(errorCode)
+                if (Const.ErrorCodes[errorCode])
+                    var message = Const.ErrorCodes[errorCode]
 
-
-				    Utils.goPage("organization"); 
-
-				    
-                    
-                    
-                    $('#form-signin #btn-signin').removeAttr('disabled');				
-                    
-                },function(errorCode){
-                	 console.log(errorCode)                	 
-                	 if(Const.ErrorCodes[errorCode])
-                	 var message = Const.ErrorCodes[errorCode]
-
-                    alert(message)
-
-
-                    $('#form-signin #btn-signin').removeAttr('disabled');	
-                })
-
-					//Utils.goPage("main");
-				}
-
-
-		});
-
-		
+                alert(message)
+            })
+        });
     },
 
-	resetValidationAlert : function(){
-		
-		$('#form-signin .username').removeClass('has-error');
-		$('#form-signin .username .help-block').text('');
+    //初始化事件
+    initEvent: function () {
+        /**************************犬主登记****************************/
+        //犬主姓名 失去焦点监听
+        $("#email").blur(function () {
+            var email = $('#email').val().trim();
+            if (email == "") {
+                $("#email_null_tip").show();
+            } else {
+                $("#email_null_tip").hide();
+            }
+        });
+        $("#password").blur(function () {
+            var password = $('#password').val().trim();
+            if (password == "") {
+                $("#password_null_tip").show();
+            } else {
+                $("#password_null_tip").hide();
+            }
+        });
 
-		$('#form-signin .password').removeClass('has-error');
-		$('#form-signin .password .help-block').text('');
-
-	},
-	
-    validate: function(callBack){
-
-		var name = $('#form-signin input[name="username"]').val();
-		var password = $('#form-signin input[name="password"]').val();
-		
-		var err = {
-		    general : '',
-			name : ''
-		}
-		
-		if(_.isEmpty(name))
-			err.name = "Please input user name.";
-		
-		if(_.isEmpty(password))
-			err.password = "Please input password.";
-		
-		callBack(err);
-		
-    }
+    },
 
 });
 

@@ -5,14 +5,14 @@ var Backbone = require('backbone');
 var _ = require('lodash');
 
 
-var Utils = require('../../../../../lib/utils');
-var Const = require('../../../../../lib/consts');
-var Config = require('../../../../../lib/init');
+var Utils = require('../../../../lib/utils');
+var Const = require('../../../../lib/consts');
+var Config = require('../../../../lib/init');
 
-var VaildCodeClient = require('../../../../../lib/APIClients/VaildCodeClient');
-var RegisterClinet = require('../../../../../lib/APIClients/RegisterClinet');
-var UserModel = require('../../../../../Models/user')
-var loginUserManager = require('../../../../../lib/loginUserManager')
+var VaildCodeClient = require('../../../../lib/APIClients/VaildCodeClient');
+var RegisterClinet = require('../../../../lib/APIClients/RegisterClinet');
+var UserModel = require('../../../../Models/user')
+var loginUserManager = require('../../../../lib/loginUserManager')
 
 var BaseView = require('../BaseView');
 
@@ -41,12 +41,12 @@ var ResetPasswordView = BaseView.extend({
         $(Config.defaultContaier).html(template({}));
 
 
-        var SignHeaderView = require('../../Header/HeaderView.js');
+        var SignHeaderView = require('../Header/HeaderView.js');
         var view = new SignHeaderView({
             'el': "#signheader-content"
         });
 
-        var SignFooterView = require('../../Footer/FooterView.js');
+        var SignFooterView = require('../Footer/FooterView.js');
         var view = new SignFooterView({
             'el': "#signfooter-content"
         });

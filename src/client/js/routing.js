@@ -75,7 +75,7 @@ var Routing = function () {
     //开始
     appRouter.on('route:startRoute', function (actions) {
 
-        var StartView = require('./Views/BackManage/User/Start/StartView.js');
+        var StartView = require('./Views/BackManage/User/StartView.js');
         var view = new StartView({action: actions});
 
 
@@ -100,7 +100,7 @@ var Routing = function () {
 
     //重置密码
     appRouter.on('route:resetpasswordRoute', function (actions) {
-        var ResetPasswordView = require('./Views/BackManage/User/Start/ResetPassword/ResetPasswordView.js');
+        var ResetPasswordView = require('./Views/BackManage/User/ResetPassword/ResetPasswordView.js');
         var view = new ResetPasswordView({actions: actions});
 
     });
@@ -193,7 +193,7 @@ var Routing = function () {
     });
 
     appRouter.on('route:resetRoute', function (actions) {
-        var ResetView = require('./Views/BackManage/User/Start/Reset/ResetView.js');
+        var ResetView = require('./Views/BackManage/User/Reset/ResetView.js');
         var view = new ResetView();
     });
 
