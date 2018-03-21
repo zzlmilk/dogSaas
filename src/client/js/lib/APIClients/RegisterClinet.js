@@ -20,6 +20,12 @@ var _ = require('lodash');
         this.postRequst("/user/set_password",data,success,err);
 
     }
+
+    //修改密码
+    RegisterClinet.prototype.changePassword = function(data,success,err){
+        this.postRequst("/user/change_password",data,success,err);
+
+    }
         
     // returns instance
     module["exports"] = new RegisterClinet();
