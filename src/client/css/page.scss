@@ -989,10 +989,10 @@ input[type='date']::-webkit-inner-spin-button {
 
 .modal > .modal-dialog > .modal-content > .modal-body > .row > .col-sm-4 > .subtitle > #dogPhotoUrl {
   position: absolute;
-  top: 0;
+  top: -10px;
   left: 30px;
-  width: 160px;
-  height: 80px;
+  width: 90px;
+  height: 60px;
   display: block;
 }
 
