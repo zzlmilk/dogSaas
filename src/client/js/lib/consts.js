@@ -35,7 +35,7 @@ var Consts = {
         2000005: "注册邮箱格式错误",
         2000006: "组织存在",
         2000007: "The email has already been registerd.",
-        2000008: "不存在该账户",
+        2000008: "We couldn't find your account with that username. ",
         2000009: "无效的验证码",
         2200001: "Email invalid.",
         2000010: "缺少宠物昵称",
