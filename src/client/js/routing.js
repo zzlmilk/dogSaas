@@ -17,13 +17,13 @@ var Routing = function () {
             "start": "startRoute",
             "main": "mainRoute",
             "signin": "signinRoute", //注册路由
-            "veriftemail": "veriftemailRoute",
+            "veriftemail": "setpasswordRoute",
             "test": "testRoute",
             "file": "FileRoute",
             "reset": "resetRoute",
             "signup": "signupRoute",//登陆路由
             "home": "homeRoute",//首页导航路由
-            "setpassword": "setpasswordRoute",//设置密码
+            // "setpassword": "setpasswordRoute",//设置密码
             "resetpassword": "resetpasswordRoute",//重置密码
             "changepassword": "changepasswordRoute",//个人中心修改密码
             "organization": "organizationRoute",//添加机构
@@ -90,12 +90,12 @@ var Routing = function () {
     });
 
 
-    //验证邮箱
-    appRouter.on('route:veriftemailRoute', function (actions) {
-        var VeriftEmailView = require('./Views/BackManage/User/VeriftEmail/VeriftEmailView.js');
-        var view = new VeriftEmailView({actions: actions});
-
-    });
+    // //验证邮箱
+    // appRouter.on('route:veriftemailRoute', function (actions) {
+    //     var VeriftEmailView = require('./Views/BackManage/User/VeriftEmail/VeriftEmailView.js');
+    //     var view = new VeriftEmailView({actions: actions});
+    //
+    // });
 
 
     //重置密码
@@ -193,7 +193,7 @@ var Routing = function () {
     });
 
     appRouter.on('route:resetRoute', function (actions) {
-        var ResetView = require('./Views/BackManage/User/Reset/ResetView.js');
+        var ResetView = require('./Views/BackManage/User/ForgotPwd/ForgotPwdView.js');
         var view = new ResetView();
     });
 

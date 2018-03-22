@@ -1,5 +1,5 @@
 var Backbone = require('backbone');
-var template = require('./Reset.hbs');
+var template = require('./ForgotPwd.hbs');
 var _ = require('lodash');
 //var validator = require('validator');
 
@@ -11,7 +11,7 @@ var BaseView = require('../BaseView');
 var SendEmailClient = require('../../../../lib/APIClients/SendEmailClient');
 
 
-var ResetView = Backbone.View.extend({
+var ForgotPwdView = Backbone.View.extend({
 
     initialize: function(options) {
         // this.el = options.el;
@@ -44,19 +44,51 @@ var ResetView = Backbone.View.extend({
     },
 
     onLoad: function(){
-
-        var self = this;
-        var emailReg = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/i;
-
-        $('#email').unbind().on('keyup',function(e){
-            var n = $("#email").val().trim();
-            if (emailReg.test(n)) {
-                $("#btn-reset").removeAttr("disabled")
+        //失去焦点监听
+        $("#email").blur(function () {
+            var email = $("#email").val().trim();
+            if (email == "") {
+                $("#email_null_tip").show();
+                $("#email_format_tip").hide();
+            } else {
+                $("#email_null_tip").hide();
+                var emailReg = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/;
+                // var emailReg=/^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/
+                if (emailReg.test(email)) {
+                    $("#email_format_tip").hide();
+                }else {
+                    $("#email_format_tip").show()
+                }
             }
-
         });
 
+        var self = this;
+        var emailReg = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/;
+
+        // $('#email').unbind().on('keyup',function(e){
+        //     var n = $("#email").val().trim();
+        //     if (emailReg.test(n)) {
+        //         $("#btn-reset").removeAttr("disabled")
+        //     }
+        //
+        // });
+
         $("#btn-reset").unbind().on('click',function(e){
+            var email = $("#email").val().trim();
+            if (email == "") {
+                $("#email_null_tip").show();
+                return
+            } else {
+                $("#email_null_tip").hide();
+                var emailReg = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/;
+                if (emailReg.test(email)) {
+                    $("#email_format_tip").hide();
+                }else {
+                    $("#email_format_tip").show()
+                    return
+                }
+            }
+
             var email = $("#email").val().trim();
             self.resetClick(email)
         })
@@ -101,4 +133,4 @@ var ResetView = Backbone.View.extend({
 
 })
 
-module.exports = ResetView;
+module.exports = ForgotPwdView;

@@ -116,7 +116,7 @@ var SignInView = BaseView.extend({
         });
 
         $('#forgetPwd').unbind().on('click', function () {
-            var ResetView = require('../Reset/ResetView.js');
+            var ResetView = require('../ForgotPwd/ForgotPwdView.js');
             new ResetView({
                 container: '#start-view-content'
             });
