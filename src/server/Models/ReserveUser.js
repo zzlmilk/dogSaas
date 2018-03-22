@@ -18,6 +18,8 @@ ReserveUserModel.prototype.init = function(mongoose){
         type:String,  //预约状态 1,未办理 -1，已办理
         owner:{
            name: String, //主人名字
+           firstName:String,//名
+           lastName:String,//姓
            sex:String, //性别   1男 2女
            phone:String,
            tel:String,
