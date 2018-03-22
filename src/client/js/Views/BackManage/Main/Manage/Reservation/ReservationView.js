@@ -189,7 +189,9 @@ var ReservationView = Backbone.View.extend({
 
             if (immune_number == "") {
                 flag = false;
-                alert("请输入搜索条件！")
+                $("#where_null_tip").show();
+            } else {
+                $("#where_null_tip").hide();
             }
             return flag;
         }

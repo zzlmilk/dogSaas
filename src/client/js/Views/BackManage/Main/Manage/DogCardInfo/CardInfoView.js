@@ -76,10 +76,17 @@ var CardInfoView = Backbone.View.extend({
 
         var date=""
         var annualDate=self.dogLicense.DogCard.info.annualDate
-        for(var i in annualDate){
-            date +=annualDate[i]+" "
-        }
-        $("#dogCardSignDate").html(date);
+        date=annualDate[annualDate.length-1]
+        console.log(date)
+       var dates=date.split("-")
+        console.log(dates)
+        dates[0]=parseInt(dates[0])+1
+        var newDate=dates.join("-")
+        console.log(newDate)
+        // for(var i in annualDate){
+        //     date +=annualDate[i]+" "
+        // }
+        $("#dogCardSignDate").html(newDate);
         $("#dogCardIrisID").html(self.dogLicense.DogCard.info.irisID);
 
         $("#dogCardSignOrganization").html(self.dogLicense.DogCard.info.signOrganization);

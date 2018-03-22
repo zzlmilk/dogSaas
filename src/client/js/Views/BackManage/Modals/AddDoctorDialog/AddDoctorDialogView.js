@@ -33,12 +33,19 @@ var AddDoctorDialog = {
         });
 
         $('#modal-btn-save').unbind().on('click', function () {
-            var dname = $("#dname").val().trim();
-            if (dname == "") {
-                $("#dname_null_tip").show();
+            var dname1 = $("#dname1").val().trim();
+            if (dname1 == "") {
+                $("#dname1_null_tip").show();
                 return;
             } else {
-                $("#dname_null_tip").hide();
+                $("#dname1_null_tip").hide();
+            }
+            var dname2 = $("#dname2").val().trim();
+            if (dname2 == "") {
+                $("#dname2_null_tip").show();
+                return;
+            } else {
+                $("#dname2_null_tip").hide();
             }
             var dcode = $("#dcode").val().trim();
             if (dcode == "") {
@@ -49,7 +56,7 @@ var AddDoctorDialog = {
             }
             //传值给打开的页面
             var obj = {
-                name: dname,
+                name: dname1+dname2,
                 code: dcode
             }
             Backbone.trigger(Const.NotificationAddDoctorDone, obj);
