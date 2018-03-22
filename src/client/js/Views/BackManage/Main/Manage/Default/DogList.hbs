@@ -1,6 +1,6 @@
 <div class="personal_card">
     <div class="title">
-        <h3>办理狗证</h3>
+        <h3>License Issue</h3>
     </div>
 
     <div class="registration" id="dogLicense_owner_div">
@@ -176,25 +176,14 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*毛色:</h4>
+                    <h4>*canine:</h4>
                 </div>
                 <div class="section">
                     <div class="radio_container">
                         <select class="kinds" id="dog_color">
-                            <option value="">请选择</option>
-                            <option value="白色">白色</option>
-                            <option value="黑色">黑色</option>
-                            <option value="褐色">褐色</option>
-                            <option value="青色">青色</option>
-                            <option value="黑褐色">黑褐色</option>
-                            <option value="铁灰色">铁灰色</option>
-                            <option value="灰褐色">灰褐色</option>
-                            <option value="黄褐色">黄褐色</option>
-                            <option value="灰白色">灰白色</option>
-                            <option value="黑白色">黑白色</option>
-                            <option value="黄红色">黄红色</option>
-                            <option value="淡红色">淡红色</option>
+                            <option id="color_null" value="">请选择</option>
                         </select>
+
                     </div>
                     <p style="display: none;" class="null_err" id="dog_color_null_tip">*犬只颜色不能为空</p>
                 </div>
@@ -211,7 +200,7 @@
                         <input type="radio" name="usage" style="margin-left:15px;" id="police" value="警卫">
                         <label for="usage">警卫</label>
                     </div>
-                    <p style="display: none;" class="null_err" id="usage_null_tip">*犬只用途不能为空</p>
+                    <p style="display: none;" class="null_err" id="usage_null_tip">*You can't leave this empty</p>
                 </div>
             </div>
         </div>
@@ -238,11 +227,11 @@
                 <div class="section">
                     <div class="radio_container">
                         <input type="radio" id="isSterilization1" name="isSterilization" value="1">
-                        <label for="isSterilization">是</label>
+                        <label for="isSterilization">Yes</label>
                         <input type="radio" style="margin-left: 30px" id="isSterilization0" name="isSterilization" value="0">
-                        <label for="isSterilization">否</label>
+                        <label for="isSterilization">No</label>
                     </div>
-                    <p style="display:none;" class="null_err" id="isSterilization_null_tip">*请选择是否绝育</p>
+                    <p style="display:none;" class="null_err" id="isSterilization_null_tip">*You can't leave this empty</p>
                 </div>
             </div>
 
@@ -271,7 +260,7 @@
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="iris" maxlength="15">
-                    <a id="recollect_iris" href="javascript:void(0)">重新采集虹膜</a>
+                    <a id="recollect_iris" href="javascript:void(0)">Git ID</a>
                     <p style="display:none;clear: left" class="null_err" id="iris_null_tip">*You can't leave this empty</p>
                 </div>
 

@@ -55,7 +55,7 @@ var CardInfoView = Backbone.View.extend({
         /****************狗证**********************/
         //狗证取件方式
         $('#dogcard_print').unbind().on('click', function () {
-            alert("打印狗证磁卡");
+            alert("Please connect the card printer");
         });
 
 

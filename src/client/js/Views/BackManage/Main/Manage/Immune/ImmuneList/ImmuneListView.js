@@ -193,7 +193,7 @@ var ImmuneListView = Backbone.View.extend({
                                 "<td align='center' valign='middle'>" + val.dog.nickname + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.breed + "</td>" +
                                 "<td align='center' valign='middle'>" + val.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
-                                "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">年审</a></td>" +
+                                "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">Annual Review</a></td>" +
                                 "</tr>");
                         });
                         $("#tbody").after(sb.toString());

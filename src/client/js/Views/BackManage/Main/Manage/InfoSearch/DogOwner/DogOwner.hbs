@@ -1,7 +1,7 @@
 <div class="dogownerlist">
 
     <div class="top_tip">
-        <h3>信息查询/犬主查询</h3>
+        <h3>Searching/Owner</h3>
     </div>
 
     <div class="title">
@@ -11,11 +11,11 @@
                     <option value="1" selected="selected">I.D</option>
                     <option value="2">Passport</option>
                 </select>
-                <input class="form-control" type="text" id="id_number" oninput="if(value.length>18)value=value.slice(0,18)">
+                <input class="form-control" type="text" id="id_number">
             </div>
-            <span style="display: none;" class="null_err" id="id_number_format_tip">*证件号格式有误</span>
+            <span style="display: none;" class="null_err" id="where_null_tip">*请输入搜索内容</span>
             <div class="form-group search">
-                <button class="btn btnBlueE btn-block" id="search">搜索</button>
+                <button class="btn btnBlueE btn-block" id="search">Searching</button>
             </div>
         </div>
     </div>
@@ -32,8 +32,8 @@
         <tr class="tr_head">
             <td>Dog's Name</td>
             <td>Breeds</td>
-            <td>毛色</td>
-            <td>狗证卡号</td>
+            <td>canine</td>
+            <td>Card No.</td>
         </tr>
 
         </tbody>
@@ -43,23 +43,23 @@
         <div class="col-md-6 col-md-offset-3 text-center">
             <nav aria-label="Page navigation" id="dogowner_nav">
                 <ul class="pagination">
-                    <li><a href="javascript:void(0)" id='pageBegin'>首页</a></li>
+                    <li><a href="javascript:void(0)" id='pageBegin'>Home</a></li>
                     <li id="page">
                         <a href="javascript:void(0)" aria-label="Previous" id='pageUp'>
-                            <span aria-hidden="true">上一页</span>
+                            <span aria-hidden="true">Pervious</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="javascript:void(0)" aria-label="Next" id="pageDown">
-                            <span aria-hidden="true">下一页</span>
+                            <span aria-hidden="true">Next</span>
                         </a>
                     </li>
-                    <li><a href="javascript:void(0)" id="pageEnd">尾页</a></li>
+                    <li><a href="javascript:void(0)" id="pageEnd">Last</a></li>
                 </ul>
             </nav>
             <div id="nodata" style="display:none;text-align:center">
-                暂无数据
+                NIL
             </div>
         </div>
     </div>

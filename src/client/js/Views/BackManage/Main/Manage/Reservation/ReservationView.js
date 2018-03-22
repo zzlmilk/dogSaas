@@ -13,30 +13,28 @@ var ReservationClient = require('../../../../../lib/APIClients/ReservationClient
 var ReservationView = Backbone.View.extend({
 
 
-    el : null,
-    initialize: function(options) {
+    el: null,
+    initialize: function (options) {
         this.el = options.el;
         this.render();
     },
 
-    render: function() {
-        $(this.el).html(template({
-
-        }));
+    render: function () {
+        $(this.el).html(template({}));
         this.onLoad();
 
         return this;
 
     },
-    onLoad: function(){
+    onLoad: function () {
         console.log("-------tcsss--------")
         var self = this;
         var currentPage = 1;//当前页
         var totalCount;//总条数
         var totalPage;//总页数
         var requestData = {
-            code:"",
-            page:currentPage
+            code: "",
+            page: currentPage
         };
         seach(requestData);
 
@@ -46,10 +44,10 @@ var ReservationView = Backbone.View.extend({
             if (!emptyValid()) {
                 return;
             }
-            currentPage=1;
+            currentPage = 1;
             var requestData = {
                 code: $("#immune_number").val().trim(),
-                page:currentPage
+                page: currentPage
             };
             seach(requestData);
         });
@@ -120,7 +118,7 @@ var ReservationView = Backbone.View.extend({
                         var sb = new StringBuffer();
 
                         $.each(reserveUser, function (i, val) {
-                            sb.append("<tr class='dogtr' rowspan='"+size+"'>" +
+                            sb.append("<tr class='dogtr' rowspan='" + size + "'>" +
                                 "<td align='center' valign='middle'>" + val.code + "</td>" +
                                 "<td align='center' valign='middle'>" + val.owner.name + "</td>" +
                                 "<td align='center' valign='middle'>" + val.owner.phone + "</td>" +
@@ -129,7 +127,7 @@ var ReservationView = Backbone.View.extend({
                                 "<td align='center' valign='middle'>" + val.dog.hairColor + "</td>" +
                                 // "<td align='center' valign='middle'>" + val.vaccineCard.info.cardNo + "</td>" +
                                 // "<td align='center' valign='middle'>" + val.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
-                                // "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">办证</a></td>" +
+                                "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">办证</a></td>" +
                                 "</tr>");
                         });
 
