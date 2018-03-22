@@ -197,7 +197,7 @@ var CardInfoView = Backbone.View.extend({
                                 "<td align='center' valign='middle'>" + val.owner.phone + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.breed + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.hairColor + "</td>" +
-                                "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">详情</a></td>" +
+                                "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">Details</a></td>" +
                                 "</tr>");
                         });
                         $("#tbody").after(sb.toString());

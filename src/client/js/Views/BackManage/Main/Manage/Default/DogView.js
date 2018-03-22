@@ -16,6 +16,7 @@ var UploadView = require("../../../Modals/Upload/UploadView");
 var UserClient = require("../../../../../lib/APIClients/UserClient.js");
 var CityJson = require('../../../Modals/selectPlugin/CityJson.js');//地区数据 回填
 var DogBreed = require('../PersonalCard/DogBreed.js');//宠物品种
+var DogColor = require('../util/DogColor.js');//宠物颜色
 var StringBuffer = require('../../../Modals/selectPlugin/StringBuffer.js');
 var OrganizationClient = require('../../../../../lib/APIClients/OrganizationClient');
 
@@ -45,6 +46,14 @@ var DogView = Backbone.View.extend({
                 sb.append("<option value='" + val.breed_name + "'>" + val.breed_name + "</option>");
             });
         $("#breed_null").after(sb.toString());
+
+        //初始化狗的颜色
+        var sbColor = new StringBuffer();
+        $.each(DogColor,
+            function (i, val) {
+                sbColor.append("<option value='" + val.name + "'>" + val.name + "</option>");
+            });
+        $("#color_null").after(sbColor.toString());
 
         $('.form_date').datetimepicker({
             language: "zh-CN",

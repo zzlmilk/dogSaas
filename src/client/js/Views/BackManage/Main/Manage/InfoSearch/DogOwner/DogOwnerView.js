@@ -77,7 +77,9 @@ var DogOwnerView = Backbone.View.extend({
 
             if (id_number == "") {
                 flag = false;
-                alert("请输入搜索条件！")
+                $("#where_null_tip").show();
+            } else {
+                $("#where_null_tip").hide();
             }
             return flag;
         }
@@ -180,7 +182,7 @@ var DogOwnerView = Backbone.View.extend({
                                     "<td align='center' valign='middle'>" + val.dog.breed + "</td>" +
                                     "<td align='center' valign='middle'>" + val.dog.hairColor + "</td>" +
                                     "<td align='center' valign='middle'>" + val.DogCard.info.cardNo + "</td>" +
-                                    "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">详情</a></td>" +
+                                    "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">Details</a></td>" +
                                     "</tr>");
                             });
                         }else{
@@ -194,7 +196,7 @@ var DogOwnerView = Backbone.View.extend({
                                 "<td align='center' valign='middle'>" + d1.dog.breed + "</td>" +
                                 "<td align='center' valign='middle'>" + d1.dog.hairColor + "</td>" +
                                 "<td align='center' valign='middle'>" + d1.vaccineCard.info.cardNo + "</td>" +
-                                "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + 0 + ">详情</a></td>" +
+                                "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + 0 + ">Details</a></td>" +
                                 "</tr>");
                             for (var i = 1; i < size; i++) {
                                 var d = dogLicenses[i];
@@ -204,7 +206,7 @@ var DogOwnerView = Backbone.View.extend({
                                     "<td align='center' valign='middle'>" + d.dog.hairColor + "</td>" +
                                     "<td align='center' valign='middle'>" + d.vaccineCard.info.cardNo + "</td>" +
                                     "<td align='center' valign='middle'>" + d.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
-                                    "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">详情</a></td>" +
+                                    "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">Details</a></td>" +
                                     "</tr>");
                             }
                         }
