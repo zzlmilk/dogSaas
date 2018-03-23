@@ -115,12 +115,12 @@ var SignInView = BaseView.extend({
             })
         });
 
-        // $('#forgetPwd').unbind().on('click', function () {
-        //     var ResetView = require('../ForgotPwd/ForgotPwdView.js');
-        //     new ResetView({
-        //         container: '#start-view-content'
-        //     });
-        // });
+        $('#forgetPwd').unbind().on('click', function () {
+            var ResetView = require('../ForgotPwd/ForgotPwdView.js');
+            new ResetView({
+                container: '#start-view-content'
+            });
+        });
     },
 
     //初始化事件
