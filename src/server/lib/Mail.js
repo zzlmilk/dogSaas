@@ -21,7 +21,7 @@ var Mail = {
 				   	}  
 				  });  
 
-				var template = './Html/test.ejs';
+				var template = './Html/test_en.ejs';
 
 
 
