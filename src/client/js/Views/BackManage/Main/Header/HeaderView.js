@@ -49,11 +49,11 @@ HeaderView = Backbone.View.extend({
 
 
         $('#user_icon').mouseover(function () {
-            $('#quit').slideDown();
+            $('#quit').stop().slideDown();
 
         });
         $('#quit').mouseout(function () {
-            $(this).slideUp(2000);
+            $(this).stop().slideUp(2000);
 
         });
 

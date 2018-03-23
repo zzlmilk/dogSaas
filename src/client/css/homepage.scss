@@ -93,6 +93,16 @@ html, body {
 
 //官网首页banner轮播图--移动端
 @media (max-width: 480px) {
+  #swiper > .row > .swiper-container {
+    width: 100%;
+    height: 190px;
+  }
+
+  #swiper > .row > .swiper-container > .swiper-wrapper > .swiper-slide > .swiper-slide-item > .mBanner {
+    width: 100%;
+    height: 190px;
+  }
+
   #swiper > .row > .swiper-container > .swiper-button-prev {
     background-image: none;
   }
