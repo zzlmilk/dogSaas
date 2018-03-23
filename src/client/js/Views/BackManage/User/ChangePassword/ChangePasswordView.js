@@ -74,8 +74,8 @@ var ChangePasswordView = Backbone.View.extend({
 
             var newPwd = $('#newPwd').val().trim();
             if (newPwd == "") {
-
                 $("#newPwd_null_tip").show();
+                $("#newPwd_length_tip").hide();
                 flag = false
             } else {
                 $("#newPwd_null_tip").hide();
@@ -90,11 +90,14 @@ var ChangePasswordView = Backbone.View.extend({
             var rePwd = $('#rePwd').val().trim();
             if (rePwd == "") {
                 $("#rePwd_null_tip").show();
+                $("#rePwd_length_tip").show();
+                $("#rePwd_diff_tip").hide();
                 flag = false
             } else {
                 $("#rePwd_null_tip").hide();
                 if (rePwd.length < 6) {
                     $("#rePwd_length_tip").show();
+                    $("#rePwd_diff_tip").hide();
                     flag = false
                 } else {
                     $("#rePwd_length_tip").hide();
@@ -118,7 +121,7 @@ var ChangePasswordView = Backbone.View.extend({
             }
             var oldPassword = $('#currentPwd').val().trim();
             var newPassword = $('#newPwd').val().trim();
-            self.changePassword(oldPassword,newPassword);
+            self.changePassword(oldPassword, newPassword);
 
         });
     },
@@ -139,10 +142,13 @@ var ChangePasswordView = Backbone.View.extend({
             var newPwd = $('#newPwd').val().trim();
             if (newPwd == "") {
                 $("#newPwd_null_tip").show();
+                $("#newPwd_length_tip").hide();
+                flag = false
             } else {
                 $("#newPwd_null_tip").hide();
                 if (newPwd.length < 6) {
                     $("#newPwd_length_tip").show();
+                    flag = false
                 } else {
                     $("#newPwd_length_tip").hide();
                 }
@@ -151,18 +157,24 @@ var ChangePasswordView = Backbone.View.extend({
 
         // 失去焦点监听
         $("#rePwd").blur(function () {
-            var rePwd = $('#rePwd').val().trim();
             var newPwd = $('#newPwd').val().trim();
+            var rePwd = $('#rePwd').val().trim();
             if (rePwd == "") {
                 $("#rePwd_null_tip").show();
+                $("#rePwd_length_tip").show();
+                $("#rePwd_diff_tip").hide();
+                flag = false
             } else {
                 $("#rePwd_null_tip").hide();
                 if (rePwd.length < 6) {
                     $("#rePwd_length_tip").show();
+                    $("#rePwd_diff_tip").hide();
+                    flag = false
                 } else {
                     $("#rePwd_length_tip").hide();
                     if (rePwd != newPwd) {
                         $("#rePwd_diff_tip").show();
+                        flag = false
                     } else {
                         $("#rePwd_diff_tip").hide();
                     }
@@ -173,7 +185,7 @@ var ChangePasswordView = Backbone.View.extend({
     },
 
     //修改密码
-    changePassword: function (oldPassword,newPassword) {
+    changePassword: function (oldPassword, newPassword) {
         var self = this;
 
         RegisterClinet.changePassword({
@@ -196,7 +208,7 @@ var ChangePasswordView = Backbone.View.extend({
             // }
         }, function (errorCode) {
             console.log(errorCode)
-            if (Const.ErrorCodes[errorCode]){
+            if (Const.ErrorCodes[errorCode]) {
                 message = Const.ErrorCodes[errorCode]
                 alert(message)
             }

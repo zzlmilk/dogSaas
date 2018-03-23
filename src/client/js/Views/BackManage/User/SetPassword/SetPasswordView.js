@@ -122,12 +122,27 @@ var VeriftEmailView = Backbone.View.extend({
                 }
             }
 
-            if (repassword != "" && repassword.length >= 6 && password != repassword) {
+            if (repassword == "") {
                 falg = false;
-                $("#repassword_diff_tip").show();
-            } else {
+                $("#repassword_null_tip").show();
+                $("#repassword_length_tip").hide();
                 $("#repassword_diff_tip").hide();
+            } else {
+                $("#repassword_null_tip").hide();
 
+                if (repassword.length < 6) {
+                    falg = false;
+                    $("#repassword_length_tip").show();
+                    $("#repassword_diff_tip").hide();
+                } else {
+                    $("#repassword_length_tip").hide();
+                    if (password != repassword) {
+                        $("#repassword_diff_tip").show();
+                        falg = false;
+                    } else {
+                        $("#repassword_diff_tip").hide();
+                    }
+                }
             }
 
             return falg;

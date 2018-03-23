@@ -78,9 +78,9 @@ var InfoPreview = {
                 var isSterilizationText = "";
                 if (isSterilization == undefined) {
                 } else if (isSterilization == 1) {
-                    isSterilizationText = "绝育"
+                    isSterilizationText = "Yes"
                 } else {
-                    isSterilizationText = "未绝育"
+                    isSterilizationText = "No"
                 }
                 $("#residenceIsSterilization").html(isSterilizationText);
                 $("#residenceHouseProperty").html(self.DogLicenseModel.residence.houseProperty);

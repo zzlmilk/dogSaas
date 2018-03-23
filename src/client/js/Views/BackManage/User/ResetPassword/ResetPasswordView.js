@@ -65,6 +65,7 @@ var ResetPasswordView = BaseView.extend({
             var password = $("input[name =password]").val();
             if (password == "") {
                 $("#password_null_tip").show();
+                $("#password_length_tip").hide();
             } else {
                 $("#password_null_tip").hide();
                 if (password.length < 6) {
@@ -79,10 +80,13 @@ var ResetPasswordView = BaseView.extend({
             var repassword = $("input[name =repassword]").val();
             if (repassword == "") {
                 $("#repassword_null_tip").show();
+                $("#repassword_length_tip").hide();
+                $("#repassword_diff_tip").hide();
             } else {
                 $("#repassword_null_tip").hide();
                 if (repassword.length < 6) {
                     $("#repassword_length_tip").show();
+                    $("#repassword_diff_tip").hide();
                 } else {
                     $("#repassword_length_tip").hide();
                     if (password != repassword) {
@@ -104,6 +108,7 @@ var ResetPasswordView = BaseView.extend({
             if (password == "") {
                 falg = false;
                 $("#password_null_tip").show();
+                $("#password_length_tip").hide();
             } else {
                 $("#password_null_tip").hide();
                 if (password.length < 6) {
@@ -118,6 +123,7 @@ var ResetPasswordView = BaseView.extend({
             if (repassword == "") {
                 falg = false;
                 $("#repassword_null_tip").show();
+                $("#repassword_length_tip").hide();
             } else {
                 $("#repassword_null_tip").hide();
                 if (repassword.length < 6) {
@@ -128,12 +134,26 @@ var ResetPasswordView = BaseView.extend({
                 }
             }
 
-            if (repassword != "" && repassword.length >= 6 && password != repassword) {
+            if (repassword == "") {
                 falg = false;
-                $("#repassword_diff_tip").show();
-            } else {
+                $("#repassword_null_tip").show();
+                $("#repassword_length_tip").hide();
                 $("#repassword_diff_tip").hide();
-
+            } else {
+                $("#repassword_null_tip").hide();
+                if (repassword.length < 6) {
+                    $("#repassword_length_tip").show();
+                    $("#repassword_diff_tip").hide();
+                    falg = false;
+                } else {
+                    $("#repassword_length_tip").hide();
+                    if (password != repassword) {
+                        $("#repassword_diff_tip").show();
+                        falg = false;
+                    } else {
+                        $("#repassword_diff_tip").hide();
+                    }
+                }
             }
 
             return falg;
