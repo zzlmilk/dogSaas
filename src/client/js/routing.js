@@ -192,10 +192,10 @@ var Routing = function () {
 
     });
 
-    appRouter.on('route:resetRoute', function (actions) {
-        var ResetView = require('./Views/BackManage/User/ForgotPwd/ForgotPwdView.js');
-        var view = new ResetView();
-    });
+    // appRouter.on('route:resetRoute', function (actions) {
+    //     var ResetView = require('./Views/BackManage/User/ForgotPwd/ForgotPwdView.js');
+    //     var view = new ResetView();
+    // });
 
 }
 
