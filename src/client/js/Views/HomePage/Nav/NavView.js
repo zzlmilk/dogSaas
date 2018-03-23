@@ -64,13 +64,13 @@ var NavView = Backbone.View.extend({
         });
 
         //客户案例
-        $('#client_case').unbind().on('click', function (event) {
-            event.stopPropagation();
-            var ClientCaseView = require('../ClientCase/ClientCaseView.js');
-            var view = new ClientCaseView({
-                'el': "#home-main"
-            });
-        });
+        // $('#client_case').unbind().on('click', function (event) {
+        //     event.stopPropagation();
+        //     var ClientCaseView = require('../ClientCase/ClientCaseView.js');
+        //     var view = new ClientCaseView({
+        //         'el': "#home-main"
+        //     });
+        // });
 
         //新闻中心
         $('#news_center').unbind().on('click', function (event) {
