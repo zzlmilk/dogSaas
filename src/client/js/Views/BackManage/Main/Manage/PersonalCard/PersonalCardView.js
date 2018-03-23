@@ -619,7 +619,7 @@ var PersonalCardView = Backbone.View.extend({
         //毛色
         $('#dog_color').val(self.dogLicense.dog.hairColor);
         //犬只用途
-        if (self.dogLicense.dog.usage == "警卫") {
+        if (self.dogLicense.dog.usage == "watching dog") {
             $("#police").attr("checked", true);
             $("#police").prop('checked', true);
         } else {
