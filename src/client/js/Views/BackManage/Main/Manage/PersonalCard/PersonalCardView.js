@@ -569,6 +569,8 @@ var PersonalCardView = Backbone.View.extend({
 
         //犬主姓名
         $('#dogowner_name').val(self.dogLicense.owner.name);
+        $('#dogowner_name1').val(self.dogLicense.owner.firstName);
+        $('#dogowner_name2').val(self.dogLicense.owner.lastName);
         //性别
         if (self.dogLicense.owner.sex == 1) {
             $("#gender_man").attr("checked", true);
@@ -606,14 +608,14 @@ var PersonalCardView = Backbone.View.extend({
             $("#doggender_female").attr("checked", true);
             $("#doggender_female").prop('checked', true);
         }
-        //犬只绝育
-        if (self.dogLicense.residence.isSterilization == 1) {
-            $("#isSterilization1").attr("checked", true);
-            $("#isSterilization1").prop('checked', true);
-        } else {
-            $("#isSterilization0").attr("checked", true);
-            $("#isSterilization0").prop('checked', true);
-        }
+        // //犬只绝育
+        // if (self.dogLicense.residence.isSterilization == 1) {
+        //     $("#isSterilization1").attr("checked", true);
+        //     $("#isSterilization1").prop('checked', true);
+        // } else {
+        //     $("#isSterilization0").attr("checked", true);
+        //     $("#isSterilization0").prop('checked', true);
+        // }
         //毛色
         $('#dog_color').val(self.dogLicense.dog.hairColor);
         //犬只用途
