@@ -10,25 +10,24 @@ var User = require('./Models/user');
 var Organization = require('./Models/organization');
 
 
-var Routing = function(){
+var Routing = function () {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
             "start": "startRoute",
             "main": "mainRoute",
             "signin": "signinRoute", //注册路由
-            "veriftemail": "veriftemailRoute",
+            "veriftemail": "setpasswordRoute",
             "test": "testRoute",
             "file": "FileRoute",
             "reset": "resetRoute",
             "signup": "signupRoute",//登陆路由
             "home": "homeRoute",//首页导航路由
-            "setpassword": "setpasswordRoute",//设置密码
+            // "setpassword": "setpasswordRoute",//设置密码
             "resetpassword": "resetpasswordRoute",//重置密码
             "changepassword": "changepasswordRoute",//个人中心修改密码
             "organization": "organizationRoute",//添加机构
             "printcard": "printcardRoute",//控制台打印磁卡
-            "button": "buttonRoute",
             "androidDownload": "androidDownloadRoute",
             "*actions": "defaultRoute",
 
@@ -47,11 +46,10 @@ var Routing = function(){
     });
 
 
-
     //测试
     appRouter.on('route:testRoute', function (actions) {
 
-        var TestView = require('./Views/Test/TestView.js');
+        var TestView = require('./Views/BackManage/Test/TestView.js');
         var view = new TestView();
 
     });
@@ -59,19 +57,11 @@ var Routing = function(){
     //测试上传文件
     appRouter.on('route:FileRoute', function (actions) {
 
-        var FileUploadDialogView = require('./Views/Test/FileUploadDialog.js');
+        var FileUploadDialogView = require('./Views/BackManage/Test/FileUploadDialog.js');
         var view = new FileUploadDialogView();
 
     });
 
-
-    //按钮
-    appRouter.on('route:buttonRoute', function (actions) {
-
-        var ButtonView = require('./Views/Button/ButtonView.js');
-        var view = new ButtonView();
-
-    });
 
     //首页
     appRouter.on('route:homeRoute', function (actions) {
@@ -85,7 +75,7 @@ var Routing = function(){
     //开始
     appRouter.on('route:startRoute', function (actions) {
 
-        var StartView = require('./Views/Start/StartView.js');
+        var StartView = require('./Views/BackManage/User/StartView.js');
         var view = new StartView({action: actions});
 
 
@@ -94,29 +84,29 @@ var Routing = function(){
     //注册
     appRouter.on('route:signupRoute', function (actions) {
 
-        var SignUpView = require('./Views/SignUp/SignUpView.js');
+        var SignUpView = require('./Views/BackManage/User/SignUp/SignUpView.js');
         var view = new SignUpView();
 
     });
 
 
-    //验证邮箱
-    appRouter.on('route:veriftemailRoute', function (actions) {
-        var VeriftEmailView = require('./Views/VeriftEmail/VeriftEmailView.js');
-        var view = new VeriftEmailView({actions: actions});
-
-    });
+    // //验证邮箱
+    // appRouter.on('route:veriftemailRoute', function (actions) {
+    //     var VeriftEmailView = require('./Views/BackManage/User/VeriftEmail/VeriftEmailView.js');
+    //     var view = new VeriftEmailView({actions: actions});
+    //
+    // });
 
 
     //重置密码
     appRouter.on('route:resetpasswordRoute', function (actions) {
-        var ResetPasswordView = require('./Views/Start/ResetPassword/ResetPasswordView.js');
+        var ResetPasswordView = require('./Views/BackManage/User/ResetPassword/ResetPasswordView.js');
         var view = new ResetPasswordView({actions: actions});
 
     });
     //设置密码
     appRouter.on('route:setpasswordRoute', function (actions) {
-        var SetPasswordView = require('./Views/SignUp/SetPassword/SetPasswordView.js');
+        var SetPasswordView = require('./Views/BackManage/User/SetPassword/SetPasswordView.js');
         var view = new SetPasswordView({actions: actions});
 
     });
@@ -124,7 +114,7 @@ var Routing = function(){
     //个人中心修改密码
 
     appRouter.on('route:changepasswordRoute', function () {
-        var ChangePasswordView = require('./Views/Main/PersonalCenter/ChangePassword/ChangePasswordView.js');
+        var ChangePasswordView = require('./Views/BackManage/User/ChangePassword/ChangePasswordView.js');
         var view = new ChangePasswordView();
 
     });
@@ -132,7 +122,7 @@ var Routing = function(){
     //控制台打印磁卡
 
     appRouter.on('route:printcardRoute', function () {
-        var CardInfoView = require('./Views/Main/Dog/DogCard/CardInfo/CardInfoView.js');
+        var CardInfoView = require('./Views/BackManage/Main/Manage/DogCardInfo/CardInfoView.js');
         var view = new CardInfoView();
 
     });
@@ -152,7 +142,7 @@ var Routing = function(){
 
             //不存在organizationq 去添加组织
             if (organization == null) {
-                var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
+                var AddOrganizationView = require('./Views/BackManage/User/Organization/AddOrganizationView.js');
                 var view = new AddOrganizationView({
                     action: "add",
                     user: user,
@@ -172,7 +162,7 @@ var Routing = function(){
 
                 } else if (status == 0 || status == -1) {
                     //等待审核
-                    var AddOrganizationView = require('./Views/SignUp/Organization/AddOrganizationView.js');
+                    var AddOrganizationView = require('./Views/BackManage/User/Organization/AddOrganizationView.js');
                     var view = new AddOrganizationView({
                         action: "checkStatus",
                         user: user,
@@ -195,17 +185,17 @@ var Routing = function(){
         //    return;
         //}
 
-        var MainView = require('./Views/Main/MainView.js');
+        var MainView = require('./Views/BackManage/BackManageView.js');
         var view = new MainView({
             'el': Config.defaultContaier
         });
 
     });
 
-    appRouter.on('route:resetRoute', function (actions) {
-        var ResetView = require('./Views/Start/Reset/ResetView.js');
-        var view = new ResetView();
-    });
+    // appRouter.on('route:resetRoute', function (actions) {
+    //     var ResetView = require('./Views/BackManage/User/ForgotPwd/ForgotPwdView.js');
+    //     var view = new ResetView();
+    // });
 
 }
 

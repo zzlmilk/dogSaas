@@ -38,7 +38,7 @@ VaildEmailHandler.prototype.attach = function(route){
 			 //验证参数：暂时省
 			SendEmailLogic.VaildEmail(request.body,function(result){							
 					 self.successResponse(response,Const.responsecodeSucceed,
-		                  result,
+		                  result
 		            );
 
 				},function(err,code){

@@ -111,6 +111,8 @@
     Const.resCodeAddWxUserDogLicenseNotArry=2000048;
     //wx
     Const.resCodeWxReserveNoCode=2000049;
+    //changePassword
+    Const.resCodeOldPasswordInCorrect=2000050;
 
 
 

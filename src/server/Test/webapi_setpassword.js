@@ -113,5 +113,30 @@ describe('WEB', function () {
             });
 
     });
+    it('if password is change success', function (done) {
+        signin(function(token) {
+            var body = {
+                oldPassword: "123456",
+                newPassword: "123456"
+            };
+
+            request(app)
+                .post('/dogsystem/v1/user/change_password')
+                .send(body)
+                .set('Access-Token', token)
+                .end(function (err, res) {
+
+                    if (err) {
+                        throw err;
+                    }
+                    console.log(res.body);
+                    res.body.should.have.property('code');
+                    res.body.code.should.equal(Const.responsecodeSucceed);
+                    done();
+
+                });
+        });
+
+    });
     
 });

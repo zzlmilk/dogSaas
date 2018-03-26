@@ -9,6 +9,7 @@ var DogLicenseModel = require('../Models/DogLicense');
 var DogModel = require('../Models/Dog');
 var VaccineModel = require('../Models/Vaccine');
 var OwnerModel = require('../Models/Owner');
+var ReserveUserModel=require('../Models/ReserveUser');
 var Conf = require("../lib/init");
 var fs=require("fs")
 
@@ -133,10 +134,10 @@ var DogLicenseLogic = {
 											  		breed:res.dog.breed,
 											  		hairColor:res.dog.hairColor,
 											  		loopLineType:1, //默认写死
-											        annualDate:Utils.annualDate([]),
-											  		signOrganization:res.organization.name +"公安",
+											        annualDate:Utils.annualDate1([]),
+											  		signOrganization:res.organization.name,
 											  		signCreate:Utils.now(),
-											  		vaccineCreate:Utils.now(),
+											  		vaccineCreate:Utils.now()
 
 												 }
 
@@ -191,6 +192,7 @@ var DogLicenseLogic = {
 
 				var dogLicenseModel = DogLicenseModel.get();
 				var dogLicense = new dogLicenseModel({})
+				var code=param.code;
 
 				
 				
@@ -199,7 +201,24 @@ var DogLicenseLogic = {
 
 
 			  async.waterfall([
-			  	function(done){
+			  	function (done) {
+			  		if(Utils.isEmpty(code)){
+			  			done(null,res);
+                    }else{
+                        var reserveUserModel=ReserveUserModel.get();
+                        reserveUserModel.findOne({code:code},function (err,result) {
+                            result.type=-1;
+                            result.save(function (err,result) {
+                            	if(err){
+                            		throw err;
+								}
+								done(null,result)
+
+							})
+                        })
+                    }
+				},
+			  	function(result,done){
 			  		//验证条形码没有被使用
 			  		dogLicenseModel.findOne({"husbandryNo":param.husbandryNo},function(err,dogLicenseResult){
 			  				if (dogLicenseResult) {
@@ -316,7 +335,8 @@ var DogLicenseLogic = {
 			  				  bornDate:dogParam.bornDate,
 			  				  photoUrl:dogParam.photoUrl,
 			  				  irisID:dogParam.irisID,
-			  				  vaccine:res.vaccines
+							  vaccine:res.vaccines
+
 			  			})
 
 			  			dog.save(function(err,dogResult){
@@ -357,6 +377,8 @@ var DogLicenseLogic = {
 							  					name:ownerParam.name,
 							  					sex:ownerParam.sex,
 							  					phone:ownerParam.phone,
+										        phone2:ownerParam.phone2,
+										        email:ownerParam.email,
 							  					tel:ownerParam.tel,							  					
 							  					certificateType:ownerParam.certificateType,
 							  					certificateCode:ownerParam.certificateCode,							  					
@@ -374,7 +396,7 @@ var DogLicenseLogic = {
 							  		owner.save(function(err,ownerResult){							  			
 							  			if (err) { throw err; return;}
 							  				dogLicense.owner = ownerResult._id;
-							  				res.owner = ownerResult
+							  				res.owner = ownerResult;
 							  				done(null,dogLicense)
 							  		})
 
@@ -407,7 +429,7 @@ var DogLicenseLogic = {
 												  		annualDate:Utils.annualDate([]),
 												  		signOrganization:res.organization.name,
 												  		signCreate:Utils.now(),
-												  		vaccineCreate:Utils.now(),
+												  		vaccineCreate:Utils.now()
 
 												  	}
 
@@ -432,8 +454,8 @@ var DogLicenseLogic = {
 											  		breed:res.dog.breed,
 											  		hairColor:res.dog.hairColor,
 											  		loopLineType:1, //默认写死
-											  		annualDate:Utils.annualDate([]),
-											  		signOrganization:res.organization.name +"公安",
+											  		annualDate:Utils.annualDate1([]),
+											  		signOrganization:res.organization.name,
 											  		signCreate:Utils.now(),
 											  		vaccineCreate:Utils.now(),
 
@@ -487,10 +509,10 @@ var DogLicenseLogic = {
                           url:'https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token='+result.access_token,
                           body: JSON.stringify({
                               scene: res.dogLicense._id,
-                              path: "pages/index/index",
-                              width: 430
+                              page: "pages/my/my",
+                              width: 280
                           })
-                      }).pipe(fs.createWriteStream('../../public/img/' + res.dogLicense._id + '.png'));
+                      }).pipe(fs.createWriteStream('../../image/'+res.dogLicense._id+'.png'));
                            onSuccess(res);
                        }
 			  	],function(err,result){
@@ -541,7 +563,7 @@ var DogLicenseLogic = {
 						}
                     })
                 dogLicenseModel.find().populate("owner residence")
-                    .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate":1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err,dogLicenseResult) {
+                    .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCard.annual.updateDate": -1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err,dogLicenseResult) {
                     if (err) {
                         throw err;
 					} else {
@@ -559,7 +581,7 @@ var DogLicenseLogic = {
                     });
 
 					dogLicenseModel.find({owner: result}).populate("owner residence")
-                        .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
+                        .populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCard.annual.updateDate": -1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw err;
 						} else {
@@ -577,7 +599,9 @@ var DogLicenseLogic = {
     find_by_dog: function (param, onSuccess, onError) {
         var irisID = param.irisID;
 		var vaccineCardNo=param.vaccineCardNo;
+		var dogCardNo=param.dogCardNo;
 		var page=param.page||1;
+		var sql={};
 		var res={};
         var dogLicenseModel = DogLicenseModel.get();
         var dogModel = DogModel.get();
@@ -587,7 +611,7 @@ var DogLicenseLogic = {
 
 		async.waterfall([
 			function (done) {
-                if (Utils.isEmpty(irisID) && Utils.isEmpty(vaccineCardNo)) {
+                if (Utils.isEmpty(irisID) && Utils.isEmpty(vaccineCardNo)&&Utils.isEmpty(dogCardNo)) {
                     dogLicenseModel.count().exec(function(err,count){
                         if(err){
                             throw err
@@ -595,32 +619,41 @@ var DogLicenseLogic = {
 							res.count=count;
 						}
                     });
-                    dogLicenseModel.find().populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
+                    dogLicenseModel.find().populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCard.annual.updateDate": -1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw err;
                         }
                         else {
-                            res.dogLicenses = dogLicenseResult //符合条件的集合
+                            res.dogLicenses = dogLicenseResult; //符合条件的集合
 							onSuccess(res)
                         }
 
                     })
 
                 } else {
-                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo}]}).count().exec(function(err,count){
+                    if (irisID != undefined) {
+                        sql = {"vaccineCard.info.irisID": irisID};
+                    }
+                    if (vaccineCardNo != undefined) {
+                        sql = {"vaccineCard.info.cardNo": vaccineCardNo};
+                    }
+                    if (dogCardNo != undefined) {
+                        sql = {"DogCard.info.cardNo": dogCardNo}
+                    }
+                    dogLicenseModel.find(sql).count().exec(function(err,count){
                         if(err){
                             throw err
                         }else{
                             res.count=count;
 						}
                     });
-                    dogLicenseModel.find({$or: [{"vaccineCard.info.irisID": irisID}, {"vaccineCard.info.cardNo": vaccineCardNo}]})
-                        .populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCreate": 1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
+                    dogLicenseModel.find(sql)
+                        .populate("owner residence").populate({path:"dog",populate:{path: "vaccine"}}).sort({"vaccineCard.annual.updateDate": -1}).skip(Utils.skip(page)).limit(Const.dogLicensesListLimit).exec(function (err, dogLicenseResult) {
                         if (err) {
                             throw err;
                         }
                         else {
-							res.dogLicenses = dogLicenseResult //符合条件的集合
+							res.dogLicenses = dogLicenseResult ;//符合条件的集合
                             onSuccess(res);
 
                         }
@@ -635,8 +668,8 @@ var DogLicenseLogic = {
     },
     add_takeWay:function(param, onSuccess, onError) {//添加取证方式
 
-        var dogLicense=param.dogLicense
-		var takeWay=param.takeWay
+        var dogLicense=param.dogLicense;
+		var takeWay=param.takeWay;
 		if(Utils.isEmpty(takeWay)){
 				onError(null,Const.resCodeDogLicenseNoTakeway);
            return;
@@ -652,6 +685,7 @@ var DogLicenseLogic = {
 			}
 		})
 	},
+
 	editVaccine:function (param,onSuccess,onError) {//免疫年检，更新免疫信息
         var vaccineParam = param.vaccine;
         var dogLicense = param.dogLicense;
@@ -744,6 +778,38 @@ var DogLicenseLogic = {
             
         })
 	},
+    editDogCard:function (param,onSuccess,onError) {//免疫年检，更新免疫信息
+		var dogLicense = param.dogLicense;
+		async.waterfall([
+			  function (done) {
+			    dogLicense.DogCard.annual.updateDate=Utils.now();
+                var annualDate=dogLicense.DogCard.info.annualDate;
+                dogLicense.DogCard.info.annualDate=Utils.annualDate1(annualDate);
+                dogLicense.save(function (err, res) {
+                    if (err) {
+                        throw err
+                    } else {
+                        done(null, res);
+
+                    }
+                })
+
+            },function (result,done) {
+                var dogLicenseModel = DogLicenseModel.get();
+                dogLicenseModel.findOne({"_id":result},function (err,res) {
+                    if (err) {
+                        throw err;
+
+                    } else {
+                        onSuccess(res)
+
+                    }
+                })
+            }
+        ],function (err,result) {
+
+        })
+    },
 	validatorParam:function(param,callback){
 			//条形码
 			if(Utils.isEmpty(param.husbandryNo)){

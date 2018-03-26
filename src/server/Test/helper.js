@@ -7,8 +7,8 @@ var async = require('async');
 var app = require('../mainTest');
 
 
-global.email = "770111598@qq.com"
-global.password1 = "111111"
+global.email = "2420933732@qq.com"
+global.password1 = "123456"
 //wanli test user and password
 //global.email = "test@testCIyfp2.com"
 //global.password1 = "88888888"

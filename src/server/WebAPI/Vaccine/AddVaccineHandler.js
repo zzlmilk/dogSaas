@@ -30,7 +30,7 @@ var AddVaccineHandler = function(){
 /**
  * @api {post} /vaccine/add 免疫年检
  * @apiName addVaccine
- * @apiGroup Vaccine
+ * @apiGroup Annual
  * @apiDescription 免疫年检api接口
  * @apiHeader  {Sting} access-token token
  * @apiParam {String} husbandryNo 畜牧业提供的条形码

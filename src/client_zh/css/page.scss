@@ -1,0 +1,1909 @@
+html,body{height:100%;}
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 15px;
+}
+#content-area{
+  margin-bottom: -15px;
+  background: #202732;
+}
+
+#sidebar-content{
+  padding: 0;
+  min-height: calc(100vh - 80px);
+  overflow: hidden;
+  background: #202732;
+}
+#main-content{
+  padding: 0;
+  min-height: calc(100vh - 80px);
+  overflow: hidden;
+  background: #fcfcfc;
+  margin-left: 0px;
+}
+label{
+  font-weight: normal;
+}
+input[disabled]:hover{
+  cursor:not-allowed;
+}
+
+input[type="text"]{
+  padding: 3px 5px;
+}
+
+//分页器组件
+.pagination{
+  margin-top: 100px;
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  line-height: 1.42857;
+  text-decoration: none;
+  color: #000000;
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  margin-left: 10px;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+ }
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  margin-right: -2px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.pagination > li > a:hover, .pagination > li > a:focus,
+.pagination > li > span:hover,
+.pagination > li > span:focus {
+  z-index: 2;
+  color: #23527c;
+  background-color: #eeeeee;
+  border-color: #ddd; }
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus,
+.pagination > .active > span,
+.pagination > .active > span:hover,
+.pagination > .active > span:focus {
+  z-index: 3;
+  color: #fff;
+  background-color: #3b4249;
+  border-color: #337ab7;
+  cursor: default; }
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #777777;
+  background-color: #fff;
+  border-color: #ddd;
+  cursor: not-allowed; }
+
+//控制台头部导航
+#header-nav{
+  min-height: 80px;
+  background:#3399ff;
+  margin-bottom:0px;
+  border:none;
+  border-radius: 0px;
+}
+#header-nav>.container-fluid>#example-navbar-collapse>ul{
+  margin-left: 20px;
+  width: 365px;
+  height:80px;
+}
+#header-nav>.container-fluid>#example-navbar-collapse>ul>li{
+  float: left;
+  margin-right:40px ;
+}
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li > a{
+  width:60px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  padding: 0px;
+  border-bottom: none;
+  float: left;
+  color:#ffffff;
+}
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li > a:hover{
+  border-bottom: none;
+  color:#ffffff;
+}
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li >i{
+  height: 80px;
+  line-height: 80px;
+  width: 20px;
+  text-align: center;
+  color: #ffffff;
+  float: left;
+}
+
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li>#user_icon{
+  margin-right: 0px;
+  position:relative;
+}
+
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li>#user_icon>ul{
+  width:140px;
+  height:50px;
+  left:-60px;
+  top:75px;
+  position:absolute;
+  z-index:99;
+  display: none;
+}
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li>#user_icon>ul>li{
+  width:140px;
+  height:50px;
+  float:left;
+}
+#header-nav>.container-fluid>#example-navbar-collapse>ul> li>#user_icon>ul>li>a{
+  width: 140px;
+  height: 50px;
+  float: left;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  background: #3399ff;
+  color:#ffffff;
+}
+
+
+
+//.personal_header{
+//  width: 100%;
+//  height: 80px;
+//  line-height:80px;
+//  background:#3399ff;
+//}
+//.personal_header>.logo{
+//  width: 180px;
+//  height: 80px;
+//  display: block;
+//  float: left;
+//  margin-left:80px ;
+//}
+//.personal_header>.logo>img{
+//  width: 180px;
+//  height: 80px;
+//  display: block;
+//}
+//.personal_header>#title{
+//  width:200px;
+//  height:80px;
+//  line-height:80px;
+//  float:left;
+//  margin-left:10px;
+//  font-size:20px;
+//  color:#ffffff;
+//}
+//.personal_header>#personal_info{
+//  width: 380px;
+//  height:80px;
+//  float: right;
+//}
+//.personal_header>#personal_info>li{
+//  width: 80px;
+//  height: 80px;
+//  line-height: 80px;
+//  margin-right: 40px;
+//  float: left;
+//  color:#ffffff;
+//}
+//.personal_header>#personal_info>li>a{
+//  width: 60px;
+//  height: 80px;
+//  text-align: center;
+//  display:inline-block;
+//  line-height: 80px;
+//  color:#ffffff;
+//  float:left;
+//}
+//.personal_header>#personal_info>li>i{
+//  width: 20px;
+//  height: 80px;
+//  display: inline-block;
+//  line-height: 80px;
+//  float:left;
+//}
+//.personal_header>#personal_info>li>#user_icon{
+//  margin-right: 0px;
+//  position:relative;
+//}
+//.personal_header>#personal_info>li>#user_icon>ul{
+//  width:140px;
+//  height:40px;
+//  left:-60px;
+//  top:60px;
+//  position:absolute;
+//  z-index:99;
+//  display: none;
+//}
+//.personal_header>#personal_info>li>#user_icon>ul>li{
+//  width:140px;
+//  height:40px;
+//  float:left;
+//}
+//.personal_header>#personal_info>li>#user_icon>ul>li>a{
+//  width: 140px;
+//  height: 40px;
+//  float: left;
+//  line-height: 40px;
+//  text-align: center;
+//  text-decoration: none;
+//  background: #3399ff;
+//  color:#ffffff;
+//}
+
+//控制台头部导航个人中心按钮
+#personal_center_view{
+  width: 100%;
+  background: #fcfcfc;
+  padding: 25px;
+}
+#personal_center_view>.basic_info{
+  width: 100%;
+  border:1px solid #cccccc;
+  background: #ffffff;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+#personal_center_view>.basic_info>.title{
+  height: 44px;
+  margin-top: 20px;
+
+}
+#personal_center_view>.basic_info>.title>h3{
+  margin-left: 20px;
+}
+#personal_center_view>.basic_info>.title>h3>span{
+
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  display: inline-block;
+}
+#personal_center_view>.basic_info>.title>h3>#btn_account{
+  float: left;
+  display: inline-block;
+  width: 120px;
+  margin-left:50px ;
+}
+#personal_center_view>.basic_info>.title>.row{
+
+}
+#personal_center_view>.basic_info>.row>.col-md-4>.subtitle{
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 45px;
+}
+#personal_center_view>.basic_info>.row>.col-md-4>.section{
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 5px;
+}
+#personal_center_view>.basic_info>.row>.col-md-4>.subtitle h4{
+  float: left;
+  height: 44px;
+  line-height: 44px;
+  text-align:right;
+}
+#personal_center_view>.basic_info>.row>.col-md-4>.section>span{
+  height: 44px;
+  line-height: 44px;
+}
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle{
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 45px;
+}
+#personal_center_view>.basic_info>.row>.col-md-3>.section{
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 5px;
+  position: relative;
+}
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle h4{
+  float: left;
+  height: 44px;
+  line-height: 44px;
+  text-align:right;
+}
+#personal_center_view>.basic_info>.row>.col-md-3>.section>span{
+  height: 44px;
+  line-height: 44px;
+}
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#license{
+  width: 230px;
+  height: 160px;
+  float:left;
+}
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#license>img{
+  width: 230px;
+  height: 160px;
+  display: block;
+}
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#permit{
+  width: 230px;
+  height: 160px;
+  float:left;
+}
+#personal_center_view>.basic_info>.row>.col-md-3>.subtitle>#permit>img{
+  width: 230px;
+  height: 160px;
+  display: block;
+}
+
+
+//控制台消息中心按钮
+.news_center{
+  width: 100%;
+  padding: 25px;
+  float: left;
+}
+.news_center>.content{
+  width: 100%;
+  height: auto;
+  float: left;
+  background: #ffffff;
+  border: 1px #cccccc solid ;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  margin-bottom: 100px;
+}
+.news_center>.content>.title{
+  margin-left: 15px;
+  margin-bottom: 20px;
+}
+.news_center>.content>.row{
+  margin-left: 30px;
+  margin-right:30px;
+  padding-bottom:15px;
+  border-bottom: 1px #cccccc solid;
+}
+.news_center>.content>.row>.col-md-4>.subtitle{
+  float: left;
+}
+.news_center>.content>.row>.col-md-4>.section{
+  float: left;
+}
+.news_center>.content>.row>.col-md-2>.subtitle{
+  float: left;
+}
+.news_center>.content>.row>.col-md-2>.section{
+  float: left;
+  margin-left: 10px;
+}
+.news_center>.content>.lastrow{
+  border-bottom: none;
+}
+
+//控制台侧边栏
+.sidebar{
+  width: 100%;
+  height:100%;
+  background:#202732;
+}
+.sidebar>.nav{
+  width: 100%;
+  background:#202732;
+}
+.sidebar>.nav>.nav_li{
+  width:100%;
+  background:#202732;
+  overflow: hidden;
+  float: left;
+}
+.sidebar>.nav>.nav_li>.nav_a{
+  width:100%;
+  height:80px;
+  display:block;
+  line-height:60px;
+  text-decoration: none;
+  border-radius: 0;
+  color:#cccccc;
+  text-align: center;
+  position: relative;
+  border-bottom:1px #2E3645 solid;
+}
+.sidebar>.nav>.nav_li>.nav_a>span{
+  width: 10px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  top:0px;
+  right:10px ;
+  color: #ffffff;
+  z-index: 99;
+  position: absolute;
+}
+.current{
+  transform: rotate(45deg);
+  -ms-transform:rotate(-45deg);
+  -o-tranform:rotate(-45deg);
+  -webkit-transform:rotate(-45deg);
+  -moz-transform:rotate(-45deg);
+}
+.sidebar>.nav>.nav_li>.nav_a:link{
+  color:#ffffff;
+  background: #202732;
+}
+.sidebar>.nav>.nav_li>.nav_a:hover{
+  color:#ffffff;
+  background: #202732;
+}
+.sidebar>.nav>.nav_li>.nav_a:visited{
+  background: #202732;
+  color: #ffffff;
+}
+.sidebar>.nav>.nav_li>.nav_a:active{
+  background: #202732;
+  color: #ffffff;
+}
+.sidebar>.nav>.nav_li>.second_nav{
+  width: 100%;
+  height:120px;
+  background: #000000;
+  display:none;
+}
+.sidebar>.nav>.nav_li>.second_nav>.second_nav_li{
+  width: 100%;
+  height: 60px;
+  padding-top: 20px;
+  display: block;
+}
+.sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a{
+  width: 100%;
+  height: 20px;
+  line-height:20px;
+  text-align:center;
+  display: block;
+  text-decoration:none;
+}
+.sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:link{}
+.sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:visited{}
+.sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:hover{
+  color:#3399ff;
+}
+.sidebar>.nav>.nav_li>.second_nav>.second_nav_li>.second_nav_a:active{
+  color:#3399ff;
+  border-left:2px #3399ff solid ;
+}
+.unactived{
+  color:#ffffff;
+  border-left:2px #000000 solid ;
+}
+.active{
+  color:#3399ff;
+  border-left:2px #3399ff solid ;
+}
+
+//办理狗证--个人办证
+/*----------用来移除上下小箭头----------*/
+input[type='date']::-webkit-inner-spin-button {
+  display:none;
+}
+
+/*----------用来移除清除按钮----------*/
+//input[type="date"]::-webkit-clear-button{
+//  display:none;
+//}
+.personal_card{
+  width: 100%;
+  height:auto ;
+  float: left;
+  padding: 25px;
+  background:#fcfcfc ;
+}
+.personal_card>.title{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  float: left;
+}
+.personal_card>.registration{
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+.personal_card>#post_info{
+    float: left;
+    margin-left: 300px;
+    margin-top: 30px;
+    width:300px;
+}
+.personal_card>.registration>.title>h4>.small_title{
+  margin-left: 15px;
+  font-size: 12px;
+}
+.personal_card>.registration>.row{
+  margin-bottom: 20px;
+}
+.personal_card>.registration>.title{
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.personal_card>.registration>.row>.col-md-6>.subtitle h4{
+  float: left;
+  width: 80px;
+  height: 44px;
+  line-height: 44px;
+  margin-left: 15px;
+  text-align:right;
+
+}
+.personal_card>.registration>.row>.col-md-6>.subtitle>.dog_img{
+  width: 170px;
+  height: 90px;
+  float: left;
+  margin-left: 100px;
+}
+.personal_card>.registration>.row>.col-md-6>.section{
+  float: left;
+  margin-left: 5px;
+  position: relative;
+}
+.personal_card>.registration>.row>.col-md-6>.section>p{
+  font-size: 12px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>input[type="text"]{
+  width: 265px;
+  height:44px;
+  border-radius: 4px;
+  //border: 2px #cccccc solid;
+}
+.personal_card>.registration>.row>.col-md-6>.section>input[type="date"]{
+  width: 265px;
+  height:44px;
+  border-radius: 4px;
+  border: 2px #cccccc solid;
+}
+.personal_card>.registration>.row>.col-md-6>.section>input[type="radio"]{
+  height: 35px;
+  float:left;
+  margin-right:10px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#iris{
+  float: left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>select{
+  width: 90px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.radio_container>.kinds{
+    width:265px;
+    height:44px;
+    line-height:44px;
+    border: 2px #cccccc solid;
+    text-align: center;
+    border-radius:4px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.connect{
+  width: 20px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  float: left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#birth_date{
+  float: left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#recollect_iris{
+  width: 90px;
+  height: 20px;
+  border: 1px #cccccc solid;
+  border-radius:10px ;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 10px;
+  float: left;
+  margin-top: 10px;
+
+}
+.personal_card>.registration>.row>.col-md-6>#imgs{
+  width: 280px;
+  height: 210px;
+  float: left;
+}
+.personal_card>.registration>.row>.col-md-6>#imgs>img{
+  width: 280px;
+  height: 210px;
+  display: block;
+}
+.personal_card>.registration>.row>.col-md-6>#collectimg{
+  position: relative;
+  float: left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#recollect_img{
+  width: 90px;
+  height: 20px;
+  border: 1px #cccccc solid;
+  border-radius:10px ;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 10px;
+  float: left;
+  margin-top: 15px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#upload{
+  width: 90px;
+  height: 20px;
+  border: 1px #cccccc solid;
+  border-radius:10px ;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 10px;
+  float: left;
+  margin-top: 10px;
+  position: absolute;
+  z-index: 99;
+  top:40px;
+
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label{
+  width: 30px;
+  height: 44px;
+  color:#000000;
+  line-height: 44px;
+  text-align: center;
+  float: left;
+  font-weight: normal;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.radio_container{
+  width: 265px;
+  height:44px;
+  line-height: 44px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label_container{
+  width: 420px;
+  height:44px;
+  line-height: 44px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label_container>select{
+  width: 90px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label_container>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+  color: #000000;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.label_container>input{
+  width: 50px;
+  height:44px;
+  //border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#houseid_null_tip{
+  position: absolute;
+  top:44px;
+  left: 0;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.address_container{
+  width: 420px;
+  height:44px;
+  line-height: 44px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.address_container>#reg_address{
+  width: 200px;
+  height:44px;
+  //border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.address_container>#reg_addr_ck{
+  float: left;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>.address_container>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+  color: #000000;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#reg_address_null_tip{
+  position: absolute;
+  top:44px;
+  left: 0;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
+  width:265px;
+  height:60px;
+  overflow: hidden;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province{
+  width: 85px;
+  height: 40px;
+  float: left;
+  margin-right: 5px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>li>span{
+  font-size: 12px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province>select{
+  width: 85px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city{
+  width: 85px;
+  height: 40px;
+  float: left;
+  margin-right: 5px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city>select{
+  width: 85px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county{
+  width: 85px;
+  height: 40px;
+  float: left;
+}
+.personal_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county>select{
+  width: 85px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.personal_card>.post_info{
+  width: 345px;
+}
+
+//组织机构添加兽医
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8{
+
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.subtitle{
+  float: left;
+  width:155px;
+  height: 44px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>p{
+  margin-left: 165px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.subtitle h4 {
+  float: left;
+  width:165px;
+  height: 44px;
+  line-height: 44px;
+  text-align: right;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.section{
+  float: left;
+  margin-left: 10px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-md-8>.section>input{
+  width: 300px;
+  height: 44px;
+  //border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.subtitle h4 {
+  float: left;
+  width:155px;
+  height: 44px;
+  line-height: 44px;
+  text-align: right;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.section{
+  float: left;
+  margin-left: 10px;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.section>button{
+  width:115px;
+  height: 44px;
+  border-radius: 4px;
+  display: inline-block;
+  float:left;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-md-8>.section>#modal-btn-close{
+  margin-left: 65px;
+  background:#ffffff;
+  border: 1px #cccccc solid;
+}
+
+//办理狗证--个人办证--弹窗
+.modal>.modal-dialog>.modal-content>.modal-header>.modal-title{
+  margin-bottom: 15px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.title{
+  margin-bottom: 15px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.subtitle h4{
+  width: 70px;
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 15px;
+  text-align:right;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.subtitle>#dogPhotoUrl{
+  position:absolute;
+  top:0;
+  left:30px;
+  width:160px;
+  height:80px;
+  display:block;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-4>.section{
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 5px;
+}
+
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-12>.subtitle h4{
+  width: 70px;
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 15px;
+  text-align:right;
+}
+
+.modal>.modal-dialog>.modal-content>.modal-body>.row>.col-sm-12>.section{
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 5px;
+}
+
+
+.modal>.modal-dialog>.modal-content>.modal-body>.top{
+  border-top:1px solid #cccccc ;
+  padding-top:15px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.immune_table{
+  width: 100%;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.immune_table>tbody>.immune_tr>.left_td{
+  width: 100px;
+  height: 30px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.immune_table>tbody>.immune_tr>.right_td{
+  width: 100px;
+  height: 30px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.immune_table>tbody>.immune_tr>.middle_td{
+  width: 200px;
+  height: 30px;
+}
+.modal>.modal-dialog>.modal-content>.modal-body>.top>h4>.huji{
+  font-size: 12px;
+}
+
+//办理狗证--个人办证--打印磁卡
+.print_card{
+  width:100%;
+  float: left;
+  background:#fcfcfc ;
+  padding: 25px;
+}
+.print_card>.title_nav{
+  width: 100%;
+  height: 40px;
+  float: left;
+}
+.print_card>.content{
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+.print_card>.content>.title{
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+.print_card>.content>.title>h3>#QR_Code{
+  float: right;
+  display: inline-block;
+  margin-right: 400px;
+}
+.print_card>.content>.row{
+  margin-bottom: 15px;
+}
+.print_card>.content>.row>.col-md-4>.card_front{
+  width: 320px;
+  height: 160px;
+  border:1px #cccccc solid;
+  float: left;
+  margin-left: 30px;
+}
+.print_card>.content>.row>.col-md-4>.card_front>img{
+  width: 320px;
+  height: 160px;
+  display: block;
+}
+.print_card>.content>.row>.col-md-4>.card_behind{
+  width: 320px;
+  height: 160px;
+  border:1px #cccccc solid;
+  float: left;
+}
+.print_card>.content>.row>.col-md-4>.card_behind>img{
+  width: 320px;
+  height: 160px;
+  display: block;
+}
+.print_card>.content>.row>.col-md-4>.qrcode{
+  width: 160px;
+  height: 160px;
+  float: left;
+}
+.print_card>.content>.row>.col-md-4>.qrcode>img{
+  width: 160px;
+  height: 160px;
+  display: block;
+}
+.print_card>.content>.row>.col-md-4>#print_card{
+  margin-left: 50px;
+}
+.print_card>.content>.row>.col-md-6>.subtitle h4{
+  width: 100px;
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 40px;
+  text-align:right;
+}
+.print_card>.content>.row>.col-md-6>.subtitle>.codetip{
+  width: 100px;
+  float: left;
+  height: 40px;
+  margin-left: 40px;
+}
+.print_card>.content>.row>.col-md-6>.subtitle>.codetip>span{
+  width: 100px;
+  float: left;
+  height: 20px;
+  line-height:20px;
+  text-align:right;
+}
+.print_card>.content>.row>.col-md-6>.section{
+  float: left;
+  margin-left: 5px;
+  height: 32px;
+  line-height: 32px;
+}
+.print_card>.content>.row>.col-md-6>#take{
+  float: left;
+  margin-left: 80px;
+}
+.print_card>.content>.row>.col-md-6>#mailing{
+  float: left;
+  margin-left: 80px;
+}
+.print_card>.content>.row>.col-md-4>#save{
+  margin-left: 50px;
+}
+.print_card>.content>.row>.col-md-4>#return{
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+//办理狗证--企业办证
+.business_card{
+  width: 100%;
+  height:auto ;
+  float: left;
+  padding: 25px;
+  background:#fcfcfc ;
+}
+.business_card>.title{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  float: left;
+}
+.business_card>.registration{
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+.business_card>#post_info{
+  float: left;
+  margin-left: 300px;
+  margin-top: 30px;
+  width:300px;
+}
+.business_card>.registration>.title>h4>.small_title{
+  margin-left: 15px;
+  font-size: 12px;
+}
+.business_card>.registration>.row{
+  margin-bottom: 20px;
+}
+.business_card>.registration>.title{
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.business_card>.registration>.row>.col-md-6>.subtitle h4{
+  float: left;
+  width: 80px;
+  height: 44px;
+  line-height: 44px;
+  margin-left: 15px;
+  text-align:right;
+
+}
+.business_card>.registration>.row>.col-md-6>.subtitle>.dog_img{
+  width: 170px;
+  height: 90px;
+  float: left;
+  margin-left: 100px;
+}
+.business_card>.registration>.row>.col-md-6>.section{
+  float: left;
+  margin-left: 5px;
+  position: relative;
+}
+.business_card>.registration>.row>.col-md-6>.section>p{
+  font-size: 12px;
+}
+.business_card>.registration>.row>.col-md-6>.section>input[type="text"]{
+  width: 265px;
+  height:44px;
+  border-radius: 4px;
+  //border: 2px #cccccc solid;
+}
+.business_card>.registration>.row>.col-md-6>.section>input[type="date"]{
+  width: 265px;
+  height:44px;
+  border-radius: 4px;
+  border: 2px #cccccc solid;
+}
+.business_card>.registration>.row>.col-md-6>.section>input[type="radio"]{
+  height: 35px;
+  float:left;
+  margin-right:10px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#iris{
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>.section>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+}
+.business_card>.registration>.row>.col-md-6>.section>select{
+  width: 90px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.business_card>.registration>.row>.col-md-6>.section>.radio_container>.kinds{
+  width:265px;
+  height:44px;
+  line-height:44px;
+  border: 2px #cccccc solid;
+  text-align: center;
+  border-radius:4px;
+}
+.business_card>.registration>.row>.col-md-6>.section>.connect{
+  width: 20px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>.section>#birth_date{
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>.section>#recollect_iris{
+  width: 90px;
+  height: 20px;
+  border: 1px #cccccc solid;
+  border-radius:10px ;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 10px;
+  float: left;
+  margin-top: 10px;
+
+}
+.business_card>.registration>.row>.col-md-6>#imgs{
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>#collectimg{
+  position: relative;
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>.section>#recollect_img{
+  width: 90px;
+  height: 20px;
+  border: 1px #cccccc solid;
+  border-radius:10px ;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 10px;
+  float: left;
+  margin-top: 15px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#upload{
+  width: 90px;
+  height: 20px;
+  border: 1px #cccccc solid;
+  border-radius:10px ;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 10px;
+  float: left;
+  margin-top: 10px;
+  position: absolute;
+  z-index: 99;
+  top:40px;
+
+}
+.business_card>.registration>.row>.col-md-6>.section>.label{
+  width: 30px;
+  height: 44px;
+  color:#000000;
+  line-height: 44px;
+  text-align: center;
+  float: left;
+  font-weight: normal;
+}
+.business_card>.registration>.row>.col-md-6>.section>.radio_container{
+  width: 265px;
+  height:44px;
+  line-height: 44px;
+}
+.business_card>.registration>.row>.col-md-6>.section>.label_container{
+  width: 420px;
+  height:44px;
+  line-height: 44px;
+}
+.business_card>.registration>.row>.col-md-6>.section>.label_container>select{
+  width: 90px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.business_card>.registration>.row>.col-md-6>.section>.label_container>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+  color: #000000;
+}
+.business_card>.registration>.row>.col-md-6>.section>.label_container>input{
+  width: 50px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.business_card>.registration>.row>.col-md-6>.section>#houseid_null_tip{
+  position: absolute;
+  top:44px;
+  left: 0;
+}
+.business_card>.registration>.row>.col-md-6>.section>.address_container{
+  width: 420px;
+  height:44px;
+  line-height: 44px;
+}
+.business_card>.registration>.row>.col-md-6>.section>.address_container>#reg_address{
+  width: 200px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.business_card>.registration>.row>.col-md-6>.section>.address_container>#reg_addr_ck{
+  float: left;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+.business_card>.registration>.row>.col-md-6>.section>.address_container>label{
+  height: 44px;
+  line-height: 44px;
+  float: left;
+  margin-right:10px;
+  color: #000000;
+}
+.business_card>.registration>.row>.col-md-6>.section>#reg_address_null_tip{
+  position: absolute;
+  top:44px;
+  left: 0;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address{
+  width:265px;
+  height:60px;
+  overflow: hidden;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province{
+  width: 85px;
+  height: 40px;
+  float: left;
+  margin-right: 5px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>li>span{
+  font-size: 12px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.province>select{
+  width: 85px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city{
+  width: 85px;
+  height: 40px;
+  float: left;
+  margin-right: 5px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.city>select{
+  width: 85px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county{
+  width: 85px;
+  height: 40px;
+  float: left;
+}
+.business_card>.registration>.row>.col-md-6>.section>#orga_area>.org_address>.county>select{
+  width: 85px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.business_card>.post_info{
+  width: 345px;
+}
+
+//信息查询--犬主信息查询
+.dogownerlist{
+  width: 100%;
+  float: left;
+  background:#fcfcfc ;
+  padding: 25px;
+  position: relative;
+}
+.dogownerlist>.top_tip{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  float: left;
+}
+.dogownerlist>.title{
+    width: 100%;
+    height: 84px;
+    float: left;
+    border: 1px solid #cccccc;
+    background: #FFFFFF;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.dogownerlist>.tilte>.row{
+
+}
+.dogownerlist>.title>.row>.form-group{
+  float: left;
+  margin-left: 15px;
+  height: 44px;
+  line-height: 44px;
+}
+.dogownerlist>.title>.row>span{
+  height:44px ;
+  line-height: 44px;
+  font-size: 12px;
+  display:inline-block;
+}
+.dogownerlist>.title>.row>.form-group>label{
+  height: 44px;
+  line-height: 44px;
+}
+.dogownerlist>.title>.row>.form-group>input{
+  width: 230px;
+  height: 40px;
+  //border: 2px #cccccc solid;
+  float: left;
+  border-radius:4px;
+}
+.dogownerlist>.title>.row>.form-group>select{
+  width: 100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  float: left;
+  border-radius:4px;
+}
+.dogownerlist>.title>.row>.form-group>.btn{
+  width: 150px;
+  height: 40px;
+}
+.dogownerlist>.title>.row>.search{
+  float: right;
+  margin-right: 20px;
+}
+.dogownerlist>.table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px #cccccc solid;
+  background: #ffffff;
+}
+.dogownerlist>table tr,td{
+  border:1px #4888c6 solid;
+}
+.dogownerlist>.table>tbody tr td{
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  color: #000000;
+  border:1px #cccccc solid;
+}
+.dogownerlist>table>tbody>tr>td>.td-a{
+  color:#339afe;
+  text-decoration: underline;
+}
+.dogownerlist>.table>tbody>.tr_head{
+  background:#fbfbfb;
+}
+
+//信息查询--犬主信息搜索详情
+#dogownersearch{
+  width: 100%;
+  float: left;
+  background:#fcfcfc ;
+  padding: 25px;
+  position: relative;
+}
+#dogownersearch>.details{
+  float: left;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  background: #ffffff;
+  margin-bottom: 20px;
+}
+#dogownersearch>.details>.row{
+  margin-top: 20px;
+}
+#dogownersearch>.details>.row>.col-md-6>.subtitle h4{
+  width: 80px;
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 15px;
+  text-align:right;
+}
+#dogownersearch>.details>.row>.col-md-6>.section{
+  float: left;
+  margin-left: 5px;
+  height: 32px;
+  line-height: 32px;
+}
+#dogownersearch>.details>.dog_table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px #000000 solid;
+  margin-top: 20px;
+}
+#dogownersearch>.details>table>tbody tr td {
+  text-align:center;
+  border:1px #000000 solid;
+
+}
+#dogownersearch>.details>table>tbody>tr>td>.td-a{
+  color:#339afe;
+  text-decoration: underline;
+}
+
+//信息查询--犬只信息查询
+.dog_search{
+  float: left;
+  width:100%;
+  background:#fcfcfc ;
+  padding: 25px;
+}
+.dog_search>.top_tip{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  float: left;
+}
+.dog_search>.title{
+  width: 100%;
+  height: 84px;
+  float: left;
+  border: 1px solid #cccccc;
+  background: #FFFFFF;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.dog_search>.tilte>.row{
+
+}
+.dog_search>.title>.row>.form-group{
+  float: left;
+  margin-left: 15px;
+  height: 44px;
+  line-height: 44px;
+}
+.dog_search>.title>.row>.form-group>span{
+  height: 44px;
+  line-height: 44px;
+  font-size:12px ;
+  display:inline-block;
+}
+.dog_search>.title>.row>.form-group>label{
+  height: 44px;
+  line-height: 44px;
+}
+.dog_search>.title>.row>.form-group>input{
+  width: 230px;
+  height: 40px;
+  //border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.dog_search>.title>.row>.form-group>select{
+  width: 100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  float: left;
+  border-radius:4px;
+}
+.dog_search>.title>.row>.form-group>.btn{
+  width: 150px;
+  height: 40px;
+}
+.dog_search>.title>.row>.search{
+  float: right;
+  margin-right: 20px;
+}
+.dog_search>.title>.row>#search{
+  width: 150px;
+  height: 44px;
+  float: left;
+  margin-left: 140px;
+  margin-right: 0px;
+
+}
+.dog_search>.title>.row>.col-md-6>.input-group>.input-group-btn>.dog_number{
+  width: 80px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px 0 0 4px;
+
+}
+.dog_search>.title>.row>.col-md-6>.input-group>span{
+  width: 80px;
+  height: 40px;
+}
+.dog_search>.title>.row>.col-md-6>.input-group>span>button{
+  width: 80px;
+  height: 40px;
+}
+.dog_search>.title>.row>.col-md-6>.input-group>input{
+  border-radius: none;
+  width:350px;
+  height: 40px;
+  border: 2px #cccccc solid ;
+}
+.dog_search>.table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px #cccccc solid;
+  background: #ffffff;
+}
+.dog_search>.table>tbody tr td{
+  color: #000000;
+  height: 30px;
+  text-align:center;
+  border:1px #cccccc solid;
+
+}
+.dog_search>.table>tbody>.tr_head{
+  background:#fbfbfb;
+  color: #000000;
+}
+.dog_search>.table>tbody>.tr_head>td{
+  height: 50px;
+  line-height: 50px;
+}
+.dog_search>table>tbody>tr>td>.td-a{
+  color:#339afe;
+  text-decoration: underline;
+}
+
+
+//免疫年检
+.immune_content{
+  width: 100%;
+  float: left;
+  background:#fcfcfc ;
+  padding: 25px;
+}
+.immune_content>.immune_detail{
+  width: 100%;
+  float: left;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.immune_content>.immune_detail>.title{
+  margin-bottom: 15px;
+}
+.immune_content>.immune_detail>.row>{
+  margin-bottom:15px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.subtitle h4{
+  width: 80px;
+  float: left;
+  height: 44px;
+  line-height: 44px;
+  margin-left: 15px;
+  text-align:right;
+  font-weight:bold;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section{
+  float: left;
+  margin-left: 5px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>input[type="text"]{
+  width: 230px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  float: left;
+  border-radius:4px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>input[type="date"]{
+  width: 230px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#reput{
+  width: 100px;
+  height: 25px;
+  line-height:25px;
+  text-align:center;
+  border-radius: 20px;
+  border: 1px #cccccc solid;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#dog_img{
+  width: 230px;
+  height: 120px;
+  border: 1px #cccccc solid;
+  float: left;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#puts{
+  width: 102px;
+  height: 120px;
+  float: left;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#puts>#reput_img{
+  width: 100px;
+  height: 25px;
+  line-height:25px;
+  text-align:center;
+  border-radius: 20px;
+  border: 1px #cccccc solid;
+  float: left;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#puts>#put_img{
+  width: 100px;
+  height: 25px;
+  line-height:25px;
+  text-align:center;
+  border-radius: 20px;
+  border: 1px #cccccc solid;
+  float: left;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#area_code{
+  width: 100px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float: left;
+  text-align: center;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>#connect{
+  width: 10px;
+  height: 44px;
+  line-height: 44px;
+  margin-left:5px;
+  margin-right:5px;
+  float: left;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>span{
+  height: 44px;
+  line-height: 44px;
+  display: inline-block;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>.areas{
+  width: 70px;
+  height:44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float: left;
+  margin-right:10px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>.kinds{
+  width: 230px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>.data{
+  width: 90px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>.datatime{
+  width: 40px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  float: left;
+}
+.immune_content>.immune_detail>.row>.col-md-6>.section>.numbers{
+  width: 80px;
+  height: 44px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+  float:left;
+}
+.immune_content>.immune_post{
+  width: 345px;
+}
+
+//免疫年检列表
+.immune_list{
+  width:100%;
+  float: left;
+  background:#fcfcfc ;
+  padding: 25px;
+  position: relative;
+}
+.immune_list>.top_tip{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  float: left;
+}
+.immune_list>.title{
+  width: 100%;
+  height: 84px;
+  float: left;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.immune_list>.title>.row{
+
+}
+.immune_list>.title>.row>.form-group{
+  float: left;
+  margin-left: 15px;
+  height: 44px;
+  line-height: 44px;
+}
+.immune_list>.title>.row>.form-group>span{
+  height: 44px;
+  line-height: 44px;
+  font-size: 12px;
+  display: inline-block;
+}
+.immune_list>.title>.row>.form-group>label{
+  margin-right: 10px;
+}
+.immune_list>.title>.row>.form-group>input[type="text"]{
+  width: 230px;
+  height: 40px;
+  //border: 2px #cccccc solid;
+  float: left;
+  border-radius:4px;
+}
+.immune_list>.title>.row>.form-group>select{
+  width:100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  float: left;
+  border-radius:4px;
+}
+.immune_list>.title>.row>.form-group>.btn{
+  width: 150px;
+  height: 40px;
+}
+.immune_list>.title>.row>.search{
+  float: right;
+  margin-right: 20px;
+}
+.immune_list>.table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px #cccccc solid;
+  background: #ffffff;
+}
+.immune_list>.table>tbody>.tr_head{
+  background:#fbfbfb;
+  color: #000000;
+}
+.immune_list>.table>tbody>.tr_head>td{
+  height: 50px;
+  line-height:50px;
+}
+.immune_list>.table>tbody tr td{
+  height: 30px;
+  text-align: center;
+  color: #000000;
+  border:1px #cccccc solid;
+}
+.immune_list>table>tbody>tr>td>.td-a{
+  color:#339afe;
+  text-decoration: underline;
+}
+.immune_list>table>tbody>.dogtr>td{
+  border:1px #cccccc solid;
+}
+//制卡信息
+.card_info{
+  width: 100%;
+  float: left;
+  background:#fcfcfc ;
+  padding: 25px;
+  position: relative;
+}
+.card_info>.top_tip{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  float: left;
+}
+.card_info>.title{
+  width: 100%;
+  height: 84px;
+  float: left;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.card_info>.title>.row{
+
+}
+.card_info>.title>.row>.form-group{
+  float: left;
+  margin-left: 15px;
+  height: 44px;
+  line-height: 44px;
+}
+.card_info>.title>.row>.form-group>label{
+  margin-right: 10px;
+}
+.card_info>.title>.row>.form-group>input[type="text"]{
+  width: 160px;
+  height: 40px;
+  //border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.card_info>.title>.row>.form-group>select{
+  width:100px;
+  height: 40px;
+  border: 2px #cccccc solid;
+  border-radius:4px;
+}
+.card_info>.title>.row>.form-group>.btn{
+  width: 150px;
+  height: 40px;
+}
+.card_info>.title>.row>.search{
+  float: right;
+  margin-right: 20px;
+}
+.card_info>.table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px #cccccc solid;
+  background: #ffffff;
+}
+.card_info>.table>tbody>.tr_head{
+  background:#fbfbfb;
+  color: #000000;
+}
+.card_info>.table>tbody>.tr_head>td{
+  height:50px;
+  line-height:50px;
+}
+.card_info>.table>tbody tr td{
+  height: 30px;
+  text-align: center;
+  color: #000000;
+  border:1px #cccccc solid;
+}
+.card_info>table>tbody>tr>td>.td-a{
+  color:#339afe;
+  text-decoration: underline;
+}
+
+//个人中心--删除兽医--弹窗
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-sm-6>button{
+  width: 120px;
+  height: 40px;
+  border-radius: 4px;
+  float: left;
+  margin-left:5px;
+  display: inline-block;
+  outline: 0;
+}
+.modal>.modal-dialog>.modal-content>.modal-footer>.row>.col-sm-6>#modal-btn-close{
+  background: #ffffff;
+  color:#000000;
+}
+
+
+
+

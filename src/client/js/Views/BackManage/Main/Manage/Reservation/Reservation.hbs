@@ -1,0 +1,60 @@
+<div class="card_info">
+
+    <div class="top_tip">
+        <h3>Reservation</h3>
+    </div>
+
+    <div class="title">
+        <div class="row">
+            <div class="form-group">
+                <label for="" class="control-label" style="float:left;">Reservation Code:</label>
+                <input style="float: left" class="form-control"  type="text"  id="immune_number" >
+            </div>
+            <span style="display: none;" class="null_err" id="where_null_tip">*you can't leave this empty</span>
+            <div class="form-group search">
+                <button class="btn btnBlueE btn-block" id="search">Searching</button>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <tbody id="tbody">
+        <tr class="tr_head">
+            <td>Reservation Code</td>
+            <td>Owner Name</td>
+            <td>Mobile Number</td>
+            <td>Dog's Name</td>
+            <td>Breeds</td>
+            <td>Canine</td>
+            <td>操作</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+            <nav aria-label="Page navigation" id="dogowner_nav">
+                <ul class="pagination">
+                    <li><a href="javascript:void(0)" id='pageBegin'>Home</a></li>
+                    <li id="page">
+                        <a href="javascript:void(0)" aria-label="Previous" id='pageUp'>
+                            <span aria-hidden="true">Pervious</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0)" aria-label="Next" id="pageDown">
+                            <span aria-hidden="true">Next</span>
+                        </a>
+                    </li>
+                    <li><a href="javascript:void(0)" id="pageEnd">Last</a></li>
+                </ul>
+            </nav>
+            <div id="nodata" style="display:none;text-align:center">
+                NIL
+            </div>
+        </div>
+    </div>
+
+
+</div>

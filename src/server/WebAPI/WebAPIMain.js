@@ -11,6 +11,8 @@ var WebAPIMain = {
 					var self = this;
 					app.use(bodyParser.json());
 					app.use('/',express.static(__dirname + '/../../../public'));
+					app.use('/image',express.static(__dirname + '/../../../image'));
+
 
 
 					//测试
@@ -29,6 +31,8 @@ var WebAPIMain = {
 										
 					//set password
 					router.use("/user/set_password",require('./User/SetPasswordHandler'));
+					router.use("/user/change_password",require('./User/ChangePasswordHandler'));
+
 
 					
 					//AOrganizationHandler
@@ -64,6 +68,9 @@ var WebAPIMain = {
                      router.use("/reserve/find", require('./Wx/FindReserveUserHandler'));
 
                      router.use("/wx/get_accessToken", require('./Wx/AccessTokenHandler'));
+
+                     //dogCard
+				     router.use("/dogCard/annual",require('./DogLicense/EditDogCardHandler'));
 
 
 
