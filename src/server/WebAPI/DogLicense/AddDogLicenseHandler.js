@@ -138,7 +138,6 @@ AddDogLicenseHandler.prototype.attach = function(route){
                      self.successResponse(response,Const.responsecodeSucceed,{
                          qrCodeUrl: Config.hostName+':'+Config.port+'/img/'+result.dogLicense._id+'.png',
                          dogLicense:result.dogLicense
-
                     });
 
                 },function(err,code){
