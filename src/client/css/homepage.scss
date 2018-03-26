@@ -987,7 +987,7 @@ html, body {
   }
 }
 
-//客户案例
+//客户案例PC端
 #client_banner {
   padding: 0;
   margin: 0;
@@ -1036,7 +1036,6 @@ html, body {
 .client_detail > .row > .col-md-6 > h3 {
   padding-top: 20px;
   color: #000;
-
 }
 
 .client_detail > .row > .col-md-3 > img {
@@ -1046,7 +1045,28 @@ html, body {
 
 }
 
-//新闻中心
+//客户案移动C端
+@media (max-width: 480px) {
+  .client_detail {
+    padding: 0;
+    margin: 0 auto;
+  }
+  .client_detail > .row {
+    padding: 0 40px;
+    margin: 0;
+    background: #fff;
+  }
+  .client_detail > .row > .col-md-6 > h3 {
+    padding-top: 20px;
+    color: #000;
+    text-align: center;
+  }
+}
+
+
+
+
+//新闻中心PC端
 .newsCenter {
   margin: 20px auto;
   padding: 0;
@@ -1082,6 +1102,7 @@ html, body {
   float: right;
   display: inline-block;
 }
+
 
 //联系我们PC端
 #contactUs {
@@ -1313,7 +1334,6 @@ html, body {
 }
 
 
-
 //招聘PC端
 #employ_list {
   margin: 50px auto;
@@ -1403,6 +1423,7 @@ html, body {
 #employ_list > .row > .col-md-12 > .last {
   margin-bottom: 30px;
 }
+
 //招聘移动端
 @media (max-width: 480px){
   #employ_list > .row{
