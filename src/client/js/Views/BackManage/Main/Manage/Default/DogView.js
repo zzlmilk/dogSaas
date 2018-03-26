@@ -271,7 +271,7 @@ var DogView = Backbone.View.extend({
         });
 
         //图片上传成功后的通知
-        Backbone.on(Const.NotificationUploadImageDone, function (obj) {
+        Backbone.once(Const.NotificationUploadImageDone, function (obj) {
             // console.log(obj)
             if (obj.name == "#imgs") {
                 $("#imgs_null_tip").hide();

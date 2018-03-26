@@ -38,7 +38,7 @@ var PersonalCenterView = Backbone.View.extend({
     onLoad: function () {
 
         //添加医生完成的通知
-        Backbone.on(Const.NotificationAddDoctorDone, function (obj) {
+        Backbone.once(Const.NotificationAddDoctorDone, function (obj) {
             var veter = {
                 name: obj.name,
                 code: obj.code

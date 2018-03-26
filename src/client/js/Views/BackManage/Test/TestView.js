@@ -54,7 +54,7 @@ var TestView = Backbone.View.extend({
         var password = "rex123";
 
 
-        Backbone.on(Const.NotificationUploadImageDone, function (obj) {
+        Backbone.once(Const.NotificationUploadImageDone, function (obj) {
             console.log(obj)
         });
 

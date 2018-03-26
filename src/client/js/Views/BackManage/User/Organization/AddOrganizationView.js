@@ -358,7 +358,7 @@ var AddOrganizationView = Backbone.View.extend({
 
 
         //图片上传成功后的通知
-        Backbone.on(Const.NotificationUploadImageDone, function (obj) {
+        Backbone.once(Const.NotificationUploadImageDone, function (obj) {
             // console.log(obj)
             if (obj.name == "#animalMedicalLicense") {
                 $("#animalMedicalLicense_null_tip").hide();
@@ -368,7 +368,9 @@ var AddOrganizationView = Backbone.View.extend({
 
         });
         //添加医生完成的通知
-        Backbone.on(Const.NotificationAddDoctorDone, function (obj) {
+        Backbone.once(Const.NotificationAddDoctorDone, function (obj) {
+
+            console.log("页面获取到的值"+obj)
             var veter = {
                 name: obj.name,
                 code: obj.code
