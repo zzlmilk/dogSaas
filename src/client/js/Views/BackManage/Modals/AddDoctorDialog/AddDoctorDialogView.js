@@ -59,6 +59,8 @@ var AddDoctorDialog = {
                 name: dname1+dname2,
                 code: dcode
             }
+
+            console.log(obj)
             Backbone.trigger(Const.NotificationAddDoctorDone, obj);
             self.hide();
         });
