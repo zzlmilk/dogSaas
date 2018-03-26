@@ -90,7 +90,7 @@ var ChangePasswordView = Backbone.View.extend({
             var rePwd = $('#rePwd').val().trim();
             if (rePwd == "") {
                 $("#rePwd_null_tip").show();
-                $("#rePwd_length_tip").show();
+                $("#rePwd_length_tip").hide();
                 $("#rePwd_diff_tip").hide();
                 flag = false
             } else {
@@ -161,7 +161,7 @@ var ChangePasswordView = Backbone.View.extend({
             var rePwd = $('#rePwd').val().trim();
             if (rePwd == "") {
                 $("#rePwd_null_tip").show();
-                $("#rePwd_length_tip").show();
+                $("#rePwd_length_tip").hide();
                 $("#rePwd_diff_tip").hide();
                 flag = false
             } else {
