@@ -43,9 +43,9 @@ var AddOrganizationView = Backbone.View.extend({
 
             //未添加组织 去添加
             if (action == "add") {
+                console.log("add-----------")
                 $(Config.defaultContaier).html(templateAdd({}));
-            }
-            else if (action == "edit") {
+            }else if (action == "edit") {
                 //编辑组织 信息
                 $(Config.defaultContaier).html(templateAdd({
                     organization: self.organization
@@ -325,7 +325,7 @@ var AddOrganizationView = Backbone.View.extend({
         }
 
         $('#doctor').unbind().on('click', function () {
-
+            self.docListen()
             var AddDoctorDialogModal = require('../../Modals/AddDoctorDialog/AddDoctorDialogView');
             AddDoctorDialogModal.show();
 
@@ -367,10 +367,22 @@ var AddOrganizationView = Backbone.View.extend({
             }
 
         });
+
+
+    },
+    onHide:function () {
+        console.log("页面隐藏-------------")
+        Backbone.off(Const.NotificationAddDoctorDone)
+    },
+    docListen:function(){
+       var self=this
         //添加医生完成的通知
         Backbone.once(Const.NotificationAddDoctorDone, function (obj) {
 
-            console.log("页面获取到的值"+obj)
+            console.log("页面获取到的值" + obj)
+            if(obj==null){
+                return
+            }
             var veter = {
                 name: obj.name,
                 code: obj.code
@@ -386,8 +398,10 @@ var AddOrganizationView = Backbone.View.extend({
             $("#doctor_null_tip").hide();
             $("#doctor_table").after(sb.toString());
 
+            // self.docListen()
         });
     },
+
 
     //添加组织
     addOrganization: function (veterinarians) {
@@ -407,7 +421,7 @@ var AddOrganizationView = Backbone.View.extend({
             animalMedicalLicense: $("#animalMedicalLicense img").attr("src"),
             serviceScope: server_value,
             veterinarians: veterinarians,
-            contacts_name: $('#contacts1').val().trim()+$('#contacts2').val().trim(),
+            contacts_name: $('#contacts1').val().trim() + $('#contacts2').val().trim(),
             contacts_phone: $('#contacts_phone').val().trim()
         };
 

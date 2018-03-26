@@ -112,7 +112,7 @@
                     </select>
                     <div class="connect">--</div>
                     <input class="form-control" type="text" id="id_number">
-                    <p style="display: none;" class="null_err" id="id_number_null_tip">*Please enter  ID number</p>
+                    <p style="display: none;" class="null_err" id="id_number_null_tip">*Please enter ID number</p>
                 </div>
             </div>
 
@@ -168,7 +168,8 @@
                         <input type="radio" style="margin-left: 30px" name="dog_gender" id="doggender_female" value="2">
                         <label for="dog_gender">Female</label>
                     </div>
-                    <p style="display: none;" class="null_err" id="dog_gender_null_tip">*Please choose your dog‘s sex</p>
+                    <p style="display: none;" class="null_err" id="dog_gender_null_tip">*Please choose your dog‘s
+                        sex</p>
                 </div>
             </div>
         </div>
@@ -181,19 +182,7 @@
                 <div class="section">
                     <div class="radio_container">
                         <select class="kinds" id="dog_color">
-                            <option value="">Please select</option>
-                            <option value="白色">白色</option>
-                            <option value="黑色">黑色</option>
-                            <option value="褐色">褐色</option>
-                            <option value="青色">青色</option>
-                            <option value="黑褐色">黑褐色</option>
-                            <option value="铁灰色">铁灰色</option>
-                            <option value="灰褐色">灰褐色</option>
-                            <option value="黄褐色">黄褐色</option>
-                            <option value="灰白色">灰白色</option>
-                            <option value="黑白色">黑白色</option>
-                            <option value="黄红色">黄红色</option>
-                            <option value="淡红色">淡红色</option>
+                            <option id="color_null" value="">Please select</option>
                         </select>
                     </div>
                     <p style="display: none;" class="null_err" id="dog_color_null_tip">*You can't leave this empty</p>
@@ -239,10 +228,12 @@
                     <div class="radio_container">
                         <input type="radio" id="isSterilization1" name="isSterilization" value="1">
                         <label for="isSterilization">Yes</label>
-                        <input type="radio" style="margin-left: 30px" id="isSterilization0" name="isSterilization" value="0">
+                        <input type="radio" style="margin-left: 30px" id="isSterilization0" name="isSterilization"
+                               value="0">
                         <label for="isSterilization">No</label>
                     </div>
-                    <p style="display:none;" class="null_err" id="isSterilization_null_tip">*You can't leave this empty</p>
+                    <p style="display:none;" class="null_err" id="isSterilization_null_tip">*You can't leave this
+                        empty</p>
                 </div>
             </div>
 
@@ -272,9 +263,12 @@
                 <div class="section">
                     <input class="form-control" type="text" id="iris" maxlength="15">
                     <a id="recollect_iris" href="javascript:void(0)">Git ID</a>
-                    <p style="display:none;clear: left" class="null_err" id="iris_null_tip">*You can't leave this empty</p>
+                    <p style="display:none;clear: left" class="null_err" id="iris_null_tip">*You can't leave this
+                        empty</p>
                 </div>
+
             </div>
+
         </div>
 
         <div class="row">
