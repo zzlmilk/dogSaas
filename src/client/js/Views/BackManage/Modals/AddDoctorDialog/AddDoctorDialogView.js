@@ -19,6 +19,7 @@ var AddDoctorDialog = {
         var self = this;
         $('body').append(template({}));
 
+        $('#modal-profile').modal({backdrop: 'static', keyboard: false});
         $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
         })
@@ -71,8 +72,11 @@ var AddDoctorDialog = {
         $('#modal-profile').on('hidden.bs.modal', function (e) {
             $('#modal-profile').remove();
             if (!_.isUndefined(onFinish)) {
+
                 onFinish();
             }
+            console.log("弹窗关闭")
+            Backbone.trigger(Const.NotificationAddDoctorDone, null);
         })
 
         $('#modal-profile').modal('hide');
