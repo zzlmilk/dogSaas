@@ -121,12 +121,12 @@ var ForgotPwdView = Backbone.View.extend({
         var s =  setInterval(function(){
             i --;
             if (i==0) {
-                $("#btn-reset").html("send")
+                $("#btn-reset").html("Send")
                 $("#btn-reset").removeAttr("disabled")
                 clearInterval(s)
             }
             else{
-                $("#btn-reset").html(i +"s")
+                $("#btn-reset").html(i +"S")
             }
         },1000)
     }

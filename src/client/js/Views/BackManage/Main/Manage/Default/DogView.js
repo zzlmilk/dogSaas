@@ -626,7 +626,7 @@ var DogView = Backbone.View.extend({
         //毛色
         $('#dog_color').val(self.dogLicense.dog.hairColor);
         //犬只用途
-        if (self.dogLicense.dog.usage == "watching dog") {
+        if (self.dogLicense.dog.usage == "Watching dog") {
             $("#police").attr("checked", true);
             $("#police").prop('checked', true);
         } else {

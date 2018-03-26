@@ -108,12 +108,12 @@ var SendEmailView = Backbone.View.extend({
         var s = setInterval(function () {
             i--;
             if (i == 0) {
-                $("#registerBtn").html("send")
+                $("#registerBtn").html("Send")
                 $("#registerBtn").removeAttr("disabled")
                 clearInterval(s)
             }
             else {
-                $("#registerBtn").html(i + "s")
+                $("#registerBtn").html(i + "S")
             }
 
 
