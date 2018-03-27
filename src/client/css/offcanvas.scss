@@ -2,6 +2,10 @@ body.active {
   overflow-x: hidden;
   overflow-y: hidden
 }
+.active{
+  color:#000;
+  border-left: none;
+}
 
 .overlay {
   background-color: transparent;

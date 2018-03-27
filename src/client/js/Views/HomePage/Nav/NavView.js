@@ -90,7 +90,7 @@ var NavView = Backbone.View.extend({
             });
         });
 
-        //关于我们
+        //关于我们PC端
         $('#about_us').unbind().on('click', function (event) {
             event.stopPropagation();
             var AboutView = require('../About/AboutView.js');
@@ -99,7 +99,16 @@ var NavView = Backbone.View.extend({
             });
         });
 
-        //招聘
+        //关于我们移动端
+        $('#about_us_mobile').unbind().on('click', function (event) {
+            event.stopPropagation();
+            var AboutView = require('../About/AboutView.js');
+            var view = new AboutView({
+                'el': "#home-main"
+            });
+        });
+
+        //招聘PC端
         $('#employ').unbind().on('click', function (event) {
             event.stopPropagation();
             var EmployView = require('../Employ/EmployView.js');
@@ -107,6 +116,64 @@ var NavView = Backbone.View.extend({
                 'el': "#home-main"
             });
         });
+
+        //招聘移动端
+        $('#employ_mobile').unbind().on('click', function (event) {
+            event.stopPropagation();
+            var EmployView = require('../Employ/EmployView.js');
+            var view = new EmployView({
+                'el': "#home-main"
+            });
+        });
+
+        //移动端导航条
+        jQuery(document).ready(function($) {
+
+            function whichTransitionEvent() {
+                var el = document.createElement('event'),
+                    transitionEvents = {
+                        'WebkitTransition' : 'webkitTransitionEnd',// Saf 6, Android Browser
+                        'MozTransition'    : 'transitionend',      // only for FF < 15
+                        'transition'       : 'transitionend'       // IE10, Opera, Chrome, FF 15+, Saf 7+
+                    };
+                for(var t in transitionEvents){
+                    if( el.style[t] !== undefined ){
+                        return transitionEvents[t];
+                    }
+                }
+            }
+            var transitionEvent = whichTransitionEvent();
+
+            $('[data-toggle="offcanvas"], .overlay').click(function () {
+                $('.overlay').toggleClass('active');
+                $('body').toggleClass('active');
+                $('.row-offcanvas').toggleClass('active');
+                $('.sidebar-offcanvas').toggleClass('active');
+                $('.navbar-toggle').toggleClass('collapsed');
+                $('.navbar-collapse').addClass('transition');
+                $('.transition').one(transitionEvent,
+                    function(e) {
+                        $('.navbar-collapse').removeClass('transition');
+                    });
+            });
+
+            $('.navbar .nav a').click(function () {
+                $('.overlay').removeClass('active');
+                $('body').removeClass('active');
+                $('#navbar').removeClass('in');
+                $('.row-offcanvas').removeClass('active');
+                $('.sidebar-offcanvas').removeClass('active');
+                $('.navbar-toggle').addClass('collapsed');
+                $('.transition').one(transitionEvent,
+                    function(e) {
+                        $('.navbar-collapse').removeClass('transition');
+                    });
+            });
+
+        });
+
+
+
 
     }
 
