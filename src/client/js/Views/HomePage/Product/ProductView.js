@@ -30,7 +30,7 @@ var ProductView = Backbone.View.extend({
         //产品优势
         $(".tips").each(function(){
             $(this).mouseover(function () {
-                $(this).stop().animate({top:"0px"},"slow");
+                $(this).stop().animate({top:"0px"});
             });
             $(this).mouseout(function () {
                 $(this).stop().animate({top:"300px"});
