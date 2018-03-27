@@ -131,10 +131,13 @@ html, body {
   .navbar-fixed-top > .container > .collapse > .navbar-nav > li > a {
     text-align: left;
     border-bottom: none;
-    padding: 10px 15px;
+    padding: 15px 20px;
     line-height: 20px;
     color: #000;
     margin-bottom: -2px;
+  }
+  .navbar-fixed-top > .container > .collapse > .navbar-nav > li > a:hover{
+    border-bottom: none;
   }
 }
 
