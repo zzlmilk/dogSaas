@@ -61,9 +61,9 @@ var PersonalCenterView = Backbone.View.extend({
                 if (status == 0) {
                     statusText = "Verifying";
                 } else if (status == -1) {
-                    statusText = "未通过";
+                    statusText = "Unverified";
                 } else {
-                    statusText = "已通过";
+                    statusText = "Verified";
                 }
                 errorCode.organization.checkStatus.status = statusText;
 
