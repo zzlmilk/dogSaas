@@ -1,13 +1,13 @@
 var Backbone = require('backbone');
 var _ = require('lodash');
 
-var Utils = require('../../../../../../lib/utils');
-var Const = require('../../../../../../lib/consts');
-var Config = require('../../../../../../lib/init');
-var DogLicenseClient = require('../../../../../../lib/APIClients/DogLicenseClient');
-var StringBuffer = require('../../../../Modals/selectPlugin/StringBuffer.js');
+var Utils = require('../../../../../lib/utils');
+var Const = require('../../../../../lib/consts');
+var Config = require('../../../../../lib/init');
+var DogLicenseClient = require('../../../../../lib/APIClients/DogLicenseClient');
+var StringBuffer = require('../../../Modals/selectPlugin/StringBuffer.js');
 // load template
-var template = require('./ImmuneList.hbs');
+var template = require('./Immune.hbs');
 
 var ImmuneListView = Backbone.View.extend({
 
@@ -192,23 +192,22 @@ var ImmuneListView = Backbone.View.extend({
                                 "<td align='center' valign='middle'>" + val.owner.certificateCode + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.nickname + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.breed + "</td>" +
-                                "<td align='center' valign='middle'>" + val.vaccineCard.info.signCreate.substring(0, 10) + "</td>" +
                                 "<td align='center' valign='middle'><a class='td-a' href='javascript:void(0)' value=" + i + ">Annual Review</a></td>" +
                                 "</tr>");
                         });
                         $("#tbody").after(sb.toString());
 
                         $(".td-a").unbind().on("click", function () {
-                            // var d = dogLicenses[$(this).attr("value")];
-                            // console.log(d);
+                            var d = dogLicenses[$(this).attr("value")];
+                            console.log(d);
+                            var ImmuneDialogView = require('./ImmuneDialogView');
+                            ImmuneDialogView.show(d);
+
+                            // var AddDoctorDialogModal = require('./AddDoctorDialogView');
+                            // AddDoctorDialogModal.show();
+
                             // var InfoPreviewModal = require('../../../Modals/InfoPreview/InfoPreview');
                             // InfoPreviewModal.show(d);
-                            var ImmuneDetailView = require('../ImmuneDetail/ImmuneDetailView.js');
-                            var dogLicense=dogLicenses[$(this).attr("value")];
-                            var view = new ImmuneDetailView({
-                                'el': "#main-content",
-                                'dogLicense': dogLicense
-                            });
                         });
 
                         //循环遍历
