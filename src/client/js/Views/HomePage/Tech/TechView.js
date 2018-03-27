@@ -36,6 +36,16 @@ var TechView = Backbone.View.extend({
             })
         });
 
+        //点击图片蒙层放大
+        $(".boost_layer").hide();
+        $("#boost").unbind().on('click', function (event) {
+            event.stopPropagation();
+            $(".boost_layer").show();
+        });
+        $("#close").unbind().on('click', function (event) {
+            event.stopPropagation();
+            $(".boost_layer").hide();
+        });
 
 
 
