@@ -27,7 +27,7 @@ var EmployView = Backbone.View.extend({
 
     onLoad: function(){
 
-
+        //招聘列表PC端
         $(document).ready(function(){
             $(".col-md-12").hide();
             $(".job").each(function(){
