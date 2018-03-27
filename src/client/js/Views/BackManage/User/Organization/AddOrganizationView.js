@@ -370,10 +370,6 @@ var AddOrganizationView = Backbone.View.extend({
 
 
     },
-    onHide:function () {
-        console.log("页面隐藏-------------")
-        Backbone.off(Const.NotificationAddDoctorDone)
-    },
     docListen:function(){
        var self=this
         //添加医生完成的通知
@@ -398,7 +394,7 @@ var AddOrganizationView = Backbone.View.extend({
             $("#doctor_null_tip").hide();
             $("#doctor_table").after(sb.toString());
 
-            // self.docListen()
+
         });
     },
 
