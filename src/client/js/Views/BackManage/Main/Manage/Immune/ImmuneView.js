@@ -42,7 +42,7 @@ var ImmuneListView = Backbone.View.extend({
             };
         } else {
             requestData = {
-                vaccineCardNo: $("#whereValue").val().trim(),
+                dogCardNo: $("#whereValue").val().trim(),
                 page: currentPage
             };
         }
@@ -74,7 +74,7 @@ var ImmuneListView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    vaccineCardNo: $("#whereValue").val().trim(),
+                    dogCardNo: $("#whereValue").val().trim(),
                     page: 1
                 };
             }
@@ -93,7 +93,7 @@ var ImmuneListView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    vaccineCardNo: $("#whereValue").val().trim(),
+                    dogCardNo: $("#whereValue").val().trim(),
                     page: 1
                 };
             }
@@ -112,7 +112,7 @@ var ImmuneListView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    vaccineCardNo: $("#whereValue").val().trim(),
+                    dogCardNo: $("#whereValue").val().trim(),
                     page: totalPage
                 };
             }
@@ -132,7 +132,7 @@ var ImmuneListView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    vaccineCardNo: $("#whereValue").val().trim(),
+                    dogCardNo: $("#whereValue").val().trim(),
                     page: currentPage - 1
                 };
             }
@@ -151,7 +151,7 @@ var ImmuneListView = Backbone.View.extend({
                 };
             } else {
                 requestData = {
-                    vaccineCardNo: $("#whereValue").val().trim(),
+                    dogCardNo: $("#whereValue").val().trim(),
                     page: currentPage + 1
                 };
             }
@@ -187,8 +187,8 @@ var ImmuneListView = Backbone.View.extend({
                         var sb = new StringBuffer();
                         $.each(dogLicenses, function (i, val) {
                             sb.append("<tr class='dogtr'>" +
-                                "<td align='center' valign='middle'>" + val.vaccineCard.info.irisID + "</td>" +
-                                "<td align='center' valign='middle'>" + val.vaccineCard.info.cardNo + "</td>" +
+                                "<td align='center' valign='middle'>" + val.DogCard.info.irisID + "</td>" +
+                                "<td align='center' valign='middle'>" + val.DogCard.info.cardNo + "</td>" +
                                 "<td align='center' valign='middle'>" + val.owner.certificateCode + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.nickname + "</td>" +
                                 "<td align='center' valign='middle'>" + val.dog.breed + "</td>" +
@@ -233,7 +233,7 @@ var ImmuneListView = Backbone.View.extend({
                                 };
                             } else {
                                 requestData = {
-                                    vaccineCardNo: $("#whereValue").val().trim(),
+                                    dogCardNo: $("#whereValue").val().trim(),
                                     page: i
                                 };
                             }
