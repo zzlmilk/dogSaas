@@ -68,6 +68,23 @@ var ProductView = Backbone.View.extend({
         }
         urlredirect();
 
+        //应用场景
+        $(".detail").hide();
+        $(".layer").each(function(){
+            $(this).mouseover(function(){
+                $(this).next("p").stop().fadeIn();
+                $(this).children("h3").stop().fadeOut();
+            });
+            $(this).mouseout(function(){
+                $(this).children("h3").stop().fadeIn();
+                $(this).next("p").stop().fadeOut();
+
+            });
+        });
+
+
+
+
 
 
 

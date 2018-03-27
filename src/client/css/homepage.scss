@@ -580,7 +580,7 @@ html, body {
   }
 }
 
-//核心技术页面--核心技术PC端
+//核心技术页面--核心技术--PC端
 
 #core_tech {
   background: #fff;
@@ -671,7 +671,7 @@ html, body {
   display: none;
 }
 
-//核心技术页面--核心技术移动端
+//核心技术页面--核心技术--移动端
 @media (max-width: 480px) {
 
   #core_tech > .row > .col-md-12 > .box > .tab_menu {
@@ -734,7 +734,7 @@ html, body {
   }
 }
 
-//核心技术页面--技术细节PC端
+//核心技术页面--技术细节--PC端
 
 #tech_detail {
   background: #fff;
@@ -764,7 +764,7 @@ html, body {
   display: block;
 }
 
-//产品及服务--虹膜bannerPC端
+//产品及服务--虹膜banner--PC端
 #iris_banner {
   width: 100%;
   padding: 80px 0;
@@ -802,7 +802,7 @@ html, body {
   display: block;
 }
 
-//产品及服务--虹膜banner移动端
+//产品及服务--虹膜banner--移动端
 @media (max-width: 480px) {
   #iris_banner {
     width: 100%;
@@ -818,7 +818,7 @@ html, body {
 
 }
 
-//产品及服务--应用场景PC端
+//产品及服务--应用场景--PC端
 #scene {
   background: #fff;
   padding-left: 0;
@@ -865,10 +865,23 @@ html, body {
   z-index: 99;
   top: 0;
   left: 0;
-  line-height: 680px;
-  text-align: center;
+  padding-top: 300px;
+}
+
+#scene > .row > .col-md-3 > .layer > h3 {
   color: #fff;
   font-size: 24px;
+  text-align: center;
+}
+
+#scene > .row > .col-md-3  > p {
+  position: absolute;
+  z-index: 100;
+  top:200px;
+  left: 0;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 20px;
 }
 
 #scene > .row > .col-md-4 {
@@ -889,13 +902,25 @@ html, body {
   height: 324px;
   background: rgba(0, 0, 0, 0.4);
   position: absolute;
-  z-index: 99;
   top: 0;
   left: 0;
-  line-height: 324px;
-  text-align: center;
+  padding-top: 150px;
+
+}
+
+#scene > .row > .col-md-4 > .top > .layer > h3 {
   color: #fff;
   font-size: 24px;
+  text-align: center;
+}
+
+#scene > .row > .col-md-4 > .top  > p {
+  position: absolute;
+  top:70px;
+  left: 0;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 10px;
 }
 
 #scene > .row > .col-md-4 > .top > img {
@@ -918,26 +943,23 @@ html, body {
   z-index: 99;
   top: 0;
   left: 0;
-  line-height: 324px;
-  text-align: center;
+  padding-top: 150px;
+}
+
+#scene > .row > .col-md-4 > .bottom > .layer > h3 {
   color: #fff;
   font-size: 24px;
+  text-align: center;
 }
 
-#scene > .row > .col-md-4 > .bottom > .layers {
-  width: 410px;
-  height: 324px;
-  background: rgba(0, 0, 0, 0.4);
+#scene > .row > .col-md-4 > .bottom > p {
   position: absolute;
   z-index: 99;
-  top: 0;
+  top:80px;
   left: 0;
-  padding: 80px 30px;
-}
-
-#scene > .row > .col-md-4 > .bottom > .layers > p {
   color: #fff;
   font-size: 14px;
+  padding: 0 10px;
 }
 
 #scene > .row > .col-md-4 > .bottom > img {
@@ -959,10 +981,10 @@ html, body {
     height: 200px;
   }
   #scene > .visible-xs-block > .col-xs-12 > .layer {
-    text-align: center;
     width: 100%;
     height: 200px;
     line-height: 200px;
+    text-align: center;
     font-size: 20px;
     color: #fff;
     position: absolute;
@@ -970,20 +992,6 @@ html, body {
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.4);
-  }
-  #scene > .visible-xs-block > .col-xs-12 > .layers {
-    width: 100%;
-    height: 200px;
-    position: absolute;
-    z-index: 99;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.4);
-  }
-  #scene > .visible-xs-block > .col-xs-12 > .layers > p {
-    color: #fff;
-    font-size: 14px;
-    padding: 15px;
   }
 }
 
@@ -1063,9 +1071,6 @@ html, body {
   }
 }
 
-
-
-
 //新闻中心PC端
 .newsCenter {
   margin: 20px auto;
@@ -1102,7 +1107,6 @@ html, body {
   float: right;
   display: inline-block;
 }
-
 
 //联系我们PC端
 #contactUs {
@@ -1175,7 +1179,7 @@ html, body {
   }
 
   #contactUs > .visible-xs-block > .col-xs-12 {
-    padding:30px 50px;
+    padding: 30px 50px;
   }
 
   #contactUs > .visible-xs-block > .col-xs-12 > img {
@@ -1306,7 +1310,7 @@ html, body {
 }
 
 //关于我们移动端
-@media (max-width: 480px){
+@media (max-width: 480px) {
   #about_banner > .row > .col-md-12 > img {
     width: 100%;
     height: 200px;
@@ -1332,7 +1336,6 @@ html, body {
   }
 
 }
-
 
 //招聘PC端
 #employ_list {
@@ -1425,8 +1428,8 @@ html, body {
 }
 
 //招聘移动端
-@media (max-width: 480px){
-  #employ_list > .row{
+@media (max-width: 480px) {
+  #employ_list > .row {
     position: relative;
   }
   #employ_list > #first > .col-md-3 {
