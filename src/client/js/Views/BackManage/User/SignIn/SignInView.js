@@ -12,7 +12,7 @@ var BaseView = require('../BaseView');
 
 var SignInClient = require('../../../../lib/APIClients/SignInClient');
 
-var loginUserManager = require('../../../../lib/loginUserManager')
+var loginUserManager = require('../../../../lib/loginUserManager');
 
 var UserModel = require('../../../../Models/user');
 

@@ -343,7 +343,8 @@ var AddOrganizationView = Backbone.View.extend({
         //WaitReview_button
         $("#WaitReview_button").unbind().on('click', function (e) {
 
-            Utils.goPage("main")
+            //回到官网首页
+            Utils.goPage("home")
         })
 
 
@@ -439,7 +440,8 @@ var AddOrganizationView = Backbone.View.extend({
                 }));
                 $("#WaitReview_button").unbind().on('click', function (e) {
 
-                    Utils.goPage("main")
+                    //回到官网首页
+                    Utils.goPage("home");
                 })
                 // Utils.goPage("organization");
             },

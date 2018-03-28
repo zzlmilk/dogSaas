@@ -47,6 +47,13 @@ HeaderView = Backbone.View.extend({
 
         });
 
+        //点击logo及标题回到官网首页
+        $('#gohome').unbind().on('click', function (event) {
+            event.stopPropagation();
+            Utils.goPage("home");
+
+        });
+
 
         $('#user_icon').mouseover(function () {
             $('#quit').stop().slideDown();

@@ -1,9 +1,11 @@
 var Backbone = require('backbone');
 var _ = require('lodash');
 
+
 var Utils = require('../../../lib/utils');
 var Const = require('../../../lib/consts');
 var Config = require('../../../lib/init');
+var loginUserManager = require('../../../lib/loginUserManager');
 
 // load template
 var template = require('./Nav.hbs');
@@ -126,7 +128,7 @@ var NavView = Backbone.View.extend({
             });
         });
 
-        //移动端导航条
+        //移动端侧边导航条
         jQuery(document).ready(function($) {
 
             function whichTransitionEvent() {
@@ -173,7 +175,53 @@ var NavView = Backbone.View.extend({
         });
 
 
+        //隐藏退出登录按钮
+        $('#nav_logout').hide();
+        if(localStorage.getItem("LoginUserID")!=null){
+            // $('#nav_login').hide();
+            // $('#nav_register').hide();
+            // $('#nav_logout').show();
+            //点击控制台
+            $('#nav_console').unbind().on('click', function (event) {
+                event.stopPropagation();
+                Utils.goPage("main");
 
+            });
+        }else{
+            // $('#nav_login').show();
+            // $('#nav_register').show();
+            // $('#nav_logout').hide();
+            //点击控制台
+            $('#nav_console').unbind().on('click', function (event) {
+                event.stopPropagation();
+                Utils.goPage("start");
+
+            });
+        }
+
+
+
+
+        //登录
+        $('#nav_login').unbind().on('click', function (event) {
+            event.stopPropagation();
+
+        });
+
+        //注册
+        $('#nav_register').unbind().on('click', function (event) {
+            event.stopPropagation();
+
+        });
+
+        //退出登录
+        $('#nav_logout').unbind().on('click', function (event) {
+            event.stopPropagation();
+            $(this).hide();
+            $('#nav_login').show();
+            $('#nav_register').show();
+
+        });
 
     }
 
