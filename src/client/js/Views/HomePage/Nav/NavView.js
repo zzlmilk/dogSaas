@@ -175,30 +175,65 @@ var NavView = Backbone.View.extend({
         });
 
 
-        //隐藏退出登录按钮
-        $('#nav_logout').hide();
+        //默认隐藏控制台、退出登录按钮
+        $('#nav_console').hide();
+        $('#nav_user').hide();
+        //判断有无用户信息
         if(localStorage.getItem("LoginUserID")!=null){
-            // $('#nav_login').hide();
-            // $('#nav_register').hide();
-            // $('#nav_logout').show();
-            //点击控制台
+            //有用户信息，登陆、注册按钮隐藏
+            $('#nav_login').hide();
+            $('#nav_register').hide();
+            //同时，控制台、退出登录按钮显示
+            $('#nav_console').show();
+            $('#nav_user').show();
+            //点击控制台跳转到后台管理系统
             $('#nav_console').unbind().on('click', function (event) {
                 event.stopPropagation();
                 Utils.goPage("main");
+            });
+            //鼠标悬浮用户头像显示下拉退出菜单
+            $("#nav_user").mouseover(function(){
+                $('#nav_quit').show();
 
             });
+            //鼠标离开退出菜单隐藏
+            $('#nav_quit').mouseout(function(){
+                $(this).hide();
+            });
+
+
+            //点击退出登录
+            $('#nav_logout').unbind().on('click', function (event) {
+                event.stopPropagation();
+                localStorage.removeItem("LoginUserID");
+                //隐藏控制台、退出登录按钮
+                $('#nav_console').hide();
+                $('#nav_user').hide();
+                //同时，控制台、退出登录按钮显示
+                $('#nav_login').show();
+                $('#nav_register').show();
+            });
+
         }else{
-            // $('#nav_login').show();
-            // $('#nav_register').show();
-            // $('#nav_logout').hide();
-            //点击控制台
+            //没有用户信息，登陆、注册按钮显示
+            $('#nav_login').show();
+            $('#nav_register').show();
+            //同时，控制台、退出登录按钮隐藏
+            $('#nav_console').hide();
+            $('#nav_user').hide();
+            //点击控制台跳转到开始登录
             $('#nav_console').unbind().on('click', function (event) {
                 event.stopPropagation();
                 Utils.goPage("start");
-
             });
+
         }
 
+        //防止控制台退出后页面后退到控制台
+        // history.pushState(null, null, document.URL);
+        // window.addEventListener('popstate', function () {
+        //     history.pushState(null, null, document.URL);
+        // });
 
 
 
@@ -214,14 +249,6 @@ var NavView = Backbone.View.extend({
 
         });
 
-        //退出登录
-        $('#nav_logout').unbind().on('click', function (event) {
-            event.stopPropagation();
-            $(this).hide();
-            $('#nav_login').show();
-            $('#nav_register').show();
-
-        });
 
     }
 

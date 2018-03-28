@@ -1,7 +1,60 @@
+<!--PC端导航条-->
+<nav class="navbar navbar-default navbar-fixed-top visible-lg-block" style="background: #fff;">
+    <div class="container">
+        <div class="navbar-header">
+            <a id="home_page" href="javascript:void(0)" class="navbar-brand">
+                <img src="img/yutai_logo.png">
+                <span>宇钛科技</span>
+            </a>
+            <!--<button type="button" class="navbar-toggle" data-toggle="collapse">-->
+                <!--<span class="sr-only">Toggle navigation</span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+        </div>
+        <div id="navbar" class="collapse navbar-collapse" style="max-height: 100%;background: #fff;">
+            <ul class="nav navbar-nav">
+                <li><a id="core_tech" href="javascript:void(0)">核心技术</a></li>
+                <li><a id="product_service" href="javascript:void(0)">产品及服务</a></li>
+                <!--<li><a id="client_case" href="javascript:void(0)">客户案例</a></li>-->
+                <li><a id="news_center" href="javascript:void(0)">新闻中心</a></li>
+                <li><a id="contact_us" href="javascript:void(0)">联系我们</a></li>
+                <li class="dropdown visible-lg-block">
+                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">加入我们<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a id="about_us"  href="javascript:void(0)">关于我们</a></li>
+                        <li><a id="employ" href="javascript:void(0)">招聘</a></li>
+                    </ul>
+                </li>
+                <li class="visible-xs-block"><a id="about_us_mobile"  href="javascript:void(0)">关于我们</a></li>
+                <li class="visible-xs-block"><a id="employ_mobile" href="javascript:void(0)">招聘</a></li>
+                <li class="visible-xs-block"><a href="#start">登录</a></li>
+                <li class="visible-xs-block"><a href="#signup">注册</a></li>
+            </ul>
+            <ul class="nav  navbar-right visible-lg-block">
+                <li><a id="nav_console">控制台</a></li>
+                <li><a id="nav_login" href="#start" class="btn-active">登录</a></li>
+                <li><a id="nav_register" href="#signup" >注册</a></li>
+                <li><i id="nav_user" class="glyphicon glyphicon-user">
+                    <ul id="nav_quit">
+                        <li>
+                            <a id="nav_logout" href="javascript:void(0);" >退出登录</a>
+                        </li>
+                    </ul>
+                </i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-<div class="overlay"></div>
+<!--移动端导航条-->
 
-<nav class="navbar navbar-default navbar-fixed-top" style="background: #fff;">
+
+<div class="overlay visible-xs-block"></div>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs-block" style="background: #fff;">
     <div class="container">
         <div class="navbar-header">
             <a id="home_page" href="javascript:void(0)" class="navbar-brand">
@@ -38,7 +91,14 @@
                 <li><a id="nav_console">控制台</a></li>
                 <li><a id="nav_login" href="#start" class="btn-active">登录</a></li>
                 <li><a id="nav_register" href="#signup" >注册</a></li>
-                <li><a id="nav_logout" href="#home" >退出登录</a></li>
+                <li><i id="nav_user" class="glyphicon glyphicon-user">
+                        <ul id="nav_quit">
+                            <li>
+                                <a id="nav_logout" href="javascript:void(0);" >退出登录</a>
+                            </li>
+                        </ul>
+                    </i>
+                </li>
             </ul>
         </div>
     </div>

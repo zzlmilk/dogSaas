@@ -103,8 +103,8 @@ var SignInView = BaseView.extend({
                 var user = UserModel.modelByResult(data.user)
                 loginUserManager.setLoginUserID(user.get("id"))
                 user.save();
-
-                Utils.goPage("organization");
+                //默认跳转官网首页
+                Utils.goPage("home");
 
             }, function (errorCode) {
                 console.log(errorCode)

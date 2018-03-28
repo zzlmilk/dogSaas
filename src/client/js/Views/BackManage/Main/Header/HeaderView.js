@@ -60,9 +60,19 @@ HeaderView = Backbone.View.extend({
 
         });
         $('#quit').mouseout(function () {
-            $(this).stop().slideUp(2000);
+            $(this).hide();
 
         });
+
+        //退出登录清除用户信息
+        $('#logout').unbind().on('click', function (event) {
+            event.stopPropagation();
+            localStorage.removeItem("LoginUserID");
+            console.log( localStorage.removeItem("LoginUserID"));
+            Utils.goPage("home");
+
+        });
+
 
 
 

@@ -115,6 +115,27 @@ input[type="text"] {
   border-radius: 0;
 }
 
+#header-nav > .container-fluid>.navbar-header>.navbar-brand{
+  height: 80px;
+  float: left;
+}
+
+#header-nav > .container-fluid>.navbar-header>.navbar-brand>img{
+  width: 50px;
+  height: 50px;
+  display: block;
+  float:left;
+}
+#header-nav > .container-fluid>.navbar-header>.navbar-brand>span{
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  color: #fff;
+  font-size: 20px;
+  display: block;
+  float:left;
+}
+
 #header-nav > .container-fluid > #example-navbar-collapse > ul {
   margin-left: 20px;
   width: 365px;

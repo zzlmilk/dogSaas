@@ -32,14 +32,12 @@ html, body {
   width: 50px;
   height: 50px;
   display: inline-block;
-  margin-top: 10px;
 }
 
 .navbar-fixed-top > .container > .navbar-header > .navbar-brand > span {
   line-height: 20px;
   height: 20px;
   display: inline-block;
-  margin-left: 20px;
 
 }
 
@@ -117,6 +115,35 @@ html, body {
 
 .navbar-fixed-top > .container > .collapse > .navbar-right > li > a:hover {
   color: #000;
+}
+.navbar-fixed-top > .container > .collapse > .navbar-right > li>#nav_user{
+  left:20px;
+  top:5px;
+  position: relative;
+}
+.navbar-fixed-top > .container > .collapse > .navbar-right > li>#nav_user>#nav_quit{
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  z-index: 99;
+  top: 45px;
+  left: -40px;
+  padding: 0;
+  list-style: none;
+  display:none;
+}
+.navbar-fixed-top > .container > .collapse > .navbar-right > li>#nav_user>#nav_quit>li>a{
+  width: 100px;
+  height: 50px;
+  display:block;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  background: #3399ff;
+}
+.navbar-fixed-top > .container > .collapse > .navbar-right > li>#nav_user>#nav_quit>li>a:hover{
+  text-decoration: none;
 }
 
 
@@ -924,7 +951,7 @@ html, body {
 
 #about > .row > .col-md-12 {
   width: 100%;
-  height: 200px;
+  height: 400px;
   background: url("../img/aboutbg.jpg") no-repeat center center;
   background-size: 100% 100%;
   padding-left: 0;
@@ -934,7 +961,7 @@ html, body {
 }
 
 #about > .row > .col-md-12 > .tip {
-  padding-top: 30px;
+  padding-top: 120px;
   position: absolute;
   z-index: 99;
   top: 0;
