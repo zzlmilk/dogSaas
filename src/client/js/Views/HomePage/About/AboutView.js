@@ -27,7 +27,16 @@ var AboutView = Backbone.View.extend({
 
     onLoad: function(){
 
-
+      $(".aboutDetail>.row>.col-md-3").mouseover(function(){
+          $(this).css("background","#000");
+          $(this).children("h3").css("color","#fff");
+          $(this).children("p").css("color","#fff");
+      });
+        $(".aboutDetail>.row>.col-md-3").mouseout(function(){
+            $(this).css("background","#fff");
+            $(this).children("h3").css("color","#3399FF");
+            $(this).children("p").css("color","#000");
+        })
 
 
 

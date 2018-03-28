@@ -12,10 +12,12 @@ html, body {
 //官网导航条--PC端
 
 .navbar-fixed-top {
-  box-shadow: 0 0 2px 2px #a5a5a5;
+
   height: 70px;
-  background: #fff;
+  background: #001739;
+  border-color:#001739 ;
 }
+
 
 .navbar-fixed-top > .container > .navbar-header > .navbar-brand {
   font-weight: bold;
@@ -38,15 +40,21 @@ html, body {
   line-height: 20px;
   height: 20px;
   display: inline-block;
+  color:#fff;
 
 }
-
+.navbar-fixed-top > .container > .collapse > .navbar-nav > li{
+  background: #001739;
+}
+.navbar-fixed-top > .container > .collapse > .navbar-nav>li>#core_tech{
+  background: #001739;
+}
 .navbar-fixed-top > .container > .collapse > .navbar-nav > li > a {
   text-align: center;
   border-bottom: none;
   padding: 25px 15px;
   line-height: 20px;
-  color: #000;
+  color: #fff;
   margin-bottom: -2px;
 }
 
@@ -65,7 +73,7 @@ html, body {
   list-style: none;
   font-size: 14px;
   text-align: left;
-  background-color: #fff;
+  background-color: #001739;
   border-radius: 0;
   border: 1px solid rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -79,10 +87,27 @@ html, body {
   clear: both;
   font-weight: normal;
   line-height: 1.42857;
-  color: #333333;
   white-space: nowrap;
   text-align: center;
+  color:#fff;
 }
+
+.navbar-fixed-top > .container > .collapse > .navbar-nav > .dropdown > .dropdown-menu > li>#about_us{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+
+.navbar-fixed-top > .container > .collapse > .navbar-nav > .dropdown > .dropdown-menu > li > a:focus,
+.navbar-fixed-top > .container > .collapse > .navbar-nav > .dropdown > .dropdown-menu > li > a:hover{
+  background-color: #001739;
+}
+
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+  background: #001739;
+}
+
 
 .navbar-fixed-top > .container > .collapse > .navbar-right > li {
   float: left;
@@ -106,6 +131,7 @@ html, body {
   border-radius: 10px;
   min-width: 80px;
   margin-left:10px;
+  color: #fff;
 }
 
 .navbar-fixed-top > .container > .collapse > .navbar-right > li > .btn-active {
@@ -120,6 +146,7 @@ html, body {
   left:20px;
   top:5px;
   position: relative;
+  color:#fff;
 }
 .navbar-fixed-top > .container > .collapse > .navbar-right > li>#nav_user>#nav_quit{
   width: 100px;
@@ -140,7 +167,7 @@ html, body {
   text-align: center;
   color: #fff;
   font-size: 14px;
-  background: #3399ff;
+  background: #001739;
 }
 .navbar-fixed-top > .container > .collapse > .navbar-right > li>#nav_user>#nav_quit>li>a:hover{
   text-decoration: none;
@@ -150,6 +177,10 @@ html, body {
 //官网导航条--移动端
 
 @media (max-width: 480px) {
+
+  .navbar-fixed-top > .container > .navbar-header{
+    background: #001739;
+  }
 
   .navbar-fixed-top > .container > .navbar-header>.navbar-toggle{
     margin-top:18px;
@@ -162,7 +193,7 @@ html, body {
     border-bottom: none;
     padding: 15px 20px;
     line-height: 20px;
-    color: #000;
+    color: #fff;
     margin-bottom: -2px;
   }
   .navbar-fixed-top > .container > .collapse > .navbar-nav > li > a:hover{
@@ -386,8 +417,6 @@ html, body {
   }
   #footer_mobile > .bottom > .row > .col-xs-12 {
     padding-left: 0;
-    //height:25px;
-    //line-height:25px;
 
   }
   #footer_mobile > .bottom > .row > .col-xs-12 > input {
@@ -433,7 +462,7 @@ html, body {
   padding: 0;
   height: auto;
   overflow: hidden;
-  background-color: #e8e9e8;
+  background-color: #fff;
 }
 
 //官网中间区域内容--移动端
@@ -750,8 +779,9 @@ html, body {
 }
 
 #product > .row > .col-md-4 > .tips > p {
-  padding-left: 20px;
-  padding-right: 20px;
+  text-align:center;
+  padding-left: 40px;
+  padding-right: 40px;
   color: #fff;
 }
 
@@ -1240,7 +1270,7 @@ html, body {
   width: 100%;
   padding: 80px 0;
   margin: 0;
-  background: #2a2a2c;
+  background: #001739;
 }
 
 #iris_banner > .container {
@@ -1753,6 +1783,7 @@ html, body {
 .aboutDetail > .row > .col-md-9 {
   margin: 0;
   padding: 0;
+  height: 450px;
 }
 
 .aboutDetail > .row > .col-md-9 > img {
@@ -1762,6 +1793,7 @@ html, body {
 }
 
 .aboutDetail > .row > .col-md-3 {
+  height: 450px;
   margin: 0;
   padding: 30px;
 }
@@ -1777,17 +1809,7 @@ html, body {
   font-size: 20px;
 }
 
-#second {
-  background: #000;
-}
 
-#second > .row > .col-md-3 > h3 {
-  color: #fff;
-}
-
-#second > .row > .col-md-3 > p {
-  color: #fff;
-}
 
 //关于我们--移动端
 
