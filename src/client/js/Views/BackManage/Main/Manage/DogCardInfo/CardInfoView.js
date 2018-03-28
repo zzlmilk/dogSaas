@@ -55,7 +55,9 @@ var CardInfoView = Backbone.View.extend({
         /****************狗证**********************/
         //狗证取件方式
         $('#dogcard_print').unbind().on('click', function () {
-            alert("Please connect the card printer");
+            // alert("Please connect the card printer");
+            var AlertDialog = require('../../../Modals/AlertDialog/AlertDialog');
+            AlertDialog.show("","Please connect the card printer")
         });
 
 
