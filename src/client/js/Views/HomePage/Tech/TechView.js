@@ -36,12 +36,17 @@ var TechView = Backbone.View.extend({
             })
         });
 
-        //点击图片蒙层放大
+        //鼠标悬浮图片蒙层放大
         $(".boost_layer").hide();
-        $("#boost").unbind().on('click', function (event) {
-            event.stopPropagation();
+        // $("#boost").unbind().on('click', function (event) {
+        //     event.stopPropagation();
+        //     $(".boost_layer").show();
+        // });
+
+        $("#boost").mouseover(function () {
             $(".boost_layer").show();
-        });
+        })
+
         $("#close").unbind().on('click', function (event) {
             event.stopPropagation();
             $(".boost_layer").hide();

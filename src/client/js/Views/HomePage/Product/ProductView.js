@@ -33,7 +33,7 @@ var ProductView = Backbone.View.extend({
                 $(this).stop().animate({top:"0px"});
             });
             $(this).mouseout(function () {
-                $(this).stop().animate({top:"300px"});
+                $(this).stop().animate({top:"350px"});
             });
         });
 
