@@ -14,10 +14,9 @@ html, body {
 .navbar-fixed-top {
   height: 70px;
   background: #001739;
-  border-color:#001739 ;
+  border-color: #001739;
   margin-bottom: 0;
 }
-
 
 .navbar-fixed-top > .container > .navbar-header > .navbar-brand {
   font-weight: bold;
@@ -40,15 +39,18 @@ html, body {
   line-height: 20px;
   height: 20px;
   display: inline-block;
-  color:#fff;
+  color: #fff;
 
 }
-.navbar-fixed-top > .container > .collapse > .navbar-nav > li{
+
+.navbar-fixed-top > .container > .collapse > .navbar-nav > li {
   background: #001739;
 }
-.navbar-fixed-top > .container > .collapse > .navbar-nav>li>#core_tech{
+
+.navbar-fixed-top > .container > .collapse > .navbar-nav > li > #core_tech {
   background: #001739;
 }
+
 .navbar-fixed-top > .container > .collapse > .navbar-nav > li > a {
   text-align: center;
   border-bottom: none;
@@ -89,25 +91,22 @@ html, body {
   line-height: 1.42857;
   white-space: nowrap;
   text-align: center;
-  color:#fff;
+  color: #fff;
 }
 
-.navbar-fixed-top > .container > .collapse > .navbar-nav > .dropdown > .dropdown-menu > li>#about_us{
+.navbar-fixed-top > .container > .collapse > .navbar-nav > .dropdown > .dropdown-menu > li > #about_us {
   margin-top: 10px;
   margin-bottom: 15px;
 }
 
-
 .navbar-fixed-top > .container > .collapse > .navbar-nav > .dropdown > .dropdown-menu > li > a:focus,
-.navbar-fixed-top > .container > .collapse > .navbar-nav > .dropdown > .dropdown-menu > li > a:hover{
+.navbar-fixed-top > .container > .collapse > .navbar-nav > .dropdown > .dropdown-menu > li > a:hover {
   background-color: #001739;
 }
 
-
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   background: #001739;
 }
-
 
 .navbar-fixed-top > .container > .collapse > .navbar-right > li {
   float: left;
@@ -130,7 +129,7 @@ html, body {
   font-size: 14px;
   border-radius: 10px;
   min-width: 80px;
-  margin-left:10px;
+  margin-left: 10px;
   color: #fff;
 }
 
@@ -142,13 +141,15 @@ html, body {
 .navbar-fixed-top > .container > .collapse > .navbar-right > li > a:hover {
   color: #000;
 }
-.navbar-fixed-top > .container > .collapse > .navbar-right > li>#nav_user{
-  left:20px;
-  top:5px;
+
+.navbar-fixed-top > .container > .collapse > .navbar-right > li > #nav_user {
+  left: 20px;
+  top: 5px;
   position: relative;
-  color:#fff;
+  color: #fff;
 }
-.navbar-fixed-top > .container > .collapse > .navbar-right > li>#nav_user>#nav_quit{
+
+.navbar-fixed-top > .container > .collapse > .navbar-right > li > #nav_user > #nav_quit {
   width: 140px;
   height: 50px;
   position: absolute;
@@ -157,36 +158,37 @@ html, body {
   left: -60px;
   padding: 0;
   list-style: none;
-  display:none;
+  display: none;
 }
-.navbar-fixed-top > .container > .collapse > .navbar-right > li>#nav_user>#nav_quit>li>a{
+
+.navbar-fixed-top > .container > .collapse > .navbar-right > li > #nav_user > #nav_quit > li > a {
   width: 140px;
   height: 50px;
-  display:block;
+  display: block;
   line-height: 50px;
   text-align: center;
   color: #fff;
   font-size: 14px;
   background: #001739;
 }
-.navbar-fixed-top > .container > .collapse > .navbar-right > li>#nav_user>#nav_quit>li>a:hover{
+
+.navbar-fixed-top > .container > .collapse > .navbar-right > li > #nav_user > #nav_quit > li > a:hover {
   text-decoration: none;
 }
-
 
 //官网导航条--移动端
 
 @media (max-width: 480px) {
 
-  .navbar-fixed-top > .container > .navbar-header{
+  .navbar-fixed-top > .container > .navbar-header {
     background: #001739;
   }
 
-  .navbar-fixed-top > .container > .navbar-header>.navbar-toggle{
-    margin-top:18px;
+  .navbar-fixed-top > .container > .navbar-header > .navbar-toggle {
+    margin-top: 18px;
   }
-  .navbar-fixed-top > .container > .collapse > .navbar-nav{
-    margin: 70px 0 0 0 ;
+  .navbar-fixed-top > .container > .collapse > .navbar-nav {
+    margin: 70px 0 0 0;
   }
   .navbar-fixed-top > .container > .collapse > .navbar-nav > li > a {
     text-align: left;
@@ -196,7 +198,7 @@ html, body {
     color: #fff;
     margin-bottom: -2px;
   }
-  .navbar-fixed-top > .container > .collapse > .navbar-nav > li > a:hover{
+  .navbar-fixed-top > .container > .collapse > .navbar-nav > li > a:hover {
     border-bottom: none;
   }
 }
@@ -486,12 +488,12 @@ html, body {
 
 #swiper > .row > .swiper-container {
   width: 100%;
-  height: 480px;
+  height: 500px;
 }
 
 #swiper > .row > .swiper-container > .swiper-wrapper > .swiper-slide > .swiper-slide-item > .mBanner {
-  width: 100%;
-  height: 480px;
+  width: 1170px;
+  height: 500px;
 }
 
 #swiper > .row > .swiper-container > .swiper-button-prev {
@@ -504,24 +506,22 @@ html, body {
 
 #swiper > .row > .swiper-container > .swiper-button-prev, #swiper > .row > .swiper-container > .swiper-button-next {
   position: absolute;
-  top: 50%;
-  width: 24px;
+  top: 45%;
+  width: 60px;
   height: 60px;
-  margin-top: -22px;
   z-index: 10;
   cursor: pointer;
-  -moz-background-size: 24px 40px;
-  -webkit-background-size: 24px 40px;
-  background-size: 24px 40px;
-  background-position: center;
+
 }
 
 #swiper > .row > .swiper-container > .swiper-button-prev {
-  background-image: url("../img/prev.png");
+  background: url("../img/prev.png") no-repeat center center;
+  background-size: 100% 100%;
 }
 
 #swiper > .row > .swiper-container > .swiper-button-next {
-  background-image: url("../img/next.png");
+  background: url("../img/next.png") no-repeat center center;
+  background-size: 100% 100%;
 }
 
 #swiper > .row > .swiper-container > .swiper-wrapper > .swiper-slide > .swiper-slide-item {
@@ -792,7 +792,7 @@ html, body {
 }
 
 #product > .row > .col-md-4 > .tips > p {
-  text-align:center;
+  text-align: center;
   padding-left: 40px;
   padding-right: 40px;
   color: #fff;
@@ -817,7 +817,7 @@ html, body {
     left: 0;
     top: 160px;
   }
-  #product > .row > .col-md-4 > .tips>h3 {
+  #product > .row > .col-md-4 > .tips > h3 {
     padding-top: 30px;
     padding-bottom: 40px;
     text-align: center;
@@ -1033,6 +1033,7 @@ html, body {
   #about {
     margin-bottom: 20px;
   }
+
   #about > .row > .col-md-12 {
     width: 100%;
     height: 250px;
@@ -1042,6 +1043,16 @@ html, body {
     padding-right: 0;
     position: relative;
 
+  }
+  #about > .row > .col-md-12 > .tip {
+    padding-top: 30px;
+    position: absolute;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
   }
 
   #about > .row > .col-md-12 > .tip > h3 {
@@ -1238,39 +1249,39 @@ html, body {
 
 #tech_detail > .row > .col-md-3 > img {
   width: 340px;
-  height:333px;
+  height: 333px;
   display: block;
 }
 
-.boost_layer{
+.boost_layer {
   position: fixed;
   z-index: 100;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);
-  top:0;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
   left: 0;
 }
 
-.boost_layer>.row>.col-md-6>img{
-  width: 619px;
-  height: 604px;
+.boost_layer > .row > .col-md-6 > img {
+  width: 500px;
+  height: 500px;
   display: block;
   margin: 150px auto;
 }
 
-.boost_layer>#close{
+.boost_layer > #close {
   width: 50px;
   height: 50px;
   display: block;
   position: fixed;
-  z-index:100 ;
-  top:80px;
+  z-index: 100;
+  top: 80px;
   right: 10px;
 }
 
 //核心技术页面--技术细节--移动端
-@media (max-width: 480px){
+@media (max-width: 480px) {
   #tech_detail > .row > .col-md-5 > h3 {
     color: #000;
     font-size: 24px;
@@ -1367,38 +1378,39 @@ html, body {
   position: relative;
 }
 
-#scene > .row > .col-md-3 > img {
+
+
+#scene > .row > .col-md-3 > .layer1 {
+  position: relative;
+  z-index:0;
   width: 280px;
   height: 680px;
   display: block;
+  background: url("../img/scene1.png") no-repeat center center;
+  background-size:100% 100%;
 }
 
-#scene > .row > .col-md-3 > .layer {
-  width: 280px;
+#scene > .row > .col-md-3 > .layer1 > h3 {
   height: 680px;
-  background: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  z-index: 99;
-  top: 0;
-  left: 0;
-  padding-top: 300px;
-}
-
-#scene > .row > .col-md-3 > .layer > h3 {
+  line-height: 680px;
+  margin: 0;
+  padding: 0;
   color: #fff;
   font-size: 24px;
   text-align: center;
 }
 
-#scene > .row > .col-md-3  > p {
+#scene > .row > .col-md-3 > .layer1 > p {
   position: absolute;
-  z-index: 100;
-  top:200px;
-  left: 0;
+  z-index:-1;
   color: #fff;
   font-size: 14px;
   padding: 0 20px;
+  top: 200px;
+  left: 0;
+  display:none;
 }
+
 
 #scene > .row > .col-md-4 {
   width: 410px;
@@ -1406,83 +1418,146 @@ html, body {
   margin-right: 32px;
 }
 
-#scene > .row > .col-md-4 > .top {
+#scene > .row > .col-md-4 > .top1 {
   width: 410px;
   height: 324px;
   margin-bottom: 32px;
   position: relative;
 }
 
-#scene > .row > .col-md-4 > .top > .layer {
+#scene > .row > .col-md-4 > .top1 > .layer1 {
   width: 410px;
   height: 324px;
-  background: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding-top: 150px;
-
+  background: url("../img/scene2.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: relative;
+  z-index: 0;
 }
 
-#scene > .row > .col-md-4 > .top > .layer > h3 {
+#scene > .row > .col-md-4 > .top1 > .layer1 > h3 {
+  height: 324px;
+  line-height: 324px;
   color: #fff;
   font-size: 24px;
   text-align: center;
 }
 
-#scene > .row > .col-md-4 > .top  > p {
+#scene > .row > .col-md-4 > .top1 > .layer1>p{
   position: absolute;
-  top:70px;
-  left: 0;
+  z-index:-1;
   color: #fff;
   font-size: 14px;
-  padding: 0 10px;
+  padding: 0 20px;
+  top: 90px;
+  left: 0;
+  display:none;
 }
 
-#scene > .row > .col-md-4 > .top > img {
+#scene > .row > .col-md-4 > .top2 {
   width: 410px;
   height: 324px;
-  display: block;
+  margin-bottom: 32px;
+  position: relative;
 }
 
-#scene > .row > .col-md-4 > .bottom {
+#scene > .row > .col-md-4 > .top2 > .layer1 {
+  width: 410px;
+  height: 324px;
+  background: url("../img/scene4.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: relative;
+  z-index: 0;
+}
+
+#scene > .row > .col-md-4 > .top2 > .layer1 > h3 {
+  height: 324px;
+  line-height: 324px;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+}
+
+#scene > .row > .col-md-4 > .top2 > .layer1>p{
+  position: absolute;
+  z-index:-1;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 20px;
+  top: 80px;
+  left: 0;
+  display:none;
+}
+
+#scene > .row > .col-md-4 > .bottom1 {
   width: 410px;
   height: 324px;
   position: relative;
 }
 
-#scene > .row > .col-md-4 > .bottom > .layer {
+#scene > .row > .col-md-4 > .bottom1 > .layer1 {
   width: 410px;
   height: 324px;
-  background: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  z-index: 99;
-  top: 0;
-  left: 0;
-  padding-top: 150px;
+  background: url("../img/scene3.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: relative;
+  z-index: 0;
 }
 
-#scene > .row > .col-md-4 > .bottom > .layer > h3 {
+#scene > .row > .col-md-4 > .bottom1 > .layer1 > h3 {
+  height: 324px;
+  line-height: 324px;
   color: #fff;
   font-size: 24px;
   text-align: center;
 }
 
-#scene > .row > .col-md-4 > .bottom > p {
+#scene > .row > .col-md-4 > .bottom1 > .layer1 > p {
   position: absolute;
-  z-index: 99;
-  top:80px;
-  left: 0;
+  z-index:-1;
   color: #fff;
   font-size: 14px;
-  padding: 0 10px;
+  padding: 0 20px;
+  top: 50px;
+  left: 0;
+  display:none;
 }
 
-#scene > .row > .col-md-4 > .bottom > img {
+#scene > .row > .col-md-4 > .bottom2 {
   width: 410px;
   height: 324px;
-  display: block;
+  position: relative;
 }
+
+#scene > .row > .col-md-4 > .bottom2 > .layer1 {
+  width: 410px;
+  height: 324px;
+  background: url("../img/scene5.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: relative;
+  z-index: 0;
+}
+
+#scene > .row > .col-md-4 > .bottom2 > .layer1 > h3 {
+  height: 324px;
+  line-height: 324px;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+}
+
+#scene > .row > .col-md-4 > .bottom2 > .layer1 > p {
+  position: absolute;
+  z-index:-1;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 20px;
+  top: 120px;
+  left: 0;
+  display:none;
+}
+
+
+
 
 //产品及服务--应用场景--移动端
 
@@ -1590,7 +1665,7 @@ html, body {
   }
 }
 
-//新闻中心--PC端
+//新闻中心列表--PC端
 
 .newsCenter {
   margin: 20px auto;
@@ -1613,19 +1688,44 @@ html, body {
   display: block;
 }
 
-.newsCenter > .row > .col-md-8 > h3 {
-  height: 30px;
+.newsCenter > .row > .col-md-8 > .title {
+
   line-height: 30px;
-  padding: 20px 0;
+  padding: 0;
   font-size: 22px;
   color: #000;
 }
 
-.newsCenter > .row > .col-md-8 > h3 > span {
+.newsCenter > .row > .col-md-8 > .title > span {
   font-size: 14px;
   color: #a9a9a9;
   float: right;
   display: inline-block;
+}
+
+//新闻中心详情--PC端
+
+.newsCenter>.newsArticleDetail>.row>.col-md-8>.newsMainTitle{
+  font-size: 30px;
+  font-weight: bold;
+}
+.newsCenter>.newsArticleDetail>.row>.col-md-8>.newsSubtitle{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+
+//新闻中心--移动端
+@media(max-width: 480px){
+  .newsCenter > .row > .col-md-8 > .title {
+    padding: 20px 0 0 0;
+    font-size: 22px;
+    color: #000;
+  }
+  .newsCenter > .row > .col-md-8 > .content {
+    margin: 0 auto;
+  }
 }
 
 //联系我们--PC端
@@ -1821,8 +1921,6 @@ html, body {
   color: #000;
   font-size: 20px;
 }
-
-
 
 //关于我们--移动端
 

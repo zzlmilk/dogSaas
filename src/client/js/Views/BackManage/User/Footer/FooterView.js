@@ -32,9 +32,9 @@ var FooterView = Backbone.View.extend({
     onLoad: function(){
 
         var self = this;  
-        // if(window.scrollTop>0){
-        //     console.log("navbar-fixed-bottom  滚动条")
-        // }
+        if(window.scrollTop>0){
+            console.log("navbar-fixed-bottom  滚动条")
+        }
         $(window).scrollTop(1)
         if($(window).scrollTop()>0 ){
             console.log("有滚动条")

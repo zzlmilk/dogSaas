@@ -128,6 +128,19 @@ var NavView = Backbone.View.extend({
             });
         });
 
+        //PC端导航条鼠标悬浮显示下拉菜单
+        $(".dropdown-toggle").mouseover(function () {
+            $(".dropdown-menu").slideDown();
+
+        });
+        $(".dropdown-menu").mouseover(function () {
+            $(this).show();
+        });
+        $(".dropdown-menu").mouseout(function () {
+            $(this).hide();
+        });
+
+
         //移动端侧边导航条
         jQuery(document).ready(function($) {
 

@@ -43,9 +43,10 @@ var TechView = Backbone.View.extend({
         //     $(".boost_layer").show();
         // });
 
-        $("#boost").mouseover(function () {
+        $("#boost").unbind().on('click', function (event) {
+            event.stopPropagation();
             $(".boost_layer").show();
-        })
+        });
 
         $("#close").unbind().on('click', function (event) {
             event.stopPropagation();
