@@ -17,14 +17,14 @@ html, body {
 
 #sidebar-content {
   padding: 0;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 70px);
   overflow: hidden;
   background: #202732;
 }
 
 #main-content {
   padding: 0;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 70px);
   overflow: hidden;
   background: #fcfcfc;
   margin-left: 0;
@@ -108,7 +108,7 @@ input[type="text"] {
 
 //控制台头部导航
 #header-nav {
-  min-height: 80px;
+  min-height: 70px;
   background: #3399ff;
   margin-bottom: 0;
   border: none;
@@ -116,7 +116,7 @@ input[type="text"] {
 }
 
 #header-nav > .container-fluid>.navbar-header>.navbar-brand{
-  height: 80px;
+  height: 70px;
   float: left;
 }
 
@@ -125,6 +125,7 @@ input[type="text"] {
   height: 50px;
   display: block;
   float:left;
+  margin-top: -5px;
 }
 #header-nav > .container-fluid>.navbar-header>.navbar-brand>span{
   width: 200px;
@@ -134,12 +135,13 @@ input[type="text"] {
   font-size: 20px;
   display: block;
   float:left;
+  margin-top:-10px;
 }
 
 #header-nav > .container-fluid > #example-navbar-collapse > ul {
   margin-left: 20px;
   width: 365px;
-  height: 80px;
+  height: 70px;
 }
 
 #header-nav > .container-fluid > #example-navbar-collapse > ul > li {
@@ -149,8 +151,8 @@ input[type="text"] {
 
 #header-nav > .container-fluid > #example-navbar-collapse > ul > li > a {
   width: 60px;
-  height: 80px;
-  line-height: 80px;
+  height: 70px;
+  line-height: 70px;
   text-align: center;
   padding: 0;
   border-bottom: none;
@@ -164,8 +166,8 @@ input[type="text"] {
 }
 
 #header-nav > .container-fluid > #example-navbar-collapse > ul > li > i {
-  height: 80px;
-  line-height: 80px;
+  height: 70px;
+  line-height: 70px;
   width: 20px;
   text-align: center;
   color: #ffffff;
@@ -181,7 +183,7 @@ input[type="text"] {
   width: 140px;
   height: 50px;
   left: -60px;
-  top: 75px;
+  top: 65px;
   position: absolute;
   z-index: 99;
   display: none;
