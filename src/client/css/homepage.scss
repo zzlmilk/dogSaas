@@ -12,10 +12,10 @@ html, body {
 //官网导航条--PC端
 
 .navbar-fixed-top {
-
   height: 70px;
   background: #001739;
   border-color:#001739 ;
+  margin-bottom: 0;
 }
 
 
@@ -149,18 +149,18 @@ html, body {
   color:#fff;
 }
 .navbar-fixed-top > .container > .collapse > .navbar-right > li>#nav_user>#nav_quit{
-  width: 100px;
+  width: 140px;
   height: 50px;
   position: absolute;
   z-index: 99;
   top: 45px;
-  left: -40px;
+  left: -60px;
   padding: 0;
   list-style: none;
   display:none;
 }
 .navbar-fixed-top > .container > .collapse > .navbar-right > li>#nav_user>#nav_quit>li>a{
-  width: 100px;
+  width: 140px;
   height: 50px;
   display:block;
   line-height: 50px;
@@ -531,12 +531,12 @@ html, body {
 #swiper > .row > .swiper-container > .swiper-wrapper > .swiper-slide > .swiper-slide-item > .tip {
   position: absolute;
   width: 100%;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 10% 0 10%;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  height: 100px;
+  line-height: 100px;
+  bottom: 180px;
   color: #fff;
+  font-size: 58px;
+  text-align: center;
 }
 
 //官网首页banner轮播图--移动端
@@ -558,6 +558,19 @@ html, body {
 
   #swiper > .row > .swiper-container > .swiper-button-next {
     background-image: none;
+  }
+  #swiper > .row > .swiper-container > .swiper-wrapper > .swiper-slide > .swiper-slide-item {
+    position: relative;
+  }
+  #swiper > .row > .swiper-container > .swiper-wrapper > .swiper-slide > .swiper-slide-item > .tip {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    bottom: 30px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
   }
 }
 

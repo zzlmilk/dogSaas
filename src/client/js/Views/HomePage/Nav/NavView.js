@@ -193,7 +193,7 @@ var NavView = Backbone.View.extend({
             });
             //鼠标悬浮用户头像显示下拉退出菜单
             $("#nav_user").mouseover(function(){
-                $('#nav_quit').show();
+                $('#nav_quit').slideDown();
 
             });
             //鼠标离开退出菜单隐藏
