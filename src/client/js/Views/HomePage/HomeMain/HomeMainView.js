@@ -28,20 +28,20 @@ var HomeMainView = Backbone.View.extend({
     onLoad: function () {
 
         //首页轮播图
-        var mySwiper = new Swiper($('.swiper-container')[0], {
-            direction: 'horizontal',
-            // loop: true,
-            // speed: 1000,
-            // autoplay: 2000,
-            // 如果需要分页器
-            pagination: '.swiper-pagination',
-            // 如果需要前进后退按钮
-            // nextButton: '.swiper-button-next',
-            // prevButton: '.swiper-button-prev',
-            autoplayDisableOnInteraction: false,
-            // 如果需要滚动条
-            // scrollbar: '.swiper-scrollbar',
-        });
+        // var mySwiper = new Swiper($('.swiper-container')[0], {
+        //     direction: 'horizontal',
+        //     // loop: true,
+        //     // speed: 1000,
+        //     // autoplay: 2000,
+        //     // 如果需要分页器
+        //     pagination: '.swiper-pagination',
+        //     // 如果需要前进后退按钮
+        //     // nextButton: '.swiper-button-next',
+        //     // prevButton: '.swiper-button-prev',
+        //     autoplayDisableOnInteraction: false,
+        //     // 如果需要滚动条
+        //     // scrollbar: '.swiper-scrollbar',
+        // });
         //首页核心技术
         $(function(){
             $('.demo1').Tabs();
