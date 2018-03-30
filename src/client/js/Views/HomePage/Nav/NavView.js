@@ -200,7 +200,7 @@ var NavView = Backbone.View.extend({
                 event.stopPropagation();
                 Utils.goPage("main");
             });
-            //鼠标悬浮用户头像显示下拉退出菜单
+            //鼠标悬浮个人头像显示下拉退出菜单
             $("#last").mouseover(function(){
                 $(this).children("ul").show();
             });
@@ -214,21 +214,21 @@ var NavView = Backbone.View.extend({
             $('#nav_logout').unbind().on('click', function (event) {
                 event.stopPropagation();
                 localStorage.removeItem("LoginUserID");
-                //隐藏控制台、退出登录按钮
+                //隐藏控制台、个人头像按钮
                 $('#nav_console').hide();
                 $('#nav_user').hide();
-                //同时，控制台、退出登录按钮显示
+                //同时，登录、注册按钮显示
                 $('#nav_login').show();
                 $('#nav_register').show();
             });
 
         }else{
-            //没有用户信息，登陆、注册按钮显示
+            //没有用户信息，登录、注册按钮显示
             $('#nav_login').show();
             $('#nav_register').show();
-            //同时，控制台、退出登录按钮隐藏
+            //同时，控制台、个人头像按钮隐藏
             $('#nav_console').hide();
-            $('#nav_user').hide();
+            $('#last').hide();
             //点击控制台跳转到开始登录
             $('#nav_console').unbind().on('click', function (event) {
                 event.stopPropagation();

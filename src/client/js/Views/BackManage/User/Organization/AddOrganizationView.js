@@ -108,6 +108,11 @@ var AddOrganizationView = Backbone.View.extend({
     onLoad: function () {
 
         var self = this;
+
+
+
+
+
         var SignHeaderView = require('../Header/HeaderView.js');
         new SignHeaderView({
             'el': "#signheader-content"
@@ -118,6 +123,21 @@ var AddOrganizationView = Backbone.View.extend({
             'el': "#signfooter-content"
         });
 
+
+
+        if(window.scrollTop>0){
+            console.log("navbar-fixed-bottom  滚动条")
+        }
+        $(window).scrollTop(1)
+        if($(window).scrollTop()>0 ){
+            console.log("有滚动条")
+            $("#bottom").removeClass("navbar-fixed-bottom")
+        }else{
+            console.log("mei有滚动条")
+
+            $("#bottom").addClass("navbar-fixed-bottom")
+        }
+        $(window).scrollTop(0);//滚动条返回顶部
 
         /**
          * 为各个元素添加监听事件

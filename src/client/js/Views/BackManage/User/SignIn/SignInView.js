@@ -121,6 +121,12 @@ var SignInView = BaseView.extend({
                 container: '#start-view-content'
             });
         });
+
+       //注册账户
+        $('#registerInfo').unbind().on('click', function () {
+            console.log("注册");
+            Utils.goPage("signup");
+        });
     },
 
     //初始化事件
