@@ -67,10 +67,10 @@ var HomeMainView = Backbone.View.extend({
         //首页产品优势--PC端
         $(".tips").each(function(){
             $(this).mouseover(function () {
-                $(this).stop().animate({top:"0px"});
+                $(this).stop().animate({top:"0px"},"fast","linear");
             });
             $(this).mouseout(function () {
-                $(this).stop().animate({top:"350px"});
+                $(this).stop().animate({top:"350px"},"fast","linear");
             });
         });
         //首页产品优势--移动端

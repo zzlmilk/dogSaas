@@ -48,10 +48,10 @@ var ProductView = Backbone.View.extend({
         //产品优势
         $(".tips").each(function(){
             $(this).mouseover(function () {
-                $(this).stop().animate({top:"0px"});
+                $(this).stop().animate({top:"0px"},"fast","linear");
             });
             $(this).mouseout(function () {
-                $(this).stop().animate({top:"350px"});
+                $(this).stop().animate({top:"350px"},"fast","linear");
             });
         });
 
