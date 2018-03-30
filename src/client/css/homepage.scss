@@ -1344,6 +1344,106 @@ html, body {
 
 }
 
+//产品及服务--工作流程--PC端
+
+#microchip {
+  width: 100%;
+  margin: 0 auto;
+}
+#microchip>.row{
+  margin: 0;
+  padding: 0;
+}
+#microchip>.row>.col-md-12{
+  margin: 0;
+  padding: 0;
+}
+
+#microchip>.row>.col-md-12 > .main_title {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+#microchip>.row>.col-md-12 > .top {
+  width: 820px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+#microchip>.row>.col-md-12 > .top > .title {
+  float: left;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+#microchip>.row>.col-md-12 > .top > .title > img {
+  width: 120px;
+  height: 120px;
+  display: block;
+}
+
+#microchip>.row>.col-md-12 > .top > .title > .current {
+  display: none;
+}
+
+#microchip>.row>.col-md-12 > .top > .title > .tip {
+  width: 120px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  position: absolute;
+  z-index: 99;
+  bottom: -30px;
+  left: 0;
+}
+
+#microchip>.row>.col-md-12 > .top > .title > .arrow {
+  display: block;
+  border: 10px solid #fff;
+  border-bottom-color: #2e3b46;
+  width: 0;
+  height: 0;
+  position: absolute;
+  z-index: 99;
+  bottom: -50px;
+  left: 45%;
+}
+
+#microchip>.row>.col-md-12 > .top > .line {
+  float: left;
+  height: 120px;
+  width: 55px;
+}
+
+#microchip>.row>.col-md-12 > .top > .line > img {
+  width: 55px;
+  height: 14px;
+  margin-top: 53px;
+}
+
+#microchip>.row>.col-md-12 > .bottom {
+  width: 1170px;
+  height: 180px;
+  background: #2E3B46;
+  margin-top: 50px;
+}
+
+#microchip>.row>.col-md-12 > .bottom > div {
+  font-size: 14px;
+  display: none;
+  clear: both;
+  height: 100px;
+  padding: 20px 0px 0px 20px;
+  color: #fff;
+}
+
 //产品及服务--应用场景--PC端
 
 #scene {
@@ -1378,16 +1478,14 @@ html, body {
   position: relative;
 }
 
-
-
 #scene > .row > .col-md-3 > .layer1 {
   position: relative;
-  z-index:0;
+  z-index: 0;
   width: 280px;
   height: 680px;
   display: block;
   background: url("../img/scene1.png") no-repeat center center;
-  background-size:100% 100%;
+  background-size: 100% 100%;
 }
 
 #scene > .row > .col-md-3 > .layer1 > h3 {
@@ -1402,15 +1500,14 @@ html, body {
 
 #scene > .row > .col-md-3 > .layer1 > p {
   position: absolute;
-  z-index:-1;
+  z-index: -1;
   color: #fff;
   font-size: 14px;
   padding: 0 20px;
   top: 200px;
   left: 0;
-  display:none;
+  display: none;
 }
-
 
 #scene > .row > .col-md-4 {
   width: 410px;
@@ -1442,15 +1539,15 @@ html, body {
   text-align: center;
 }
 
-#scene > .row > .col-md-4 > .top1 > .layer1>p{
+#scene > .row > .col-md-4 > .top1 > .layer1 > p {
   position: absolute;
-  z-index:-1;
+  z-index: -1;
   color: #fff;
   font-size: 14px;
   padding: 0 20px;
   top: 90px;
   left: 0;
-  display:none;
+  display: none;
 }
 
 #scene > .row > .col-md-4 > .top2 {
@@ -1477,15 +1574,15 @@ html, body {
   text-align: center;
 }
 
-#scene > .row > .col-md-4 > .top2 > .layer1>p{
+#scene > .row > .col-md-4 > .top2 > .layer1 > p {
   position: absolute;
-  z-index:-1;
+  z-index: -1;
   color: #fff;
   font-size: 14px;
   padding: 0 20px;
   top: 80px;
   left: 0;
-  display:none;
+  display: none;
 }
 
 #scene > .row > .col-md-4 > .bottom1 {
@@ -1513,13 +1610,13 @@ html, body {
 
 #scene > .row > .col-md-4 > .bottom1 > .layer1 > p {
   position: absolute;
-  z-index:-1;
+  z-index: -1;
   color: #fff;
   font-size: 14px;
   padding: 0 20px;
   top: 50px;
   left: 0;
-  display:none;
+  display: none;
 }
 
 #scene > .row > .col-md-4 > .bottom2 {
@@ -1547,17 +1644,14 @@ html, body {
 
 #scene > .row > .col-md-4 > .bottom2 > .layer1 > p {
   position: absolute;
-  z-index:-1;
+  z-index: -1;
   color: #fff;
   font-size: 14px;
   padding: 0 20px;
   top: 120px;
   left: 0;
-  display:none;
+  display: none;
 }
-
-
-
 
 //产品及服务--应用场景--移动端
 
@@ -1705,19 +1799,18 @@ html, body {
 
 //新闻中心详情--PC端
 
-.newsCenter>.newsArticleDetail>.row>.col-md-8>.newsMainTitle{
+.newsCenter > .newsArticleDetail > .row > .col-md-8 > .newsMainTitle {
   font-size: 30px;
   font-weight: bold;
 }
-.newsCenter>.newsArticleDetail>.row>.col-md-8>.newsSubtitle{
+
+.newsCenter > .newsArticleDetail > .row > .col-md-8 > .newsSubtitle {
   font-size: 24px;
   font-weight: bold;
 }
 
-
-
 //新闻中心--移动端
-@media(max-width: 480px){
+@media(max-width: 480px) {
   .newsCenter > .row > .col-md-8 > .title {
     padding: 20px 0 0 0;
     font-size: 22px;
