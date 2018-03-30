@@ -142,26 +142,35 @@ html, body {
   color: #000;
 }
 
-.navbar-fixed-top > .container > .collapse > .navbar-right > li > #nav_user {
-  left: 20px;
-  top: 5px;
+
+.navbar-fixed-top > .container > .collapse > .navbar-right>#last{
+  width: 50px;
+  text-align: center;
+  height: 70px;
+  float: left;
+  margin-left: 20px;
   position: relative;
+  padding-top:20px;
+}
+
+.navbar-fixed-top > .container > .collapse > .navbar-right > #last > #nav_user {
   color: #fff;
 }
 
-.navbar-fixed-top > .container > .collapse > .navbar-right > li > #nav_user > #nav_quit {
+.navbar-fixed-top > .container > .collapse > .navbar-right > #last > #nav_quit {
   width: 140px;
   height: 50px;
   position: absolute;
   z-index: 99;
-  top: 45px;
-  left: -60px;
+  top: 70px;
+  left: -45px;
   padding: 0;
   list-style: none;
   display: none;
+  text-align: center;
 }
 
-.navbar-fixed-top > .container > .collapse > .navbar-right > li > #nav_user > #nav_quit > li > a {
+.navbar-fixed-top > .container > .collapse > .navbar-right > #last > #nav_quit > li > a {
   width: 140px;
   height: 50px;
   display: block;
@@ -172,7 +181,7 @@ html, body {
   background: #001739;
 }
 
-.navbar-fixed-top > .container > .collapse > .navbar-right > li > #nav_user > #nav_quit > li > a:hover {
+.navbar-fixed-top > .container > .collapse > .navbar-right > #last > #nav_quit > li > a:hover {
   text-decoration: none;
 }
 

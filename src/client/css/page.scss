@@ -146,8 +146,9 @@ input[type="text"] {
 
 #header-nav > .container-fluid > #example-navbar-collapse > ul > li {
   float: left;
-  margin-right: 40px;
+  margin-left: 20px;
 }
+
 
 #header-nav > .container-fluid > #example-navbar-collapse > ul > li > a {
   width: 60px;
@@ -174,28 +175,33 @@ input[type="text"] {
   float: left;
 }
 
-#header-nav > .container-fluid > #example-navbar-collapse > ul > li > #user_icon {
-  margin-right: 0;
+#header-nav > .container-fluid > #example-navbar-collapse > ul>#user_info{
+  width: 30px;
+  height: 70px;
   position: relative;
 }
 
-#header-nav > .container-fluid > #example-navbar-collapse > ul > li > #user_icon > ul {
+#header-nav > .container-fluid > #example-navbar-collapse > ul > #user_info > #user_icon {
+  margin-left: 5px;
+}
+
+#header-nav > .container-fluid > #example-navbar-collapse > ul > #user_info > ul {
   width: 140px;
   height: 50px;
-  left: -60px;
-  top: 65px;
+  left: -55px;
+  top: 70px;
   position: absolute;
   z-index: 99;
   display: none;
 }
 
-#header-nav > .container-fluid > #example-navbar-collapse > ul > li > #user_icon > ul > li {
+#header-nav > .container-fluid > #example-navbar-collapse > ul > #user_info > ul > li {
   width: 140px;
   height: 50px;
   float: left;
 }
 
-#header-nav > .container-fluid > #example-navbar-collapse > ul > li > #user_icon > ul > li > a {
+#header-nav > .container-fluid > #example-navbar-collapse > ul > #user_info > ul > li > a {
   width: 140px;
   height: 50px;
   float: left;

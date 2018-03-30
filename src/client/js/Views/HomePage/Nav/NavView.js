@@ -129,15 +129,11 @@ var NavView = Backbone.View.extend({
         });
 
         //PC端导航条鼠标悬浮显示下拉菜单
-        $(".dropdown-toggle").mouseover(function () {
-            $(".dropdown-menu").slideDown();
-
+        $(".dropdown").mouseover(function(){
+            $(this).children("ul").show();
         });
-        $(".dropdown-menu").mouseover(function () {
-            $(this).show();
-        });
-        $(".dropdown-menu").mouseout(function () {
-            $(this).hide();
+        $(".dropdown").mouseout(function(){
+            $(this).children("ul").hide();
         });
 
 
@@ -205,13 +201,12 @@ var NavView = Backbone.View.extend({
                 Utils.goPage("main");
             });
             //鼠标悬浮用户头像显示下拉退出菜单
-            $("#nav_user").mouseover(function(){
-                $('#nav_quit').slideDown();
-
+            $("#last").mouseover(function(){
+                $(this).children("ul").show();
             });
             //鼠标离开退出菜单隐藏
-            $('#nav_quit').mouseout(function(){
-                $(this).hide();
+            $('#last').mouseout(function(){
+                $(this).children("ul").hide();
             });
 
 
