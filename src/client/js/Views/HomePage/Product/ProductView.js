@@ -32,10 +32,10 @@ var ProductView = Backbone.View.extend({
         $('#microchip>.row>.col-md-12>.top>.title').each(function(){
             $(this).mouseover(function(){
                 $(this).children(".default").hide();
-                $(this).children(".current").show();
+                $(this).children(".img_current").show();
                 $(this).children("span").addClass("arrow");
                 $(this).siblings(".title").children(".default").show();
-                $(this).siblings(".title").children(".current").hide();
+                $(this).siblings(".title").children(".img_current").hide();
                 $(this).siblings(".title").children("span").removeClass("arrow");
                 var index = $(this).index();
                 var num=parseFloat(index/2);
