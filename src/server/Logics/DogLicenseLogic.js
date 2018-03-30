@@ -374,7 +374,7 @@ var DogLicenseLogic = {
 			  				}else{
 			  					//没有主人信息，创建
 							  		var owner = new ownerModel({
-							  					name:ownerParam.name,
+							  					name:(ownerParam.name).toUpperCase(),
 							  					sex:ownerParam.sex,
 							  					phone:ownerParam.phone,
 										        phone2:ownerParam.phone2,
