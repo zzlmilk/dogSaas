@@ -216,7 +216,7 @@ var NavView = Backbone.View.extend({
                 localStorage.removeItem("LoginUserID");
                 //隐藏控制台、个人头像按钮
                 $('#nav_console').hide();
-                $('#nav_user').hide();
+                $('#last').hide();
                 //同时，登录、注册按钮显示
                 $('#nav_login').show();
                 $('#nav_register').show();
