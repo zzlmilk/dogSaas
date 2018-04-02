@@ -142,15 +142,14 @@ html, body {
   color: #000;
 }
 
-
-.navbar-fixed-top > .container > .collapse > .navbar-right>#last{
+.navbar-fixed-top > .container > .collapse > .navbar-right > #last {
   width: 50px;
   text-align: center;
   height: 70px;
   float: left;
   margin-left: 20px;
   position: relative;
-  padding-top:20px;
+  padding-top: 20px;
 }
 
 .navbar-fixed-top > .container > .collapse > .navbar-right > #last > #nav_user {
@@ -464,6 +463,30 @@ html, body {
     margin-right: 10px;
     color: #000;
   }
+}
+
+//底部栏服务协议--PC端
+#service_content > .row > .col-md-8 > h2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#service_content > .row > .col-md-8 > h3 {
+  font-weight: bold;
+}
+
+//底部栏隐私政策--PC端
+#privacy_content > .row > .col-md-8 > h2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#privacy_content > .row > .col-md-8 > h3 {
+  font-weight: bold;
 }
 
 //官网中间区域内容--PC端
@@ -1359,16 +1382,18 @@ html, body {
   width: 100%;
   margin: 0 auto;
 }
-#microchip>.row{
-  margin: 0;
-  padding: 0;
-}
-#microchip>.row>.col-md-12{
+
+#microchip > .row {
   margin: 0;
   padding: 0;
 }
 
-#microchip>.row>.col-md-12 > .main_title {
+#microchip > .row > .col-md-12 {
+  margin: 0;
+  padding: 0;
+}
+
+#microchip > .row > .col-md-12 > .main_title {
   width: 100%;
   height: 40px;
   line-height: 40px;
@@ -1377,13 +1402,13 @@ html, body {
   margin: 20px 0;
 }
 
-#microchip>.row>.col-md-12 > .top {
+#microchip > .row > .col-md-12 > .top {
   width: 820px;
   height: 120px;
   margin: 0 auto;
 }
 
-#microchip>.row>.col-md-12 > .top > .title {
+#microchip > .row > .col-md-12 > .top > .title {
   float: left;
   height: 120px;
   width: 120px;
@@ -1392,17 +1417,17 @@ html, body {
   position: relative;
 }
 
-#microchip>.row>.col-md-12 > .top > .title > img {
+#microchip > .row > .col-md-12 > .top > .title > img {
   width: 120px;
   height: 120px;
   display: block;
 }
 
-#microchip>.row>.col-md-12 > .top > .title > .img_current {
+#microchip > .row > .col-md-12 > .top > .title > .img_current {
   display: none;
 }
 
-#microchip>.row>.col-md-12 > .top > .title > .tip {
+#microchip > .row > .col-md-12 > .top > .title > .tip {
   width: 120px;
   height: 20px;
   line-height: 20px;
@@ -1413,7 +1438,7 @@ html, body {
   left: 0;
 }
 
-#microchip>.row>.col-md-12 > .top > .title > .arrow {
+#microchip > .row > .col-md-12 > .top > .title > .arrow {
   display: block;
   border: 10px solid #fff;
   border-bottom-color: #2e3b46;
@@ -1425,26 +1450,26 @@ html, body {
   left: 45%;
 }
 
-#microchip>.row>.col-md-12 > .top > .line {
+#microchip > .row > .col-md-12 > .top > .line {
   float: left;
   height: 120px;
   width: 55px;
 }
 
-#microchip>.row>.col-md-12 > .top > .line > img {
+#microchip > .row > .col-md-12 > .top > .line > img {
   width: 55px;
   height: 14px;
   margin-top: 53px;
 }
 
-#microchip>.row>.col-md-12 > .bottom {
+#microchip > .row > .col-md-12 > .bottom {
   width: 1170px;
   height: 180px;
   background: #2E3B46;
   margin-top: 50px;
 }
 
-#microchip>.row>.col-md-12 > .bottom > div {
+#microchip > .row > .col-md-12 > .bottom > div {
   font-size: 14px;
   display: none;
   clear: both;
@@ -1452,7 +1477,6 @@ html, body {
   padding: 20px 0px 0px 20px;
   color: #fff;
 }
-
 
 //产品及服务--工作流程--移动端
 @media (max-width: 480px) {
@@ -1462,16 +1486,16 @@ html, body {
     padding: 0;
 
   }
-  #microchip>.row{
+  #microchip > .row {
     margin: 0;
     padding: 0;
   }
-  #microchip>.row>.col-xs-12{
+  #microchip > .row > .col-xs-12 {
     margin: 0;
     padding: 0;
   }
 
-  #microchip>.row>.col-xs-12 > .main_title {
+  #microchip > .row > .col-xs-12 > .main_title {
     width: 100%;
     height: 20px;
     line-height: 20px;
@@ -1480,14 +1504,14 @@ html, body {
     margin: 20px auto;
   }
 
-  #microchip>.row>.col-xs-12 > .top {
+  #microchip > .row > .col-xs-12 > .top {
     width: 100%;
     padding: 0 15px;
     height: 45px;
     margin: 0 auto;
   }
 
-  #microchip>.row>.col-xs-12 > .top > .title {
+  #microchip > .row > .col-xs-12 > .top > .title {
     float: left;
     height: 45px;
     width: 45px;
@@ -1496,17 +1520,17 @@ html, body {
     position: relative;
   }
 
-  #microchip>.row>.col-xs-12 > .top > .title > img {
+  #microchip > .row > .col-xs-12 > .top > .title > img {
     width: 45px;
     height: 45px;
     display: block;
   }
 
-  #microchip>.row>.col-xs-12 > .top > .title > .img_current {
+  #microchip > .row > .col-xs-12 > .top > .title > .img_current {
     display: none;
   }
 
-  #microchip>.row>.col-xs-12 > .top > .title > .tip {
+  #microchip > .row > .col-xs-12 > .top > .title > .tip {
     width: 55px;
     height: 20px;
     line-height: 20px;
@@ -1515,12 +1539,12 @@ html, body {
     z-index: 99;
     bottom: -30px;
     left: -5px;
-    font-size : 12px;
-    -webkit-transform : scale(0.84,0.84) ;
-    *font-size:10px;
+    font-size: 12px;
+    -webkit-transform: scale(0.84, 0.84);
+    *font-size: 10px;
   }
 
-  #microchip>.row>.col-xs-12 > .top > .title > .arrow {
+  #microchip > .row > .col-xs-12 > .top > .title > .arrow {
     display: block;
     border: 10px solid #fff;
     border-bottom-color: #2e3b46;
@@ -1532,28 +1556,28 @@ html, body {
     left: 12px;
   }
 
-  #microchip>.row>.col-xs-12 > .top > .line {
+  #microchip > .row > .col-xs-12 > .top > .line {
     float: left;
     height: 40px;
     width: 30px;
   }
 
-  #microchip>.row>.col-xs-12 > .top > .line > img {
+  #microchip > .row > .col-xs-12 > .top > .line > img {
     width: 30px;
     height: 4px;
     margin-top: 18px;
   }
 
-  #microchip>.row>.col-xs-12 > .bottom {
+  #microchip > .row > .col-xs-12 > .bottom {
     width: 100%;
-    height:150px;
+    height: 150px;
     background: #2E3B46;
     margin-top: 50px;
   }
 
-  #microchip>.row>.col-xs-12 > .bottom > div {
+  #microchip > .row > .col-xs-12 > .bottom > div {
     width: 100%;
-    height:150px;
+    height: 150px;
     font-size: 12px;
     display: none;
     clear: both;
@@ -1561,8 +1585,6 @@ html, body {
     color: #fff;
   }
 }
-
-
 
 //产品及服务--应用场景--PC端
 
@@ -1917,6 +1939,10 @@ html, body {
   display: inline-block;
 }
 
+.newsCenter > .row > .col-md-8 > .content > a {
+  cursor: pointer;
+}
+
 //新闻中心详情--PC端
 
 .newsCenter > .newsArticleDetail > .row > .col-md-8 > .newsMainTitle {
@@ -2041,7 +2067,7 @@ html, body {
     padding: 0;
     font-size: 16px;
   }
-  #contactBanner>.row>.col-md-12>img {
+  #contactBanner > .row > .col-md-12 > img {
     height: 200px;
   }
 }
@@ -2140,13 +2166,13 @@ html, body {
 //关于我们--移动端
 
 @media (max-width: 480px) {
-  .aboutDetail > .row > .col-md-9{
+  .aboutDetail > .row > .col-md-9 {
     height: auto;
     margin: 0;
     padding: 0;
   }
 
-  .aboutDetail > .row > .col-md-3{
+  .aboutDetail > .row > .col-md-3 {
     height: auto;
     margin: 0;
     padding: 10px;
@@ -2156,7 +2182,7 @@ html, body {
     color: #000;
     font-size: 14px;
   }
-  #about_banner > .row > .col-md-12{
+  #about_banner > .row > .col-md-12 {
     padding: 0;
   }
   #about_banner > .row > .col-md-12 > img {
