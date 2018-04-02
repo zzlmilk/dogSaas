@@ -238,7 +238,7 @@ var PersonalCardView = Backbone.View.extend({
                     }]
                 },
                 owner: {
-                    name: $('#dogowner_name1').val() + $('#dogowner_name2').val(),
+                    name: $('#dogowner_name1').val()  +" "+ $('#dogowner_name2').val(),
                     sex: $("input[name='gender']:checked").val(),
                     tel: $('#tel').val(),
                     phone: $('#phone').val(),

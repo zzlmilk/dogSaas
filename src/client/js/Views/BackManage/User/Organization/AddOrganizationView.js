@@ -438,7 +438,7 @@ var AddOrganizationView = Backbone.View.extend({
             animalMedicalLicense: $("#animalMedicalLicense img").attr("src"),
             serviceScope: server_value,
             veterinarians: veterinarians,
-            contacts_name: $('#contacts1').val().trim() + $('#contacts2').val().trim(),
+            contacts_name: $('#contacts1').val().trim()  +" "+ $('#contacts2').val().trim(),
             contacts_phone: $('#contacts_phone').val().trim()
         };
 

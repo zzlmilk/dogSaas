@@ -57,7 +57,7 @@ var AddDoctorDialog = {
             }
             //传值给打开的页面
             var obj = {
-                name: dname1+dname2,
+                name: dname1 +" "+dname2,
                 code: dcode
             }
 
