@@ -53,6 +53,18 @@ var TechView = Backbone.View.extend({
             $(".boost_layer").hide();
         });
 
+        function urlredirect() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            //首先判断浏览器类型是否为移动端
+            if ((sUserAgent.match(/(ipod|iphone os|midp|ucweb|android|windows ce|windows mobile)/i))) {
+                //是移动端浏览器的话取消点击显示蒙层元素
+                $("#boost").unbind().on('click', function (event) {
+                    event.stopPropagation();
+                    $(".boost_layer").hide();
+                });
+            }
+        }
+        urlredirect();
 
 
 

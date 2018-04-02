@@ -1453,6 +1453,117 @@ html, body {
   color: #fff;
 }
 
+
+//产品及服务--工作流程--移动端
+@media (max-width: 480px) {
+  #microchip {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+
+  }
+  #microchip>.row{
+    margin: 0;
+    padding: 0;
+  }
+  #microchip>.row>.col-xs-12{
+    margin: 0;
+    padding: 0;
+  }
+
+  #microchip>.row>.col-xs-12 > .main_title {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  #microchip>.row>.col-xs-12 > .top {
+    width: 100%;
+    padding: 0 15px;
+    height: 45px;
+    margin: 0 auto;
+  }
+
+  #microchip>.row>.col-xs-12 > .top > .title {
+    float: left;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+  }
+
+  #microchip>.row>.col-xs-12 > .top > .title > img {
+    width: 45px;
+    height: 45px;
+    display: block;
+  }
+
+  #microchip>.row>.col-xs-12 > .top > .title > .img_current {
+    display: none;
+  }
+
+  #microchip>.row>.col-xs-12 > .top > .title > .tip {
+    width: 55px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    position: absolute;
+    z-index: 99;
+    bottom: -30px;
+    left: -5px;
+    font-size : 12px;
+    -webkit-transform : scale(0.84,0.84) ;
+    *font-size:10px;
+  }
+
+  #microchip>.row>.col-xs-12 > .top > .title > .arrow {
+    display: block;
+    border: 10px solid #fff;
+    border-bottom-color: #2e3b46;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 99;
+    bottom: -50px;
+    left: 12px;
+  }
+
+  #microchip>.row>.col-xs-12 > .top > .line {
+    float: left;
+    height: 40px;
+    width: 30px;
+  }
+
+  #microchip>.row>.col-xs-12 > .top > .line > img {
+    width: 30px;
+    height: 4px;
+    margin-top: 18px;
+  }
+
+  #microchip>.row>.col-xs-12 > .bottom {
+    width: 100%;
+    height:150px;
+    background: #2E3B46;
+    margin-top: 50px;
+  }
+
+  #microchip>.row>.col-xs-12 > .bottom > div {
+    width: 100%;
+    height:150px;
+    font-size: 12px;
+    display: none;
+    clear: both;
+    padding: 10px;
+    color: #fff;
+  }
+}
+
+
+
 //产品及服务--应用场景--PC端
 
 #scene {
@@ -1930,6 +2041,9 @@ html, body {
     padding: 0;
     font-size: 16px;
   }
+  #contactBanner>.row>.col-md-12>img {
+    height: 200px;
+  }
 }
 
 //关于我们--PC端
@@ -1946,6 +2060,7 @@ html, body {
 
 #about_banner > .row > .col-md-12 {
   margin: 0;
+
 }
 
 #about_banner > .row > .col-md-12 > img {
@@ -2025,9 +2140,24 @@ html, body {
 //关于我们--移动端
 
 @media (max-width: 480px) {
+  .aboutDetail > .row > .col-md-9{
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  .aboutDetail > .row > .col-md-3{
+    height: auto;
+    margin: 0;
+    padding: 10px;
+  }
+
   .aboutDetail > .row > .col-md-3 > p {
     color: #000;
     font-size: 14px;
+  }
+  #about_banner > .row > .col-md-12{
+    padding: 0;
   }
   #about_banner > .row > .col-md-12 > img {
     width: 100%;
