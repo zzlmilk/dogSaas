@@ -43,7 +43,6 @@ html, body {
 
 }
 
-
 .navbar-fixed-top > .container > .collapse > .navbar-nav > li {
   background: #001739;
 }
@@ -2286,6 +2285,7 @@ html, body {
   width: 100%;
   background: #f2f2f2;
   padding: 50px 100px;
+  display: none;
 }
 
 #employ_list > .row > .col-md-12 > h4 {
@@ -2304,8 +2304,18 @@ html, body {
 
 //招聘--移动端
 @media (max-width: 480px) {
+  #employ_list {
+    margin: 0 auto;
+    padding: 0;
+
+  }
+
+  #employ_list > #first {
+    border-radius: 0;
+  }
+
   #employ_list > .row {
-    position: relative;
+    position: static;
   }
   #employ_list > #first > .col-md-3 {
     height: 80px;
@@ -2313,6 +2323,8 @@ html, body {
     text-align: center;
     color: #fff;
     font-size: 14px;
+    position: static;
+
   }
   #employ_list > .row > .col-md-3 > .u-arrow {
     display: inline-block;
@@ -2327,7 +2339,10 @@ html, body {
   }
   #employ_list > .row > .col-md-12 {
     width: 100%;
+    height: auto;
     background: #f2f2f2;
     padding: 20px;
+    position: static;
+    display: none;
   }
 }
