@@ -387,9 +387,9 @@ var DogLicenseLogic = {
 							  						district:ownerParam.location.district,
 							  						city:ownerParam.location.city,
 							  						address:ownerParam.location.address,
-							  						code:ownerParam.location.code,
+							  						code:ownerParam.location.code
 							  					},
-							  			//	 dogs:[result.dog],
+							  				 dogs:[res.dog]
 
 							  		});
 
