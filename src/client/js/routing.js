@@ -41,7 +41,7 @@ var Routing = function () {
     //初始页
     appRouter.on('route:defaultRoute', function (actions) {
 
-        Utils.goPage('start');
+        Utils.goPage('home');
 
     });
 
