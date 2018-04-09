@@ -120,12 +120,21 @@ input[type="text"] {
   float: left;
 }
 
-#header-nav > .container-fluid>.navbar-header>.navbar-brand>img{
-  width: 40px;
-  height: 40px;
-  display: block;
-  float:left;
+//#header-nav > .container-fluid>.navbar-header>.navbar-brand>img{
+//  width: 40px;
+//  height: 40px;
+//  display: block;
+//  float:left;
+//}
+
+#header-nav > .container-fluid>.navbar-header>.navbar-brand>#logo{
+  width: 140px;
+  height: 58px;
+  display: inline-block;
+  margin-top: -6px;
 }
+
+
 #header-nav > .container-fluid>.navbar-header>.navbar-brand>span{
   width: 200px;
   height: 60px;
