@@ -11,37 +11,37 @@
                 <ul class="tab_menu">
                     <li class="active">
                         <img src="img/all_inclusive.png">
-                        非接触式
+                        <span class="tips">非接触式</span>
                         <div></div>
                     </li>
                     <li>
                         <img src="img/all_out.png">
-                        适应性强
+                        <span class="tips">适应性强</span>
                         <div></div>
                     </li>
                     <li>
                         <img src="img/gps_logo.png">
-                        准确性高
+                        <span class="tips">准确性高</span>
                         <div></div>
                     </li>
                     <li>
                         <img src="img/airplanemode.png">
-                        快速
+                        <span class="tips">快速</span>
                         <div></div>
                     </li>
                 </ul>
                 <div class="tab_box">
                     <div>
-                        <p>对于图片中可检测的人脸数量没有限制，轻松处理各类集体图片。</p>
+                        <p>40cm外非接触式采集，告别传统芯片注射，无副作用、无须担心有健康风险。</p>
                     </div>
                     <div class="hide">
-                        <p>22222222222</p>
+                        <p>近红外辅助光源照射到眼睛的光线强度，只有IEC62471生物安全检测标准规定的光强1/10，远远低于安全门限，不会对眼睛造成伤害。</p>
                     </div>
                     <div class="hide">
-                        <p>33333333333</p>
+                        <p>99%以上的识别精度。生理学研究表明，虹膜纹理的细节特征是由胚胎发育环境的随机因素决定的，这种纹理细节的随机分布特性为虹膜的唯一性奠定了生理基础。</p>
                     </div>
                     <div class="hide">
-                        <p>44444444444</p>
+                        <p>首次注册采集1分钟以内，识别只需5-10秒。</p>
                     </div>
                 </div>
             </div>
@@ -53,23 +53,45 @@
 <div class="container" id="tech_detail">
     <div class="row">
         <div class="col-md-5 col-md-offset-1">
-            <h3>虹膜识别</h3>
-            <p>检测并定位图片中的人脸，返回高精度的人脸坐标。</p>
-            <p>检测并定位图片中的人脸，返回高精度的人脸坐标。检测并定位图片中的人脸，返回高精度的人脸坐标。</p>
+            <h3>Iris Tag 犬只虹膜识别算法</h3>
+            <p>虹膜识别技术是基于眼睛中的虹膜进行身份识别。
+                犬只的眼睛结构由巩膜、虹膜、瞳孔晶状体、视网膜等部分组成。
+                虹膜是位于黑色瞳孔和白色巩膜之间的圆环状部分，其包含有很多相互交错的斑点、
+                细丝、冠状、条纹、隐窝等的细节特征。而且虹膜在整个生命历程中将是保持不变的。
+                这些特征决定了虹膜特征的唯一性，同时也决定了身份识别的唯一性。因此，
+                可以将眼睛的虹膜特征作为犬只的身份识别对象。Iris Tag犬只虹膜识别算法利用深度学习的方法，
+                增加训练模型的样本数量，从而使得训练的结果可以更好的提取狗眼特征。
+                此外，为了提高生物特征识别算法的鲁棒性，Iris Tag犬只虹膜识别算法充分利用低层次的定序测量图像特征来提高系统抵抗类内变化的能力。
+            </p>
+
         </div>
         <div class="col-md-3 col-md-offset-1">
-            <img src="../img/dog1.jpg">
+            <img src="../img/tech01.png">
         </div>
     </div>
     <div class="row" style="border-bottom: none;margin-bottom: 50px">
         <div class="col-md-5 col-md-offset-1">
-            <h3>虹膜识别</h3>
-            <p>检测并定位图片中的人脸，返回高精度的人脸坐标。</p>
-            <p>检测并定位图片中的人脸，返回高精度的人脸坐标。检测并定位图片中的人脸，返回高精度的人脸坐标。</p>
+            <h3>Iris Tag 犬只虹膜信息管理系统</h3>
+            <p>公司自主研发手持式设备，包括虹膜采集识别算法和嵌入式软硬件，犬只信息管理系统平台。
+                独创的摄像头组件排列方式以及采集识别算法，克服了动物虹膜识别方面的技术难题，
+                并享有专利权。犬只信息管理系统通过不同层级的加密授权，打通宠物行业信息数据系统，
+                串联了包括政府相关职能部门、宠物行业相关组织机构、宠物行业B端以及C端用户，
+                做到宠物数据更高效更完善的管理。
+            </p>
         </div>
         <div class="col-md-3 col-md-offset-1">
-            <img src="../img/dog1.jpg">
+            <img id="boost" src="../img/tech02.png">
         </div>
     </div>
 </div>
 <!--技术细节结束-->
+<!--图片点击放大开始-->
+<div class="container_fluid  boost_layer">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <img src="../img/big.jpg">
+        </div>
+    </div>
+    <img id="close" src="../img/close.jpg">
+</div>
+<!--图片点击放大结束-->
