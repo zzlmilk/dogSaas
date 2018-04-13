@@ -64,6 +64,14 @@ var NewsView = Backbone.View.extend({
             })
         });
 
+        //点击查看全文--第五篇
+        $(".NewsFifth").unbind().on("click",function (event) {
+            event.stopPropagation();
+            var NewsFifth = require('./NewsFifth/NewsFifth.js');
+            var view = new NewsFifth({
+                'el': "#news_content"
+            })
+        });
 
 
 
