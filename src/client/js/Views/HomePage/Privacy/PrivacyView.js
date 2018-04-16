@@ -1,6 +1,3 @@
-/**
- * Created by json on 2017/11/22.
- */
 var Backbone = require('backbone');
 var _ = require('lodash');
 
@@ -9,19 +6,18 @@ var Const = require('../../../lib/consts');
 var Config = require('../../../lib/init');
 
 // load template
-var template = require('./LoginAfter.hbs');
+var template = require('./Privacy.hbs');
 
-var LoginAfterView = Backbone.View.extend({
-
-    initialize: function(options) {
+var PrivacyView = Backbone.View.extend({
+    el: null,
+    initialize: function (options) {
+        this.el = options.el;
         this.render();
     },
 
-    render: function() {
+    render: function () {
 
-        $(Config.defaultContaier).html(template({
-
-        }));
+        $(this.el).html(template());
 
         this.onLoad();
 
@@ -31,12 +27,11 @@ var LoginAfterView = Backbone.View.extend({
 
     onLoad: function(){
 
-        var self = this;
+
 
 
     }
 
 });
 
-module.exports = LoginAfterView;
-
+module.exports = PrivacyView;

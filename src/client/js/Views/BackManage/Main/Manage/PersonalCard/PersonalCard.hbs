@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*Mobile Number2:</h4>
+                    <h4>Mobile Number2:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="phone2">
@@ -58,7 +58,7 @@
 
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>Gender:</h4>
+                    <h4>*Gender:</h4>
                 </div>
                 <div class="section">
                     <div class="radio_container">
@@ -76,7 +76,7 @@
 
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>Telephone Number:</h4>
+                    <h4>*Telephone Number:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="tel">
@@ -91,7 +91,7 @@
 
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>Post Code/Zip Code:</h4>
+                    <h4>*Post Code/Zip Code:</h4>
                 </div>
                 <div class="section">
                     <input class="form-control" type="text" id="postcode"
@@ -112,7 +112,7 @@
                     </select>
                     <div class="connect">--</div>
                     <input class="form-control" type="text" id="id_number">
-                    <p style="display: none;" class="null_err" id="id_number_null_tip">*Please enter  ID number</p>
+                    <p style="display: none;" class="null_err" id="id_number_null_tip">*Please enter ID number</p>
                 </div>
             </div>
 
@@ -159,7 +159,7 @@
             </div>
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>*Sex:</h4>
+                    <h4>*Gender:</h4>
                 </div>
                 <div class="section">
                     <div class="radio_container">
@@ -168,7 +168,8 @@
                         <input type="radio" style="margin-left: 30px" name="dog_gender" id="doggender_female" value="2">
                         <label for="dog_gender">Female</label>
                     </div>
-                    <p style="display: none;" class="null_err" id="dog_gender_null_tip">*Please choose your dog‘s sex</p>
+                    <p style="display: none;" class="null_err" id="dog_gender_null_tip">*Please choose your dog‘s
+                        sex</p>
                 </div>
             </div>
         </div>
@@ -181,19 +182,7 @@
                 <div class="section">
                     <div class="radio_container">
                         <select class="kinds" id="dog_color">
-                            <option value="">Please select</option>
-                            <option value="白色">白色</option>
-                            <option value="黑色">黑色</option>
-                            <option value="褐色">褐色</option>
-                            <option value="青色">青色</option>
-                            <option value="黑褐色">黑褐色</option>
-                            <option value="铁灰色">铁灰色</option>
-                            <option value="灰褐色">灰褐色</option>
-                            <option value="黄褐色">黄褐色</option>
-                            <option value="灰白色">灰白色</option>
-                            <option value="黑白色">黑白色</option>
-                            <option value="黄红色">黄红色</option>
-                            <option value="淡红色">淡红色</option>
+                            <option id="color_null" value="">Please select</option>
                         </select>
                     </div>
                     <p style="display: none;" class="null_err" id="dog_color_null_tip">*You can't leave this empty</p>
@@ -202,7 +191,7 @@
 
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>Purpose:</h4>
+                    <h4>*Purpose:</h4>
                 </div>
                 <div class="section">
                     <div class="radio_container">
@@ -233,16 +222,18 @@
 
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>Sterilization:</h4>
+                    <h4>*Sterilization:</h4>
                 </div>
                 <div class="section">
                     <div class="radio_container">
                         <input type="radio" id="isSterilization1" name="isSterilization" value="1">
                         <label for="isSterilization">Yes</label>
-                        <input type="radio" style="margin-left: 30px" id="isSterilization0" name="isSterilization" value="0">
+                        <input type="radio" style="margin-left: 30px" id="isSterilization0" name="isSterilization"
+                               value="0">
                         <label for="isSterilization">No</label>
                     </div>
-                    <p style="display:none;" class="null_err" id="isSterilization_null_tip">*You can't leave this empty</p>
+                    <p style="display:none;" class="null_err" id="isSterilization_null_tip">*You can't leave this
+                        empty</p>
                 </div>
             </div>
 
@@ -252,7 +243,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="subtitle">
-                    <h4>Date of Birth:</h4>
+                    <h4>*Date of Birth:</h4>
                 </div>
                 <div class="section" style="width:265px ;height:44px;position: relative ">
                     <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd"
@@ -272,7 +263,8 @@
                 <div class="section">
                     <input class="form-control" type="text" id="iris" maxlength="15">
                     <a id="recollect_iris" href="javascript:void(0)">Git ID</a>
-                    <p style="display:none;clear: left" class="null_err" id="iris_null_tip">*You can't leave this empty</p>
+                    <p style="display:none;clear: left" class="null_err" id="iris_null_tip">*You can't leave this
+                        empty</p>
                 </div>
 
             </div>
@@ -289,7 +281,7 @@
                 </div>
                 <div class="section" id="imgs">
                 </div>
-                <p style="display:none;clear:left;font-size: 12px; padding-left:160px;" class="null_err"
+                <p style="display:none;clear:left;font-size: 12px; padding-left:200px;" class="null_err"
                    id="imgs_null_tip">*Please upload a photo</p>
             </div>
         </div>

@@ -28,6 +28,12 @@ var HomePageView = Backbone.View.extend({
 
         var self = this;
 
+        //默认加载首页
+        var HomeMainView = require('./HomeMain/HomeMainView.js');
+        var view = new HomeMainView({
+            'el': "#home-main"
+        });
+
         //头部导航条
         var NavView = require('./Nav/NavView.js');
         new NavView({
@@ -39,6 +45,24 @@ var HomePageView = Backbone.View.extend({
         var FooterView = require('./Footer/FooterView.js');
         new FooterView({
             'el': "#footer-content"
+        });
+
+        //隐私政策
+        $('#privacy').unbind().on('click', function (event) {
+            event.stopPropagation();
+            var PrivacyView = require('./Privacy/PrivacyView.js');
+            new PrivacyView({
+                'el': "#home-main"
+            });
+        });
+
+        //服务协议
+        $('#service').unbind().on('click', function (event) {
+            event.stopPropagation();
+            var ServiceView = require('./Service/ServiceView.js');
+            new ServiceView({
+                'el': "#home-main"
+            });
         });
     }
 

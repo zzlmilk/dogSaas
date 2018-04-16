@@ -47,15 +47,32 @@ HeaderView = Backbone.View.extend({
 
         });
 
-
-        $('#user_icon').mouseover(function () {
-            $('#quit').stop().slideDown();
-
-        });
-        $('#quit').mouseout(function () {
-            $(this).stop().slideUp(2000);
+        //点击logo及标题回到官网首页
+        $('#gohome').unbind().on('click', function (event) {
+            event.stopPropagation();
+            Utils.goPage("home");
 
         });
+
+
+        $('#user_info').mouseover(function () {
+            $(this).children("ul").show();
+
+        });
+        $('#user_info').mouseout(function () {
+            $(this).children("ul").hide();
+
+        });
+
+        //退出登录清除用户信息
+        $('#logout').unbind().on('click', function (event) {
+            event.stopPropagation();
+            localStorage.removeItem("LoginUserID");
+            console.log( localStorage.removeItem("LoginUserID"));
+            Utils.goPage("home");
+
+        });
+
 
 
 

@@ -40,8 +40,22 @@ var HomeMainView = Backbone.View.extend({
             prevButton: '.swiper-button-prev',
             autoplayDisableOnInteraction: false,
             // 如果需要滚动条
-            // scrollbar: '.swiper-scrollbar',
+            //scrollbar: '.swiper-scrollbar',
         });
+
+        $(".swiper-button-next,.swiper-button-prev").hide();
+
+        $(".swiper-wrapper").mouseover(function(){
+            $(".swiper-button-next,.swiper-button-prev").show();
+        });
+        $(".swiper-button-next,.swiper-button-prev").mouseover(function(){
+            $(".swiper-button-next,.swiper-button-prev").show();
+        });
+
+        $("#swiper").mouseout(function(){
+            $(".swiper-button-next,.swiper-button-prev").hide();
+        });
+
         //首页核心技术
         $(function(){
             $('.demo1').Tabs();
@@ -53,10 +67,10 @@ var HomeMainView = Backbone.View.extend({
         //首页产品优势--PC端
         $(".tips").each(function(){
             $(this).mouseover(function () {
-                $(this).stop().animate({top:"0px"},"slow");
+                $(this).stop().animate({top:"0px"},"fast","linear");
             });
             $(this).mouseout(function () {
-                $(this).stop().animate({top:"300px"});
+                $(this).stop().animate({top:"350px"},"fast","linear");
             });
         });
         //首页产品优势--移动端

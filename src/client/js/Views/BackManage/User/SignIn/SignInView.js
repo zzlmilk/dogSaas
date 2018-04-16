@@ -12,7 +12,7 @@ var BaseView = require('../BaseView');
 
 var SignInClient = require('../../../../lib/APIClients/SignInClient');
 
-var loginUserManager = require('../../../../lib/loginUserManager')
+var loginUserManager = require('../../../../lib/loginUserManager');
 
 var UserModel = require('../../../../Models/user');
 
@@ -103,8 +103,8 @@ var SignInView = BaseView.extend({
                 var user = UserModel.modelByResult(data.user)
                 loginUserManager.setLoginUserID(user.get("id"))
                 user.save();
-
-                Utils.goPage("organization");
+                //默认跳转官网首页
+                Utils.goPage("home");
 
             }, function (errorCode) {
                 console.log(errorCode)
@@ -120,6 +120,12 @@ var SignInView = BaseView.extend({
             new ResetView({
                 container: '#start-view-content'
             });
+        });
+
+       //注册账户
+        $('#registerInfo').unbind().on('click', function () {
+            console.log("注册");
+            Utils.goPage("signup");
         });
     },
 

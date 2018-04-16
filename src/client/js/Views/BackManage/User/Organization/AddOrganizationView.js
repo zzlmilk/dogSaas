@@ -43,9 +43,9 @@ var AddOrganizationView = Backbone.View.extend({
 
             //未添加组织 去添加
             if (action == "add") {
+                console.log("add-----------")
                 $(Config.defaultContaier).html(templateAdd({}));
-            }
-            else if (action == "edit") {
+            }else if (action == "edit") {
                 //编辑组织 信息
                 $(Config.defaultContaier).html(templateAdd({
                     organization: self.organization
@@ -108,6 +108,11 @@ var AddOrganizationView = Backbone.View.extend({
     onLoad: function () {
 
         var self = this;
+
+
+
+
+
         var SignHeaderView = require('../Header/HeaderView.js');
         new SignHeaderView({
             'el': "#signheader-content"
@@ -118,6 +123,21 @@ var AddOrganizationView = Backbone.View.extend({
             'el': "#signfooter-content"
         });
 
+
+
+        if(window.scrollTop>0){
+            console.log("navbar-fixed-bottom  滚动条")
+        }
+        $(window).scrollTop(1)
+        if($(window).scrollTop()>0 ){
+            console.log("有滚动条")
+            $("#bottom").removeClass("navbar-fixed-bottom")
+        }else{
+            console.log("mei有滚动条")
+
+            $("#bottom").addClass("navbar-fixed-bottom")
+        }
+        $(window).scrollTop(0);//滚动条返回顶部
 
         /**
          * 为各个元素添加监听事件
@@ -325,7 +345,7 @@ var AddOrganizationView = Backbone.View.extend({
         }
 
         $('#doctor').unbind().on('click', function () {
-
+            self.docListen()
             var AddDoctorDialogModal = require('../../Modals/AddDoctorDialog/AddDoctorDialogView');
             AddDoctorDialogModal.show();
 
@@ -343,7 +363,8 @@ var AddOrganizationView = Backbone.View.extend({
         //WaitReview_button
         $("#WaitReview_button").unbind().on('click', function (e) {
 
-            Utils.goPage("main")
+            //回到官网首页
+            Utils.goPage("home")
         })
 
 
@@ -367,10 +388,18 @@ var AddOrganizationView = Backbone.View.extend({
             }
 
         });
+
+
+    },
+    docListen:function(){
+       var self=this
         //添加医生完成的通知
         Backbone.once(Const.NotificationAddDoctorDone, function (obj) {
 
-            console.log("页面获取到的值"+obj)
+            console.log("页面获取到的值" + obj)
+            if(obj==null){
+                return
+            }
             var veter = {
                 name: obj.name,
                 code: obj.code
@@ -386,8 +415,10 @@ var AddOrganizationView = Backbone.View.extend({
             $("#doctor_null_tip").hide();
             $("#doctor_table").after(sb.toString());
 
+
         });
     },
+
 
     //添加组织
     addOrganization: function (veterinarians) {
@@ -407,7 +438,7 @@ var AddOrganizationView = Backbone.View.extend({
             animalMedicalLicense: $("#animalMedicalLicense img").attr("src"),
             serviceScope: server_value,
             veterinarians: veterinarians,
-            contacts_name: $('#contacts1').val().trim()+$('#contacts2').val().trim(),
+            contacts_name: $('#contacts1').val().trim()  +" "+ $('#contacts2').val().trim(),
             contacts_phone: $('#contacts_phone').val().trim()
         };
 
@@ -429,7 +460,8 @@ var AddOrganizationView = Backbone.View.extend({
                 }));
                 $("#WaitReview_button").unbind().on('click', function (e) {
 
-                    Utils.goPage("main")
+                    //回到官网首页
+                    Utils.goPage("home");
                 })
                 // Utils.goPage("organization");
             },

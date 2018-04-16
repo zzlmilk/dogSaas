@@ -5,7 +5,7 @@
             <h3>Basic Info</h3>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="subtitle">
                     <h4>Status：</h4>
                 </div>
@@ -13,7 +13,7 @@
                     <span>{{organization.checkStatus.status}}</span>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="subtitle" style="float: left">
                     <h4>Account：</h4>
                 </div>
@@ -21,12 +21,30 @@
                     <span>{{organization.adminUser.email}}</span>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="subtitle" style="float: left">
                     <h4>Password：</h4>
                 </div>
                 <div class="section" style="float: left">
-                    <a href="#changepassword" id="change_password" style="color:#3399ff">Change Password</a>
+                    <a href="#changepassword" id="change_password" style="color:#3399ff;height:44px;line-height:44px;">Change Password</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="subtitle" style="float: left">
+                    <h4>Director：</h4>
+                </div>
+                <div class="section" style="float: left">
+                    <span><span>{{organization.contacts.name}}</span></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="subtitle" style="float: left">
+                    <h4>Mobile Number：</h4>
+                </div>
+                <div class="section" style="float: left">
+                    <span><span>{{organization.contacts.phone}}</span></span>
                 </div>
             </div>
             <div class="col-md-3">
@@ -38,24 +56,6 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="subtitle" style="float: left">
-                    <h4>Director：</h4>
-                </div>
-                <div class="section" style="float: left">
-                    <span><span>{{organization.contacts.name}}</span></span>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="subtitle" style="float: left">
-                    <h4>Mobile Number：</h4>
-                </div>
-                <div class="section" style="float: left">
-                    <span><span>{{organization.contacts.phone}}</span></span>
-                </div>
-            </div>
-        </div>
 
     </div>
     <div class="basic_info">
@@ -63,7 +63,7 @@
             <h3>Agency</h3>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="subtitle">
                     <h4>Quarantine Station：</h4>
                 </div>
@@ -71,15 +71,7 @@
                     <span><span>{{organization.name}}</span></span>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="subtitle">
-                    <h4>Address：</h4>
-                </div>
-                <div class="section">
-                    <span><span>{{organization.location.address}}</span></span>
-                </div>
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="subtitle">
                     <h4>Telephone Number：</h4>
                 </div>
@@ -87,7 +79,7 @@
                     <span><span>{{organization.tel}}</span></span>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="subtitle">
                     <h4>Available Services：</h4>
                 </div>
@@ -97,7 +89,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-12">
+                <div class="subtitle">
+                    <h4>Address：</h4>
+                </div>
+                <div class="section">
+                    <span><span>{{organization.location.address}}</span></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
                 <div class="subtitle">
                     <h4>Business license：</h4>
                 </div>
@@ -107,7 +109,7 @@
                     <!--</div>-->
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="subtitle">
                     <h4>Veterinary Hospital Permits：</h4>
                 </div>
@@ -119,7 +121,7 @@
             </div>
         </div>
         <div class="row" style="height:180px;">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="subtitle">
                     <div id="license">
                         <img  src="{{organization.businessLicense}}" />
@@ -128,7 +130,7 @@
                 <div class="section">
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="subtitle">
                     <div id="permit">
                         <img src="{{organization.animalMedicalLicense}}" />
@@ -144,7 +146,7 @@
             <h3>Hardware Info</h3>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="subtitle">
                     <h4>Device ID：</h4>
                 </div>
@@ -152,7 +154,7 @@
                     <span><span>a23492312g</span></span>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="subtitle">
                     <h4>Hardware Vision：</h4>
                 </div>

@@ -96,8 +96,8 @@ var SidebarView = Backbone.View.extend({
         //年检
         $('#btn_immune').unbind().on('click', function (event) {
             event.stopPropagation();
-            var ImmuneListView = require('../Manage/Immune/DogLicense/DogLicenseView');
-            var view = new ImmuneListView({
+            var ImmuneView = require('../Manage/Immune/ImmuneView');
+            var view = new ImmuneView({
                 'el': "#main-content"
             });
         });

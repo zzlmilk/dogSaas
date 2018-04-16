@@ -49,6 +49,7 @@ var FooterView = Backbone.View.extend({
 
 
 
+
     }
 
 });
