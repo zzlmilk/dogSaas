@@ -1722,13 +1722,17 @@ input[type='date']::-webkit-inner-spin-button {
 .dog_search > .title > .row > .form-group > .input-group>.input-group-btn >button{
   width: 60px;
   height:36px;
-  background:#0066ff;
+  background:#8c8c8c;
   color:#ffffff;
   line-height: 16px;
   border: none;
   float: left;
 }
 
+.dog_search > .title > .row > .form-group > .input-group>.input-group-btn >button:hover{
+  background: #3399ff;
+
+}
 
 .dog_search > .title > .row > .form-group > select {
   width: 100px;
