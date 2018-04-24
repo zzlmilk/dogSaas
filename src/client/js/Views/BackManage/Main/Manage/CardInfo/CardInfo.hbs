@@ -11,8 +11,14 @@
                     <option value="1" selected="selected">Iris ID</option>
                     <option value="2">Card No.</option>
                 </select>
-                <input class="form-control" type="text" id="whereValue">
-                <a id="git_iris_id" href="javascript:void(0);">Git ID</a>
+                <div class="input-group">
+                    <input class="form-control" type="text" id="whereValue">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn">
+                          Git ID
+                        </button>
+                    </div>
+                </div>
                 <span style="display: none;" class="null_err" id="where_null_tip">*you can't leave this empty</span>
             </div>
             <div class="form-group search">
