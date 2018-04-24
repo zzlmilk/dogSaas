@@ -1704,7 +1704,7 @@ input[type='date']::-webkit-inner-spin-button {
   line-height: 44px;
 }
 .dog_search > .title > .row > .form-group > .input-group{
-  width: 350px;
+  width: 290px;
   height: 36px;
   border: 2px #cccccc solid;
   float: left;
@@ -1719,10 +1719,13 @@ input[type='date']::-webkit-inner-spin-button {
 }
 
 .dog_search > .title > .row > .form-group > .input-group>.input-group-btn >button{
-  width: 90px;
+  width: 60px;
   height:36px;
   line-height: 16px;
+  border: none;
   float: left;
+  background:#0066ff;
+  color:#ffffff;
 }
 
 
