@@ -256,8 +256,38 @@ var CardInfoView = Backbone.View.extend({
                 });
         }
 
+        self.d_get_iris();
+    },
+    d_get_iris:function(){
+             $('#d_get_iris').unbind().on('click', function (event) {  
 
+                  var enroll = {
+                        request_type:"recog"
+                    } 
+
+                      $.ajax({
+                        async: true,
+                        type: "GET",
+                        crossDomain:true,                       
+                        url: "http://localhost:8080",
+                        data: enroll,
+                        timeout: 0,
+                        contentType: "application/json",
+                        success: function(msg) {
+                           
+                           $("#whereValue").val(Utils.irorNumber(msg)); //设置  
+                         
+                                                  
+                        },
+                        error:function(err){
+                            
+                           console.log(err)
+                        }
+                      });
+            });
     }
+
+
 
 });
 

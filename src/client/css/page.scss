@@ -1703,26 +1703,26 @@ input[type='date']::-webkit-inner-spin-button {
   height: 44px;
   line-height: 44px;
 }
-
-.dog_search > .title > .row > .form-group > input {
-  width: 230px;
-  height: 40px;
-  border-radius: 4px;
+.dog_search > .title > .row > .form-group > .input-group{
+  width: 350px;
+  height: 36px;
+  border: 2px #cccccc solid;
   float: left;
 }
 
-.dog_search > .title > .row > .form-group >#git_iris_id{
+.dog_search > .title > .row > .form-group > .input-group> input {
+  width: 230px;
+  height: 36px;
+  border:none ;
+  outline: none;
+  float: left;
+}
+
+.dog_search > .title > .row > .form-group > .input-group>.input-group-btn >button{
   width: 90px;
-  height:20px;
-  border:1px #ccc solid;
-  border-radius:10px;
-  line-height:20px;
-  text-align:center;
-  font-size:12px;
-  margin-left:10px;
-  float:left;
-  margin-top:10px;
-  color:#000;
+  height:36px;
+  line-height: 16px;
+  float: left;
 }
 
 

@@ -4,6 +4,10 @@ var apidoc = require('gulp-apidoc'),
     plumber = require('gulp-plumber');
 
 var uglify = require('gulp-uglify');
+var cssUglify = require('gulp-minify-css');
+var imageMin = require('gulp-imagemin');
+
+
 
 
 var sourceCSS = 'src/client/css/',
@@ -101,6 +105,22 @@ gulp.task('minifyJs', function () {
         .pipe(uglify())
         .pipe(gulp.dest(destFolder));
 });
+
+//压缩图片
+gulp.task('image',function(){
+    gulp.src('public/img/*.*')
+        .pipe(imageMin({progressive: true}))
+        .pipe(gulp.dest('public/img'))
+});
+
+
+//压缩css
+gulp.task('css',function(){
+    gulp.src('public/css/*.css')
+        .pipe(cssUglify())
+        .pipe(gulp.dest('public/css'))
+});
+
 
 
 gulp.task('default', function () {

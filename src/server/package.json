@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "gulp-minify-css": "^1.2.4",
     "qiniu-js": "^1.0.22"
   }
 }

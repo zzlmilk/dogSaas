@@ -257,6 +257,44 @@ var DogView = Backbone.View.extend({
         }
 
 
+
+
+
+        self.s_git_iris();
+
+
+    },
+    s_git_iris:function(){  
+
+
+            $('#s_git_iris').unbind().on('click', function (event) {  
+
+                  var enroll = {
+                        request_type:"recog"
+                    } 
+
+                      $.ajax({
+                        async: true,
+                        type: "GET",
+                        crossDomain:true,                       
+                        url: "http://localhost:8080",
+                        data: enroll,
+                        timeout: 0,
+                        contentType: "application/json",
+                        success: function(msg) {
+                           
+                           // var iris_number = Utils.
+                           $("#whereValue").val(Utils.irorNumber(msg)); //设置  
+                         
+                                                  
+                        },
+                        error:function(err){
+
+                           console.log(err)
+                        }
+                      });
+            });
+            
     }
 
 });

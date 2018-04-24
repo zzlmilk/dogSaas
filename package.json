@@ -23,6 +23,8 @@
     "excel-export": "^0.5.1",
     "express": "^4.16.2",
     "gulp-exit": "0.0.2",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-minify-css": "^1.2.4",
     "gulp-mocha": "^4.3.1",
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^3.1.0",
