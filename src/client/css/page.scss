@@ -1721,11 +1721,11 @@ input[type='date']::-webkit-inner-spin-button {
 .dog_search > .title > .row > .form-group > .input-group>.input-group-btn >button{
   width: 60px;
   height:36px;
+  background:#0066ff;
+  color:#ffffff;
   line-height: 16px;
   border: none;
   float: left;
-  background:#0066ff;
-  color:#ffffff;
 }
 
 
@@ -1753,7 +1753,6 @@ input[type='date']::-webkit-inner-spin-button {
   float: left;
   margin-left: 140px;
   margin-right: 0;
-
 }
 
 .dog_search > .title > .row > .col-md-6 > .input-group > .input-group-btn > .dog_number {
@@ -1761,7 +1760,6 @@ input[type='date']::-webkit-inner-spin-button {
   height: 40px;
   border: 2px #cccccc solid;
   border-radius: 4px 0 0 4px;
-
 }
 
 .dog_search > .title > .row > .col-md-6 > .input-group > span {
