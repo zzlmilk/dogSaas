@@ -87,27 +87,20 @@ var ProductView = Backbone.View.extend({
         urlredirect();
 
         //应用场景
-        // $(".detail").hide();
-        // $(".layer").each(function(){
-        //     $(this).mouseover(function(){
-        //         $(this).next("p").stop().fadeIn();
-        //         $(this).children("h3").stop().fadeOut();
-        //     });
-        //     $(this).mouseout(function(){
-        //         $(this).children("h3").stop().fadeIn();
-        //         $(this).next("p").stop().fadeOut();
-        //
-        //     });
-        // });
-
         $(".layer1>h3").mouseover(function () {
-            $(this).siblings("p").stop().fadeIn();
+
             $(this).stop().fadeOut();
+
+            $(this).siblings("p").stop().fadeIn();
+
         });
 
         $(".layer1>h3").mouseout(function () {
-            $(this).siblings("p").stop().fadeOut();
+
             $(this).stop().fadeIn();
+
+            $(this).siblings("p").stop().fadeOut();
+
         });
 
 
