@@ -30,7 +30,7 @@ RequestHandlerBase.prototype.successResponse = function(response,code,data){
 
 	
 	response.status(Const.httpCodeSucceed);
-
+  
 	if(code != Const.responsecodeSucceed){
 
 			response.json({

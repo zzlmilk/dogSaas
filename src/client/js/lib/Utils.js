@@ -1,3 +1,5 @@
+    
+
   function Utils() {};
 
 
@@ -17,7 +19,11 @@
     // Utils.prototype.l10n = localize; //语言包
 
     Utils.prototype.getActionsParams = getActionsParams;
+    Utils.prototype.irorNumber = irorNumber;
 
+
+
+    
     
 
     // Implementation ---------------------------------------
@@ -35,6 +41,14 @@
     }
 
 
+    //虹膜id序列化
+    function irorNumber (number){
+            return 11000 + number;
+        
+    }
+
+
+
     function logging(obj) {
         console.log(obj);
     }
@@ -50,6 +64,8 @@
         }
 
     }
+
+
     
     function formatDate(ut,useUserFriendlyText){
         

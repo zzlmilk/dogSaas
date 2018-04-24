@@ -18,10 +18,10 @@ function ViewHelpers() {
     function attach(){
 
     	 Handlebars.registerHelper("l10n", function(text) {
-          return  LocalizationManager.localize(text);
+           return  LocalizationManager.localize(text);
         });
 
-    	
+
     
     }
 

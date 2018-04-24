@@ -26,13 +26,20 @@ var PersonalCardView = Backbone.View.extend({
     dogLicense: null,
     initialize: function (options) {
         console.log("personal--------------------------------------------------------------init")
+
         self = this;
         self.el = options.el;
         self.dogLicense = options.dogLicense;
+
+
+
+       
+
         this.render();
     },
     render: function () {
         $(self.el).html(template({}));
+
 
 
         //上传图片控件

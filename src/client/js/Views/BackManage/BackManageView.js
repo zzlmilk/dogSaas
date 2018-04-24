@@ -19,6 +19,7 @@ var loginUserManager = require('../../lib/loginUserManager')
 
 var MainView = Backbone.View.extend({
 
+
     el : null,
 
 
@@ -41,6 +42,7 @@ var MainView = Backbone.View.extend({
 
         var self = this;
 
+        
 
         var HeaderView = require('./Main/Header/HeaderView.js');
         var view = new HeaderView({

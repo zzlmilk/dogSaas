@@ -26,6 +26,8 @@ var DogView = Backbone.View.extend({
     dogLicense: null,
     initialize: function (options) {
         console.log("personal--------------------------------------------------------------init")
+        console.log("personal--------------------------------------------------------------init2222")
+       
         self = this;
         self.el = options.el;
         self.dogLicense = options.dogLicense;
@@ -80,6 +82,10 @@ var DogView = Backbone.View.extend({
 
         //添加监听事件
         this.initEvent();
+
+
+        //添加对接硬件虹膜采集
+        self.recollectIris();
 
         /**
          * 非空验证
@@ -652,7 +658,48 @@ var DogView = Backbone.View.extend({
         }
 
 
+        
+
+
     },
+
+
+    recollectIris:function(e){
+
+           $('#recollect_iris').unbind().on('click', function (event) {   
+                    var enroll = {
+                        request_type:"enroll"
+                    }
+
+
+                     $.ajax({
+                        async: true,
+                        type: "GET",
+                        crossDomain:true,
+                        //dataType: 'jsonp',
+                        //jsonp: 'callback',
+                        //jsonpCallback: 'callbackfunction',
+                        url: "http://localhost:8080",
+                       // url:"http://localhost:8081",
+                        data: enroll,
+                        timeout: 0,
+                        contentType: "application/json",
+                        success: function(msg) {
+                           
+                           // var iris_number = Utils.
+                           $("#iris").val(Utils.irorNumber(msg)); //设置  
+                         
+                                                  
+                        },
+                        error:function(err){
+                           console.log(err)
+                        }
+                      });
+
+           })
+
+
+    }
 
 
 });
