@@ -1711,6 +1711,21 @@ input[type='date']::-webkit-inner-spin-button {
   float: left;
 }
 
+.dog_search > .title > .row > .form-group >#git_iris_id{
+  width: 90px;
+  height:20px;
+  border:1px #ccc solid;
+  border-radius:10px;
+  line-height:20px;
+  text-align:center;
+  font-size:12px;
+  margin-left:10px;
+  float:left;
+  margin-top:10px;
+  color:#000;
+}
+
+
 .dog_search > .title > .row > .form-group > select {
   width: 100px;
   height: 40px;
