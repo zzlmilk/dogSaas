@@ -30,8 +30,8 @@ var SidebarView = Backbone.View.extend({
 
         var self = this;
 
-        var DogView = require('../Manage/Default/DogView.js');
-        var view = new DogView({
+        var PersonalCardView = require('../Manage/PersonalCard/PersonalCardView');
+        var view = new PersonalCardView({
             'el': "#main-content"
         });
 
@@ -64,7 +64,6 @@ var SidebarView = Backbone.View.extend({
             var view = new PersonalCardView({
                 'el': "#main-content"
             });
-
         });
 
 
