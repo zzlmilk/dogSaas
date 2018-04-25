@@ -100,24 +100,7 @@ var SidebarView = Backbone.View.extend({
                 'el': "#main-content"
             });
         });
-        // //年检-->免疫年检
-        // $('#btn_check').unbind().on('click', function (event) {
-        //     event.stopPropagation();
-        //     var ImmuneListView = require('../Immune/ImmuneList/ImmuneListView');
-        //     var view = new ImmuneListView({
-        //         'el': "#main-content"
-        //     });
-        // });
-        // //年检-->狗证年检
-        // $('#btn_dogcard').unbind().on('click', function (event) {
-        //     console.log("狗证年检");
-        //     event.stopPropagation();
-        //     var DogLicenseView = require('../Immune/DogLicense/DogLicenseView');
-        //     var view = new DogLicenseView({
-        //         'el': "#main-content"
-        //     });
-        //
-        // });
+
 
         //制卡信息
         $('#btn_cardInfo').unbind().on('click', function (event) {

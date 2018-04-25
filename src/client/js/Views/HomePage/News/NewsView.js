@@ -46,39 +46,6 @@ var NewsView = Backbone.View.extend({
             })
         });
 
-        //点击查看全文--第三篇
-        $(".NewsThird").unbind().on("click",function (event) {
-            event.stopPropagation();
-            var NewsThird = require('./NewsThird/NewsThird.js');
-            var view = new NewsThird({
-                'el': "#news_content"
-            })
-        });
-
-        //点击查看全文--第四篇
-        $(".NewsFourth").unbind().on("click",function (event) {
-            event.stopPropagation();
-            var NewsFourth = require('./NewsFourth/NewsFourth.js');
-            var view = new NewsFourth({
-                'el': "#news_content"
-            })
-        });
-
-        //点击查看全文--第五篇
-        $(".NewsFifth").unbind().on("click",function (event) {
-            event.stopPropagation();
-            var NewsFifth = require('./NewsFifth/NewsFifth.js');
-            var view = new NewsFifth({
-                'el': "#news_content"
-            })
-        });
-
-
-
-
-
-
-
 
     }
 
